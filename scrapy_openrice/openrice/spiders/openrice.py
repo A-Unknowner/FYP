@@ -5,6 +5,8 @@ import scrapy
 import re
 # import time
 
+from langdetect import detect
+
 class OpenRiceSpider(scrapy.Spider):
 
     name = "openrice"
@@ -26,6 +28,7 @@ class OpenRiceSpider(scrapy.Spider):
             # item["restaurant_name"] = name.replace("\n", "").strip()
             # item["restaurant_url"] = f"https://www.openrice.com{href}/reviews"
 
+        # yield scrapy.Request(f"https://www.openrice.com{href}/reviews", self.parse_detail)
         yield scrapy.Request(f"https://www.openrice.com{href}/reviews", self.parse_detail)
 
         
@@ -35,15 +38,18 @@ class OpenRiceSpider(scrapy.Spider):
         comments = response.xpath('//div[@itemprop="description"]')
         num_of_page = response.xpath('//*[@id="sr2-review-container"]/div[3]/div/a')
 
+      
         for comment in comments:
 
             user_review = comment.xpath(".//text()").extract_first()
+            user_review = user_review.replace("\r\n", "").strip()
+            if detect(user_review) != "en":
 
-            item = OpenriceItem(
-                # restaurant_name = rest_name.extract_first().strip(),
+                item = OpenriceItem(
+                    # restaurant_name = rest_name.extract_first().strip(),
 
-                user_review = self.emoji_filter(user_review.replace("\r\n", "").strip())
-            )
+                    user_review = self.emoji_filter(user_review)
+                )
 
             yield item
 
