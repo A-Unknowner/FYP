@@ -3,6 +3,7 @@ app = Flask(__name__)
 
 
 #I'm Jon
+#im gat
 @app.route("/")
 def index():
     return render_template("index.html")
