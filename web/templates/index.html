@@ -1,0 +1,14 @@
+
+<!DOCTYPE html>
+<html>
+<head> 
+<link rel="stylesheet" type ="text/css" href="{{ url_for('static', filename='index.css')}}">
+</head>
+
+<body>
+
+    <form action="/search_list" method="POST">
+        <input type="search" name ="restaurant_name" placeholder="Search...">
+    </form>
+</body>
+</html>
