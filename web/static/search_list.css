@@ -1,0 +1,19 @@
+.rating {
+    display: inline-block;
+    position: relative;
+    height: 25px;
+    line-height: 25px;
+    font-size: 25px;
+}
+
+.fa {
+    font-size: 25px;
+}
+
+.fa-star {
+    color: gray;
+}
+
+.checked {
+    color: gold;
+}
