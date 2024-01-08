@@ -1,3 +1,4 @@
+import poe
 from poe_api_wrapper import PoeApi
 
 import json
@@ -5,7 +6,7 @@ import json
 bot = "gpt3_5"
 
 # please paste your token here
-TOKEN = ""
+TOKEN = ["GPhGTPtn-7CsrpiZCYUdtw%3D%3D", "DAnCECIvdteAAK0dpD2Gvw%3D%3D"]
 
 message = """
 Please classify positive/neutral/negative sentiments on aspect checklist from the following restaurant review, 
@@ -32,22 +33,22 @@ The output must same with the following template:
 The following Traditional Chinese restaurant reviews is/are the input(s):
 """
 
-def analysis_result():
 
+def analysis_result():
     # test input
     input = """
     - 海鮮硬既有屎，牛肉發霉，碗碟非常非常非常唔乾淨。
     - 甜品是兩件毫無誠意的綠茶糕， 很難食 侍應人手不足，亦欠禮貌，希望管理層看到此投會有所改善
     - 路邊攤小食拼盤有南乳雞、澎湖花枝丸、台灣腸,全部都係台灣既美食。 炸地瓜條 真係好香脆,而且佢落左小小粉,又幾夾下。
     """
-    
-    # Using Client with proxy (default is False)
-    client = PoeApi(TOKEN, proxy=True)
 
     outputs = str()
 
     try:
-        response = client.send_message(bot, message + input)
+        # Using Client with proxy (default is False)
+        client = PoeApi(TOKEN[1], proxy=True)
+        chat_code = get_history_chat_bot(client=client)
+        response = client.send_message(bot, message + input, chatCode=chat_code)
         for chunk in response:
             outputs += chunk["response"]
 
@@ -70,13 +71,17 @@ def analysis_result():
             result_value = data[1].replace("-", "").strip()
 
             match result_key:
-                case "Target Noun": review["target_word"] = result_value
+                case "Target Noun":
+                    review["target_word"] = result_value
 
-                case "Target Aspect": review["target_aspect"] = result_value
+                case "Target Aspect":
+                    review["target_aspect"] = result_value
 
-                case "Sentiment": review["sentiment"] = result_value
+                case "Sentiment":
+                    review["sentiment"] = result_value
 
-                case "Original Target Sentence": review["sentence"] = result_value
+                case "Original Target Sentence":
+                    review["sentence"] = result_value
         else:
             comments.append(review)
             review = dict()
@@ -98,9 +103,16 @@ def analysis_result():
     # return the result as json format
     return json.dumps(comments, ensure_ascii=False).encode('utf8')
 
-if __name__ == "__main__":
 
+def get_history_chat_bot(client: PoeApi):
+    chat_bots = client.get_chat_history()['data']
+    for chat_bot in chat_bots[bot]:
+        if chat_bot['title'] == "Restaurant Sentiment Analysis":
+            return chat_bot["chatCode"]
+    return None
+
+
+if __name__ == "__main__":
     results = analysis_result()
 
     print(results.decode())
-    
