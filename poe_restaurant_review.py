@@ -34,14 +34,13 @@ The following Traditional Chinese restaurant reviews is/are the input(s):
 
 def web_client():
 
+    # test input
     input = """
     - 海鮮硬既有屎，牛肉發霉，碗碟非常非常非常唔乾淨。
     - 甜品是兩件毫無誠意的綠茶糕， 很難食 侍應人手不足，亦欠禮貌，希望管理層看到此投會有所改善
     - 路邊攤小食拼盤有南乳雞、澎湖花枝丸、台灣腸,全部都係台灣既美食。 炸地瓜條 真係好香脆,而且佢落左小小粉,又幾夾下。
     """
-    # add data cleansing function
-
-
+    
     # Using Client with proxy (default is False)
     client = PoeApi(TOKEN, proxy=True)
 
