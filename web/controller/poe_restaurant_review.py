@@ -32,7 +32,7 @@ The output must same with the following template:
 The following Traditional Chinese restaurant reviews is/are the input(s):
 """
 
-def web_client():
+def analysis_result():
 
     # test input
     input = """
@@ -100,7 +100,7 @@ def web_client():
 
 if __name__ == "__main__":
 
-    results = web_client()
+    results = analysis_result()
 
     print(results.decode())
     
