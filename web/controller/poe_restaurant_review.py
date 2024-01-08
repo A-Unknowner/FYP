@@ -44,10 +44,10 @@ def analysis_result():
 
     outputs = str()
 
-    for cookice in TOKEN:
+    for cookie in TOKEN:
         try:
             # Using Client with proxy (default is False)
-            client = PoeApi(TOKEN[1], proxy=True)
+            client = PoeApi(cookie=cookie, proxy=True)
             chat_code = get_history_chat_bot(client=client)
             response = client.send_message(bot, message + input, chatCode=chat_code)
             for chunk in response:
@@ -60,7 +60,7 @@ def analysis_result():
             #     print(chunk["response"], end="", flush=True)
             # print("\n")
         except RuntimeError:
-            return "{1} do not response".format(cookice)
+            return "{1} do not response".format(cookie)
 
     splited_output = outputs.split("\n")
     comments = list()
