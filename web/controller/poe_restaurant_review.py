@@ -44,20 +44,23 @@ def analysis_result():
 
     outputs = str()
 
-    try:
-        # Using Client with proxy (default is False)
-        client = PoeApi(TOKEN[1], proxy=True)
-        chat_code = get_history_chat_bot(client=client)
-        response = client.send_message(bot, message + input, chatCode=chat_code)
-        for chunk in response:
-            outputs += chunk["response"]
+    for cookice in TOKEN:
+        try:
+            # Using Client with proxy (default is False)
+            client = PoeApi(TOKEN[1], proxy=True)
+            chat_code = get_history_chat_bot(client=client)
+            response = client.send_message(bot, message + input, chatCode=chat_code)
+            for chunk in response:
+                outputs += chunk["response"]
 
-        # the following commented code used to print out the results directly
-        # for chunk in client.send_message(bot, message):
-        #     print(chunk["response"], end="", flush=True)
-        # print("\n")
-    except RuntimeError:
-        return "ChatGPT do not response"
+            break
+
+            # the following commented code used to print out the results directly
+            # for chunk in client.send_message(bot, message):
+            #     print(chunk["response"], end="", flush=True)
+            # print("\n")
+        except RuntimeError:
+            return "{1} do not response".format(cookice)
 
     splited_output = outputs.split("\n")
     comments = list()
