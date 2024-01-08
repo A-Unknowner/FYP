@@ -8,40 +8,49 @@ bot = "gpt3_5"
 # please paste your token here
 TOKEN = ["GPhGTPtn-7CsrpiZCYUdtw%3D%3D", "DAnCECIvdteAAK0dpD2Gvw%3D%3D"]
 
+"""
+ChatGPT Prompt Formula notes:
+https://www.youtube.com/watch?v=jC4v5AS4RIM
+
+Important
+|       [task]
+|       [context]
+|       [exemplar]
+|       [persona]
+|       [format]
+|       [tone]
+Optional
+
+"""
+
 message = """
-Please classify positive/neutral/negative sentiments on aspect checklist from the following restaurant review, 
-also tag the word(noun) for target and reply the target sentence in Traditional Chinese, 
-the output must contain the target and target sentence:
+Classify the given Cantonese restaurant review to the aspects of Food prices, Food quality, Food style options, Restaurant hygiene, Restaurant service, Restaurant general, Restaurant prices, Restaurant location, and Restaurant ambience, and classify these aspects with positive/neutral/negative sentiment, use N/A as the result if the review no mentioned. Please give me the outputs in this structure:
+Target Noun: [Original Cantonese text only]
+Target Aspect: [Aspect]
+Target Sentiment: [Sentiment]
+Target Sentence: [Original Cantonese text only]
 
-aspect checklist:
-- Food prices
-- Food quality
-- Food style options
-- Restaurant hygiene
-- Restaurant service
-- Restaurant general
-- Restaurant prices
-- Restaurant location
-- Restaurant ambience
+For example:
+Target Noun: 火山排骨
+Target Aspect: Food quality
+Target Sentiment: Positive
+Target Sentence: 火山排骨令到我念念不忘餐廳野食唔錯
 
-The output must same with the following template:
-- Target Noun:
-- Target Aspect:
-- Sentiment:
-- Original Target Sentence:
-
-The following Traditional Chinese restaurant reviews is/are the input(s):
+This is the Cantonese restaurant review:
 """
 
 
-def analysis_result():
+def acsa_result(input = str()):
     # test input
     input = """
     - 海鮮硬既有屎，牛肉發霉，碗碟非常非常非常唔乾淨。
     - 甜品是兩件毫無誠意的綠茶糕， 很難食 侍應人手不足，亦欠禮貌，希望管理層看到此投會有所改善
     - 路邊攤小食拼盤有南乳雞、澎湖花枝丸、台灣腸,全部都係台灣既美食。 炸地瓜條 真係好香脆,而且佢落左小小粉,又幾夾下。
     """
-
+    # test input
+    input = "泰國菜真係每個月都必須食嘅 菜式今次又係去銅鑼灣食，不過又去另一間。\"`'-.,,.-'`\"-.,,.-`'`-.,,.-`'`-.,,.-*生蝦刺身（6隻) $108食泰國嘢必叫嘅生蝦！爽彈又大隻，配埋泰式醬汁真係好開胃生菜肉碎包有海量嘅肉碎 就 算一塊菜包好多肉碎都唔怕另外鍾意佢夠辣，不過真係堅辣怕辣之人唔好叫啊飛天椰菜苗 去泰國永遠都搵唔到嘅椰菜苗，喺香港食泰國嘢就必食！爽爽地嘅口感配口辣度，香口非常！泰式串燒 $108將外脆又厚肉嘅串燒沾滿沙嗲醬汁，非常juicy。黃咖喱雞肉 $108紅/黃/青咖喱當中，我始終都係最鍾意黃咖喱因為甜甜地、結結地，又唔會過份辣！配薄餅係最佳，索汁之餘亦冇白飯咁滯"
+    
+    input = input.replace('"',"")
     outputs = str()
 
     for cookie in TOKEN:
@@ -116,6 +125,6 @@ def get_history_chat_bot(client: PoeApi):
 
 
 if __name__ == "__main__":
-    results = analysis_result()
+    results = acsa_result()
 
     print(results.decode())
