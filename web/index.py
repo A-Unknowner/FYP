@@ -15,6 +15,10 @@ def search_list():
     label = f" {restaurant_name}"
     return render_template("search_list.html", content = label)
 
+# User Guide
+@app.route("/guide")
+def user_guide():
+    return render_template("guide.html")
 
 if __name__ == "__main__":
     app.run()
