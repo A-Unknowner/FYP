@@ -6,7 +6,9 @@ import json
 bot = "gpt3_5"
 
 # please paste your token here
-TOKEN = ["GPhGTPtn-7CsrpiZCYUdtw%3D%3D", "DAnCECIvdteAAK0dpD2Gvw%3D%3D"]
+TOKEN = ["GPhGTPtn-7CsrpiZCYUdtw%3D%3D", 
+         "DAnCECIvdteAAK0dpD2Gvw%3D%3D", 
+         "8kIDzmhtVqfh_2BfhxS5tA%3D%3D"]
 
 """
 ChatGPT Prompt Formula notes:
