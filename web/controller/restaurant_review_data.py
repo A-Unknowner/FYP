@@ -34,7 +34,7 @@ class Openrice:
                  "restaurant_url" : f"https://www.openrice.com{href}/reviews"}
             )
 
-    def restaurant_review(self, ):
+    def restaurant_review(self):
         
         review_user = self.__dom.xpath('//div[@itemprop="author"]')
         comments = self.__dom.xpath('//div[@itemprop="description"]')
