@@ -58,7 +58,7 @@ class Openrice:
             user_review = self.emoji_filter(user_review)
 
             if detect(user_review) != "en":
-        
+
                 self.__restaurant_data.append(
                     # {"username" : username, 
                     {"id" : i, 
@@ -117,36 +117,36 @@ class Openrice:
         return text
 
 class CSV:
-    def __init__(self, review=None, path=None):
+    def __init__(self, review, file_path):
 
         # json data
-        if review != None:
-            self.review = review
-            # self.review = json.loads(review.decode())A
-            self.__row = ["id",
-                        "content",
-                        "location_traffic_convenience", 
-                        "location_distance_from_business_district", 
-                        "location_easy_to_find",
-                        "service_wait_time",
-                        "service_waiters_attitude",
-                        "service_parking_convenience",
-                        "service_serving_speed",
-                        "price_level",
-                        "price_cost_effective",
-                        "price_discount",
-                        "environment_decoration",
-                        "environment_noise",
-                        "environment_space",
-                        "environment_cleaness",
-                        "dish_portion",
-                        "dish_taste",
-                        "dish_look",
-                        "dish_recommendation",
-                        "others_overall_experience",
-                        "others_willing_to_consume_again"]
+
+        # self.review = review
+        self.review = json.loads(review.decode())
+        self.__row = ["id",
+                    "content",
+                    "location_traffic_convenience", 
+                    "location_distance_from_business_district", 
+                    "location_easy_to_find",
+                    "service_wait_time",
+                    "service_waiters_attitude",
+                    "service_parking_convenience",
+                    "service_serving_speed",
+                    "price_level",
+                    "price_cost_effective",
+                    "price_discount",
+                    "environment_decoration",
+                    "environment_noise",
+                    "environment_space",
+                    "environment_cleaness",
+                    "dish_portion",
+                    "dish_taste",
+                    "dish_look",
+                    "dish_recommendation",
+                    "others_overall_experience",
+                    "others_willing_to_consume_again"]
         
-        self.__path = path
+        self.__file_path = file_path
 
     def to_csv(self):
 
@@ -154,10 +154,10 @@ class CSV:
         # [restaurant_name]_hk_zh.csv and [restaurant_name]_sc.csv
         # data_file_path = "./data/openrice/openrice_sc.csv"
 
-        if os.path.isfile(self.__path):
-            os.remove(self.__path)
+        if os.path.isfile(self.__file_path):
+            os.remove(self.__file_path)
 
-        with open(self.__path, 
+        with open(self.__file_path, 
                   "w", newline="", encoding="utf_8_sig") as file:
             writer = csv.writer(file)
             writer.writerow(self.__row)
@@ -172,7 +172,7 @@ class CSV:
 
         data_list = [converter.convert(data["user_review"]) for data in self.review]
 
-        df_datas = pd.read_csv(self.__path)
+        df_datas = pd.read_csv(self.__file_path)
 
         df_datas["content"] = data_list
 
@@ -190,9 +190,6 @@ class CSV:
 
         # # print(df)
 
-        
-    def get_path(self):
-        return self.__path
 
 if __name__ == "__main__":
 
