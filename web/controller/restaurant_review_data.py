@@ -1,8 +1,12 @@
-import requests
+# coding=utf-8
+
 from bs4 import BeautifulSoup
 from lxml import etree
-import json
-import re
+import requests, json, re, csv, os
+from langdetect import detect
+from opencc import OpenCC
+
+import pandas as pd
 
 headers = requests.utils.default_headers()
 headers.update({
@@ -14,7 +18,12 @@ class Openrice:
     def __init__(self, url):
 
         self.__restaurant_data = list()
-        self.__url = url
+        self.__next_page_path = list()
+        
+        if "http" not in url:
+            self.__url = f"https://www.openrice.com{url}/reviews"
+        else:
+            self.__url = url
         self.__page = requests.get(self.__url, headers=headers)
         self.__soup = BeautifulSoup(self.__page.content, "html.parser")
         self.__dom = etree.HTML(str(self.__soup))
@@ -31,35 +40,43 @@ class Openrice:
 
             self.__restaurant_data.append(
                 {"restaurant_name" : name, 
-                 "restaurant_url" : f"https://www.openrice.com{href}/reviews"}
+                #  "restaurant_url" : f"https://www.openrice.com{href}/reviews"}
+                 "restaurant_url" : href}
             )
 
     def restaurant_review(self):
-        
-        review_user = self.__dom.xpath('//div[@itemprop="author"]')
+        converter = OpenCC("hk2s.json")
+        # review_user = self.__dom.xpath('//div[@itemprop="author"]')
         comments = self.__dom.xpath('//div[@itemprop="description"]')
         num_of_page = self.__dom.xpath('//*[@id="sr2-review-container"]/div[3]/div/a')
 
         for i in range(len(comments)):
 
-            username = review_user[i].xpath(".//text()")[1].strip()
+            # username = review_user[i].xpath(".//text()")[1].strip()
             user_review = comments[i].xpath(".//text()")[0]
             user_review = user_review.replace("\r\n", "").strip()
             user_review = self.emoji_filter(user_review)
 
-            self.__restaurant_data.append(
-                {"username" : username, 
-                 "user_review" : user_review}
-            )
+            if detect(user_review) != "en":
+
+                "hk2s.json"
+        
+                self.__restaurant_data.append(
+                    # {"username" : username, 
+                    {"id" : i, 
+                     # translate data from cantonese to simplify chinese
+                     "user_review" : converter.convert(user_review)}
+                )
 
         next_button_class = num_of_page[-1].xpath(".//@class")[0]
         next_page_path = num_of_page[-1].xpath(".//@href")[0]
 
         if next_button_class == "pagination-button next js-next":
-            self.__restaurant_data.append({"next_page_url" : f"https://www.openrice.com{next_page_path}"})
-
-    def get_restaurant_data(self): 
-        return json.dumps(self.__restaurant_data, ensure_ascii=False).encode('utf8')
+            self.__next_page_path.append({"next_page_url" : f"https://www.openrice.com{next_page_path}"})
+            
+    def get_restaurant_data(self):
+        return json.dumps(self.__restaurant_data, ensure_ascii=False).encode('utf8'), \
+               json.dumps(self.__next_page_path, ensure_ascii=False).encode('utf8')
 
     def emoji_filter(self, text):
 
@@ -101,6 +118,84 @@ class Openrice:
         text=myre.sub('', text)
         return text
 
+class CSV:
+    def __init__(self, review=None, path=None):
+
+        # json data
+        if review != None:
+            self.review = review
+            # self.review = json.loads(review.decode())A
+            self.__row = ["id",
+                        "content",
+                        "location_traffic_convenience", 
+                        "location_distance_from_business_district", 
+                        "location_easy_to_find",
+                        "service_wait_time",
+                        "service_waiters_attitude",
+                        "service_parking_convenience",
+                        "service_serving_speed",
+                        "price_level",
+                        "price_cost_effective",
+                        "price_discount",
+                        "environment_decoration",
+                        "environment_noise",
+                        "environment_space",
+                        "environment_cleaness",
+                        "dish_portion",
+                        "dish_taste",
+                        "dish_look",
+                        "dish_recommendation",
+                        "others_overall_experience",
+                        "others_willing_to_consume_again"]
+        
+        self.__path = path
+
+    def to_csv(self):
+
+        # store original cantonese data and simplify chinese data to 
+        # [restaurant_name]_hk_zh.csv and [restaurant_name]_sc.csv
+        # data_file_path = "./data/openrice/openrice_sc.csv"
+
+        if os.path.isfile(self.__path):
+            os.remove(self.__path)
+
+        with open(self.__path, 
+                  "w", newline="", encoding="utf_8_sig") as file:
+            writer = csv.writer(file)
+            writer.writerow(self.__row)
+
+            for i in range(0, len(self.review)):
+   
+                writer.writerow([str(i), f'\"{self.review[i]["user_review"]}\"'])
+
+    def read_csv(self):
+
+        converter = OpenCC("s2hk.json")
+
+        data_list = [converter.convert(data["user_review"]) for data in self.review]
+
+        df_datas = pd.read_csv(self.__path)
+
+        df_datas["content"] = data_list
+
+        return df_datas.to_json(force_ascii=False)
+
+        # # for i in range(len(json_data)):
+
+        # data = json_data["content"]
+
+        # for i in range(len(data)):
+        #     print("\n\n")
+        #     print(data[str(i)])
+
+        # # print(df_datas["content"])
+
+        # # print(df)
+
+        
+    def get_path(self):
+        return self.__path
+
 if __name__ == "__main__":
 
     book_marked_url = "https://www.openrice.com/zh/hongkong/explore/chart/most-bookmarked"
@@ -110,11 +205,20 @@ if __name__ == "__main__":
     # get top 30 restaurant name and its url
     results = Openrice(book_marked_url)
     results.restaurants_name()
-    print(results.get_restaurant_data().decode())
+    restaurant_info, path = results.get_restaurant_data()
+
+    # print(restaurant_info.decode())
+    # print(path.decode())
 
     # get target restaurant review
     results = Openrice(restaurant_review_url)
     results.restaurant_review()
+    reviews_info, path = results.get_restaurant_data()
 
+    CSV(reviews_info).to_csv()
+
+    
+    # print(reviews_info.decode())
+    # print(path.decode())
     # use json.loads() to convert the string to list 
-    print(results.get_restaurant_data().decode())
+    # print(results.get_restaurant_data().decode())
