@@ -178,18 +178,6 @@ class CSV:
 
         return df_datas.to_json(force_ascii=False)
 
-        # # for i in range(len(json_data)):
-
-        # data = json_data["content"]
-
-        # for i in range(len(data)):
-        #     print("\n\n")
-        #     print(data[str(i)])
-
-        # # print(df_datas["content"])
-
-        # # print(df)
-
 
 if __name__ == "__main__":
 
