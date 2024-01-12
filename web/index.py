@@ -5,8 +5,6 @@ import json
 app = Flask(__name__)
 
 
-# testing
-
 @app.route("/")
 def index():
     return render_template("index.html")
@@ -16,7 +14,7 @@ def index():
 def analyze_review():
     results = acsa_result()
     results_str = results.decode('utf-8')
-    results_json = json.loads(results_str)  # Parse string as JSON
+    results_json = json.loads(results_str) 
     return render_template('result.html', results=results_json)
 
 
