@@ -40,10 +40,10 @@
                         <a class="dropdown-item" href="#">Something else here</a>
                     </div> -->
                     <select onchange="changeImage(this);">
-                            <option value="barchart" selected="selected">BarChart</option>
-                            <option value="piechart">PieChart</option>
+                        <option value="barchart" selected="selected">BarChart</option>
+                        <option value="piechart">PieChart</option>
                     </select>
-               
+
 
                 </div>
                 <button type="button" class="btn btn-success">Download Report</button>
@@ -61,20 +61,15 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>this is comment</td>
-                <td>this is Aspect</td>
-                <td>Score</td>
-            </tr>
-            <tr>
-                <td>this is comment</td>
-                <td>this is Aspect</td>
-                <td>@Score </td>
-            </tr>
-            <tr>
-                <td>this is comment</td>
-                <td>this is Aspect</td>
-                <td>@Score</td>
+            {% for result in results %}
+                <tr>
+                    <td>{{ result.sentence }}</td>
+                    <td>{{ result.target_aspect }}</td>
+                    <td>{{ result.sentiment }}</td>
+                </tr>
+                <tr>
+
+            {% endfor %}
             </tr>
             </tbody>
         </table>
