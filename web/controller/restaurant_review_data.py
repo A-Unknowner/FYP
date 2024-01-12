@@ -58,8 +58,6 @@ class Openrice:
             user_review = self.emoji_filter(user_review)
 
             if detect(user_review) != "en":
-
-                "hk2s.json"
         
                 self.__restaurant_data.append(
                     # {"username" : username, 
