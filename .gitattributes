@@ -1,1 +1,1 @@
-web/controller/* filter=lfs diff=lfs merge=lfs -text
+web/controller/chinese_vectors/* filter=lfs diff=lfs merge=lfs -text
