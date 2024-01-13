@@ -138,29 +138,29 @@ class CSV:
         if os.path.isfile(self.__file_path):
             os.remove(self.__file_path)
 
-        dict = {"id" : [i for i in range(0, len(self.review))],
+        dict = {"id" : [str(i) for i in range(0, len(self.review))],
                 "content": [f'\"{self.review[i]["user_review"]}\"' for i in range(0, len(self.review))],
-                "location_traffic_convenience": np.NaN, 
-                "location_distance_from_business_district": np.NaN, 
-                "location_easy_to_find": np.NaN,
-                "service_wait_time": np.NaN,
-                "service_waiters_attitude": np.NaN,
-                "service_parking_convenience": np.NaN,
-                "service_serving_speed": np.NaN,
-                "price_level": np.NaN,
-                "price_cost_effective": np.NaN,
-                "price_discount": np.NaN,
-                "environment_decoration": np.NaN,
-                "environment_noise": np.NaN,
-                "environment_space": np.NaN,
-                "environment_cleaness": np.NaN,
-                "dish_portion": np.NaN,
-                "dish_taste": np.NaN,
-                "dish_look": np.NaN,
-                "dish_recommendation": np.NaN,
-                "others_overall_experience": np.NaN,
-                "others_willing_to_consume_again": np.NaN}
-        df = pd.DataFrame(dict)
+                "location_traffic_convenience": int(), 
+                "location_distance_from_business_district": int(), 
+                "location_easy_to_find": int(),
+                "service_wait_time": int(),
+                "service_waiters_attitude": int(),
+                "service_parking_convenience": int(),
+                "service_serving_speed": int(),
+                "price_level": int(),
+                "price_cost_effective": int(),
+                "price_discount": int(),
+                "environment_decoration": int(),
+                "environment_noise": int(),
+                "environment_space": int(),
+                "environment_cleaness": int(),
+                "dish_portion": int(),
+                "dish_taste": int(),
+                "dish_look": int(),
+                "dish_recommendation": int(),
+                "others_overall_experience": int(),
+                "others_willing_to_consume_again": int()}
+        df = pd.DataFrame(dict).astype({"location_traffic_convenience": 'Int64'})
 
         df.to_csv(self.__file_path, encoding="utf_8_sig", index=False)
 
