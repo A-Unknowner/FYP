@@ -1,21 +1,58 @@
+# coding=utf-8
+
 from flask import (Flask, render_template, request)
-from controller.poe_restaurant_review import acsa_result
+from controller.restaurant_review_data import Openrice, CSV
 import json
+import subprocess
 
 app = Flask(__name__)
 
 
+# testing
+
 @app.route("/")
 def index():
-    return render_template("index.html")
+
+    book_marked_url = "https://www.openrice.com/zh/hongkong/explore/chart/most-bookmarked"
+
+    # get top 30 restaurant name and its url
+    restaurant_data = Openrice(book_marked_url)
+
+    restaurant_data.restaurants_name()
+
+    restaurant_list, path = restaurant_data.get_restaurant_data()
+    restaurants = restaurant_list.decode()
+    results_json = json.loads(restaurants)
+
+    return render_template("index.html", datas=results_json)
 
 
-@app.route('/result', methods=['GET'])
+@app.route('/result', methods=['POST'])
 def analyze_review():
-    results = acsa_result()
-    results_str = results.decode('utf-8')
-    results_json = json.loads(results_str) 
-    return render_template('result.html', results=results_json)
+
+    path = request.form["analyze_bttn"]
+    print(path)
+
+    restaurant_data = Openrice(path)
+    
+    restaurant_data.restaurant_review()
+
+    review_list, path = restaurant_data.get_restaurant_data()
+
+    print(f"\n{review_list.decode()}\n")
+
+    to_csv_data = CSV(review = review_list,
+                    file_path = "./data/openrice/openrice_sc.csv")
+    to_csv_data.to_csv()
+    
+    subprocess.run(["python", "preprocess_data.py"])
+    
+    subprocess.run(["python", "predict_sentiment.py"])
+    
+    read_csv_data = CSV(review=review_list,
+                        file_path="./data/openrice/openrice_restaurant_predict_result.csv")
+
+    return render_template("result.html", datas=read_csv_data.read_csv())
 
 
 @app.route("/search_list", methods=["POST"])
