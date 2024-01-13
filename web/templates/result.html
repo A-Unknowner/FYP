@@ -54,27 +54,65 @@
 
 
 
-        {{datas}}
+
         <div class="row">
             <table class="table">
                 <thead>
                     <tr>
                         <th scope="col">Comment</th>
-                        <th scope="col">Aspect</th>
-                        <th scope="col">OpenRice's Score</th>
+                        <th scope="col">Aspect : location_traffic_convenience</th>
+                        <th scope="col">Aspect : location_distance_from_business_district</th>
+                        <th scope="col">Aspect : location_easy_to_find</th>
+                        <th scope="col">Aspect : service_wait_time</th>
+                        <th scope="col">Aspect : service_waiters_attitude</th>
+                        <th scope="col">Aspect : service_parking_convenience</th>
+                        <th scope="col">Aspect : service_serving_speed</th>
+                        <th scope="col">Aspect : price_level</th>
+                        <th scope="col">Aspect : price_cost_effective</th>
+                        <th scope="col">Aspect : price_discount</th>
+                        <th scope="col">Aspect : environment_decoration</th>
+                        <th scope="col">Aspect : environment_noise</th>
+                        <th scope="col">Aspect : environment_space</th>
+                        <th scope="col">Aspect : environment_cleaness</th>
+                        <th scope="col">Aspect : dish_portion</th>
+                        <th scope="col">Aspect : dish_taste</th>
+                        <th scope="col">Aspect : dish_look</th>
+                        <th scope="col">Aspect : dish_recommendation</th>
+                        <th scope="col">Aspect : others_overall_experience</th>
+                        <th scope="col">Aspect : others_willing_to_consume_again</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- {% for result in results %}
-                <tr>
-                    <td>{{ result.sentence }}</td>
-                    <td>{{ result.target_aspect }}</td>
-                    <td>{{ result.sentiment }}</td>
+                  
+                    {% for i in range(datas["content"]|length) %} 
+
+                 <tr>
+                    <td>{{ datas["content"][index_list[i]] }}</td>
+                    <td>{{datas["location_traffic_convenience"][index_list[i]]}}</td>
+                    <td>{{datas["location_distance_from_business_district"][index_list[i]]}}</td>
+                    <td>{{datas["location_easy_to_find"][index_list[i]]}}</td>
+                    <td>{{datas["service_wait_time"][index_list[i]]}}</td>
+                    <td>{{datas["service_waiters_attitude"][index_list[i]]}}</td>
+                    <td>{{datas["service_parking_convenience"][index_list[i]]}}</td>
+                    <td>{{datas["service_serving_speed"][index_list[i]]}}</td>
+                    <td>{{datas["price_level"][index_list[i]]}}</td>
+                    <td>{{datas["price_cost_effective"][index_list[i]]}}</td>
+                    <td>{{datas["price_discount"][index_list[i]]}}</td>
+                    <td>{{datas["environment_decoration"][index_list[i]]}}</td>
+                    <td>{{datas["environment_noise"][index_list[i]]}}</td>
+                    <td>{{datas["environment_space"][index_list[i]]}}</td>
+                    <td>{{datas["environment_cleaness"][index_list[i]]}}</td>
+                    <td>{{datas["dish_portion"][index_list[i]]}}</td>
+                    <td>{{datas["dish_taste"][index_list[i]]}}</td>
+                    <td>{{datas["dish_look"][index_list[i]]}}</td>
+                    <td>{{datas["dish_recommendation"][index_list[i]]}}</td>
+                    <td>{{datas["others_overall_experience"][index_list[i]]}}</td>
+                    <td>{{datas["others_willing_to_consume_again"][index_list[i]]}}</td>
                 </tr>
-                <tr>
+                <tr>  
 
             {% endfor %}
-            </tr> -->
+            </tr>
                 </tbody>
             </table>
         </div>
