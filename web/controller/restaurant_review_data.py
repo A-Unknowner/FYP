@@ -2,11 +2,13 @@
 
 from bs4 import BeautifulSoup
 from lxml import etree
-import requests, json, re, csv, os
+import requests, json, re, os
 from langdetect import detect
 from opencc import OpenCC
 
 import pandas as pd
+
+import numpy as np
 
 headers = requests.utils.default_headers()
 headers.update({
@@ -66,7 +68,9 @@ class Openrice:
                      "user_review" : converter.convert(user_review)}
                 )
 
+        
         next_button_class = num_of_page[-1].xpath(".//@class")[0]
+        print()
         next_page_path = num_of_page[-1].xpath(".//@href")[0]
 
         if next_button_class == "pagination-button next js-next":
@@ -120,51 +124,45 @@ class CSV:
     def __init__(self, review, file_path):
 
         # json data
-
         # self.review = review
+
         self.review = json.loads(review.decode())
-        self.__row = ["id",
-                    "content",
-                    "location_traffic_convenience", 
-                    "location_distance_from_business_district", 
-                    "location_easy_to_find",
-                    "service_wait_time",
-                    "service_waiters_attitude",
-                    "service_parking_convenience",
-                    "service_serving_speed",
-                    "price_level",
-                    "price_cost_effective",
-                    "price_discount",
-                    "environment_decoration",
-                    "environment_noise",
-                    "environment_space",
-                    "environment_cleaness",
-                    "dish_portion",
-                    "dish_taste",
-                    "dish_look",
-                    "dish_recommendation",
-                    "others_overall_experience",
-                    "others_willing_to_consume_again"]
-        
+  
         self.__file_path = file_path
 
     def to_csv(self):
 
-        # store original cantonese data and simplify chinese data to 
-        # [restaurant_name]_hk_zh.csv and [restaurant_name]_sc.csv
+        # store original cantonese data and simplify chinese data to openrice_sc.csv
         # data_file_path = "./data/openrice/openrice_sc.csv"
 
         if os.path.isfile(self.__file_path):
             os.remove(self.__file_path)
 
-        with open(self.__file_path, 
-                  "w", newline="", encoding="utf_8_sig") as file:
-            writer = csv.writer(file)
-            writer.writerow(self.__row)
+        dict = {"id" : [i for i in range(0, len(self.review))],
+                "content": [f'\"{self.review[i]["user_review"]}\"' for i in range(0, len(self.review))],
+                "location_traffic_convenience": np.NaN, 
+                "location_distance_from_business_district": np.NaN, 
+                "location_easy_to_find": np.NaN,
+                "service_wait_time": np.NaN,
+                "service_waiters_attitude": np.NaN,
+                "service_parking_convenience": np.NaN,
+                "service_serving_speed": np.NaN,
+                "price_level": np.NaN,
+                "price_cost_effective": np.NaN,
+                "price_discount": np.NaN,
+                "environment_decoration": np.NaN,
+                "environment_noise": np.NaN,
+                "environment_space": np.NaN,
+                "environment_cleaness": np.NaN,
+                "dish_portion": np.NaN,
+                "dish_taste": np.NaN,
+                "dish_look": np.NaN,
+                "dish_recommendation": np.NaN,
+                "others_overall_experience": np.NaN,
+                "others_willing_to_consume_again": np.NaN}
+        df = pd.DataFrame(dict)
 
-            for i in range(0, len(self.review)):
-   
-                writer.writerow([str(i), f'\"{self.review[i]["user_review"]}\"'])
+        df.to_csv(self.__file_path, encoding="utf_8_sig", index=False)
 
     def read_csv(self):
 
@@ -177,7 +175,6 @@ class CSV:
         df_datas["content"] = data_list
 
         return df_datas.to_json(force_ascii=False)
-
 
 if __name__ == "__main__":
 
