@@ -1,21 +1,56 @@
-
 <!DOCTYPE html>
 <html>
-<head> 
-<link rel="stylesheet" type ="text/css" href="{{ url_for('static', filename='index.css')}}">
+
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='index.css') }}">
 </head>
 
 <body>
 
-    <h1 class="title">Restaurant review comment</h1>
+    <h1 class="title">Restaurant</h1>
 
-    <form action="/search_list" method="POST"  class="form">
-        <input type="search" name ="restaurant_name" placeholder="Enter restaureant name">
+    <!-- <form action="/result" method="POST">
+        <button type="submit" name="analyze_bttn" class="btn btn-lg btn-danger" data-toggle="popover"
+            value="{{ datas[0].restaurant_url }}">Analyze
+        </button>
+     <input type="submit" value="Submit"> -->
+
+
+
+    <form action="/result" method="POST">
+
+        <div class="row">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Restaurant Name</th>
+                        <th scope="col">Restaurant url</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for data in datas %}
+                    <tr>
+                        <td> {{ data.restaurant_name }} </td>
+                        <td>
+                            <button type="submit" name="analyze_bttn" class="btn btn-lg btn-danger"
+                                data-toggle="popover" value="{{ data.restaurant_url }}">Analyze
+                            </button>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
     </form>
 
-    
-    <!-- Create a render template for user's Guide for user   -->
-    <a href="/guide" class="link">User guide</a>
+
+
+
 
 </body>
+
 </html>
