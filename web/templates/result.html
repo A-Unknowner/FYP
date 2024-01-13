@@ -9,8 +9,13 @@
     <title></title>
 </head>
 <script>
-    function changeImage(element) {
-        document.querySelector("#img").src = "/web/static/" + element.value + ".jpg"
+    function changeImageBa() {
+        document.getElementById("img").src = "{{url_for('static', filename='BarChart.jpg')}}"
+    
+    }
+
+    function changeImagePi(){
+        document.getElementById("img").src = "{{url_for('static', filename='PieChart.jpg')}}"
     }
 </script>
 
@@ -21,7 +26,7 @@
     <div class="row graph">
         <div class="col-sm">
             <div class="d-flex justify-content-center">
-                <img src="/web/static/barchart.jpg" id="img">
+                <img id="img" src="{{url_for('static', filename='BarChart.jpg')}}" >
             </div>
         </div>
     </div>
@@ -30,21 +35,14 @@
         <div class="col-sm">
             <div class="d-flex justify-content-center">
                 <div class="dropdown">
-                    <!-- <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Dropdown button
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </div> -->
-                    <select onchange="changeImage(this);">
-                        <option value="barchart" selected="selected">BarChart</option>
-                        <option value="piechart">PieChart</option>
-                    </select>
-
-
+                        <button class="dropdown-item" onclick="changeImageBa()" value="barchart">BarChart</button>
+                        <button class="dropdown-item" onclick="changeImagePi()" value="piechart">PieChart</button>
+                    </div>
                 </div>
                 <button type="button" class="btn btn-success">Download Report</button>
             </div>
