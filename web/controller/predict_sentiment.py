@@ -21,6 +21,7 @@ def save_or_update_predict(predicts,
   """
   print("\n\n\nrunning\n\n\n")
 
+
   for filename in os.listdir(dirname):
     if "openrice" in filename:
       original_test_data = os.path.join(dirname, filename)
@@ -39,11 +40,11 @@ def save_or_update_predict(predicts,
 
 
 def predict(unused):
-  params = Params("params.yaml")
+  params = Params(f"{os.getcwd()}/controller/params.yaml")
 
-  test_path = "data/openrice"
+  test_path = f"{os.getcwd()}/controller/data/openrice"
 
-  model_dir = "output"
+  model_dir = f"{os.getcwd()}/controller/output"
 
   # load test data
   test_feature = build_dataset(
@@ -104,6 +105,3 @@ def main():
 
 if __name__ == "__main__":
   main()
-
-
-
