@@ -32,11 +32,24 @@ def analyze_review():
 
     path = request.form["analyze_bttn"]
 
+    # get page 1 comments
     restaurant_data = Openrice(path)
     
     restaurant_data.restaurant_review()
 
     review_list, path = restaurant_data.get_restaurant_data()
+
+    # get page 2 to page 10 comments
+    for i in range(0, 9):
+    # while True:
+        found_path = json.loads(path.decode())
+
+        if len(found_path) != 0:
+            restaurant_data = Openrice(found_path[0]["next_page_url"], review_list)
+            restaurant_data.restaurant_review()
+            review_list, path = restaurant_data.get_restaurant_data()
+
+        else: break
 
     to_csv_data = CSV(review = review_list,
                     file_path = f"{os.getcwd()}/controller/data/openrice/openrice_sc.csv")
