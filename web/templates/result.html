@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="">
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 <head>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
@@ -17,43 +17,11 @@
 
 <body>
 
-    <div class="container">
+    <div>
 
-        <div class="row graph">
-            <div class="col-sm">
-                <div class="d-flex justify-content-center">
-                    <img src="/web/static/barchart.jpg" id="img">
-                </div>
-            </div>
-        </div>
+        <canvas id="overallChart" style="width:100%;max-width:600px"></canvas>
 
-        <div class="row">
-            <div class="col-sm">
-                <div class="d-flex justify-content-center">
-                    <div class="dropdown">
-                        <!-- <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Dropdown button
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </div> -->
-                        <select onchange="changeImage(this);">
-                            <option value="barchart" selected="selected">BarChart</option>
-                            <option value="piechart">PieChart</option>
-                        </select>
-
-
-                    </div>
-                    <button type="button" class="btn btn-success">Download Report</button>
-                </div>
-            </div>
-        </div>
-
-
-
+        <canvas id="polarityChart" style="width:100%;max-width:600px"></canvas>
 
         <div class="row">
             <table class="table">
@@ -118,6 +86,42 @@
         </div>
 
     </div>
+
+    <script>
+        var xValues = ["Location", "Service", "Price", 
+                       "Environment", "Dish", "Other"];
+        var test = '{{ datas }}';
+    
+        var yValues = {{overall_aspect}};
+    
+        // var yValues = [55, 0, 0, 0, 0, 0];
+        var barColors = [
+          "#b91d47",
+          "#00aba9",
+          "#2b5797",
+          "#e8c3b9",
+          "#1e7145"
+        ];
+        
+        new Chart("overallChart", {
+          type: "pie",
+          data: {
+            labels: xValues,
+            datasets: [{
+              backgroundColor: barColors,
+              data: yValues
+            }
+        
+        ]
+          },
+          options: {
+            title: {
+              display: true,
+              text: "Overall mentioned aspects"
+            }
+          }
+        });
+        </script>
 
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
