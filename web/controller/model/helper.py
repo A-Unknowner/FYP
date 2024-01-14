@@ -43,6 +43,7 @@ class Params():
 
   def save(self, yaml_path):
     """Saves parameters to yaml file"""
+    print("yaml_path",yaml_path)
     with open(yaml_path, 'w') as f:
       yaml.dump(self.__dict__, f)
 
