@@ -3,6 +3,7 @@
 from flask import (Flask, render_template, request)
 from controller.restaurant_review_data import Openrice, CSV
 import json, subprocess, os
+from collections import Counter
 
 
 app = Flask(__name__)
@@ -63,17 +64,18 @@ def analyze_review():
                         file_path=f"{os.getcwd()}/controller/data/openrice/openrice_restaurant_predict_result.csv")
 
     read_csv_data = json.loads(read_csv_data.read_csv())
-    
-    overall_aspect = find_mentioned_overall_number(read_csv_data)
 
-    print(overall_aspect)
-      
-    print(read_csv_data)
+    positive_list, negative_list, neutral_list, no_mention_list = \
+        find_all_polarity_number(read_csv_data)
 
     return render_template("result.html", 
                            datas=read_csv_data,
                            index_list=[str(i) for i in range(len(read_csv_data["id"]))],
-                           overall_aspect = overall_aspect)
+                           overall_aspect = [sum(item) for item in zip(positive_list, negative_list, neutral_list)],
+                           positive_list=positive_list, 
+                           negative_list=negative_list,
+                           neutral_list=neutral_list,
+                           no_mention_list=no_mention_list)
 
 
 @app.route("/search_list", methods=["POST"])
@@ -89,42 +91,64 @@ def user_guide():
     return render_template("guide.html")
 
 
+def find_all_polarity_number(read_csv_data):
 
-
-def find_mentioned_overall_number(read_csv_data):
-
-    location_num = int()
-    service_num = int()
-    price_num = int()
-    environment_num = int()
-    dish_num = int()
-    other_num = int()
+    location_list = list()
+    service_list = list()
+    price_list = list()
+    environment_list = list()
+    dish_list = list()
+    other_list = list()
 
     for i in range(len(read_csv_data["id"])):
+        location_list.append(read_csv_data["location_traffic_convenience"][str(i)])
+        location_list.append(read_csv_data["location_distance_from_business_district"][str(i)])
+        location_list.append(read_csv_data["location_easy_to_find"][str(i)])
 
-        if read_csv_data["location_traffic_convenience"][str(i)] != -2: location_num += 1
-        if read_csv_data["location_distance_from_business_district"][str(i)] != -2: location_num += 1
-        if read_csv_data["location_easy_to_find"][str(i)] != -2: location_num += 1
-        if read_csv_data["service_wait_time"][str(i)] != -2: service_num += 1
-        if read_csv_data["service_waiters_attitude"][str(i)] != -2: service_num += 1
-        if read_csv_data["service_parking_convenience"][str(i)] != -2: service_num += 1
-        if read_csv_data["service_serving_speed"][str(i)] != -2: service_num += 1
-        if read_csv_data["price_level"][str(i)] != -2: price_num += 1
-        if read_csv_data["price_cost_effective"][str(i)] != -2: price_num += 1
-        if read_csv_data["price_discount"][str(i)] != -2: price_num += 1
-        if read_csv_data["environment_decoration"][str(i)] != -2: environment_num += 1
-        if read_csv_data["environment_noise"][str(i)] != -2: environment_num += 1
-        if read_csv_data["environment_space"][str(i)] != -2: environment_num += 1
-        if read_csv_data["environment_cleaness"][str(i)] != -2: environment_num += 1
-        if read_csv_data["dish_portion"][str(i)] != -2: dish_num += 1
-        if read_csv_data["dish_taste"][str(i)] != -2: dish_num += 1
-        if read_csv_data["dish_look"][str(i)] != -2: dish_num += 1
-        if read_csv_data["dish_recommendation"][str(i)] != -2: dish_num += 1
-        if read_csv_data["others_overall_experience"][str(i)] != -2: other_num += 1
-        if read_csv_data["others_willing_to_consume_again"][str(i)] != -2: other_num += 1
+        service_list.append(read_csv_data["service_wait_time"][str(i)])
+        service_list.append(read_csv_data["service_waiters_attitude"][str(i)])
+        service_list.append(read_csv_data["service_parking_convenience"][str(i)])
+        service_list.append(read_csv_data["service_serving_speed"][str(i)])
+
+        price_list.append(read_csv_data["price_level"][str(i)])
+        price_list.append(read_csv_data["price_cost_effective"][str(i)])
+        price_list.append(read_csv_data["price_discount"][str(i)])
+
+        dish_list.append(read_csv_data["environment_decoration"][str(i)])
+        dish_list.append(read_csv_data["environment_noise"][str(i)])
+        dish_list.append(read_csv_data["environment_space"][str(i)])
+        dish_list.append(read_csv_data["environment_cleaness"][str(i)])
+
+        environment_list.append(read_csv_data["dish_portion"][str(i)])
+        environment_list.append(read_csv_data["dish_taste"][str(i)])
+        environment_list.append(read_csv_data["dish_look"][str(i)])
+        environment_list.append(read_csv_data["dish_recommendation"][str(i)])
+
+        other_list.append(read_csv_data["others_overall_experience"][str(i)])
+        other_list.append(read_csv_data["others_willing_to_consume_again"][str(i)])
     
-    return [location_num, service_num, price_num, 
-            environment_num, dish_num, other_num]
+    location_counter = Counter(location_list)
+    service_counter = Counter(service_list)
+    price_counter = Counter(price_list)
+    dish_counter = Counter(dish_list)
+    environment_counter = Counter(environment_list)
+    other_counter = Counter(other_list)
+
+    positive = [location_counter[1], service_counter[1], price_counter[1],
+                dish_counter[1], environment_counter[1], other_counter[1]]
+    
+    negative = [location_counter[-1], service_counter[-1], price_counter[-1],
+                dish_counter[-1], environment_counter[-1], other_counter[-1]]
+
+    neutral = [location_counter[0], service_counter[0], price_counter[0],
+                dish_counter[0], environment_counter[0], other_counter[0]]
+    
+    no_mention = [location_counter[-2], service_counter[-2], price_counter[-2],
+                  dish_counter[-2], environment_counter[-2], other_counter[-2]]
+
+    return positive, negative, neutral, no_mention
+
+
 
 if __name__ == "__main__":
     app.run()
