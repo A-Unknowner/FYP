@@ -63,10 +63,17 @@ def analyze_review():
                         file_path=f"{os.getcwd()}/controller/data/openrice/openrice_restaurant_predict_result.csv")
 
     read_csv_data = json.loads(read_csv_data.read_csv())
+    
+    overall_aspect = find_overall_number(read_csv_data)
+
+    print(overall_aspect)
+      
+    print(read_csv_data)
 
     return render_template("result.html", 
                            datas=read_csv_data,
-                           index_list=[str(i) for i in range(len(read_csv_data["id"]))])
+                           index_list=[str(i) for i in range(len(read_csv_data["id"]))],
+                           overall_aspect = overall_aspect)
 
 
 @app.route("/search_list", methods=["POST"])
@@ -81,6 +88,43 @@ def search_list():
 def user_guide():
     return render_template("guide.html")
 
+
+
+
+def find_overall_number(read_csv_data):
+
+    location_num = int()
+    service_num = int()
+    price_num = int()
+    environment_num = int()
+    dish_num = int()
+    other_num = int()
+
+    for i in range(len(read_csv_data["id"])):
+
+        if read_csv_data["location_traffic_convenience"][str(i)] != -2: location_num += 1
+        if read_csv_data["location_distance_from_business_district"][str(i)] != -2: location_num += 1
+        if read_csv_data["location_easy_to_find"][str(i)] != -2: location_num += 1
+        if read_csv_data["service_wait_time"][str(i)] != -2: service_num += 1
+        if read_csv_data["service_waiters_attitude"][str(i)] != -2: service_num += 1
+        if read_csv_data["service_parking_convenience"][str(i)] != -2: service_num += 1
+        if read_csv_data["service_serving_speed"][str(i)] != -2: service_num += 1
+        if read_csv_data["price_level"][str(i)] != -2: price_num += 1
+        if read_csv_data["price_cost_effective"][str(i)] != -2: price_num += 1
+        if read_csv_data["price_discount"][str(i)] != -2: price_num += 1
+        if read_csv_data["environment_decoration"][str(i)] != -2: environment_num += 1
+        if read_csv_data["environment_noise"][str(i)] != -2: environment_num += 1
+        if read_csv_data["environment_space"][str(i)] != -2: environment_num += 1
+        if read_csv_data["environment_cleaness"][str(i)] != -2: environment_num += 1
+        if read_csv_data["dish_portion"][str(i)] != -2: dish_num += 1
+        if read_csv_data["dish_taste"][str(i)] != -2: dish_num += 1
+        if read_csv_data["dish_look"][str(i)] != -2: dish_num += 1
+        if read_csv_data["dish_recommendation"][str(i)] != -2: dish_num += 1
+        if read_csv_data["others_overall_experience"][str(i)] != -2: other_num += 1
+        if read_csv_data["others_willing_to_consume_again"][str(i)] != -2: other_num += 1
+    
+    return [location_num, service_num, price_num, 
+            environment_num, dish_num, other_num]
 
 if __name__ == "__main__":
     app.run()
