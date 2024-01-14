@@ -2,8 +2,8 @@
 
 from flask import (Flask, render_template, request)
 from controller.restaurant_review_data import Openrice, CSV
-import json
-import subprocess
+import json, subprocess, os
+
 
 app = Flask(__name__)
 
@@ -40,19 +40,25 @@ def analyze_review():
     review_list, path = restaurant_data.get_restaurant_data()
 
     print(f"\n{review_list.decode()}\n")
-
+    print(f"{os.getcwd()}/controller/data/openrice/openrice_sc.csv")
     to_csv_data = CSV(review = review_list,
-                    file_path = "./data/openrice/openrice_sc.csv")
+                    file_path = f"{os.getcwd()}/controller/data/openrice/openrice_sc.csv")
     to_csv_data.to_csv()
+
+    print("after csv")
     
-    subprocess.run(["python", "preprocess_data.py"])
+    subprocess.run(["python", f"{os.getcwd()}/controller/preprocess_data.py"])
     
-    subprocess.run(["python", "predict_sentiment.py"])
+    subprocess.run(["python", f"{os.getcwd()}/controller/predict_sentiment.py"])
     
     read_csv_data = CSV(review=review_list,
-                        file_path="./data/openrice/openrice_restaurant_predict_result.csv")
+                        file_path=f"{os.getcwd()}/controller/data/openrice/openrice_restaurant_predict_result.csv")
 
-    return render_template("result.html", datas=read_csv_data.read_csv())
+    read_csv_data = json.loads(read_csv_data.read_csv())
+
+    return render_template("result.html", 
+                           datas=read_csv_data,
+                           index_list=[str(i) for i in range(len(read_csv_data["id"]))])
 
 
 @app.route("/search_list", methods=["POST"])
