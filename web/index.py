@@ -64,7 +64,7 @@ def analyze_review():
 
     read_csv_data = json.loads(read_csv_data.read_csv())
     
-    overall_aspect = find_overall_number(read_csv_data)
+    overall_aspect = find_mentioned_overall_number(read_csv_data)
 
     print(overall_aspect)
       
@@ -91,7 +91,7 @@ def user_guide():
 
 
 
-def find_overall_number(read_csv_data):
+def find_mentioned_overall_number(read_csv_data):
 
     location_num = int()
     service_num = int()
