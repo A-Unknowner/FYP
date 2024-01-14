@@ -31,7 +31,6 @@ def index():
 def analyze_review():
 
     path = request.form["analyze_bttn"]
-    print(path)
 
     restaurant_data = Openrice(path)
     
@@ -39,13 +38,9 @@ def analyze_review():
 
     review_list, path = restaurant_data.get_restaurant_data()
 
-    print(f"\n{review_list.decode()}\n")
-    print(f"{os.getcwd()}/controller/data/openrice/openrice_sc.csv")
     to_csv_data = CSV(review = review_list,
                     file_path = f"{os.getcwd()}/controller/data/openrice/openrice_sc.csv")
     to_csv_data.to_csv()
-
-    print("after csv")
     
     subprocess.run(["python", f"{os.getcwd()}/controller/preprocess_data.py"])
     
