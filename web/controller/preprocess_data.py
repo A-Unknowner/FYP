@@ -15,8 +15,8 @@ import numpy as np
 
 from model.helper import Params
 
-CHINESE_WORD_INT_PATH = "./chinese_vectors/word_idx_table.json"
-STOPWORDS_PATH = "./chinese_vectors/chinese_stopwords.txt"
+CHINESE_WORD_INT_PATH = f"{os.getcwd()}/controller/chinese_vectors/word_idx_table.json"
+STOPWORDS_PATH = f"{os.getcwd()}/controller/chinese_vectors/chinese_stopwords.txt"
 
 
 def _add_sub_or_unk_word(word, vocab):
@@ -102,7 +102,9 @@ def sentence_label_save(file_path, w2i_dict, params, test=False):
 
   labels = []
   sentences_idx_path = os.path.join(
-      os.path.dirname(file_path), "sentences_idx.csv")
+      f"{os.getcwd()}/controller/data/openrice"
+      # os.path.dirname(file_path)
+      , "sentences_idx.csv")
 
   with open(sentences_idx_path, 'w', newline='') as save_idx_f:
     writer_idx = csv.writer(save_idx_f, delimiter=',')
@@ -147,11 +149,13 @@ def load_chinese_table(chinese_path, stopwords_path):
   return {k: v for k, v in word_int_table.items() if k not in stopwords}
 
 def main():
-  data_dir = "data/openrice"
-  params = Params("./params.yaml")
+
+  params = Params(f"{os.getcwd()}/controller/params.yaml")
   word_int_table = load_chinese_table(CHINESE_WORD_INT_PATH, STOPWORDS_PATH)
-  dataset_path = os.path.join(
-      data_dir, os.path.basename(data_dir) + "_sc.csv")
+  dataset_path = f"{os.getcwd()}/controller/data/openrice/openrice_sc.csv"
+
+  # dataset_path = os.path.join(
+  #     data_dir, os.path.basename(data_dir) + "_sc.csv")
   sentence_label_save(
       dataset_path, word_int_table, params)
 
