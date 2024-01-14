@@ -17,9 +17,12 @@ headers.update({
 
 class Openrice:
 
-    def __init__(self, url):
+    def __init__(self, url, review = None):
 
-        self.__restaurant_data = list()
+        if review != None:
+            self.__restaurant_data = json.loads(review.decode())
+        else:
+            self.__restaurant_data = list()
         self.__next_page_path = list()
         
         if "http" not in url:
@@ -52,29 +55,48 @@ class Openrice:
         comments = self.__dom.xpath('//div[@itemprop="description"]')
         num_of_page = self.__dom.xpath('//*[@id="sr2-review-container"]/div[3]/div/a')
 
-        for i in range(len(comments)):
+        if len(self.__restaurant_data) == 0:
+            for i in range(len(comments)):
 
-            # username = review_user[i].xpath(".//text()")[1].strip()
-            user_review = comments[i].xpath(".//text()")[0]
-            user_review = user_review.replace("\r\n", "").strip()
-            user_review = self.emoji_filter(user_review)
+                # username = review_user[i].xpath(".//text()")[1].strip()
+                user_review = comments[i].xpath(".//text()")[0]
+                user_review = user_review.replace("\r\n", "").strip()
+                user_review = self.emoji_filter(user_review)
 
-            if detect(user_review) != "en":
+                if detect(user_review) != "en":
 
-                self.__restaurant_data.append(
-                    # {"username" : username, 
-                    {"id" : i, 
-                     # translate data from cantonese to simplify chinese
-                     "user_review" : converter.convert(user_review)}
-                )
+                    self.__restaurant_data.append(
+                        # {"username" : username, 
+                        {"id" : i, 
+                        # translate data from cantonese to simplify chinese
+                        "user_review" : converter.convert(user_review)}
+                    )
+        else:
+            start = self.__restaurant_data[-1]["id"] + 1
+            for i in range(len(comments)):
 
-        
+                # username = review_user[i].xpath(".//text()")[1].strip()
+                user_review = comments[i].xpath(".//text()")[0]
+                user_review = user_review.replace("\r\n", "").strip()
+                user_review = self.emoji_filter(user_review)
+
+                if detect(user_review) != "en":
+
+                    self.__restaurant_data.append(
+                        # {"username" : username, 
+                        {"id" : start + i, 
+                        # translate data from cantonese to simplify chinese
+                        "user_review" : converter.convert(user_review)}
+                    )
+
+        print('num_of_page[-1].xpath(".//@class")',num_of_page[-1].xpath(".//@class"))
         next_button_class = num_of_page[-1].xpath(".//@class")[0]
-        print()
-        next_page_path = num_of_page[-1].xpath(".//@href")[0]
+        print('num_of_page[-1].xpath(".//@href")', num_of_page[-1].xpath(".//@href"))
+        next_page_path = num_of_page[-1].xpath(".//@href")
 
-        if next_button_class == "pagination-button next js-next":
-            self.__next_page_path.append({"next_page_url" : f"https://www.openrice.com{next_page_path}"})
+        if (next_button_class == "pagination-button next js-next" and
+            len(next_page_path) != 0):
+            self.__next_page_path.append({"next_page_url" : f"https://www.openrice.com{next_page_path[0]}"})
             
     def get_restaurant_data(self):
         return json.dumps(self.__restaurant_data, ensure_ascii=False).encode('utf8'), \
