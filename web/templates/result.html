@@ -19,9 +19,9 @@
 
     <div>
 
-        <canvas id="overallChart" style="width:100%;max-width:600px"></canvas>
+        <canvas id="polarityPieChart" style="width:100%;max-width:600px"></canvas>
 
-        <canvas id="polarityChart" style="width:100%;max-width:600px"></canvas>
+        <canvas id="polarityBarChart" style="width:100%;max-width:600px"></canvas>
 
         <div class="row">
             <table class="table">
@@ -103,7 +103,7 @@
           "#1e7145"
         ];
         
-        new Chart("overallChart", {
+        new Chart("polarityPieChart", {
           type: "pie",
           data: {
             labels: xValues,
@@ -121,8 +121,58 @@
             }
           }
         });
-        </script>
+    </script>
 
+    <script>
+        var ctx = document.getElementById("polarityBarChart").getContext("2d");
+        
+        var data = [8, 47, 59, 78, 152, 111]
+        
+        var data = {
+            labels: ["Location", "Service", "Price", "Environment", "Dish", "Others"],
+            // labels: ["Chocolate", "Vanilla", "Strawberry"],
+            datasets: [
+                {
+                    label: "Overall",
+                    backgroundColor: "pink",
+                    // data: [3,7,4]
+                    data:{{overall_aspect}}
+                },
+                {
+                    label: "Positive",
+                    backgroundColor: "blue",
+                    // data: [3,7,4]
+                    data:{{positive_list}}
+                },
+                {
+                    label: "Negative",
+                    backgroundColor: "red",
+                    data:{{negative_list}}
+                },
+                {
+                    label: "Neutral",
+                    backgroundColor: "green",
+                    data:{{neutral_list}}
+                }
+            ]
+        };
+        
+        var myBarChart = new Chart(ctx, {
+            type: 'bar',
+            data: data,
+            options: {
+                barValueSpacing: 20,
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            min: 0,
+                        }
+                    }]
+                }
+            }
+        });
+        
+    </script>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
