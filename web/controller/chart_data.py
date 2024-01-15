@@ -1,7 +1,5 @@
 from collections import Counter
 
-
-
 def find_specific_aspect_polarity(read_csv_data):
 
     # location
@@ -160,4 +158,4 @@ def find_all_polarity_number(read_csv_data):
     no_mention = [location_counter[-2], service_counter[-2], price_counter[-2],
                   dish_counter[-2], environment_counter[-2], other_counter[-2]]
 
-    return positive, negative, neutral, no_mention, location_counter
+    return positive, negative, neutral, no_mention
