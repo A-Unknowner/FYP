@@ -115,7 +115,7 @@ class Openrice:
                     {"restaurant_name": name[i].text.strip(),
                      "restaurant_img_url": image[i]["style"].replace("background-image:url(", "").replace(");", ""),
                      "restaurant_address": address[i].text.strip().replace(" ", "").replace("/", "").split("\n\n"),
-                     "restaurant_url": f"https://www.openrice.com/{name[i]['href']}"}
+                     "restaurant_url": f"https://www.openrice.com/{name[i]['href']}/reviews"}
                 )
         else:
             print("Error: search_restaurant(): No results found.")
@@ -218,24 +218,24 @@ class CSV:
 
 if __name__ == "__main__":
 
-    book_marked_url = "https://www.openrice.com/zh/hongkong/explore/chart/most-bookmarked"
+    # book_marked_url = "https://www.openrice.com/zh/hongkong/explore/chart/most-bookmarked"
 
-    restaurant_review_url = "https://www.openrice.com/zh/hongkong/r-milu-thai-%E0%B8%A1%E0%B8%B4%E0%B8%A5%E0%B8%B9%E0%B9%88%E0%B9%84%E0%B8%97%E0%B8%A2-%E9%8A%85%E9%91%BC%E7%81%A3-%E6%B3%B0%E5%9C%8B%E8%8F%9C-%E6%B5%B7%E9%AE%AE-r588815/reviews"
+    # restaurant_review_url = "https://www.openrice.com/zh/hongkong/r-milu-thai-%E0%B8%A1%E0%B8%B4%E0%B8%A5%E0%B8%B9%E0%B9%88%E0%B9%84%E0%B8%97%E0%B8%A2-%E9%8A%85%E9%91%BC%E7%81%A3-%E6%B3%B0%E5%9C%8B%E8%8F%9C-%E6%B5%B7%E9%AE%AE-r588815/reviews"
 
-    # get top 30 restaurant name and its url
-    results = Openrice(book_marked_url)
-    results.restaurants_name()
-    restaurant_info, path = results.get_restaurant_data()
+    # # get top 30 restaurant name and its url
+    # results = Openrice(book_marked_url)
+    # results.restaurants_name()
+    # restaurant_info, path = results.get_restaurant_data()
 
-    # print(restaurant_info.decode())
-    # print(path.decode())
+    # # print(restaurant_info.decode())
+    # # print(path.decode())
 
-    # get target restaurant review
-    results = Openrice(restaurant_review_url)
-    results.restaurant_review()
-    reviews_info, path = results.get_restaurant_data()
+    # # get target restaurant review
+    # results = Openrice(restaurant_review_url)
+    # results.restaurant_review()
+    # reviews_info, path = results.get_restaurant_data()
 
-    CSV(reviews_info).to_csv()
+    # CSV(reviews_info).to_csv()
 
     restaurant_name = "MoMo"
     search_link = f"http://www.openrice.com/chinese/restaurant/sr1.htm?inputstrwhat={restaurant_name}"
