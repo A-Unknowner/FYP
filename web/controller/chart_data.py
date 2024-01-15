@@ -70,38 +70,38 @@ def find_specific_aspect_polarity(read_csv_data):
     
     
     # location
-    location_list = [{"location_traffic_convenience":Counter(location_traffic_convenience),
+    location_dict = {"location_traffic_convenience":Counter(location_traffic_convenience),
                       "location_distance_from_business_district":Counter(location_distance_from_business_district),
-                      "location_easy_to_find":Counter(location_easy_to_find)}]
+                      "location_easy_to_find":Counter(location_easy_to_find)}
     
     # service
-    service_list = {"service_wait_time":Counter(service_wait_time),
+    service_dict = {"service_wait_time":Counter(service_wait_time),
                     "service_waiters_attitude":Counter(service_waiters_attitude),
                     "service_parking_convenience":Counter(service_parking_convenience),
                     "service_serving_speed":Counter(service_serving_speed)}
 
     # price
-    price_list = {"price_level":Counter(price_level),
+    price_dict = {"price_level":Counter(price_level),
                   "price_cost_effective":Counter(price_cost_effective),
                   "price_discount":Counter(price_discount)}
 
     # environment
-    environment_list = {"environment_decoration":Counter(environment_decoration),
+    environment_dict = {"environment_decoration":Counter(environment_decoration),
                         "environment_noise":Counter(environment_noise),
                         "environment_space":Counter(environment_space),
                         "environment_cleaness":Counter(environment_cleaness)}
 
     # dish
-    dish_list = {"dish_portion":Counter(dish_portion),
+    dish_dict = {"dish_portion":Counter(dish_portion),
                  "dish_taste":Counter(dish_taste),
                  "dish_look":Counter(dish_look),
                  "dish_recommendation":Counter(dish_recommendation)}
 
     # others
-    others_list = {"others_overall_experience":Counter(others_overall_experience),
+    others_dict = {"others_overall_experience":Counter(others_overall_experience),
                  "others_willing_to_consume_again":Counter(others_willing_to_consume_again)}
 
-    return location_list, service_list, price_list, environment_list, dish_list, others_list
+    return location_dict, service_dict, price_dict, environment_dict, dish_dict, others_dict
 
 def find_all_polarity_number(read_csv_data):
 
