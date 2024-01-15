@@ -102,6 +102,24 @@ class Openrice:
         return json.dumps(self.__restaurant_data, ensure_ascii=False).encode('utf8'), \
                json.dumps(self.__next_page_path, ensure_ascii=False).encode('utf8')
 
+    def search_restaurant(self):
+        if self.__soup.title.string != "Verification":
+            # print(self.__soup.title.string)
+            elements = self.__soup.find_all("section", class_="poi-list-cell-desktop-right-top-info-section")
+            name = (elements[0].find_all_next("a", class_="poi-name poi-list-cell-link"))
+            address = (elements[0].find_all_next("div", class_="poi-list-cell-line-info"))
+            image = (elements[0].find_all_next("div", class_="rms-photo"))
+            for i in range(len(elements)):
+                # print(name[i].text.strip(), address[i].text.strip().replace(" ", "").replace("/", "").split("\n\n"), image[i]["style"].replace("background-image:url(", "").replace(");", ""), "https://www.openrice.com/" + name[i]["href"])
+                self.__restaurant_data.append(
+                    {"restaurant_name": name[i].text.strip(),
+                     "restaurant_img_url": image[i]["style"].replace("background-image:url(", "").replace(");", ""),
+                     "restaurant_address": address[i].text.strip().replace(" ", "").replace("/", "").split("\n\n"),
+                     "restaurant_url": f"https://www.openrice.com/{name[i]['href']}"}
+                )
+        else:
+            print("Error: search_restaurant(): No results found.")
+
     def emoji_filter(self, text):
 
         try:
@@ -219,6 +237,13 @@ if __name__ == "__main__":
 
     CSV(reviews_info).to_csv()
 
+    restaurant_name = "MoMo"
+    search_link = f"http://www.openrice.com/chinese/restaurant/sr1.htm?inputstrwhat={restaurant_name}"
+    results = Openrice(search_link)
+    results.search_restaurant()
+    restaurant_info, path = results.get_restaurant_data()
+
+    print(restaurant_info.decode())
     
     # print(reviews_info.decode())
     # print(path.decode())
