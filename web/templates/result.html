@@ -16,7 +16,7 @@
 
     <div>
 
-        <canvas id="polarityPieChart" style="width:100%;max-width:600px"></canvas>
+        <canvas id="aspectDoughnutChart" style="width:100%;max-width:600px"></canvas>
 
         <canvas id="polarityBarChart" style="width:100%;max-width:600px"></canvas>
 
@@ -102,8 +102,8 @@
           "#1e7145"
         ];
         
-        new Chart("polarityPieChart", {
-          type: "pie",
+        new Chart("aspectDoughnutChart", {
+          type: "doughnut",
           data: {
             labels: xValues,
             datasets: [{
@@ -121,6 +121,9 @@
           }
         });
     </script>
+
+
+
 
     <script>
         var ctx = document.getElementById("polarityBarChart").getContext("2d");
@@ -160,6 +163,13 @@
             type: 'bar',
             data: data,
             options: {
+
+    
+            title: {
+              display: true,
+              text: "The polarity of each aspect"
+            },
+
                 barValueSpacing: 20,
                 scales: {
                     yAxes: [{
@@ -168,6 +178,7 @@
                         }
                     }]
                 }
+                
             }
         });
     </script>
