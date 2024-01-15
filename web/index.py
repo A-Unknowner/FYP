@@ -70,7 +70,12 @@ def analyze_review():
     positive_list, negative_list, neutral_list, no_mention_list = \
         find_all_polarity_number(read_csv_data)
     
-    print("test",test)
+
+    location_dict, service_dict, price_dict, environment_dict, dish_dict, others_dict = \
+        find_specific_aspect_polarity(read_csv_data)
+    
+    print(location_dict)
+
 
     return render_template("result.html", 
                            datas=read_csv_data,
