@@ -26,14 +26,14 @@ def index():
     restaurant_list, path = restaurant_data.get_restaurant_data()
     restaurants = restaurant_list.decode()
     results_json = json.loads(restaurants)
-
+    
     return render_template("index.html", datas=results_json)
 
 
 @app.route('/result', methods=['POST'])
 def analyze_review():
 
-    path = request.form["analyze_bttn"]
+    restaurant_name, path = request.form["restaurant_name"] , request.form["analyze_bttn"]
 
     # get page 1 comments
     restaurant_data = Openrice(path)
@@ -74,17 +74,26 @@ def analyze_review():
     location_dict, service_dict, price_dict, environment_dict, dish_dict, others_dict = \
         find_specific_aspect_polarity(read_csv_data)
     
-    print(location_dict)
+    print('location_dict',location_dict)
 
 
     return render_template("result.html", 
+                           restaurant_name = restaurant_name,
                            datas=read_csv_data,
                            index_list=[str(i) for i in range(len(read_csv_data["id"]))],
                            overall_aspect = [sum(item) for item in zip(positive_list, negative_list, neutral_list)],
                            positive_list=positive_list, 
                            negative_list=negative_list,
                            neutral_list=neutral_list,
-                           no_mention_list=no_mention_list)
+                           no_mention_list=no_mention_list,
+
+                           # specific aspect results
+                           location_dict=location_dict, 
+                           service_dict=service_dict, 
+                           price_dict=price_dict, 
+                           environment_dict=environment_dict, 
+                           dish_dict=dish_dict, 
+                           others_dict=others_dict)
 
 
 @app.route("/search_list", methods=["POST"])
