@@ -43,6 +43,7 @@
                     <tr>
                         <td> {{ data.restaurant_name }} </td>
                         <td>
+                            <input type="hidden" name="restaurant_name" value="{{ data.restaurant_name }}" />
                             <button onclick="loadingFunction()" type="submit" name="analyze_bttn" class="btn btn-lg btn-danger"
                                 data-toggle="popover" value="{{ data.restaurant_url }}">Analyze
                             </button>
