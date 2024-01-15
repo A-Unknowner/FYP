@@ -17,11 +17,15 @@
 
 <body>
 
+    Restaurant Name: {{restaurant_name}}
+
     <div>
 
         <canvas id="polarityPieChart" style="width:100%;max-width:600px"></canvas>
 
         <canvas id="polarityBarChart" style="width:100%;max-width:600px"></canvas>
+
+        <!-- <canvas id="targetPolarityBarChart" style="width:100%;max-width:600px"></canvas> -->
 
         <div class="row">
             <table class="table">
@@ -171,8 +175,61 @@
                 }
             }
         });
-        
     </script>
+    <!-- <script>
+        var ctx = document.getElementById("targetPolarityBarChart").getContext("2d");
+        
+        var data = [8, 47, 59, 78, 152, 111]
+        
+        var data = {
+            labels: ["dish_portion", "dish_taste", "dish_look", "dish_recommendation"],
+            // labels: ["Chocolate", "Vanilla", "Strawberry"],
+            datasets: [
+                {
+                    label: "Positive",
+                    backgroundColor: "blue",
+                    // data: [3,7,4]
+                    data:{{[dish_dict["dish_portion"][1], 
+                            dish_dict["dish_taste"][1],
+                            dish_dict["dish_look"][1]],
+                            dish_dict["dish_recommendation"][1]}}
+                },
+                {
+                    label: "Negative",
+                    backgroundColor: "red",
+                    data:{{[dish_dict["dish_portion"][-1], 
+                            dish_dict["dish_taste"][-1],
+                            dish_dict["dish_look"][-1]],
+                            dish_dict["dish_recommendation"][-1]}}
+                },
+                {
+                    label: "Neutral",
+                    backgroundColor: "green",
+                    data:{{[dish_dict["dish_portion"][0], 
+                            dish_dict["dish_taste"][0],
+                            dish_dict["dish_look"][0],
+                            dish_dict["dish_recommendation"][0]]}}
+                }
+            ]
+        };
+        
+        var myBarChart = new Chart(ctx, {
+            type: 'bar',
+            data: data,
+            options: {
+                barValueSpacing: 20,
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            min: 0,
+                        }
+                    }]
+                }
+            }
+        });
+
+
+    </script> -->
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
