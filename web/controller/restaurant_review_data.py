@@ -97,10 +97,6 @@ class Openrice:
         if (next_button_class == "pagination-button next js-next" and
             len(next_page_path) != 0):
             self.__next_page_path.append({"next_page_url" : f"https://www.openrice.com{next_page_path[0]}"})
-            
-    def get_restaurant_data(self):
-        return json.dumps(self.__restaurant_data, ensure_ascii=False).encode('utf8'), \
-               json.dumps(self.__next_page_path, ensure_ascii=False).encode('utf8')
 
     def search_restaurant(self):
         if self.__soup.title.string != "Verification":
@@ -119,6 +115,10 @@ class Openrice:
                 )
         else:
             print("Error: search_restaurant(): No results found.")
+
+    def get_restaurant_data(self):
+        return json.dumps(self.__restaurant_data, ensure_ascii=False).encode('utf8'), \
+               json.dumps(self.__next_page_path, ensure_ascii=False).encode('utf8')
 
     def emoji_filter(self, text):
 
