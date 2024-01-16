@@ -8,3 +8,11 @@
     width:100%;
     ;max-width:700px;
 }
+
+#homepage{
+    float:right;
+    text-decoration: none;
+}
+#homepage :hover{
+    text-decoration: underline;
+}
