@@ -22,64 +22,163 @@
 
         <!-- <canvas id="targetPolarityBarChart" style="width:100%;max-width:600px"></canvas> -->
 
-        <div class="row">
+  <div class="row" style="background-color: #f2f2f2;">
             <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col">Comment</th>
-                        <th scope="col">Aspect : location_traffic_convenience</th>
-                        <th scope="col">Aspect : location_distance_from_business_district</th>
-                        <th scope="col">Aspect : location_easy_to_find</th>
-                        <th scope="col">Aspect : service_wait_time</th>
-                        <th scope="col">Aspect : service_waiters_attitude</th>
-                        <th scope="col">Aspect : service_parking_convenience</th>
-                        <th scope="col">Aspect : service_serving_speed</th>
-                        <th scope="col">Aspect : price_level</th>
-                        <th scope="col">Aspect : price_cost_effective</th>
-                        <th scope="col">Aspect : price_discount</th>
-                        <th scope="col">Aspect : environment_decoration</th>
-                        <th scope="col">Aspect : environment_noise</th>
-                        <th scope="col">Aspect : environment_space</th>
-                        <th scope="col">Aspect : environment_cleaness</th>
-                        <th scope="col">Aspect : dish_portion</th>
-                        <th scope="col">Aspect : dish_taste</th>
-                        <th scope="col">Aspect : dish_look</th>
-                        <th scope="col">Aspect : dish_recommendation</th>
-                        <th scope="col">Aspect : others_overall_experience</th>
-                        <th scope="col">Aspect : others_willing_to_consume_again</th>
+                        <th scope="col"><h1>Comment</h1></th>
                     </tr>
                 </thead>
                 <tbody>
-                  
-                    {% for i in range(datas["content"]|length) %} 
 
-                 <tr>
-                    <td>{{ datas["content"][index_list[i]] }}</td>
-                    <td>{{datas["location_traffic_convenience"][index_list[i]]}}</td>
-                    <td>{{datas["location_distance_from_business_district"][index_list[i]]}}</td>
-                    <td>{{datas["location_easy_to_find"][index_list[i]]}}</td>
-                    <td>{{datas["service_wait_time"][index_list[i]]}}</td>
-                    <td>{{datas["service_waiters_attitude"][index_list[i]]}}</td>
-                    <td>{{datas["service_parking_convenience"][index_list[i]]}}</td>
-                    <td>{{datas["service_serving_speed"][index_list[i]]}}</td>
-                    <td>{{datas["price_level"][index_list[i]]}}</td>
-                    <td>{{datas["price_cost_effective"][index_list[i]]}}</td>
-                    <td>{{datas["price_discount"][index_list[i]]}}</td>
-                    <td>{{datas["environment_decoration"][index_list[i]]}}</td>
-                    <td>{{datas["environment_noise"][index_list[i]]}}</td>
-                    <td>{{datas["environment_space"][index_list[i]]}}</td>
-                    <td>{{datas["environment_cleaness"][index_list[i]]}}</td>
-                    <td>{{datas["dish_portion"][index_list[i]]}}</td>
-                    <td>{{datas["dish_taste"][index_list[i]]}}</td>
-                    <td>{{datas["dish_look"][index_list[i]]}}</td>
-                    <td>{{datas["dish_recommendation"][index_list[i]]}}</td>
-                    <td>{{datas["others_overall_experience"][index_list[i]]}}</td>
-                    <td>{{datas["others_willing_to_consume_again"][index_list[i]]}}</td>
-                </tr>
-                <tr>  
+                    {% for i in range(datas["content"]|length) %}
 
-            {% endfor %}
-            </tr>
+                    <tr>
+                        <td style="width: 75%;"><b>{{ datas["content"][index_list[i]] }}</b></td>
+                        <!-- location -->
+                        <td>
+                            <div>
+                                <div class="card-location border border-secondary" style="width: 25rem; margin-bottom: 10%;padding: 10%;">
+                                    <div class="card-body-location">
+                                        <h2 class="card-location" style="padding: 10%;">Location</h2>
+                                        <label>
+                                            <h5>Traffic Convenience :</h5>
+                                            <label>
+                                            </label><b>
+                                                <label
+                                                    class="location_traffic_convenience">{{datas["location_traffic_convenience"][index_list[i]]}}</label></b></br>
+                                            <label>
+                                                <h5>Distance from Business District :</h5>
+                                            </label><b><label
+                                                    class="location_distance_from_business_district">{{datas["location_distance_from_business_district"][index_list[i]]}}</label></b></br>
+                                            <label>
+                                                <h5>Easy to Find :</h5>
+                                            </label><b><label
+                                                    class="location_easy_to_find">{{datas["location_easy_to_find"][index_list[i]]}}</label></b>
+                                    </div>
+                                </div>
+
+
+                                <!-- service -->
+
+                                <div class="card-service border border-secondary" style="width: 25rem;margin-bottom: 10%;padding: 10%;">
+                                    <div class="card-body-service">
+                                        <h2 class="card-service" style="padding: 10%;">Service</h2>
+                                        <label>
+                                            <h5>Waiting Time :</h5>
+                                        </label><b><label
+                                                class="service_wait_time">{{datas["service_wait_time"][index_list[i]]}}</label></b></br>
+                                        <label>
+                                            <h5>Waiters Attitude :</h5>
+                                        </label><b><label class="service_waiters_attitude">
+                                                {{datas["service_waiters_attitude"][index_list[i]]}}
+                                            </label></b></br>
+                                        <label>
+                                            <h5>Parking Convenience :</h5>
+                                        </label><b><label class="service_parking_convenience">
+                                                {{datas["service_parking_convenience"][index_list[i]]}}</label></b></br>
+                                        <label>
+                                            <h5>Serving Speed :</h5>
+                                        </label><b><label
+                                                class="service_serving_speed">{{datas["service_serving_speed"][index_list[i]]}}</label></b>
+                                    </div>
+                                </div>
+
+
+                                <!-- Price -->
+
+                                <div class="card-Price border border-secondary" style="width: 25rem;margin-bottom: 10%;padding: 10%;">
+                                    <div class="card-body-Price">
+                                        <h2 class="card-Price" style="padding: 10%;">Price</h2>
+                                        <label>
+                                            <h5>Price Level :</h5>
+                                        </label><b><label class="price_level">
+                                                {{datas["price_level"][index_list[i]]}}</label></b></br>
+                                        <label>
+                                            <h5>Cost Effective :</h5>
+                                        </label><b><label class="price_cost_effective">
+                                                {{datas["price_cost_effective"][index_list[i]]}}
+                                            </label></b></br>
+                                        <label>
+                                            <h5>Discount:</h5>
+                                        </label><b><label class="price_discount">
+                                                {{datas["price_discount"][index_list[i]]}}</label></b>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <!-- Environment -->
+                            <div>
+                                <div class="card-Environment border border-secondary" style="width: 25rem;margin-bottom: 10%;padding: 10%;">
+                                    <div class="card-body-Environment">
+                                        <h2 class="card-Environment" style="padding: 10%;">Environment</h2>
+                                        <label>
+                                            <h5>Environment Decoration :</h5>
+                                        </label><b><label class="environment_decoration">
+                                                {{datas["environment_decoration"][index_list[i]]}}</label></b></br>
+                                        <label>
+                                            <h5>Environment Noise :</h5>
+                                        </label><b><label class="environment_noise">
+                                                {{datas["environment_noise"][index_list[i]]}}</label></b></br>
+                                        <label>
+                                            <h5>Environment Space:</h5>
+                                        </label><b><label class="environment_space">
+                                                {{datas["environment_space"][index_list[i]]}}</label></b></br>
+                                        <label>
+                                            <h5>Environment Hygiene:</h5>
+                                        </label><b><label
+                                                class="environment_cleaness">{{datas["environment_cleaness"][index_list[i]]}}</label></b>
+                                    </div>
+                                </div>
+
+
+                                <!-- Dish -->
+
+                                <div class="card-Dish border border-secondary" style="width: 25rem;margin-bottom: 10%;padding: 10%;">
+                                    <div class="card-body-Dish">
+                                        <h2 class="card-Dish" style="padding: 10%;">Dish</h2>
+                                        <label>
+                                            <h5>Dish Portion :</h5>
+                                        </label><b><label class="dish_portion">
+                                                {{datas["dish_portion"][index_list[i]]}}</label></b></br>
+                                        <label>
+                                            <h5>Taste :</h5>
+                                        </label><b><label
+                                                class="dish_taste">{{datas["dish_taste"][index_list[i]]}}</label></b></br>
+                                        <label>
+                                            <h5>Dish Design:</h5>
+                                        </label><b><label class="dish_look">
+                                                {{datas["dish_look"][index_list[i]]}}</label></b></br>
+                                        <label>
+                                            <h5>Dish Recommendation:</h5>
+                                        </label><b><label class="dish_recommendation">
+                                                {{datas["dish_recommendation"][index_list[i]]}}</label></b>
+                                    </div>
+                                </div>
+
+
+                                <!-- Others -->
+
+                                <div class="card-Others border border-secondary" style="width: 25rem;margin-bottom: 10%; padding: 10%;">
+                                    <div class="card-body-Others">
+                                        <h2 class="card-Others" style="padding: 10%;">Others</h2>
+                                        <label>
+                                            <h5>Overall Experience :</h5>
+                                        </label><b><label class="others_overall_experience">
+                                                {{datas["others_overall_experience"][index_list[i]]}}</label></b></br>
+                                        <label>
+                                            <h5>Willing to consume again :</h5>
+                                        </label><b><label
+                                                class="others_willing_to_consume_again">{{datas["others_willing_to_consume_again"][index_list[i]]}}</label></b></br>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        {% endfor %}
+                    </tr>
                 </tbody>
             </table>
         </div>
@@ -181,6 +280,168 @@
                 
             }
         });
+
+
+
+
+         function getWord(sentiment) {
+        switch (sentiment) {
+            case "0":
+                return { word: "Neutral", color: "#DEC20B" };
+            case "1":
+                return { word: "Positive", color: "#00873E" };
+            case "-1":
+                return { word: "Negative", color: "#CE2029" };
+            case "-2":
+                return { word: "Not Mentioned", color: "#0F52BA" };
+            default:
+                return { word: "", color: "black" };
+        }
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        // location
+        const location_traffic_convenience = document.getElementsByClassName("location_traffic_convenience");
+        const location_distance_from_business_district = document.getElementsByClassName("location_distance_from_business_district");
+        const location_easy_to_find = document.getElementsByClassName("location_easy_to_find");
+
+        // service
+        const service_wait_time = document.getElementsByClassName("service_wait_time");
+        const service_waiters_attitude = document.getElementsByClassName("service_waiters_attitude");
+        const service_parking_convenience = document.getElementsByClassName("service_parking_convenience");
+        const service_serving_speed = document.getElementsByClassName("service_serving_speed");
+
+        // price
+        const price_level = document.getElementsByClassName("price_level");
+        const price_cost_effective = document.getElementsByClassName("price_cost_effective");
+        const price_discount = document.getElementsByClassName("price_discount");
+
+        // Environment
+        const environment_decoration = document.getElementsByClassName("environment_decoration");
+        const environment_noise = document.getElementsByClassName("environment_noise");
+        const environment_space = document.getElementsByClassName("environment_space");
+        const environment_cleaness = document.getElementsByClassName("environment_cleaness");
+
+        // Dish
+        const dish_portion = document.getElementsByClassName("dish_portion");
+        const dish_taste = document.getElementsByClassName("dish_taste");
+        const dish_look = document.getElementsByClassName("dish_look");
+        const dish_recommendation = document.getElementsByClassName("dish_recommendation");
+
+        //others
+        const others_overall_experience = document.getElementsByClassName("others_overall_experience");
+        const others_willing_to_consume_again = document.getElementsByClassName("others_willing_to_consume_again");
+
+
+        function changeColor(element, sentiment) {
+            const result = getWord(sentiment);
+            element.innerText = result.word;
+            element.style.color = result.color;
+        }
+
+        // location 
+        Array.from(location_traffic_convenience).forEach(function (labelElement) {
+            const labelValue = labelElement.innerText;
+            changeColor(labelElement, labelValue);
+        });
+        Array.from(location_distance_from_business_district).forEach(function (labelElement) {
+            const labelValue = labelElement.innerText;
+            changeColor(labelElement, labelValue);
+        });
+
+        Array.from(location_easy_to_find).forEach(function (labelElement) {
+            const labelValue = labelElement.innerText;
+            changeColor(labelElement, labelValue);
+        });
+
+        // service
+
+        Array.from(service_wait_time).forEach(function (labelElement) {
+            const labelValue = labelElement.innerText;
+            changeColor(labelElement, labelValue);
+        });
+        Array.from(service_waiters_attitude).forEach(function (labelElement) {
+            const labelValue = labelElement.innerText;
+            changeColor(labelElement, labelValue);
+        });
+
+        Array.from(service_parking_convenience).forEach(function (labelElement) {
+            const labelValue = labelElement.innerText;
+            changeColor(labelElement, labelValue);
+        });
+        Array.from(service_serving_speed).forEach(function (labelElement) {
+            const labelValue = labelElement.innerText;
+            changeColor(labelElement, labelValue);
+        });
+
+        //price
+
+        Array.from(price_level).forEach(function (labelElement) {
+            const labelValue = labelElement.innerText;
+            changeColor(labelElement, labelValue);
+        });
+
+        Array.from(price_cost_effective).forEach(function (labelElement) {
+            const labelValue = labelElement.innerText;
+            changeColor(labelElement, labelValue);
+        });
+        Array.from(price_discount).forEach(function (labelElement) {
+            const labelValue = labelElement.innerText;
+            changeColor(labelElement, labelValue);
+        });
+
+        // Environment
+
+        Array.from(environment_decoration).forEach(function (labelElement) {
+            const labelValue = labelElement.innerText;
+            changeColor(labelElement, labelValue);
+        });
+        Array.from(environment_noise).forEach(function (labelElement) {
+            const labelValue = labelElement.innerText;
+            changeColor(labelElement, labelValue);
+        });
+
+        Array.from(environment_space).forEach(function (labelElement) {
+            const labelValue = labelElement.innerText;
+            changeColor(labelElement, labelValue);
+        });
+        Array.from(environment_cleaness).forEach(function (labelElement) {
+            const labelValue = labelElement.innerText;
+            changeColor(labelElement, labelValue);
+        });
+
+        // Dish
+
+        Array.from(dish_portion).forEach(function (labelElement) {
+            const labelValue = labelElement.innerText;
+            changeColor(labelElement, labelValue);
+        });
+        Array.from(dish_taste).forEach(function (labelElement) {
+            const labelValue = labelElement.innerText;
+            changeColor(labelElement, labelValue);
+        });
+
+        Array.from(dish_look).forEach(function (labelElement) {
+            const labelValue = labelElement.innerText;
+            changeColor(labelElement, labelValue);
+        });
+        Array.from(dish_recommendation).forEach(function (labelElement) {
+            const labelValue = labelElement.innerText;
+            changeColor(labelElement, labelValue);
+        });
+        // others
+
+        Array.from(others_overall_experience).forEach(function (labelElement) {
+            const labelValue = labelElement.innerText;
+            changeColor(labelElement, labelValue);
+        });
+        Array.from(others_willing_to_consume_again).forEach(function (labelElement) {
+            const labelValue = labelElement.innerText;
+            changeColor(labelElement, labelValue);
+        });
+    });
+
     </script>
     <!-- <script>
         var ctx = document.getElementById("targetPolarityBarChart").getContext("2d");
