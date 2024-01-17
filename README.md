@@ -1,27 +1,40 @@
 # Environment
-Python 3.6
+Python 3.6.5
 
 Environment installation cmd:
 ```bash
-python -m pip install --upgrade pip
-pip install https://download.pytorch.org/whl/cu110/torch-1.7.0%2Bcu110-cp36-cp36m-win_amd64.whl
-pip install spacy
-pip install scikit-learn
-pip install scrapy
-mamba install m2-base
+pip install opencc
+pip install jieba --upgrade
+pip install paddlepaddle-tiny==1.6.1
+pip install jieba
+pip install PyYAML==4.2b4
+pip uninstall numpy
+pip uninstall pandas
+pip install numpy==1.14.5
+pip install pandas==0.23.4
+pip install https://download.pytorch.org/whl/cu100/torch-1.0.1-cp36-cp36m-win_amd64.whl
+pip install tensorflow-gpu==1.10.0
 ```
 
 
-Please download this dataset:
-[https://nlp.stanford.edu/data/glove.42B.300d.zip](https://nlp.stanford.edu/data/glove.42B.300d.zip)
+download "cuda toolkit version 9.2" and "cudnn 9.2" from NVIDIA official site
+download "cuda toolkit version 9.0" and "cudnn 9.0" from NVIDIA official site
 
 To run the code, please use the following cmd:
+
+cd fsauor-master/Multi-task/Transformer+Convolutional
+create folder call "data"
+create 4 folders (call "a", "b", "train", "val") inside the "data" folder
+download opencc-1.0.4-win32.7z and unzip it
+add the opencc bin path to system variable
+download the sgns.weibo.bigram-char.bz2 file and place it into "fsauor-master/Multi-task/Transformer+Convolutional/chinese_vectors" directory
+cd fsauor-master/Multi-task/Transformer+Convolutional/chinese_vectors
+python build_word_vectors.py
+put the chinese_stopwords.txt into "fsauor-master/Multi-task/Transformer+Convolutional/chinese_vectors" directory 
 
 bash ./train.sh
 
 # comment
 ```commandline
-cd ./scrapy_openrice
-scrapy crawl openrice
-scrapy crawl openrice -o [filename].csv
+
 ```
