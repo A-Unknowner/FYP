@@ -4,39 +4,71 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='search_list.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+          rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/loading.css">
     <title></title>
 </head>
 
 <body>
+<!-- loading wrapper -->
+<div class="preloader-wrapper">
 
+    <div class="spinner-border text-info" role="status" style="width: 5em; height: 5em;">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+
+    <div>
+        Analyzing ...
+    </div>
+
+</div>
 <div class="container">
     <div class="row">
+        <div style="margin-bottom: 10%"><h1>Restaurant Keyword Search : {{ key }}</h1></div>
+    </div>
 
-        <div class="col-sm">
-            <img src="{{ url_for('static', filename='restaurant1.jpg') }}" alt="testing" class="img-fluid">
-        </div>
+    <div class="row" style="background-color: #f2f2f2;">
 
-        <div class="col-sm-7">
-            restaurant : {{ content }}<br>
-            restaurant address: {{ content_address }}
-            <div class="rating">
-                <span class="fas fa-star checked"></span>
-                <span class="fas fa-star checked"></span>
-                <span class="fas fa-star checked"></span>
-                <span class="far fa-star"></span>
-                <span class="far fa-star"></span>
-            </div>
-        </div>
-
-        <div class="col-sm">
-            <button type="button" class="btn btn-success">HERE !</button>
-        </div>
+        <table class="table">
+            <thead>
+            <tr>
+                {#                <td>Restaurant IMG</td>#}
+                <td><h3>Restaurant Name</h3></td>
+            </tr>
+            </thead>
+            <tbody>
+            {% for i in range(data|length) %}
+                <tr>
+                    {#                    <td style="width: 75%;"><b>{{ data[i]["restaurant_img_url"] }}</b></td>#}
+                    <td style="width: 75%;">
+                        <form action="/result" method="POST">
+                            <input type="hidden" name="restaurant_name"
+                                   value="{{ data[i]["restaurant_name"] }}"/>
+                            <button onclick="loadingFunction()" type="submit" name="analyze_bttn"
+                                    value="{{ data[i]["restaurant_url"] }}"
+                                    id="analyze_btn">{{ data[i]["restaurant_name"] }}
+                            </button>
+                        </form>
+                    </td>
+                <tr>
+            {% endfor %}
+            </tr>
+            </tbody>
+        </table>
     </div>
 </div>
-
-
+<script>
+    function loadingFunction() {
+        const preloaderWrapper = document.querySelector(".preloader-wrapper");
+        preloaderWrapper.style.visibility = 'visible';
+        window.addEventListener("load", function () {
+            preloaderWrapper.classList.add("fade-out-animation");
+        });
+    }
+</script>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
