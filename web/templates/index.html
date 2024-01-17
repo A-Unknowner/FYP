@@ -26,7 +26,7 @@
     </div> 
 
     <div class="container">
-    <h1 class="title">Restaurant Lisr</h1>
+    <h1 class="title">Restaurant</h1>
 
     <form action="/result" method="POST">
     
@@ -35,16 +35,17 @@
                 <thead>
                     <tr>
                         <th scope="col">Restaurant Name</th>
+                        
                     </tr>
                 </thead>
                 <tbody>
                     {% for data in datas %}
                     <tr>
-
+                        
                         <td>
                             <input type="hidden" name="restaurant_name" value="{{ data.restaurant_name }}" />
-                            <button onclick="loadingFunction()" type="submit" name="analyze_bttn" class="btn btn-lg btn-danger" id="analyze_btn"
-                                data-toggle="popover" value="{{ data.restaurant_url }}">{{ data.restaurant_name }}
+                            <button onclick="loadingFunction()" type="submit" name="analyze_bttn"
+                                value="{{ data.restaurant_url }}" id="analyze_btn">{{ data.restaurant_name }}
                             </button>
                         </td>
                     </tr>
