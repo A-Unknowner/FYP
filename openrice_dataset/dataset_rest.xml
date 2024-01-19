@@ -1,0 +1,2189 @@
+<Reviews>
+    <Review rid="至尊重慶雞煲 (創興廣場)#1">
+        <sentences>
+            <sentence id="至尊重慶雞煲 (創興廣場)#1:0">
+                <text>海鮮硬既有屎，牛肉發霉，碗碟非常非常非常唔乾淨。</text>
+                <Opinions>
+                    <Opinion target="海鮮" category="FOOD#QUALITY" polarity="negative"/>
+                    <Opinion target="牛肉" category="FOOD#QUALITY" polarity="negative"/>
+                    <Opinion target="碗碟" category="RESTAURANT#GENERAL" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="至尊重慶雞煲 (創興廣場)#1:1">
+                <text>雪糕未見過既垃圾牌子，芝士鍋芝士後面食到完全無意義不如清湯。</text>
+                <Opinions>
+                    <Opinion target="雪糕" category="FOOD#QUALITY" polarity="negative"/>
+                    <Opinion target="芝士鍋" category="FOOD#QUALITY" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="至尊重慶雞煲 (創興廣場)#1:2">
+                <text>服務態度都同屎一樣。</text>
+                <Opinions>
+                    <Opinion target="服務態度" category="SERVICE#GENERAL" polarity="negative"/>
+                </Opinions>
+            </sentence>
+        </sentences>
+    </Review>
+
+    <Review rid="至尊重慶雞煲 (創興廣場)#2">
+        <sentences>
+            <sentence id="至尊重慶雞煲 (創興廣場)#2:0">
+                <text>我從來未食過一間餐廳嘅雞煲咁難食，特別係嗰啲肉類火鍋配料，垃圾到不堪。</text>
+                <Opinions>
+                    <Opinion target="雞煲" category="FOOD#QUALITY" polarity="negative"/>
+                    <Opinion target="肉類火鍋配料" category="FOOD#QUALITY" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="至尊重慶雞煲 (創興廣場)#2:1">
+                <text>除咗一啲蔬菜同埋麵食係冇問題之外（因為係供應商叫貨返嚟）所有肉類嘅食物都係非常差，雞件就比雞絲，嗰啲魚皮餃一啖咬落去全部都係油。</text>
+                <Opinions>
+                    <Opinion target="蔬菜" category="FOOD#QUALITY" polarity="neutral"/>
+                    <Opinion target="麵食" category="FOOD#QUALITY" polarity="neutral"/>
+                </Opinions>
+            </sentence>
+            <sentence id="至尊重慶雞煲 (創興廣場)#2:2">
+                <text>嗰啲所謂嘅雪花肥牛，好似俾咗疊煙肉我去打邊爐。</text>
+                <Opinions>
+                    <Opinion target="雪花肥牛" category="FOOD#QUALITY" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="至尊重慶雞煲 (創興廣場)#2:3">
+                <text>我餐廳裏面啲員工個個做到好似死老竇咁（可能間餐廳個老闆衰啩）</text>
+                <Opinions>
+                    <Opinion target="員工" category="SERVICE#GENERAL" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="至尊重慶雞煲 (創興廣場)#2:3">
+                <text>我可以保證呢一世，我都唔會再去至尊雞煲食嘢。</text>
+                <Opinions>
+                    <Opinion target="至尊雞煲" category="RESTAURANT#GENERAL" polarity="negative"/>
+                </Opinions>
+            </sentence>
+        </sentences>
+    </Review>
+
+    <Review rid="至尊重慶雞煲 (創興廣場)#3">
+        <sentences>
+            <sentence id="至尊重慶雞煲 (創興廣場)#3:0">
+                <text>但係今次好失望 雖然價錢不是太貴 但係食物真係好差。</text>
+                <Opinions>
+                    <Opinion target="食物" category="FOOD#QUALITY" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="至尊重慶雞煲 (創興廣場)#3:1">
+                <text>雞煲普普通通不算太難食 但係豬紅有少少腥味 響鈴好似食緊膠咁</text>
+                <Opinions>
+                    <Opinion target="雞煲" category="FOOD#QUALITY" polarity="neutral"/>
+                    <Opinion target="豬紅" category="FOOD#QUALITY" polarity="negative"/>
+                    <Opinion target="響鈴" category="FOOD#QUALITY" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="至尊重慶雞煲 (創興廣場)#3:2">
+                <text>食完啲嘢啲服務員唔會主動過嚟執 上餐速度非常慢。</text>
+                <Opinions>
+                    <Opinion target="服務員" category="SERVICE#GENERAL" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="至尊重慶雞煲 (創興廣場)#3:3">
+                <text>啲肥牛底盤有好多水 其他食物睇得出係好唔新鮮。</text>
+                <Opinions>
+                    <Opinion target="肥牛底盤" category="FOOD#QUALITY" polarity="negative"/>
+                    <Opinion target="其他食物" category="FOOD#QUALITY" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="至尊重慶雞煲 (創興廣場)#3:3">
+                <text>雖然價錢比起其他雞煲都算平 但係寧願加多幾十蚊食貴少少服務員態度極度緩慢。</text>
+                <Opinions>
+                    <Opinion target="價錢" category="RESTAURANT#GENERAL" polarity="neutral"/>
+                </Opinions>
+            </sentence>
+        </sentences>
+    </Review>
+
+    <Review rid="至尊重慶雞煲 (創興廣場)#4">
+        <sentences>
+            <sentence id="至尊重慶雞煲 (創興廣場)#4:0">
+                <text>肥牛係超薄切仲要有有根 好難食。</text>
+                <Opinions>
+                    <Opinion target="肥牛" category="FOOD#QUALITY" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="至尊重慶雞煲 (創興廣場)#4:1">
+                <text>返而豬腩片同羊片就好少少 滑雞件又係超級薄切 淥完之後幾乎揾吾到。</text>
+                <Opinions>
+                    <Opinion target="豬腩片同羊片" category="FOOD#QUALITY" polarity="neutral"/>
+                    <Opinion target="滑雞件" category="FOOD#QUALITY" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="至尊重慶雞煲 (創興廣場)#4:2">
+                <text>朋友叫嘅娃娃菜仲要有蟲。</text>
+                <Opinions>
+                    <Opinion target="娃娃菜" category="FOOD#QUALITY" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="至尊重慶雞煲 (創興廣場)#4:3">
+                <text>所以就特登揾左呢間嚟試 貪佢價錢吾貴又有得任食。</text>
+                <Opinions>
+                    <Opinion target="價錢" category="FOOD#PRICES" polarity="positive"/>
+                </Opinions>
+            </sentence>
+        </sentences>
+    </Review>
+
+    <Review rid="星幕#1">
+        <sentences>
+            <sentence id="星幕#1:0">
+                <text>佢啲嘢食真係超難食，分分鐘同薩莉亞比薩莉亞都好食過佢。</text>
+                <Opinions>
+                    <Opinion target="嘢食" category="FOOD#QUALITY" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="星幕#1:1">
+                <text>然之後佢個披薩係超難食，薩莉亞嘅$32披薩都好食過佢。。</text>
+                <Opinions>
+                    <Opinion target="披薩" category="FOOD#QUALITY" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="星幕#1:2">
+                <text>然後佢小菜菠菜啊，薯條屬於正常水平。</text>
+                <Opinions>
+                    <Opinion target="小菜菠菜" category="FOOD#QUALITY" polarity="neutral"/>
+                    <Opinion target="薯條" category="FOOD#QUALITY" polarity="neutral"/>
+                </Opinions>
+            </sentence>
+            <sentence id="星幕#1:3">
+                <text>至於佢嘅意粉，簡直係地獄，好似食緊必勝客放喺外賣盒焗咗好耐嘅意粉。</text>
+                <Opinions>
+                    <Opinion target="意粉" category="FOOD#QUALITY" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="星幕#1:4">
+                <text>佢嘅牛扒要我哋等45分鐘，等完之後係煮過頭了。</text>
+                <Opinions>
+                    <Opinion target="牛扒" category="FOOD#QUALITY" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="星幕#1:5">
+                <text>根本係茶餐廳嘅格局酒店嘅價錢。</text>
+                <Opinions>
+                    <Opinion target="價錢" category="RESTAURANT#PRICES" polarity="negative"/>
+                </Opinions>
+            </sentence>
+        </sentences>
+    </Review>
+    <Review rid="星幕#2">
+        <sentences>
+            <sentence id="星幕#2:0">
+                <text>咸點還可以。</text>
+                <Opinions>
+                    <Opinion target="咸點" category="FOOD#QUALITY" polarity="neutral"/>
+                </Opinions>
+            </sentence>
+            <sentence id="星幕#2:1">
+                <text>甜點除了芝士蛋糕好吃一點之外全部都好甜，甜到好似食緊砂糖一樣。</text>
+                <Opinions>
+                    <Opinion target="甜點" category="FOOD#QUALITY" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="星幕#2:2">
+                <text>另外點了朱古力，是用粉沖的，不是濃郁的朱古力。</text>
+                <Opinions>
+                    <Opinion target="朱古力" category="FOOD#QUALITY" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="星幕#2:3">
+                <text>環境方面47樓高樓層還算不錯，不過附近高樓不少，所以都係望屋苑屋頂為主，但也算開揚。</text>
+                <Opinions>
+                    <Opinion target="環境" category="AMBIENCE#GENERAL" polarity="neutral"/>
+                </Opinions>
+            </sentence>
+        </sentences>
+    </Review>
+
+    <Review rid="星幕#3">
+        <sentences>
+            <sentence id="星幕#3:0">
+                <text>咸點還可以。</text>
+                <Opinions>
+                    <Opinion target="咸點" category="FOOD#QUALITY" polarity="neutral"/>
+                </Opinions>
+            </sentence>
+            <sentence id="星幕#3:1">
+                <text>甜點除了芝士蛋糕好吃一點之外全部都好甜，甜到好似食緊砂糖一樣。</text>
+                <Opinions>
+                    <Opinion target="甜點" category="FOOD#QUALITY" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="星幕#3:2">
+                <text>另外點了朱古力，是用粉沖的，不是濃郁的朱古力。</text>
+                <Opinions>
+                    <Opinion target="朱古力" category="FOOD#QUALITY" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="星幕#3:3">
+                <text>環境方面47樓高樓層還算不錯，不過附近高樓不少，所以都係望屋苑屋頂為主，但也算開揚。</text>
+                <Opinions>
+                    <Opinion target="環境" category="AMBIENCE#GENERAL" polarity="neutral"/>
+                </Opinions>
+            </sentence>
+        </sentences>
+    </Review>
+
+    <Review rid="星幕#4">
+        <sentences>
+            <sentence id="星幕#4:0">
+                <text>位處47樓，係酒店頂層，我們滿有期待，可是異常失望。</text>
+                <Opinions>
+                    <Opinion target="位置" category="LOCATION#GENERAL" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="星幕#4:1">
+                <text>喜歡抹茶既會好失望，因爲用低質抹茶做的主甜品，買相一般，但超唔好食，仲死甜。</text>
+                <Opinions>
+                    <Opinion target="抹茶" category="FOOD#QUALITY" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="星幕#4:2">
+                <text>其他咸食係凍既，亦麻麻，只能填肚。</text>
+                <Opinions>
+                    <Opinion target="咸食" category="FOOD#QUALITY" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="星幕#4:3">
+                <text>飲品水準... 唉，唔得。唯有主力飲水。</text>
+                <Opinions>
+                    <Opinion target="飲品" category="FOOD#QUALITY" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="星幕#4:4">
+                <text>算得上好食係焦糖脆脆和蜜紅豆。</text>
+                <Opinions>
+                    <Opinion target="焦糖脆脆" category="FOOD#QUALITY" polarity="positive"/>
+                    <Opinion target="蜜紅豆" category="FOOD#QUALITY" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="星幕#4:5">
+                <text>服務不是酒店水平，鄰坐待應上下午茶餐時竟然自以為有型擺盪，結果其中一件連裝盆跌撞枱面。待應沒有主動道歉，之後有補回跌了的那部分。</text>
+                <Opinions>
+                    <Opinion target="服務" category="SERVICE#GENERAL" polarity="negative"/>
+                    <Opinion target="待應" category="SERVICE#GENERAL" polarity="negative"/>
+                </Opinions>
+            </sentence>
+        </sentences>
+    </Review>
+
+    <Review rid="老媽拌麵 (將軍澳中心)#1">
+        <sentences>
+            <sentence id="老媽拌麵 (將軍澳中心)#1:0">
+                <text>紅燒牛肉麵湯底好濃厚但牛肉偏韌口感很差面質亦不是彈牙 想像到如果比湯浸住應該會好快爛晒。</text>
+                <Opinions>
+                    <Opinion target="紅燒牛肉麵" category="FOOD#QUALITY" polarity="negative"/>
+                </Opinions>
+            </sentence>
+        </sentences>
+    </Review>
+
+    <Review rid="老媽拌麵 (將軍澳中心)#2">
+        <sentences>
+            <sentence id="老媽拌麵 (將軍澳中心)#2:0">
+                <text>老媽伴麵係我幾喜愛既台灣餐廳。</text>
+                <Opinions>
+                    <Opinion target="老媽伴麵" category="RESTAURANT#GENERAL" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="老媽拌麵 (將軍澳中心)#2:1">
+                <text>台式柚子骨肉燥飯好香既柚子味, 肉燥飯就好足料。</text>
+                <Opinions>
+                    <Opinion target="台式柚子骨肉燥飯" category="FOOD#QUALITY" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="老媽拌麵 (將軍澳中心)#2:2">
+                <text>加小食 ~澎湖花枝丸 $22最愛既台灣小食,好有花枝質感</text>
+                <Opinions>
+                    <Opinion target="澎湖花枝丸" category="FOOD#QUALITY" polarity="positive"/>
+                    <Opinion target="澎湖花枝丸" category="FOOD#PRICES" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="老媽拌麵 (將軍澳中心)#2:3">
+                <text>熱帶水果茶 加30 都值得既好喜歡水果茶既味道,而且好足料,好多水果係入面。</text>
+                <Opinions>
+                    <Opinion target="熱帶水果茶" category="FOOD#QUALITY" polarity="positive"/>
+                    <Opinion target="熱帶水果茶" category="FOOD#PRICES" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="老媽拌麵 (將軍澳中心)#2:4">
+                <text>路邊攤小食拼盤有南乳雞、澎湖花枝丸、台灣腸,全部都係台灣既美食。</text>
+                <Opinions>
+                    <Opinion target="路邊攤小食拼盤" category="FOOD#STYLE_OPTIONS" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="老媽拌麵 (將軍澳中心)#2:5">
+                <text>炸地瓜條 真係好香脆,而且佢落左小小粉,又幾夾下。</text>
+                <Opinions>
+                    <Opinion target="炸地瓜條" category="FOOD#QUALITY" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="老媽拌麵 (將軍澳中心)#2:6">
+                <text>最後甜點~草莓雪糕依個真係好正呀,最後食番杯雪糕真係好開心。</text>
+                <Opinions>
+                    <Opinion target="草莓雪糕" category="FOOD#QUALITY" polarity="positive"/>
+                </Opinions>
+            </sentence>
+        </sentences>
+    </Review>
+
+    <Review rid="老媽拌麵 (將軍澳中心)#3">
+        <sentences>
+            <sentence id="老媽拌麵 (將軍澳中心)#3:0">
+                <text>珍珠奶茶味道就是一杯普通不過的珍珠奶茶，喝過一次再不有想喝第二次的想法。</text>
+                <Opinions>
+                    <Opinion target="老媽伴麵" category="FOOD#QUALITY" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="老媽拌麵 (將軍澳中心)#3:1">
+                <text>整體而言，食物水平一般不算值價。</text>
+                <Opinions>
+                    <Opinion target="食物水平" category="FOOD#QUALITY" polarity="negative"/>
+                </Opinions>
+            </sentence>
+        </sentences>
+    </Review>
+    <Review rid="蠔站 (將軍澳中心)#1">
+        <sentences>
+            <sentence id="蠔站 (將軍澳中心)#1:0">
+                <text>野食係好食既</text>
+                <Opinions>
+                    <Opinion target="野食" category="FOOD#QUALITY" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="蠔站 (將軍澳中心)#1:1">
+                <text>豬手肉質鮮嫩，而且味道不錯，值得推介！</text>
+                <Opinions>
+                    <Opinion target="豬手" category="FOOD#QUALITY" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="蠔站 (將軍澳中心)#1:2">
+                <text>而且這西餐廳亦都有很多不同款式的酒類</text>
+                <Opinions>
+                    <Opinion target="酒類" category="FOOD#STYLE_OPTIONS" polarity="positive"/>
+                </Opinions>
+            </sentence>
+        </sentences>
+    </Review>
+    <Review rid="蠔站 (將軍澳中心)#2">
+        <sentences>
+            <sentence id="蠔站 (將軍澳中心)#2:0">
+                <text>野食係好食既</text>
+                <Opinions>
+                    <Opinion target="野食" category="FOOD#QUALITY" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="蠔站 (將軍澳中心)#2:1">
+                <text>豬手肉質鮮嫩，而且味道不錯，值得推介！</text>
+                <Opinions>
+                    <Opinion target="豬手" category="FOOD#QUALITY" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="蠔站 (將軍澳中心)#2:2">
+                <text>而且這西餐廳亦都有很多不同款式的酒類</text>
+                <Opinions>
+                    <Opinion target="酒類" category="FOOD#STYLE_OPTIONS" polarity="positive"/>
+                </Opinions>
+            </sentence>
+        </sentences>
+    </Review>
+    <Review rid="蠔站 (將軍澳中心)#3">
+        <sentences>
+            <sentence id="蠔站 (將軍澳中心)#3:0">
+                <text>生蠔$10一隻確實抵食</text>
+                <Opinions>
+                    <Opinion target="生蠔" category="FOOD#PRICES" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="蠔站 (將軍澳中心)#3:1">
+                <text>生蠔夠新鮮濃濃海水味</text>
+                <Opinions>
+                    <Opinion target="生蠔" category="FOOD#QUALITY" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="蠔站 (將軍澳中心)#3:2">
+                <text>最鐘意羽衣甘藍嗰種質感，又夠晒新鮮，沾滿藍芝士醬，味道好濃郁</text>
+                <Opinions>
+                    <Opinion target="羽衣甘藍" category="FOOD#QUALITY" polarity="positive"/>
+                </Opinions>
+            </sentence>
+        </sentences>
+    </Review>
+    <Review rid="蠔站 (將軍澳中心)#4">
+        <sentences>
+            <sentence id="蠔站 (將軍澳中心)#4:0">
+                <text>十蚊一隻嘅特價生蠔還可以</text>
+                <Opinions>
+                    <Opinion target="生蠔" category="FOOD#PRICES" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="蠔站 (將軍澳中心)#4:1">
+                <text>生蠔雖然好細隻，但都叫有甜味，十分唔錯。</text>
+                <Opinions>
+                    <Opinion target="生蠔" category="FOOD#QUALITY" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="蠔站 (將軍澳中心)#4:2">
+                <text>二人份嘅西班牙海鮮焗飯都正常發揮</text>
+                <Opinions>
+                    <Opinion target="西班牙海鮮焗飯" category="FOOD#QUALITY" polarity="neutral"/>
+                </Opinions>
+            </sentence>
+        </sentences>
+    </Review>
+    <Review rid="蠔站 (將軍澳中心)#5">
+        <sentences>
+            <sentence id="蠔站 (將軍澳中心)#5:0">
+                <text>一到門口員工離遠望到我地掉頭走</text>
+                <Opinions>
+                    <Opinion target="員工" category="SERVICE#GENERAL" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="蠔站 (將軍澳中心)#5:1">
+                <text>有個疑似店主既人過黎解釋番，但個態度係唔好既</text>
+                <Opinions>
+                    <Opinion target="店主" category="SERVICE#GENERAL" polarity="negative"/>
+                </Opinions>
+            </sentence>
+        </sentences>
+    </Review>
+    <Review rid="蠔站 (將軍澳中心)#6">
+        <sentences>
+            <sentence id="蠔站 (將軍澳中心)#6:0">
+                <text>咁佢話生蠔係還不錯既</text>
+                <Opinions>
+                    <Opinion target="生蠔" category="FOOD#QUALITY" polarity="neutral"/>
+                </Opinions>
+            </sentence>
+            <sentence id="蠔站 (將軍澳中心)#6:1">
+                <text>海鮮飯飯黎左，食左第一淡已經覺得唔好食</text>
+                <Opinions>
+                    <Opinion target="海鮮飯" category="FOOD#QUALITY" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="蠔站 (將軍澳中心)#6:2">
+                <text>個披薩可以話好普通，冇乜特別，可接受</text>
+                <Opinions>
+                    <Opinion target="披薩" category="FOOD#QUALITY" polarity="neutral"/>
+                </Opinions>
+            </sentence>
+        </sentences>
+    </Review>
+
+    <Review rid="蠔站 (將軍澳中心)#7">
+        <sentences>
+            <sentence id="蠔站 (將軍澳中心)#7:0">
+                <text>嚟個隻生蠔又細又冇肉</text>
+                <Opinions>
+                    <Opinion target="生蠔" category="FOOD#QUALITY" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="蠔站 (將軍澳中心)#7:1">
+                <text>叫個女侍應幫我換，佢幫我拎返去水吧，點知聽到水吧開蠔嗰個位置個男侍應講晒粗口</text>
+                <Opinions>
+                    <Opinion target="女侍應" category="SERVICE#GENERAL" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="蠔站 (將軍澳中心)#7:2">
+                <text>叫杯凍奶茶少甜少冰，仲甜過平時。</text>
+                <Opinions>
+                    <Opinion target="凍奶茶" category="FOOD#QUALITY" polarity="negative"/>
+                </Opinions>
+            </sentence>
+        </sentences>
+    </Review>
+    <Review rid="蠔站 (將軍澳中心)#8">
+        <sentences>
+            <sentence id="蠔站 (將軍澳中心)#8:0">
+                <text>點了十安士牛扒，肉質完全不是$290應有的質素</text>
+                <Opinions>
+                    <Opinion target="牛扒" category="FOOD#QUALITY" polarity="negative"/>
+                    <Opinion target="牛扒" category="FOOD#PRICES" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="蠔站 (將軍澳中心)#8:1">
+                <text>牛扒過份煙韌，四分熟變了差不多全熟</text>
+                <Opinions>
+                    <Opinion target="牛扒" category="FOOD#QUALITY" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="蠔站 (將軍澳中心)#8:2">
+                <text>意粉量少之餘，只有酸味，賣相也非常平凡</text>
+                <Opinions>
+                    <Opinion target="意粉" category="FOOD#QUALITY" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="蠔站 (將軍澳中心)#8:3">
+                <text>論披薩不及附近各大西餐廳及披薩店</text>
+                <Opinions>
+                    <Opinion target="披薩" category="FOOD#QUALITY" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="蠔站 (將軍澳中心)#8:4">
+                <text>主打的蠔也不是非常新鮮。</text>
+                <Opinions>
+                    <Opinion target="生蠔" category="FOOD#QUALITY" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="蠔站 (將軍澳中心)#8:5">
+                <text>點了大蝦牛油果芒果沙律，服務生卻說沒有牛油果，以更多份量的芒果代替，生意是這樣做的嗎？</text>
+                <Opinions>
+                    <Opinion target="服務生" category="SERVICE#GENERAL" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="蠔站 (將軍澳中心)#8:6">
+                <text>顧客服務態度尤其差，服務員在點餐點到一半的時候離開並接送其他客人</text>
+                <Opinions>
+                    <Opinion target="服務" category="SERVICE#GENERAL" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="蠔站 (將軍澳中心)#8:7">
+                <text>服務員忘記在用餐時上酒，要客人提點才懂得上紅白酒</text>
+                <Opinions>
+                    <Opinion target="服務員" category="SERVICE#GENERAL" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="蠔站 (將軍澳中心)#8:8">
+                <text>整體性價比非常低</text>
+                <Opinions>
+                    <Opinion target="性價比" category="RESTAURANT#PRICES" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="蠔站 (將軍澳中心)#8:9">
+                <text>背景音樂非常不適合用餐及餐廳本來的氣氛</text>
+                <Opinions>
+                    <Opinion target="背景音樂" category="AMBIENCE#GENERAL" polarity="negative"/>
+                </Opinions>
+            </sentence>
+        </sentences>
+    </Review>
+
+    <Review rid="烏蠅館 (新都城中心二期)#1">
+        <sentences>
+            <sentence id="烏蠅館 (新都城中心二期)#1:0">
+                <text>負責裝外賣既員工係求其裝，合理懷疑係咩餸多就放咩餸</text>
+                <Opinions>
+                    <Opinion target="員工" category="SERVICE#GENERAL" polarity="negative"/>
+                </Opinions>
+            </sentence>
+        </sentences>
+    </Review>
+    <Review rid="烏蠅館 (新都城中心二期)#2">
+        <sentences>
+            <sentence id="烏蠅館 (新都城中心二期)#2:0">
+                <text>個蒜香烤魚好油，鹹到好苦，鹹到條利都食唔到味道</text>
+                <Opinions>
+                    <Opinion target="蒜香烤魚" category="FOOD#QUALITY" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="烏蠅館 (新都城中心二期)#2:1">
+                <text>張檯真係好細</text>
+                <Opinions>
+                    <Opinion target="檯" category="RESTAURANT#GENERAL" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="烏蠅館 (新都城中心二期)#2:2">
+                <text>海帶苗超鹹超鹹。</text>
+                <Opinions>
+                    <Opinion target="海帶苗" category="FOOD#QUALITY" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="烏蠅館 (新都城中心二期)#2:3">
+                <text>服務又唔太好</text>
+                <Opinions>
+                    <Opinion target="服務" category="SERVICE#GENERAL" polarity="negative"/>
+                </Opinions>
+            </sentence>
+        </sentences>
+    </Review>
+    <Review rid="烏蠅館 (新都城中心二期)#3">
+        <sentences>
+            <sentence id="烏蠅館 (新都城中心二期)#3:0">
+                <text>撈米線內有半碗湯底，啲汁水汪汪，所以米線掛唔到汁，唯有當湯米線咁食，碗米線唔可以話冇味道，但係就少咗鹹味，成碗米線非常之清淡，完全冇四川嗰種風味。</text>
+                <Opinions>
+                    <Opinion target="撈米線" category="FOOD#QUALITY" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="烏蠅館 (新都城中心二期)#3:1">
+                <text>好彩豬大腸都唔錯，都算入味。</text>
+                <Opinions>
+                    <Opinion target="豬大腸" category="RESTAURANT#GENERAL" polarity="neutral"/>
+                </Opinions>
+            </sentence>
+            <sentence id="烏蠅館 (新都城中心二期)#3:2">
+                <text>本來想試吓佢啲特色甜品，但係大部份都冇得買，有啲失望。</text>
+                <Opinions>
+                    <Opinion target="" category="RESTAURANT#GENERAL" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="烏蠅館 (新都城中心二期)#3:3">
+                <text>第二次去食烏蠅館，記得第一次感覺還可以，今次冇比蒜蓉我，所以又失色不少，我諗會再隔一排先會再去。</text>
+                <Opinions>
+                    <Opinion target="烏蠅館" category="SERVICE#GENERAL" polarity="negative"/>
+                </Opinions>
+            </sentence>
+        </sentences>
+    </Review>
+    <Review rid="烏蠅館 (新都城中心二期)#4">
+        <sentences>
+            <sentence id="烏蠅館 (新都城中心二期)#4:0">
+                <text>這家餐廳的招牌菜式當然就是麻辣烤魚！魚肉質素厚實，充滿鮮味，而湯底搭配川菜獨特的麻辣調味料，經過炭火燒烤而成，每一口都帶來辣椒的炙熱刺激感。</text>
+                <Opinions>
+                    <Opinion target="麻辣烤魚" category="FOOD#QUALITY" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="烏蠅館 (新都城中心二期)#4:1">
+                <text>我們點了一些菜品和丸類，質素還不錯，菜類和豆卜吸滿湯汁滋味無窮。</text>
+                <Opinions>
+                    <Opinion target="菜品" category="FOOD#QUALITY" polarity="positive"/>
+                    <Opinion target="丸類" category="FOOD#QUALITY" polarity="positive"/>
+                    <Opinion target="菜類" category="FOOD#QUALITY" polarity="positive"/>
+                    <Opinion target="豆卜" category="FOOD#QUALITY" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="烏蠅館 (新都城中心二期)#4:2">
+                <text>走進餐廳，就已經被迎面而來的辣椒香氣所吸引，整個環境都充滿麻香辣味。</text>
+                <Opinions>
+                    <Opinion target="辣椒香氣" category="AMBIENCE#GENERAL" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="烏蠅館 (新都城中心二期)#4:3">
+                <text>整體來說，這家餐廳的性價比算是幾高，大家都吃得很飽滿呢。</text>
+                <Opinions>
+                    <Opinion target="性價比" category="RESTAURANT#PRICES" polarity="positive"/>
+                </Opinions>
+            </sentence>
+        </sentences>
+    </Review>
+    <Review rid="烏蠅館 (新都城中心二期)#5">
+        <sentences>
+            <sentence id="烏蠅館 (新都城中心二期)#5:0">
+                <text>叫咗冒菜餐同餃子，本身食咗幾啖嗰冒菜都覺得唔錯，都叫幾抵食而味道亦唔差。</text>
+                <Opinions>
+                    <Opinion target="冒菜餐" category="FOOD#QUALITY" polarity="positive"/>
+                    <Opinion target="冒菜餐" category="FOOD#PRICES" polarity="positive"/>
+                    <Opinion target="餃子" category="FOOD#QUALITY" polarity="positive"/>
+                    <Opinion target="餃子" category="FOOD#PRICES" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="烏蠅館 (新都城中心二期)#5:1">
+                <text>點知其中一粒餃子入面食到好大粒石</text>
+                <Opinions>
+                    <Opinion target="餃子" category="FOOD#QUALITY" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="烏蠅館 (新都城中心二期)#5:2">
+                <text>問咗店員先知佢地啲餃子係人手包，但點解可以人手包都包到有咁大粒石係入面？</text>
+                <Opinions>
+                    <Opinion target="店員" category="SERVICE#GENERAL" polarity="negative"/>
+                </Opinions>
+            </sentence>
+        </sentences>
+    </Review>
+    <Review rid="烏蠅館 (新都城中心二期)#6">
+        <sentences>
+            <sentence id="烏蠅館 (新都城中心二期)#6:0">
+                <text>叫咗冒菜餐同餃子，本身食咗幾啖嗰冒菜都覺得唔錯，都叫幾抵食而味道亦唔差。</text>
+                <Opinions>
+                    <Opinion target="冒菜餐" category="FOOD#QUALITY" polarity="positive"/>
+                    <Opinion target="冒菜餐" category="FOOD#PRICES" polarity="positive"/>
+                    <Opinion target="餃子" category="FOOD#QUALITY" polarity="positive"/>
+                    <Opinion target="餃子" category="FOOD#PRICES" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="烏蠅館 (新都城中心二期)#6:1">
+                <text>點知其中一粒餃子入面食到好大粒石</text>
+                <Opinions>
+                    <Opinion target="餃子" category="FOOD#QUALITY" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="烏蠅館 (新都城中心二期)#6:2">
+                <text>問咗店員先知佢地啲餃子係人手包，但點解可以人手包都包到有咁大粒石係入面？</text>
+                <Opinions>
+                    <Opinion target="店員" category="SERVICE#GENERAL" polarity="negative"/>
+                </Opinions>
+            </sentence>
+        </sentences>
+    </Review>
+    <Review rid="烏蠅館 (新都城中心二期)#7">
+        <sentences>
+            <sentence id="烏蠅館 (新都城中心二期)#7:0">
+                <text>本身個湯底就有啲蔬菜，有萵筍同雞髀菇 仲有啲芋絲，索左啲湯好惹味。</text>
+                <Opinions>
+                    <Opinion target="蔬菜" category="FOOD#QUALITY" polarity="positive"/>
+                    <Opinion target="萵筍" category="FOOD#QUALITY" polarity="positive"/>
+                    <Opinion target="雞髀菇" category="FOOD#QUALITY" polarity="positive"/>
+                    <Opinion target="芋絲" category="FOOD#QUALITY" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="烏蠅館 (新都城中心二期)#7:1">
+                <text>晚餐佢就以烤魚為主打 湯底都有四款，我哋揀咗香辣味 小辣</text>
+                <Opinions>
+                    <Opinion target="湯底" category="FOOD#STYLE_OPTIONS" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="烏蠅館 (新都城中心二期)#7:2">
+                <text>要左珍珠斑，魚唔算多骨 不過腩位都要小心啲食，有少少細骨。</text>
+                <Opinions>
+                    <Opinion target="珍珠斑" category="FOOD#QUALITY" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="烏蠅館 (新都城中心二期)#7:3">
+                <text>呢間烏蠅館喺將軍澳新都城中心二期，就喺正商場嘅戲院旁邊 餐廳正門位置喺商場嘅出邊。</text>
+                <Opinions>
+                    <Opinion target="珍珠斑" category="LOCATION#GENERAL" polarity="neutral"/>
+                </Opinions>
+            </sentence>
+            <sentence id="烏蠅館 (新都城中心二期)#7:4">
+                <text>呢之前食過一次午餐係食冒菜既，有少少似麻辣燙 覺得好好食。</text>
+                <Opinions>
+                    <Opinion target="冒菜" category="FOOD#QUALITY" polarity="positive"/>
+                </Opinions>
+            </sentence>
+        </sentences>
+    </Review>
+    <Review rid="烏蠅館 (新都城中心二期)#8">
+        <sentences>
+            <sentence id="烏蠅館 (新都城中心二期)#8:0">
+                <text>飲品方面除咗普通嘅飲品之外，亦都會有啲特色嘅飲品，例如蝶豆花等等，選擇非常之豐富。</text>
+                <Opinions>
+                    <Opinion target="飲品" category="FOOD#STYLE_OPTIONS" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="烏蠅館 (新都城中心二期)#8:1">
+                <text>如果想食多啲嘅話仲可以加錢加配唔同嘅配料。</text>
+                <Opinions>
+                    <Opinion target="配料" category="FOOD#STYLE_OPTIONS" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="烏蠅館 (新都城中心二期)#8:2">
+                <text>我就加咗一份薯粉，好大份，夠兩個人食。</text>
+                <Opinions>
+                    <Opinion target="薯粉" category="FOOD#QUALITY" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="烏蠅館 (新都城中心二期)#8:3">
+                <text>佢嘅烤魚真係好正，最平嘅烤魚係$268嘅珍珠班</text>
+                <Opinions>
+                    <Opinion target="烤魚" category="FOOD#QUALITY" polarity="positive"/>
+                    <Opinion target="珍珠班" category="FOOD#PRICES" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="烏蠅館 (新都城中心二期)#8:4">
+                <text>佢條魚啲肉質好鮮甜，而且選擇左一個唔辣嘅蒜香味，勁香勁濃味，同條魚好夾</text>
+                <Opinions>
+                    <Opinion target="魚" category="FOOD#QUALITY" polarity="positive"/>
+                </Opinions>
+            </sentence>
+        </sentences>
+    </Review>
+    <Review rid="金坊泰國美食#1">
+        <sentences>
+            <sentence id="金坊泰國美食#1:0">
+                <text>位於新都城中心二期 店鋪和內裡裝飾都充滿泰國風情。</text>
+                <Opinions>
+                    <Opinion target="店鋪" category="AMBIENCE#GENERAL" polarity="positive"/>
+                    <Opinion target="新都城中心二期" category="LOCATION#GENERAL" polarity="neutral"/>
+                </Opinions>
+            </sentence>
+            <sentence id="金坊泰國美食#1:1">
+                <text>午市套餐選擇很多 湯粉價格由52元起 飯麵就56元 包括湯和飲品 更可加配小食。</text>
+                <Opinions>
+                    <Opinion target="午市套餐" category="FOOD#STYLE_OPTIONS" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="金坊泰國美食#1:2">
+                <text>我要了馬沙文咖喱脆炸龍脷魚飯 香料豐富 椰汁味濃帶甜味 超好味呢 餐湯可選冬瓜湯或冬蔭公湯 也ok。</text>
+                <Opinions>
+                    <Opinion target="馬沙文咖喱脆炸龍脷魚飯" category="FOOD#QUALITY" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="金坊泰國美食#1:3">
+                <text>黃咖喱羊腩和咖喱鷄飯都很不錯。</text>
+                <Opinions>
+                    <Opinion target="黃咖喱羊腩" category="FOOD#QUALITY" polarity="positive"/>
+                    <Opinion target="咖喱鷄飯" category="FOOD#PRICES" polarity="positive"/>
+                </Opinions>
+            </sentence>
+        </sentences>
+    </Review>
+    <Review rid="金坊泰國美食#2">
+        <sentences>
+            <sentence id="金坊泰國美食#2:0">
+                <text></text>
+                <Opinions>
+                    <Opinion target="店鋪" category="AMBIENCE#GENERAL" polarity="positive"/>
+                    <Opinion target="新都城中心二期" category="LOCATION#GENERAL" polarity="neutral"/>
+                </Opinions>
+            </sentence>
+            <sentence id="金坊泰國美食#2:1">
+                <text></text>
+                <Opinions>
+                    <Opinion target="午市套餐" category="FOOD#STYLE_OPTIONS" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="金坊泰國美食#2:2">
+                <text></text>
+                <Opinions>
+                    <Opinion target="馬沙文咖喱脆炸龍脷魚飯" category="FOOD#QUALITY" polarity="positive"/>
+                </Opinions>
+            </sentence>
+        </sentences>
+    </Review>
+    <Review rid="金坊泰國美食#3">
+        <sentences>
+            <sentence id="金坊泰國美食#3:0">
+                <text>餐廳環境唔錯，坐位夠哂闊落。</text>
+                <Opinions>
+                    <Opinion target="餐廳環境" category="AMBIENCE#GENERAL" polarity="positive"/>
+                    <Opinion target="坐位" category="RESTAURANT#GENERAL" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="金坊泰國美食#3:1">
+                <text>明爐烏頭味道酸辣，越食越開胃。湯底亦都好鮮味。朋友好鍾意食裏面嘅配菜。</text>
+                <Opinions>
+                    <Opinion target="明爐烏頭" category="FOOD#QUALITY" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="金坊泰國美食#3:2">
+                <text>馬拉盞炒通菜大大碟，通菜爽脆，味道好夠。</text>
+                <Opinions>
+                    <Opinion target="馬拉盞炒通菜" category="FOOD#PRICES" polarity="positive"/>
+                    <Opinion target="馬拉盞炒通菜" category="FOOD#QUALITY" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="金坊泰國美食#3:3">
+                <text>海南雞（半隻）份量十足，肉質滑嫩，食落啖啖肉，配埋個醬汁，無得頂。</text>
+                <Opinions>
+                    <Opinion target="海南雞" category="FOOD#PRICES" polarity="positive"/>
+                    <Opinion target="海南雞" category="FOOD#QUALITY" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="金坊泰國美食#3:3">
+                <text>椰皇沙冰用椰皇肉打成嘅沙冰，飲落啖啖都有椰子肉，仲有好濃嘅椰子汁味。</text>
+                <Opinions>
+                    <Opinion target="椰皇沙冰" category="FOOD#QUALITY" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="金坊泰國美食#3:4">
+                <text>椰汁大菜糕：免費贈送嘅飯後甜品，清甜爽口。</text>
+                <Opinions>
+                    <Opinion target="椰汁大菜糕" category="FOOD#QUALITY" polarity="positive"/>
+                    <Opinion target="免費贈送" category="RESTAURANT#PRICES" polarity="positive"/>
+                </Opinions>
+            </sentence>
+        </sentences>
+    </Review>
+
+    <Review rid="金坊泰國美食#4">
+        <sentences>
+            <sentence id="金坊泰國美食#4:0">
+                <text>食物嚟講不過不失，講唔上好食，符合番佢個價錢。</text>
+                <Opinions>
+                    <Opinion target="食物" category="FOOD#QUALITY" polarity="neutral"/>
+                </Opinions>
+            </sentence>
+            <sentence id="金坊泰國美食#4:1">
+                <text>不過服務態度真係十分之麻麻</text>
+                <Opinions>
+                    <Opinion target="服務態度" category="FOOD#QUALITY" polarity="negative"/>
+                </Opinions>
+            </sentence>
+        </sentences>
+    </Review>
+    <Review rid="金坊泰國美食#5">
+        <sentences>
+            <sentence id="金坊泰國美食#5:0">
+                <text>忽然又好想食咖哩蝦 所以就約埋老媽子去食泰國野</text>
+                <Opinions>
+                    <Opinion target="咖哩蝦" category="FOOD#STYLE_OPTIONS" polarity="neutral"/>
+                </Opinions>
+            </sentence>
+            <sentence id="金坊泰國美食#5:1">
+                <text>一等就等左差不多半小時先到 連個超硬既印度薄餅都凍曬</text>
+                <Opinions>
+                    <Opinion target="NULL" category="SERVICE#GENERAL" polarity="negative"/>
+                    <Opinion target="印度薄餅" category="FOOD#QUALITY" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="金坊泰國美食#5:2">
+                <text>自問係新都食飯咁耐 真係未見過咁差既服務！你做外賣多 堂食就要等耐啲?</text>
+                <Opinions>
+                    <Opinion target="服務" category="SERVICE#GENERAL" polarity="negative"/>
+                </Opinions>
+            </sentence>
+        </sentences>
+    </Review>
+    <Review rid="金坊泰國美食#6">
+        <sentences>
+            <sentence id="金坊泰國美食#6:0">
+                <text>叫咗個椰青，飲咗一啖，覺得怪怪地，係樽裝椰青水嗰隻味，唔係新鮮椰青水嘅味。</text>
+                <Opinions>
+                    <Opinion target="椰青" category="FOOD#QUALITY" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="金坊泰國美食#6:1">
+                <text>舉手問職員「點解個椰青冇椰青肉？」佢一句解釋都冇，就咁話「換俾你咁即係點？心虛？諗住搏大霧？我唔出聲就俾呢重用嘅椰青我？好嘔心！太過份！</text>
+                <Opinions>
+                    <Opinion target="職員" category="SERVICE#GENERAL" polarity="negative"/>
+                </Opinions>
+            </sentence>
+        </sentences>
+    </Review>
+    <Review rid="金坊泰國美食#7">
+        <sentences>
+            <sentence id="金坊泰國美食#7:0">
+                <text>一直等到8:30 仍未有位，我問侍應還要等幾耐，佢哋竟然話入邊啲客人仲未走我都冇辦法</text>
+                <Opinions>
+                    <Opinion target="侍應" category="SERVICE#GENERAL" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="金坊泰國美食#7:1">
+                <text>其實菜式都好一般，味道較鹹及很重味精。</text>
+                <Opinions>
+                    <Opinion target="菜式" category="FOOD#QUALITY" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="金坊泰國美食#7:2">
+                <text>對於一間味道一般，服務麻麻嘅餐廳，自問不會再來第二次了！</text>
+                <Opinions>
+                    <Opinion target="味道" category="FOOD#QUALITY" polarity="negative"/>
+                    <Opinion target="服務" category="SERVICE#GENERAL" polarity="negative"/>
+                </Opinions>
+            </sentence>
+        </sentences>
+    </Review>
+    <Review rid="金坊泰國美食#8">
+        <sentences>
+            <sentence id="金坊泰國美食#8:0">
+                <text>個冬陰公湯 冇辣味 得酸味 仲要唔係一般酸 係要好酸 酸的程度我覺得佢好似侵蝕緊我喉嚨 我喉嚨一直俾佢食緊。</text>
+                <Opinions>
+                    <Opinion target="陰公湯" category="FOOD#QUALITY" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="金坊泰國美食#8:1">
+                <text>椰汁雞湯冇雞味冇椰汁味 好澀我未飲過咁難飲嘅湯。</text>
+                <Opinions>
+                    <Opinion target="椰汁雞湯" category="FOOD#QUALITY" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="金坊泰國美食#8:2">
+                <text>冬瓜湯我真係唔夠膽想像</text>
+                <Opinions>
+                    <Opinion target="冬瓜湯" category="FOOD#QUALITY" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="金坊泰國美食#8:3">
+                <text>啲嘢真係難食到我唔想埋單。</text>
+                <Opinions>
+                    <Opinion target="NULL" category="FOOD#QUALITY" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="金坊泰國美食#8:4">
+                <text>呢間野難食不特止服務態度極差員工對客人嘅態度不知所謂</text>
+                <Opinions>
+                    <Opinion target="NULL" category="FOOD#QUALITY" polarity="negative"/>
+                    <Opinion target="服務態度" category="SERVICE#GENERAL" polarity="negative"/>
+                    <Opinion target="員工" category="SERVICE#GENERAL" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="金坊泰國美食#8:5">
+                <text>講真佢啲小食比起主菜係唔錯嘅。</text>
+                <Opinions>
+                    <Opinion target="小食" category="FOOD#QUALITY" polarity="neutral"/>
+                </Opinions>
+            </sentence>
+        </sentences>
+    </Review>
+    <Review rid="金坊泰國美食#9">
+        <sentences>
+            <sentence id="金坊泰國美食#9:0">
+                <text>豬手飯啲豬手似湯渣，淡而無味，唔講真係唔知食緊豬手。</text>
+                <Opinions>
+                    <Opinion target="豬手飯" category="FOOD#QUALITY" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="金坊泰國美食#9:1">
+                <text>泰式金邊粉只吃出油膩，乾身，結撻撻，未食過咁差嘅金邊粉。</text>
+                <Opinions>
+                    <Opinion target="泰式金邊粉" category="FOOD#QUALITY" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="金坊泰國美食#9:2">
+                <text>員工態度惡劣，我們禮貌地告訴員工湯仍未到，但員工愛理不理。</text>
+                <Opinions>
+                    <Opinion target="員工態度" category="SERVICE#GENERAL" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="金坊泰國美食#9:3">
+                <text>環境衛生很差，地板倒左好多汁，小朋友及老人家很容易跣親。</text>
+                <Opinions>
+                    <Opinion target="環境衛生" category="RESTAURANT#GENERAL" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="金坊泰國美食#9:4">
+                <text>食物質素不佳，員工口黑面黑，感覺很差。</text>
+                <Opinions>
+                    <Opinion target="食物" category="FOOD#QUALITY" polarity="negative"/>
+                    <Opinion target="員工" category="SERVICE#GENERAL" polarity="negative"/>
+                </Opinions>
+            </sentence>
+        </sentences>
+    </Review>
+    <Review rid="金坊泰國美食#10">
+        <sentences>
+            <sentence id="金坊泰國美食#10:0">
+                <text>咖哩炒蟹、串燒食時已經發現唔熱，跟住咬時發現啲蟹肉透明</text>
+                <Opinions>
+                    <Opinion target="咖哩炒蟹" category="FOOD#QUALITY" polarity="negative"/>
+                    <Opinion target="串燒" category="FOOD#QUALITY" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="金坊泰國美食#10:1">
+                <text>串燒豬表面燶晒，咬時發現咬唔開又唔熱心知不妙，再用力咬開，串燒肉裡頭直頭生，生到一望已知唔熟完全連基本都未達標準。食物質素差。</text>
+                <Opinions>
+                    <Opinion target="串燒" category="FOOD#QUALITY" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="金坊泰國美食#10:2">
+                <text>顧客服務更不愖一提。</text>
+                <Opinions>
+                    <Opinion target="顧客服務" category="SERVICE#GENERAL" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="金坊泰國美食#10:3">
+                <text>啲嘢食又貴又唔好食。</text>
+                <Opinions>
+                    <Opinion target="NULL" category="FOOD#QUALITY" polarity="negative"/>
+                    <Opinion target="NULL" category="FOOD#PRICES" polarity="negative"/>
+                </Opinions>
+            </sentence>
+        </sentences>
+    </Review>
+    <Review rid="金坊泰國美食#11">
+        <sentences>
+            <sentence id="金坊泰國美食#11:0">
+                <text>睇得出落重本，放左幾多心思，亦確實帶有泰國風味。</text>
+                <Opinions>
+                    <Opinion target="NULL" category="AMBIENCE#GENERAL" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="金坊泰國美食#11:1">
+                <text>上菜速度好快，叫左3分鐘，份海南雞雞同野飲已經上枱。</text>
+                <Opinions>
+                    <Opinion target="上菜速度" category="SERVICE#GENERAL" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="金坊泰國美食#11:2">
+                <text>雞肉肉質香濃重雞味，即使唔點醬都好好食</text>
+                <Opinions>
+                    <Opinion target="雞肉" category="FOOD#QUALITY" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="金坊泰國美食#11:3">
+                <text>總共都係$56！</text>
+                <Opinions>
+                    <Opinion target="NULL" category="RESTAURANT#PRICES" polarity="positive"/>
+                </Opinions>
+            </sentence>
+        </sentences>
+    </Review>
+    <Review rid="荳子冰室 (將軍澳廣場)#1">
+        <sentences>
+            <sentence id="荳子冰室 (將軍澳廣場)#1:0">
+                <text>吉利豬扒，正常，冇乜特別，但係個咖哩汁係好似水咁稀，確係麻麻。</text>
+                <Opinions>
+                    <Opinion target="吉利豬扒" category="FOOD#QUALITY" polarity="neutral"/>
+                    <Opinion target="咖哩汁" category="FOOD#QUALITY" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="荳子冰室 (將軍澳廣場)#1:1">
+                <text>白汁同魚冇乜大問題，但係個意粉好似搵水浸發就算，因為焗唔透，感覺意粉又硬同未熟，佢最尾食曬啲魚就算。</text>
+                <Opinions>
+                    <Opinion target="白汁" category="FOOD#QUALITY" polarity="neutral"/>
+                    <Opinion target="魚" category="FOOD#QUALITY" polarity="neutral"/>
+                    <Opinion target="意粉" category="FOOD#QUALITY" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="荳子冰室 (將軍澳廣場)#1:2">
+                <text>朱古力雪糕都係有少少怪怪地。</text>
+                <Opinions>
+                    <Opinion target="朱古力雪糕" category="FOOD#QUALITY" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="荳子冰室 (將軍澳廣場)#1:3">
+                <text>港式茶餐廳風格，不斷播住80, 90年代粵語時代曲，都幾得意。</text>
+                <Opinions>
+                    <Opinion target="港式茶餐廳風格" category="AMBIENCE#GENERAL" polarity="positive"/>
+                </Opinions>
+            </sentence>
+        </sentences>
+    </Review>
+    <Review rid="荳子冰室 (將軍澳廣場)#2">
+        <sentences>
+            <sentence id="荳子冰室 (將軍澳廣場)#2:0">
+                <text>肉餅淋到好像食平價魚肉餅，完全無𡁻口，完全揾唔到土魷</text>
+                <Opinions>
+                    <Opinion target="肉餅" category="FOOD#QUALITY" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="荳子冰室 (將軍澳廣場)#2:1">
+                <text>唯一無變，價錢依然咁貴</text>
+                <Opinions>
+                    <Opinion target="價錢" category="FOOD#PRICES" polarity="negative"/>
+                    <Opinion target="價錢" category="RESTAURANT#PRICES" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="荳子冰室 (將軍澳廣場)#2:2">
+                <text>最失望的，是店內的音響系統壞咗幾個月都未完全維修妥，單座位無聲</text>
+                <Opinions>
+                    <Opinion target="音響系統" category="AMBIENCE#GENERAL" polarity="negative"/>
+                    <Opinion target="音響系統" category="RESTAURANT#GENERAL" polarity="negative"/>
+                </Opinions>
+            </sentence>
+        </sentences>
+    </Review>
+    <Review rid="荳子冰室 (將軍澳廣場)#3">
+        <sentences>
+            <sentence id="荳子冰室 (將軍澳廣場)#3:0">
+                <text>沙嗲牛肉表面係熱，內裏是凍的。</text>
+                <Opinions>
+                    <Opinion target="沙嗲牛肉" category="FOOD#QUALITY" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="荳子冰室 (將軍澳廣場)#3:1">
+                <text>通心粉癡晒底，我覺得還未過冷河，仲有一浸類似麵粉味的味道。</text>
+                <Opinions>
+                    <Opinion target="通心粉" category="FOOD#QUALITY" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="荳子冰室 (將軍澳廣場)#3:2">
+                <text>蘑菇煙肉是凍的，蛋皮就好熱。這樣的口感，好辛苦。</text>
+                <Opinions>
+                    <Opinion target="蘑菇煙肉" category="FOOD#QUALITY" polarity="negative"/>
+                    <Opinion target="蛋皮" category="FOOD#QUALITY" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="荳子冰室 (將軍澳廣場)#3:3">
+                <text>終於可以試吓將軍澳區最貴的茶餐廳早餐。</text>
+                <Opinions>
+                    <Opinion target="NULL" category="RESTAURANT#PRICES" polarity="negative"/>
+                </Opinions>
+            </sentence>
+        </sentences>
+    </Review>
+    <Review rid="荳子冰室 (將軍澳廣場)#4">
+        <sentences>
+            <sentence id="荳子冰室 (將軍澳廣場)#4:0">
+                <text>椒鹽鮮魷食落去，一啲椒鹽味都冇，好似食緊一舊膠咁樣，失望到極。</text>
+                <Opinions>
+                    <Opinion target="椒鹽鮮魷" category="FOOD#QUALITY" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="荳子冰室 (將軍澳廣場)#4:1">
+                <text>個魚香茄子煲都比啲油浸住，食完返到屋企個肚頂唔順。</text>
+                <Opinions>
+                    <Opinion target="魚香茄子煲" category="FOOD#QUALITY" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="荳子冰室 (將軍澳廣場)#4:2">
+                <text>一對夫婦叫左碟小菜，都好似有問題要換，另外隔離枱就有對後生情侶個酥皮湯個皮唔熟。</text>
+                <Opinions>
+                    <Opinion target="小菜" category="FOOD#QUALITY" polarity="negative"/>
+                    <Opinion target="酥皮湯" category="FOOD#QUALITY" polarity="negative"/>
+                </Opinions>
+            </sentence>
+        </sentences>
+    </Review>
+    <Review rid="荳子冰室 (將軍澳廣場)#5">
+        <sentences>
+            <sentence id="荳子冰室 (將軍澳廣場)#5:0">
+                <text>買雞翼沙律無沙律！茶餐廳質素、算啦！</text>
+                <Opinions>
+                    <Opinion target="雞翼沙律" category="FOOD#QUALITY" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="荳子冰室 (將軍澳廣場)#5:1">
+                <text>服務態度？唔使諗啦！不嬲笑容欠奉，非常求其！</text>
+                <Opinions>
+                    <Opinion target="服務態度" category="SERVICE#GENERAL" polarity="negative"/>
+                </Opinions>
+            </sentence>
+        </sentences>
+    </Review>
+    <Review rid="荳子冰室 (將軍澳廣場)#6">
+        <sentences>
+            <sentence id="荳子冰室 (將軍澳廣場)#6:0">
+                <text>沙嗲牛肉米粉細份到一個點，啲米粉三啖就食完</text>
+                <Opinions>
+                    <Opinion target="沙嗲牛肉米粉" category="FOOD#PRICES" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="荳子冰室 (將軍澳廣場)#6:1">
+                <text>個奄列係出面食嘅一半size，又油又凍冰冰</text>
+                <Opinions>
+                    <Opinion target="奄列" category="FOOD#PRICES" polarity="negative"/>
+                    <Opinion target="奄列" category="FOOD#QUALITY" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="荳子冰室 (將軍澳廣場)#6:2">
+                <text>個丹麥多士又係凍冰冰。</text>
+                <Opinions>
+                    <Opinion target="丹麥多士" category="FOOD#QUALITY" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="荳子冰室 (將軍澳廣場)#6:3">
+                <text>正常茶餐廳嘅價錢。</text>
+                <Opinions>
+                    <Opinion target="價錢" category="RESTAURANT#PRICES" polarity="neutral"/>
+                </Opinions>
+            </sentence>
+            <sentence id="荳子冰室 (將軍澳廣場)#6:4">
+                <text>服務唔掂。</text>
+                <Opinions>
+                    <Opinion target="服務" category="SERVICE#GENERAL" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="荳子冰室 (將軍澳廣場)#6:4">
+                <text>入面都算好坐既，不過位同位之間都算係好近。</text>
+                <Opinions>
+                    <Opinion target="位" category="RESTAURANT#GENERAL" polarity="neutral"/>
+                </Opinions>
+            </sentence>
+            <sentence id="荳子冰室 (將軍澳廣場)#6:4">
+                <text>性價比又低，好快唔洗排架啦相信，而家等我出去買嘢食先。</text>
+                <Opinions>
+                    <Opinion target="性價比" category="RESTAURANT#PRICES" polarity="negative"/>
+                    <Opinion target="性價比" category="FOOD#PRICES" polarity="negative"/>
+                </Opinions>
+            </sentence>
+        </sentences>
+    </Review>
+    <Review rid="荳子冰室 (將軍澳廣場)#7">
+        <sentences>
+            <sentence id="荳子冰室 (將軍澳廣場)#7:0">
+                <text>啲豬潤硬過條命，明顯煮得過熟，麵質極差，好有膠感，湯底無味；</text>
+                <Opinions>
+                    <Opinion target="豬潤" category="FOOD#QUALITY" polarity="negative"/>
+                    <Opinion target="麵" category="FOOD#QUALITY" polarity="negative"/>
+                    <Opinion target="湯底" category="FOOD#QUALITY" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="荳子冰室 (將軍澳廣場)#7:1">
+                <text>啲蛋老過亞爺</text>
+                <Opinions>
+                    <Opinion target="蛋" category="FOOD#QUALITY" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="荳子冰室 (將軍澳廣場)#7:2">
+                <text>多士上面的牛油一點香味也沒有</text>
+                <Opinions>
+                    <Opinion target="多士" category="FOOD#QUALITY" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="荳子冰室 (將軍澳廣場)#7:3">
+                <text>茶餐廳奶茶不香濃，也不滑。</text>
+                <Opinions>
+                    <Opinion target="奶茶" category="FOOD#QUALITY" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="荳子冰室 (將軍澳廣場)#7:4">
+                <text>$48個常餐，沒一樣做得好，還要排隊，仲要現金找續。</text>
+                <Opinions>
+                    <Opinion target="常餐" category="FOOD#PRICES" polarity="negative"/>
+                    <Opinion target="NULL" category="SERVICE#GENERAL" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="荳子冰室 (將軍澳廣場)#7:5">
+                <text>豬膶麵加火腿奄列加奶茶</text>
+                <Opinions>
+                    <Opinion target="NULL" category="FOOD#STYLE_OPTIONS" polarity="neutral"/>
+                </Opinions>
+            </sentence>
+            <sentence id="荳子冰室 (將軍澳廣場)#7:6">
+                <text>疫情期間，我覺得欠缺衛生。</text>
+                <Opinions>
+                    <Opinion target="衛生" category="RESTAURANT#GENERAL" polarity="negative"/>
+                    <Opinion target="衛生" category="AMBIENCE#GENERAL" polarity="negative"/>
+                </Opinions>
+            </sentence>
+        </sentences>
+    </Review>
+    <Review rid="荳子冰室 (將軍澳廣場)#8">
+        <sentences>
+            <sentence id="荳子冰室 (將軍澳廣場)#8:0">
+                <text>沙爹牛肉唔夠濃沙爹味，失望。</text>
+                <Opinions>
+                    <Opinion target="沙爹牛肉" category="FOOD#QUALITY" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="荳子冰室 (將軍澳廣場)#8:1">
+                <text>豬潤麵出血的，湯底唔係豬潤湯</text>
+                <Opinions>
+                    <Opinion target="豬潤麵" category="FOOD#QUALITY" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="荳子冰室 (將軍澳廣場)#8:2">
+                <text>炒蛋好老，無蛋香仲要腥</text>
+                <Opinions>
+                    <Opinion target="炒蛋" category="FOOD#QUALITY" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="荳子冰室 (將軍澳廣場)#8:3">
+                <text>菠蘿包硬，面頭"菠蘿''太薄，不值得吃。</text>
+                <Opinions>
+                    <Opinion target="菠蘿包" category="FOOD#QUALITY" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="荳子冰室 (將軍澳廣場)#8:4">
+                <text>沙爹牛肉麵及豬潤麵，丹麥多士，黑松露炒蛋，菠蘿包。</text>
+                <Opinions>
+                    <Opinion target="NULL" category="FOOD#STYLE_OPTIONS" polarity="neutral"/>
+                </Opinions>
+            </sentence>
+            <sentence id="荳子冰室 (將軍澳廣場)#8:5">
+                <text>員工服務態度散慢，好似未瞓醒。</text>
+                <Opinions>
+                    <Opinion target="服務" category="SERVICE#GENERAL" polarity="negative"/>
+                    <Opinion target="服務" category="RESTAURANT#GENERAL" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="荳子冰室 (將軍澳廣場)#8:5">
+                <text>暫時環境清潔。</text>
+                <Opinions>
+                    <Opinion target="環境" category="AMBIENCE#GENERAL" polarity="neutral"/>
+                    <Opinion target="服務" category="RESTAURANT#GENERAL" polarity="neutral"/>
+                </Opinions>
+            </sentence>
+        </sentences>
+    </Review>
+    <Review rid="荳子冰室 (將軍澳廣場)#9">
+        <sentences>
+            <sentence id="荳子冰室 (將軍澳廣場)#9:0">
+                <text>食物賣相不錯，食物溫度正常，奶茶都好香滑，個"菠鑼油"好味，牛油都標曬煙，牛扒餐好食。</text>
+                <Opinions>
+                    <Opinion target="食物" category="FOOD#QUALITY" polarity="positive"/>
+                    <Opinion target="奶茶" category="FOOD#QUALITY" polarity="positive"/>
+                    <Opinion target="菠鑼油" category="FOOD#QUALITY" polarity="positive"/>
+                    <Opinion target="牛扒餐" category="FOOD#QUALITY" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="荳子冰室 (將軍澳廣場)#9:1">
+                <text>見餐牌, 都唔係平</text>
+                <Opinions>
+                    <Opinion target="餐牌" category="RESTAURANT#PRICES" polarity="neutral"/>
+                    <Opinion target="餐牌" category="FOOD#PRICES" polarity="neutral"/>
+                </Opinions>
+            </sentence>
+        </sentences>
+    </Review>
+    <Review rid="荳子冰室 (將軍澳廣場)#10">
+        <sentences>
+            <sentence id="荳子冰室 (將軍澳廣場)#10:0">
+                <text>沙爹牛肉通粉不錯，牛肉有質素</text>
+                <Opinions>
+                    <Opinion target="沙爹牛肉通粉" category="FOOD#QUALITY" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="荳子冰室 (將軍澳廣場)#10:1">
+                <text>咖啡不錯，小甜恰到好處，食材新鮮，沙律菜伴碟令食物好看，增加食慾</text>
+                <Opinions>
+                    <Opinion target="咖啡" category="FOOD#PRICES" polarity="positive"/>
+                    <Opinion target="小甜" category="FOOD#PRICES" polarity="positive"/>
+                    <Opinion target="食材" category="FOOD#PRICES" polarity="positive"/>
+                    <Opinion target="沙律菜" category="FOOD#PRICES" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="荳子冰室 (將軍澳廣場)#10:2">
+                <text>環境不擠迫，可以不需要與別人同枱進食，食得安心些。</text>
+                <Opinions>
+                    <Opinion target="環境" category="AMBIENCE#GENERAL" polarity="positive"/>
+                    <Opinion target="環境" category="RESTAURANT#GENERAL" polarity="positive"/>
+                </Opinions>
+            </sentence>
+        </sentences>
+    </Review>
+    <Review rid="荳子冰室 (將軍澳廣場)#11">
+        <sentences>
+            <sentence id="荳子冰室 (將軍澳廣場)#11:0">
+                <text>鐵板牛仔骨質素正常</text>
+                <Opinions>
+                    <Opinion target="鐵板牛仔骨" category="FOOD#QUALITY" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="荳子冰室 (將軍澳廣場)#11:1">
+                <text>酥皮湯香濃多料，超好飲</text>
+                <Opinions>
+                    <Opinion target="酥皮湯" category="FOOD#QUALITY" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="荳子冰室 (將軍澳廣場)#11:2">
+                <text>多士是牛奶味香濃嘅丹麥酥，星州炒米微辣，配料豐富，米粉炒得夠乾爽。</text>
+                <Opinions>
+                    <Opinion target="多士" category="FOOD#QUALITY" polarity="positive"/>
+                    <Opinion target="星州炒米" category="FOOD#QUALITY" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="荳子冰室 (將軍澳廣場)#11:3">
+                <text>鐵板牛仔骨對得住個價錢，價錢合理。</text>
+                <Opinions>
+                    <Opinion target="鐵板牛仔骨" category="FOOD#PRICES" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="荳子冰室 (將軍澳廣場)#11:4">
+                <text>鐵板牛仔骨，酥皮湯，星州炒米。</text>
+                <Opinions>
+                    <Opinion target="NULL" category="FOOD#STYLE_OPTIONS" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="荳子冰室 (將軍澳廣場)#11:5">
+                <text>職員有善。</text>
+                <Opinions>
+                    <Opinion target="職員" category="SERVICE#GENERAL" polarity="positive"/>
+                    <Opinion target="職員" category="RESTAURANT#GENERAL" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="荳子冰室 (將軍澳廣場)#11:6">
+                <text>環境乾淨，座位寬敞。</text>
+                <Opinions>
+                    <Opinion target="環境" category="SERVICE#GENERAL" polarity="positive"/>
+                    <Opinion target="環境" category="RESTAURANT#GENERAL" polarity="positive"/>
+                </Opinions>
+            </sentence>
+        </sentences>
+    </Review>
+    <Review rid="牛角日本燒肉專門店 (東港城)#1">
+        <sentences>
+            <sentence id="牛角日本燒肉專門店 (東港城)#1:0">
+                <text>整體肉質不太好，厚燒牛舌太過韌，不能入口</text>
+                <Opinions>
+                    <Opinion target="肉質" category="FOOD#QUALITY" polarity="negative"/>
+                    <Opinion target="厚燒牛舌" category="FOOD#QUALITY" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="牛角日本燒肉專門店 (東港城)#1:1">
+                <text>石鍋牛肉飯只像是以石鍋盛載的普通牛肉飯。</text>
+                <Opinions>
+                    <Opinion target="石鍋牛肉飯" category="FOOD#QUALITY" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="牛角日本燒肉專門店 (東港城)#1:2">
+                <text>牛角特上燒肉5種嚴選盛盤，麻香椰菜，石鍋牛肉飯。</text>
+                <Opinions>
+                    <Opinion target="" category="FOOD#STYLE_OPTIONS" polarity="neutral"/>
+                </Opinions>
+            </sentence>
+            <sentence id="牛角日本燒肉專門店 (東港城)#1:3">
+                <text>店員大力推售宵夜優惠，誠意推介。</text>
+                <Opinions>
+                    <Opinion target="店員" category="SERVICE#GENERAL" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="牛角日本燒肉專門店 (東港城)#1:4">
+                <text>等咗成個鐘都仲未到，等到咩胃口都冇哂啦，唔洗食都會覺得唔好食。</text>
+                <Opinions>
+                    <Opinion target="NULL" category="RESTAURANT#GENERAL" polarity="negative"/>
+                    <Opinion target="NULL" category="SERVICE#GENERAL" polarity="negative"/>
+                </Opinions>
+            </sentence>
+        </sentences>
+    </Review>
+    <Review rid="牛角日本燒肉專門店 (東港城)#2">
+        <sentences>
+            <sentence id="牛角日本燒肉專門店 (東港城)#2:0">
+                <text>和牛二品和四品燒肉盛合食落唔太正，肉都幾碎，差啲一路燒一路跌到渣都冇，其他都係正常水準。</text>
+                <Opinions>
+                    <Opinion target="和牛二品" category="FOOD#QUALITY" polarity="negative"/>
+                    <Opinion target="四品燒肉" category="FOOD#QUALITY" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="牛角日本燒肉專門店 (東港城)#2:1">
+                <text>下午茶時段享有午市套餐75折優惠，抵食。</text>
+                <Opinions>
+                    <Opinion target="午市套餐" category="FOOD#PRICES" polarity="negative"/>
+                    <Opinion target="午市套餐" category="RESTAURANT#PRICES" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="牛角日本燒肉專門店 (東港城)#2:2">
+                <text>和牛二品和四品燒肉盛合，自選燒肉定食，套餐包前菜和飲品。</text>
+                <Opinions>
+                    <Opinion target="NULL" category="FOOD#STYLE_OPTIONS" polarity="neutral"/>
+                </Opinions>
+            </sentence>
+        </sentences>
+    </Review>
+    <Review rid="牛角日本燒肉專門店 (東港城)#3">
+        <sentences>
+            <sentence id="牛角日本燒肉專門店 (東港城)#3:0">
+                <text>牛角嘅午餐套餐都還好，牛角肉嘅質素不嬲都唔錯嘅，幾新鮮有肉味</text>
+                <Opinions>
+                    <Opinion target="午餐套餐" category="FOOD#QUALITY" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="牛角日本燒肉專門店 (東港城)#3:1">
+                <text>A5極上和牛西冷海鮮套餐嘅菜式好多，完全係用菜執飽你，套餐性價比真係好抵下。</text>
+                <Opinions>
+                    <Opinion target="A5極上和牛西冷海鮮套餐" category="FOOD#STYLE_OPTIONS" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="牛角日本燒肉專門店 (東港城)#3:2">
+                <text>A5極上和牛西冷海鮮套餐太貴太唔抵食，連埋+1都差唔多成$900。</text>
+                <Opinions>
+                    <Opinion target="A5極上和牛西冷海鮮套餐" category="FOOD#PRICES" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="牛角日本燒肉專門店 (東港城)#3:3">
+                <text>A5極上和牛西冷海鮮套餐包括多款菜式，如麻香椰菜、芥末辣章魚、BLT凱撒沙律、五品野菜盛合、牛油金菇、極上海鮮成盒盛合、美國SRF安格斯和牛牛板腱、網燒一口牛、牛舌、雞腿肉、豚肉燒、日本佐賀產A5極上和牛西冷、香蔥溫泉玉子飯同埋玉子蟹膏飯。</text>
+                <Opinions>
+                    <Opinion target="A5極上和牛西冷海鮮套餐" category="FOOD#STYLE_OPTIONS" polarity="neutral"/>
+                </Opinions>
+            </sentence>
+        </sentences>
+    </Review>
+    <Review rid="牛角日本燒肉專門店 (東港城)#4">
+        <sentences>
+            <sentence id="牛角日本燒肉專門店 (東港城)#4:0">
+                <text>牛角既爈具很好,網燒唔會好大火同黏住啲肉</text>
+                <Opinions>
+                    <Opinion target="爈具" category="RESTAURANT#GENERAL" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="牛角日本燒肉專門店 (東港城)#4:1">
+                <text>燒肉定食A餐同燒肉定食C餐的豬扒、豚肉、雞腿肉都很好吃</text>
+                <Opinions>
+                    <Opinion target="燒肉定食A餐" category="FOOD#QUALITY" polarity="positive"/>
+                    <Opinion target="燒肉定食C餐" category="FOOD#QUALITY" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="牛角日本燒肉專門店 (東港城)#4:2">
+                <text>店家設計優美,我地坐左嚮卡位座</text>
+                <Opinions>
+                    <Opinion target="店家設計" category="AMBIENCE#GENERAL" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="牛角日本燒肉專門店 (東港城)#4:3">
+                <text>落單係用一部平板電腦,客人自助下單,對於我黎講係新奇有趣既</text>
+                <Opinions>
+                    <Opinion target="客人自助下單" category="RESTAURANT#GENERAL" polarity="positive"/>
+                </Opinions>
+            </sentence>
+        </sentences>
+    </Review>
+    <Review rid="牛角日本燒肉專門店 (東港城)#5">
+        <sentences>
+            <sentence id="牛角日本燒肉專門店 (東港城)#5:0">
+                <text>牛角出名牛肉肉質鮮嫩，值得推薦。</text>
+                <Opinions>
+                    <Opinion target="牛肉肉質" category="FOOD#QUALITY" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="牛角日本燒肉專門店 (東港城)#5:1">
+                <text>牛角出咗隻平民午餐套餐，最平只需$68，自選燒肉定食套餐D只需$128，性價比高。</text>
+                <Opinions>
+                    <Opinion target="平民午餐套餐" category="FOOD#PRICES" polarity="positive"/>
+                    <Opinion target="自選燒肉定食套餐D" category="FOOD#PRICES" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="牛角日本燒肉專門店 (東港城)#5:2">
+                <text>自選燒肉定食套餐D包括多款菜式，配多一兩個小食，值得推薦。</text>
+                <Opinions>
+                    <Opinion target="自選燒肉定食套餐D" category="FOOD#STYLE_OPTIONS" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="牛角日本燒肉專門店 (東港城)#5:3">
+                <text>我還欣賞這裡就算滿座都唔會好焗，食完都唔會成身油煙味，係一個值得推薦既地方。</text>
+                <Opinions>
+                    <Opinion target="NULL" category="RESTAURANT#GENERAL" polarity="positive"/>
+                    <Opinion target="NULL" category="AMBIENCE#GENERAL" polarity="positive"/>
+                </Opinions>
+            </sentence>
+        </sentences>
+    </Review>
+    <Review rid="牛角日本燒肉專門店 (東港城)#6">
+        <sentences>
+            <sentence id="牛角日本燒肉專門店 (東港城)#6:0">
+                <text>黑毛和牛、厚燒牛舌、日本九州極上黑毛和牛肩脊、欖油蒜油車海老、一口燒墨魚、廣島蠔、燒鰻魚等菜式都很好吃，口感和味道都很棒。</text>
+                <Opinions>
+                    <Opinion target="NULL" category="FOOD#QUALITY" polarity="positive"/>
+                    <Opinion target="NULL" category="FOOD#STYLE_OPTIONS" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="牛角日本燒肉專門店 (東港城)#6:1">
+                <text>餐點還包括麵豉湯、沙律和飲料，食得很滿足。</text>
+                <Opinions>
+                    <Opinion target="餐點" category="FOOD#QUALITY" polarity="positive"/>
+                    <Opinion target="麵豉湯" category="FOOD#STYLE_OPTIONS" polarity="positive"/>
+                    <Opinion target="沙律" category="FOOD#STYLE_OPTIONS" polarity="positive"/>
+                    <Opinion target="飲料" category="FOOD#STYLE_OPTIONS" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="牛角日本燒肉專門店 (東港城)#6:2">
+                <text>餐廳當天人不多，可以安靜地享受午餐。</text>
+                <Opinions>
+                    <Opinion target="餐廳" category="AMBIENCE#GENERAL" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="牛角日本燒肉專門店 (東港城)#6:3">
+                <text>餐廳的燒肉拼盤和午市定食都很好吃，但份量不夠，需要追加訂食。</text>
+                <Opinions>
+                    <Opinion target="燒肉拼盤" category="FOOD#QUALITY" polarity="positive"/>
+                    <Opinion target="午市定食" category="FOOD#QUALITY" polarity="positive"/>
+                    <Opinion target="NULL" category="FOOD#PRICES" polarity="neutral"/>
+                </Opinions>
+            </sentence>
+        </sentences>
+    </Review>
+    <Review rid="牛角日本燒肉專門店 (東港城)#7">
+        <sentences>
+            <sentence id="牛角日本燒肉專門店 (東港城)#7:0">
+                <text>這家並不是任吃的。</text>
+                <Opinions>
+                    <Opinion target="NULL" category="FOOD#PRICES" polarity="neutral"/>
+                </Opinions>
+            </sentence>
+            <sentence id="牛角日本燒肉專門店 (東港城)#7:1">
+                <text>但是烤起來都好吃，當然始終是優質牛肉的最為好吃。</text>
+                <Opinions>
+                    <Opinion target="優質牛肉" category="FOOD#QUALITY" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="牛角日本燒肉專門店 (東港城)#7:2">
+                <text>店員都好有禮貌，會繼續幫襯外賣。</text>
+                <Opinions>
+                    <Opinion target="店員" category="SERVICE#GENERAL" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="牛角日本燒肉專門店 (東港城)#7:3">
+                <text>醬燒牛腹胸飯香口過另外個牛肉飯，應該係溫泉玉子蒜香牛肉飯。</text>
+                <Opinions>
+                    <Opinion target="醬燒牛腹胸飯" category="FOOD#QUALITY" polarity="positive"/>
+                    <Opinion target="溫泉玉子蒜香牛肉飯" category="FOOD#QUALITY" polarity="neutral"/>
+                </Opinions>
+            </sentence>
+            <sentence id="牛角日本燒肉專門店 (東港城)#7:4">
+                <text>有紫菜碎再加埋醬汁撈飯一流！可能太開胃，略嫌份量有啲細，唔係好夠食。</text>
+                <Opinions>
+                    <Opinion target="撈飯" category="FOOD#QUALITY" polarity="positive"/>
+                    <Opinion target="撈飯" category="FOOD#PRICES" polarity="neutral"/>
+                </Opinions>
+            </sentence>
+            <sentence id="牛角日本燒肉專門店 (東港城)#7:5">
+                <text>我略嫌牛肋肉有d薄。</text>
+                <Opinions>
+                    <Opinion target="牛肋肉" category="FOOD#PRICES" polarity="neutral"/>
+                </Opinions>
+            </sentence>
+            <sentence id="牛角日本燒肉專門店 (東港城)#7:6">
+                <text>每款肉都會有四片，但我覺得份量太少，唔係好夠食。</text>
+                <Opinions>
+                    <Opinion target="肉" category="FOOD#PRICES" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="牛角日本燒肉專門店 (東港城)#7:7">
+                <text>牛角都推出咗6折外賣優惠，有幾款飯有6折，而燒肉都有得折。</text>
+                <Opinions>
+                    <Opinion target="6折外賣優惠" category="FOOD#PRICES" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="牛角日本燒肉專門店 (東港城)#7:8">
+                <text>牛角燒肉飯既牛肉香好多同牛味較出色，而豬軟骨炆得好入味同好軟身又唔好乾哂，呢個價錢可以食好既質素令人開心既。</text>
+                <Opinions>
+                    <Opinion target="牛角燒肉飯" category="FOOD#QUALITY" polarity="positive"/>
+                    <Opinion target="豬軟骨" category="FOOD#QUALITY" polarity="positive"/>
+                    <Opinion target="價錢" category="FOOD#PRICES" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="牛角日本燒肉專門店 (東港城)#7:9">
+                <text>9點後都有好多優惠所以都係開心嘅。</text>
+                <Opinions>
+                    <Opinion target="優惠" category="RESTAURANT#PRICES" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="牛角日本燒肉專門店 (東港城)#7:10">
+                <text>叫左個牛角味自慢燒肉7種盛$418。</text>
+                <Opinions>
+                    <Opinion target="牛角味自慢燒肉7種盛" category=" FOOD#PRICES" polarity="neutral"/>
+                </Opinions>
+            </sentence>
+            <sentence id="牛角日本燒肉專門店 (東港城)#7:11">
+                <text>最值得一提嘅係A5和牛嘅牛肋肉嘅牛脂勁香，真係入口即溶，超級好味。</text>
+                <Opinions>
+                    <Opinion target="A5和牛嘅牛肋肉" category=" FOOD#QUALITY" polarity="positive"/>
+                </Opinions>
+            </sentence>
+        </sentences>
+    </Review>
+    <Review rid="沙嗲王 (新都城中心二期)#1">
+        <sentences>
+            <sentence id="沙嗲王 (新都城中心二期)#1:0">
+                <text>服務員都足夠，勤力落單好快，上菜速度都快。</text>
+                <Opinions>
+                    <Opinion target="服務員" category="SERVICE#GENERAL" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="沙嗲王 (新都城中心二期)#1:1">
+                <text>裝修都算新淨，畢竟都已經開了好幾年，乾淨企理冇異味。</text>
+                <Opinions>
+                    <Opinion target="裝修" category="RESTAURANT#GENERAL" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="沙嗲王 (新都城中心二期)#1:2">
+                <text>嚟到就一定會食招牌菜就係白咖喱豬扒飯，白咖喱汁濃厚入味，豬扒保持到肉汁，又唔會炸得太乾，肉質入味，嚟到沙嗲王必定推介這個招牌菜。</text>
+                <Opinions>
+                    <Opinion target="白咖喱豬扒飯" category="FOOD#QUALITY" polarity="positive"/>
+                    <Opinion target="白咖喱汁" category="FOOD#QUALITY" polarity="positive"/>
+                    <Opinion target="豬扒" category="FOOD#QUALITY" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="沙嗲王 (新都城中心二期)#1:2">
+                <text>其他炸物就不過不失，好食，不過就唔夠個招牌飯咁超班</text>
+                <Opinions>
+                    <Opinion target="炸物" category="FOOD#QUALITY" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="沙嗲王 (新都城中心二期)#1:3">
+                <text>白咖喱香茅豬扒粉絲：香茅豬扒好腍，好香好入味，唔會太肥，果然係招牌菜，真係超好味。</text>
+                <Opinions>
+                    <Opinion target="白咖喱香茅豬扒粉絲" category="FOOD#QUALITY" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="沙嗲王 (新都城中心二期)#1:4">
+                <text>面底可以選擇米線，粉絲，拉麵或手打烏冬</text>
+                <Opinions>
+                    <Opinion target="面底" category="FOOD#STYLE_OPTIONS" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="沙嗲王 (新都城中心二期)#1:5">
+                <text>下午茶時段唔多人，唔使等位，食物都幾多選擇。</text>
+                <Opinions>
+                    <Opinion target="下午茶時段" category="RESTAURANT#GENERAL" polarity="positive"/>
+                    <Opinion target="食物" category="FOOD#STYLE_OPTIONS" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="沙嗲王 (新都城中心二期)#1:6">
+                <text>有$38/$48/$58套餐選擇，招牌嘅白咖喱都有做優惠。</text>
+                <Opinions>
+                    <Opinion target="$38/$48/$58套餐" category="FOOD#PRICES" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="沙嗲王 (新都城中心二期)#1:7">
+                <text>叫咗個白咖喱豬扒烏冬$58，一如既往豬扒都係整得咁好味</text>
+                <Opinions>
+                    <Opinion target="白咖喱豬扒烏冬" category="FOOD#STYLE_OPTIONS" polarity="neutral"/>
+                    <Opinion target="豬扒" category="FOOD#QUALITY" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="沙嗲王 (新都城中心二期)#1:8">
+                <text>叫咗個白咖喱豬扒烏冬$58，一如既往豬扒都係整得咁好味，不過呢個日本烏冬唔夠彈牙，扣左少少分</text>
+                <Opinions>
+                    <Opinion target="白咖喱豬扒烏冬" category="FOOD#STYLE_OPTIONS" polarity="neutral"/>
+                    <Opinion target="豬扒" category="FOOD#QUALITY" polarity="positive"/>
+                    <Opinion target="日本烏冬" category="FOOD#QUALITY" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="沙嗲王 (新都城中心二期)#1:9">
+                <text>另外可以加錢要特飲，見到隔離枱嘅芒果特飲好似幾吸引，下次試吓先。</text>
+                <Opinions>
+                    <Opinion target="特飲" category="FOOD#STYLE_OPTIONS" polarity="positive"/>
+                </Opinions>
+            </sentence>
+        </sentences>
+    </Review>
+    <Review rid="沙嗲王 (新都城中心二期)#2">
+        <sentences>
+            <sentence id="沙嗲王 (新都城中心二期)#2:0">
+                <text>沙嗲王都係咁好食，好感動佢絕對係陪伴住我哋咁多香港人成長嘅飯堂，我覺得佢真係好好嘢保持到個品牌咁多年。</text>
+                <Opinions>
+                    <Opinion target="沙嗲王" category="RESTAURANT#GENERAL" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="沙嗲王 (新都城中心二期)#2:1">
+                <text>沙爹牛肩胛米線，牛肉唔多但係最好味係個湯底，濃厚的沙嗲湯底，啲細路嘅最愛</text>
+                <Opinions>
+                    <Opinion target="沙爹牛肩胛米線" category="FOOD#QUALITY" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="沙嗲王 (新都城中心二期)#2:2">
+                <text>叫了兩個午餐，一個巨髀咖哩雞飯，另一個厚切吉列豬扒飯。一杯特飲及凍奶茶。味道同份量都充足</text>
+                <Opinions>
+                    <Opinion target="兩個午餐" category="FOOD#STYLE_OPTIONS" polarity="positive"/>
+                    <Opinion target="兩個午餐" category="FOOD#PRICES" polarity="positive"/>
+                    <Opinion target="巨髀咖哩雞飯" category="FOOD#QUALITY" polarity="positive"/>
+                    <Opinion target="厚切吉列豬扒飯" category="FOOD#QUALITY" polarity="positive"/>
+                    <Opinion target="特飲" category="FOOD#QUALITY" polarity="positive"/>
+                    <Opinion target="凍奶茶" category="FOOD#QUALITY" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="沙嗲王 (新都城中心二期)#2:3">
+                <text>等位時間唔算耐，上餐時間很快。</text>
+                <Opinions>
+                    <Opinion target="等位時間" category="SERVICE#GENERAL" polarity="positive"/>
+                    <Opinion target="上餐時間" category="SERVICE#GENERAL" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="沙嗲王 (新都城中心二期)#2:4">
+                <text>假日到新都城逛逛，見到有沙嗲王就直接選擇這間。</text>
+                <Opinions>
+                    <Opinion target="新都城" category="RESTAURANT#GENERAL" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="沙嗲王 (新都城中心二期)#2:5">
+                <text>上菜速度都幾快。</text>
+                <Opinions>
+                    <Opinion target="上菜速度" category="SERVICE#GENERAL" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="沙嗲王 (新都城中心二期)#2:6">
+                <text>白咖喱豬扒飯味道依然一樣，豬扒煎炸過，微微脆口，香茅味非常入味，好香口好好白咖喱汁入口有淡淡既咖喱味，係好香甜嘅咖喱，呢個味道真係好令人上癮</text>
+                <Opinions>
+                    <Opinion target="白咖喱豬扒飯" category="FOOD#QUALITY" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="沙嗲王 (新都城中心二期)#2:7">
+                <text>我就叫左一份白咖喱豬扒飯，白咖哩果然係鋪頭嘅招牌！</text>
+                <Opinions>
+                    <Opinion target="白咖喱豬扒飯" category="FOOD#QUALITY" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="沙嗲王 (新都城中心二期)#2:8">
+                <text>食落口味道比較甜，亦都有一種咖哩香，溝埋豬扒食真係一絕！</text>
+                <Opinions>
+                    <Opinion target="味道" category="FOOD#QUALITY" polarity="positive"/>
+                    <Opinion target="豬扒" category="FOOD#QUALITY" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="沙嗲王 (新都城中心二期)#2:9">
+                <text>豬扒亦都係無骨(非常好)，同埋有少少脆口，點左汁即刻咬都保留脆脆地嘅口感，非常好食！！</text>
+                <Opinions>
+                    <Opinion target="豬扒" category="FOOD#QUALITY" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="沙嗲王 (新都城中心二期)#2:10">
+                <text>豬扒香茅味十足，白咖哩多汁及充滿椰香味，豬扒有炸過，脆口彈牙，有食完想再食的感覺。</text>
+                <Opinions>
+                    <Opinion target="豬扒" category="FOOD#QUALITY" polarity="positive"/>
+                    <Opinion target="白咖哩" category="FOOD#QUALITY" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="沙嗲王 (新都城中心二期)#2:11">
+                <text>娃娃菜上枱夠熱，軟硬適中，整體味道不錯。</text>
+                <Opinions>
+                    <Opinion target="娃娃菜" category="FOOD#QUALITY" polarity="positive"/>
+                </Opinions>
+            </sentence>
+        </sentences>
+    </Review>
+    <Review rid="上海真美豆漿大王#1">
+        <sentences>
+            <sentence id="上海真美豆漿大王#1:0">
+                <text>熱豆漿$10一碗唔算貴</text>
+                <Opinions>
+                    <Opinion target="熱豆漿" category="FOOD#PRICES" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="上海真美豆漿大王#1:1">
+                <text>酸辣餃子湯麵好足料，好多豆腐，酸辣湯又唔會太鹹太辣 酸酸地好開胃</text>
+                <Opinions>
+                    <Opinion target="酸辣餃子湯麵" category="FOOD#QUALITY" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="上海真美豆漿大王#1:2">
+                <text>入到去，簡單的裝修。</text>
+                <Opinions>
+                    <Opinion target="裝修" category="AMBIENCE#GENERAL" polarity="neutral"/>
+                </Opinions>
+            </sentence>
+            <sentence id="上海真美豆漿大王#1:3">
+                <text>個五香骨飯有點兒乾爭爭同鞋颯颯，但係算係入味的，而且份量都幾多下，絕對夠兩個人食，無誇張，個無糖豆漿都好好飲。</text>
+                <Opinions>
+                    <Opinion target="五香骨飯" category="FOOD#QUALITY" polarity="positive"/>
+                    <Opinion target="無糖豆漿" category="FOOD#QUALITY" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="上海真美豆漿大王#1:4">
+                <text>份量十足，估唔到喺度嘅酸辣湯都做得好出色，酸辣餃子裏面有四粒餃子，可以揀韭菜或者白菜豬肉，今次我食咗韭菜，皮薄餡多好多</text>
+                <Opinions>
+                    <Opinion target="酸辣湯" category="FOOD#PRICES" polarity="positive"/>
+                    <Opinion target="酸辣湯" category="FOOD#QUALITY" polarity="positive"/>
+                    <Opinion target="餃子" category="FOOD#QUALITY" polarity="positive"/>
+                    <Opinion target="韭菜" category="FOOD#STYLE_OPTIONS" polarity="positive"/>
+                    <Opinion target="白菜豬肉" category="FOOD#STYLE_OPTIONS" polarity="neutral"/>
+                </Opinions>
+            </sentence>
+            <sentence id="上海真美豆漿大王#1:5">
+                <text>渣銀絲卷個皮好脆中間仲好軟腍腍，加埋煉奶非常好味，食完飽到上心口。</text>
+                <Opinions>
+                    <Opinion target="渣銀絲卷" category="FOOD#QUALITY" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="上海真美豆漿大王#1:6">
+                <text>煎釀豆腐好香口，外脆內軟</text>
+                <Opinions>
+                    <Opinion target="煎釀豆腐" category="FOOD#QUALITY" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="上海真美豆漿大王#1:7">
+                <text>炸饅頭正常美味</text>
+                <Opinions>
+                    <Opinion target="炸饅頭" category="FOOD#QUALITY" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="上海真美豆漿大王#1:8">
+                <text>糯米飯包著滿滿的餡料</text>
+                <Opinions>
+                    <Opinion target="糯米飯" category="FOOD#PRICES" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="上海真美豆漿大王#1:9">
+                <text>粢飯即叫即包，裡面有好脆嘅油炸鬼、甜甜地嘅肉鬆、榨菜，加埋熱辣辣嘅糯米飯，好食</text>
+                <Opinions>
+                    <Opinion target="粢飯" category="FOOD#QUALITY" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="上海真美豆漿大王#1:10">
+                <text>銀絲卷都係即叫即整，外面炸到好脆，裡面一絲絲咁撕落黎點煉奶食，好食</text>
+                <Opinions>
+                    <Opinion target="銀絲卷" category="FOOD#QUALITY" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="上海真美豆漿大王#1:11">
+                <text>酸辣淨雲吞有好多材料，包括豬皮、豬紅、木耳絲、豆腐、荀絲同蛋絲</text>
+                <Opinions>
+                    <Opinion target="酸辣淨雲吞" category="FOOD#STYLE_OPTIONS" polarity="positive"/>
+                </Opinions>
+            </sentence>
+        </sentences>
+    </Review>
+    <Review rid="上海真美豆漿大王#2">
+        <sentences>
+            <sentence id="上海真美豆漿大王#2:0">
+                <text>招牌正宗上海粢飯的糯米飯包著炸菜、肉鬆及油炸鬼，油炸鬼香脆，增添了口感，炸菜配上肉鬆，夾著糯米飯吃的確是一反風味，吃著吃著就吃完一半。</text>
+                <Opinions>
+                    <Opinion target="招牌正宗上海粢飯" category="FOOD#QUALITY" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="上海真美豆漿大王#2:1">
+                <text>咸豆漿吃上一口，會感到一陣淡淡豆香中夾著微微咸味，油炸鬼浸滿咸豆漿，吃上口感軟淋淋的，夾著蔥花吃也不錯。</text>
+                <Opinions>
+                    <Opinion target="咸豆漿" category="FOOD#QUALITY" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="上海真美豆漿大王#2:2">
+                <text>一間位於寶琳的懷舊上海小店，相信都是寶琳街坊的集體回憶，令人回想每天上學經過的早餐小店，中學生下午茶的聚腳點。</text>
+                <Opinions>
+                    <Opinion target="懷舊上海小店" category="AMBIENCE#GENERAL" polarity="positive"/>
+                    <Opinion target="寶琳" category="LOCATION#GENERAL" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="上海真美豆漿大王#2:3">
+                <text>銀絲卷又係即叫即炸，做到外脆內軟，點埋煉奶食，絕配。</text>
+                <Opinions>
+                    <Opinion target="銀絲卷" category="FOOD#QUALITY" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="上海真美豆漿大王#2:4">
+                <text>粢飯好鬆化，超好味。滷水蛋同豆腐都好食。小籠包味道都正常，裡面好多湯汁，食嘅時候要好小心。</text>
+                <Opinions>
+                    <Opinion target="粢飯" category="FOOD#QUALITY" polarity="positive"/>
+                    <Opinion target="滷水蛋" category="FOOD#QUALITY" polarity="positive"/>
+                    <Opinion target="豆腐" category="FOOD#QUALITY" polarity="positive"/>
+                    <Opinion target="小籠包" category="FOOD#QUALITY" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="上海真美豆漿大王#2:5">
+                <text>鋪頭都好就腳，係新都城中心。</text>
+                <Opinions>
+                    <Opinion target="鋪頭" category="LOCATION#GENERAL" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="上海真美豆漿大王#2:6">
+                <text>即炸油炸鬼希望佢長做長有，繼續保持到咁正水準，其他地方食唔到粢飯中間油炸鬼係脆的。</text>
+                <Opinions>
+                    <Opinion target="即炸油炸鬼" category="FOOD#QUALITY" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="上海真美豆漿大王#2:7">
+                <text>我都係對佢豆漿有信心。</text>
+                <Opinions>
+                    <Opinion target="豆漿" category="FOOD#QUALITY" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="上海真美豆漿大王#2:8">
+                <text>因為餃子係即叫即煎嘅，所以當然一上到枱都係好熱辣辣啦，亦都非常之香。</text>
+                <Opinions>
+                    <Opinion target="餃子" category="FOOD#QUALITY" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="上海真美豆漿大王#2:9">
+                <text>下午茶$29有4隻煎餃子加豆腐絕對唔貴。</text>
+                <Opinions>
+                    <Opinion target="煎餃子" category="FOOD#PRICES" polarity="positive"/>
+                    <Opinion target="豆腐" category="FOOD#PRICES" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="上海真美豆漿大王#2:10">
+                <text>另外我都叫左一份煎釀豆腐，反而呢份就真係麻麻地啦。一嚟上到枱完全唔夠熱，只有少少餘溫。二嚟只係釀左少少豬肉入去，同普通煎豆腐都冇乜分別。</text>
+                <Opinions>
+                    <Opinion target="煎釀豆腐" category="FOOD#QUALITY" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="上海真美豆漿大王#2:11">
+                <text>當日油炸鬼炸得酥脆，但調味略嫌有啲過咸。份量就正常，料都幾足。</text>
+                <Opinions>
+                    <Opinion target="油炸鬼" category="FOOD#QUALITY" polarity="negative"/>
+                    <Opinion target="油炸鬼" category="FOOD#PRICES" polarity="positive"/>
+                </Opinions>
+            </sentence>
+        </sentences>
+    </Review>
+    <Review rid="大茶飯 (將軍澳中心)#1">
+        <sentences>
+            <sentence id="大茶飯 (將軍澳中心)#1:0">
+                <text>再望一望魚片鍋個份量心諗抵到爛，仲要每一下筆落去都係滿滿嘅魚片</text>
+                <Opinions>
+                    <Opinion target="魚片鍋" category="FOOD#PRICES" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="大茶飯 (將軍澳中心)#1:1">
+                <text>而且啲魚片仲要係冇骨，食落口嗰下啲味唔會話太重或者啲味太淡</text>
+                <Opinions>
+                    <Opinion target="魚片" category="FOOD#QUALITY" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="大茶飯 (將軍澳中心)#1:2">
+                <text>職員工作態度敏捷，店舖整齊清潔</text>
+                <Opinions>
+                    <Opinion target="職員" category="SERVICE#GENERAL" polarity="positive"/>
+                    <Opinion target="店舖" category="AMBIENCE#GENERAL" polarity="positive"/>
+                    <Opinion target="店舖" category="RESTAURANT#GENERAL" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="大茶飯 (將軍澳中心)#1:3">
+                <text>晚餐食沙茶牛肉火鍋，和新竹炒米粉，味道唔錯</text>
+                <Opinions>
+                    <Opinion target="沙茶牛肉火鍋" category="FOOD#QUALITY" polarity="positive"/>
+                    <Opinion target="新竹炒米粉" category="FOOD#QUALITY" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="大茶飯 (將軍澳中心)#1:4">
+                <text>入到裡面環境都幾好，職員態度都好好，十分友善。</text>
+                <Opinions>
+                    <Opinion target="環境" category="AMBIENCE#GENERAL" polarity="positive"/>
+                    <Opinion target="職員" category="SERVICE#GENERAL" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="大茶飯 (將軍澳中心)#1:5">
+                <text>叫左個雞排肉燥飯，落單之後五分鐘內已經到左，效率超快！</text>
+                <Opinions>
+                    <Opinion target="落單" category="SERVICE#GENERAL" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="大茶飯 (將軍澳中心)#1:6">
+                <text>個雞排肉燥飯比我預期中好食，雞排好好食，嗰飯就正常味道，都不錯，性價比都幾高，下次會再幫襯。</text>
+                <Opinions>
+                    <Opinion target="雞排肉燥飯" category="FOOD#QUALITY" polarity="positive"/>
+                    <Opinion target="雞排" category="FOOD#QUALITY" polarity="positive"/>
+                    <Opinion target="性價比" category="RESTAURANT#PRICES" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="大茶飯 (將軍澳中心)#1:7">
+                <text>蝦卷蛋餅好大好多餡，非常美味</text>
+                <Opinions>
+                    <Opinion target="蝦卷蛋餅" category="FOOD#QUALITY" polarity="positive"/>
+                    <Opinion target="蝦卷蛋餅" category="FOOD#PRICES" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="大茶飯 (將軍澳中心)#1:8">
+                <text>職員工作態度好，速度敏捷</text>
+                <Opinions>
+                    <Opinion target="職員" category="SERVICE#GENERAL" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="大茶飯 (將軍澳中心)#1:9">
+                <text>餐廳亦好乾淨現代化，以後會繼續經常來食飯！</text>
+                <Opinions>
+                    <Opinion target="餐廳" category="AMBIENCE#GENERAL" polarity="positive"/>
+                    <Opinion target="餐廳" category="RESTAURANT#GENERAL" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="大茶飯 (將軍澳中心)#1:10">
+                <text>整隻大雞脾巳比滷水汁醃製到非常入味，肉皮連骨的色澤巳變成深啡色，因此肉質口感比較乾粗</text>
+                <Opinions>
+                    <Opinion target="大雞脾" category="FOOD#QUALITY" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="大茶飯 (將軍澳中心)#1:11">
+                <text>飯粒亦略粗乾，大大粒珍珠米，但配以油滑的滷肉飯醬汁又變得恰到好處。</text>
+                <Opinions>
+                    <Opinion target="飯粒" category="FOOD#QUALITY" polarity="positive"/>
+                </Opinions>
+            </sentence>
+        </sentences>
+    </Review>
+    <Review rid="穴の酒販 (將軍澳中心)#1">
+        <sentences>
+            <sentence id="穴の酒販 (將軍澳中心)#1:0">
+                <text>我哋叫咗好多野，包括明太子松葉蟹肉石鍋飯、鹽味香蔥牛肉石鍋飯、松葉蟹蓋海膽石鍋飯、三文魚燒飯團、名古屋炸雞同燒河豚魚乾。話真係，食物好豐富同好好味！</text>
+                <Opinions>
+                    <Opinion target="食物" category="FOOD#QUALITY" polarity="positive"/>
+                    <Opinion target="食物" category="FOOD#STYLE_OPTIONS" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="穴の酒販 (將軍澳中心)#1:1">
+                <text>燒河豚魚乾係我最喜歡嘅一款。佢香氣四溢，外脆內嫩，非常美味。</text>
+                <Opinions>
+                    <Opinion target="燒河豚魚乾" category="FOOD#QUALITY" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="穴の酒販 (將軍澳中心)#1:2">
+                <text>石鍋飯有好多選擇，明太子松葉蟹肉同松葉蟹蓋海膽嘅組合都好鮮甜，味道濃郁。</text>
+                <Opinions>
+                    <Opinion target="石鍋飯" category="FOOD#STYLE_OPTIONS" polarity="positive"/>
+                    <Opinion target="明太子松葉蟹肉" category="FOOD#QUALITY" polarity="positive"/>
+                    <Opinion target="松葉蟹蓋海膽" category="FOOD#QUALITY" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="穴の酒販 (將軍澳中心)#1:3">
+                <text>鹽味香蔥牛肉石鍋飯有嚼勁嘅牛肉同香蔥味，令人回味無窮。</text>
+                <Opinions>
+                    <Opinion target="鹽味香蔥牛肉石鍋飯" category="FOOD#QUALITY" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="穴の酒販 (將軍澳中心)#1:4">
+                <text>今次個雜錦魚生飯的魚生簿到好似紙一樣，比以前縮水一半有多，魚生極不新鮮，帶臭味，海蝦霉霉爛爛，海膽有「壓味」，最離譜係連白飯也少咗一半</text>
+                <Opinions>
+                    <Opinion target="雜錦魚生飯" category="FOOD#QUALITY" polarity="negative"/>
+                    <Opinion target="魚生" category="FOOD#PRICES" polarity="negative"/>
+                    <Opinion target="魚生" category="FOOD#QUALITY" polarity="negative"/>
+                    <Opinion target="海蝦" category="FOOD#QUALITY" polarity="negative"/>
+                    <Opinion target="海膽" category="FOOD#QUALITY" polarity="negative"/>
+                    <Opinion target="白飯" category="FOOD#PRICES" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="穴の酒販 (將軍澳中心)#1:5">
+                <text>午餐$120每份量連半飽都不及，亦沒有跟咖啡或茶。</text>
+                <Opinions>
+                    <Opinion target="NULL" category="RESTAURANT#PRICES" polarity="negative"/>
+                    <Opinion target="午餐" category="FOOD#PRICES" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="穴の酒販 (將軍澳中心)#1:6">
+                <text>甜品是兩件毫無誠意的綠茶糕， 很難食</text>
+                <Opinions>
+                    <Opinion target="甜品" category="FOOD#QUALITY" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="穴の酒販 (將軍澳中心)#1:7">
+                <text>侍應人手不足，亦欠禮貌，希望管理層看到此投會有所改善</text>
+                <Opinions>
+                    <Opinion target="侍應" category="SERVICE#GENERAL" polarity="negative"/>
+                </Opinions>
+            </sentence>
+        </sentences>
+    </Review>
+</Reviews>
