@@ -43,7 +43,7 @@ def analyze_review():
     review_list, path = restaurant_data.get_restaurant_data()
 
     # get page 2 to page 10 comments
-    for i in range(0, 9):
+    for i in range(0, 8):
     # while True:
         found_path = json.loads(path.decode())
 
