@@ -98,8 +98,15 @@ def analyze_review():
 @app.route("/search_list", methods=["POST"])
 def search_list():
     restaurant_name = request.form["restaurant_name"]
-    label = f" {restaurant_name}"
-    return render_template("search_list.html", content=label)
+    search_link = f"http://www.openrice.com/chinese/restaurant/sr1.htm?inputstrwhat={restaurant_name}"
+
+    results = Openrice(search_link)
+    results.search_restaurant()
+
+    restaurant_info, path = results.get_restaurant_data()
+    res = json.loads(restaurant_info.decode())
+    print(res)
+    return render_template("search_list.html", data=res, key=restaurant_name)
 
 
 # User Guide
