@@ -11,29 +11,29 @@ TOKEN = ["GPhGTPtn-7CsrpiZCYUdtw%3D%3D",
 
 """
 ChatGPT Prompt Formula:
-https://www.youtube.com/watch?v=jC4v5AS4RIM
+https://sarahtamsin.com/the-art-of-writing-chatgpt-prompts/
 
-Important
-|       [task]
-|       [context]
-|       [exemplar]
-|       [persona]
-|       [format]
-|       [tone]
-Optional
+# Important
+# |       [task]
+# |       [context]
+# |       [exemplar]
+# |       [persona]
+# |       [format]
+# |       [tone]
+# Optional
 
 """
 
 message = """
-- Please classify the given Cantonese restaurant review to the aspects of Food prices, Food quality, Food style options, Restaurant hygiene, Restaurant service, Restaurant general, Restaurant prices, Restaurant location, and Restaurant ambience, and classify these aspects with positive/neutral/negative sentiment, no need to output the result if the review no mentioned. - Please give me the outputs according to this structure:
+-You are the researcher of Aspect-Based Sentiment Analysis, your job is to classify the given Cantonese restaurant review to the aspects of FOOD#PRICES, FOOD#QUALITY, FOOD#STYLE_OPTIONS, SERVICE#GENERAL, RESTAURANT#GENERAL, RESTAURANT#PRICES, LOCATION#GENERAL, RESTAURANT#HYGIENE, and AMBIENCE#GENERAL, and classify these aspects with positive/neutral/negative sentiment. Please give me the outputs according to this structure:
 - Target Noun: [Original Cantonese text only]
 - Target Aspect: [Aspect]
 - Target Sentiment: [Sentiment]
-- Target Sentence: [Original Cantonese text only]
+- Target Sentence: [Target Noun] [Original Cantonese text only]
 
 - Example1:
 - Target Noun: 火山排骨
-- Target Aspect: Food quality
+- Target Aspect: FOOD#QUALITY
 - Target Sentiment: Positive
 - Target Sentence: 火山排骨令到我念念不忘餐廳野食唔錯
 
