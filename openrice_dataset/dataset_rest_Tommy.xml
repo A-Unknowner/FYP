@@ -2186,4 +2186,34 @@
             </sentence>
         </sentences>
     </Review>
+    <Review rid="王家沙．花樣年華 (太古城中心)#1">
+        <sentences>
+            <sentence id="王家沙．花樣年華 (太古城中心)#1:0">
+                <text>因為有啲Gaia Group $50券，所以試下呢間嘢。7:30pm 先入座嗌嘢食，嗌咗碗擔擔麵、排骨菜飯、蟹粉小籠包、膳糊、葱爆羊肉配薄餅。除咗碗麵之外，完全唔明點解啲嘢嚟到會全部緊緊暖，已經坐得好近出餐位！啲人都開始走，證明亦都已經過晒最繁忙嘅時間。就算唔講食物溫度，啲嘢食質素完全對唔住$200/位呢個價位。個膳糊勁多油，講真俾返煮嗰個佢都未必食。葱爆羊肉配嗰碟薄餅包住保鮮紙上餐，嚟到待應先拆保鮮紙俾我哋。用微波爐翻熱翻到出晒面，有塊仲叮到硬硬哋。收呢個價錢但係咁嘅質素，呢間真係冇下次</text>
+                <Opinions>
+                    <Opinion target="" category="FOOD#QUALITY" polarity="negative"/>
+                    <Opinion target="" category="FOOD#STYLE_OPTIONS" polarity="neutral"/>
+                    <Opinion target="" category="FOOD#PRICES" polarity="negative"/>
+                    <Opinion target="" category="SERVICE#GENERAL" polarity="negative"/>
+                </Opinions>
+            </sentence>
+            <sentence id="王家沙．花樣年華 (太古城中心)#1:1">
+                <text>同舊朋友中秋節前嚟一次聚會，三個人叫咗蟹粉小籠包、宮保蝦、熏魚、奶油津白、京蔥炒羊肉、馬拉盞炒通菜、鍋貼及招牌牛肉餅，上菜速度快，可能是晚餐廳人數唔算多，食物溫度及味道都OK。先講小籠包，一籠五隻，係正正常常，皮唔算太薄，但係入邊肉汁夠。宮保蝦夠惹味，肉質都可以，亦都冇過熟嘅情況出現。京蔥炒羊肉，泡饃得四片略為唔夠，羊肉亦都唔夠臊味。鍋貼一份三隻肉汁夠煎得夠好。招牌牛肉餅一份都係三隻。其餘嘅奶油津白、熏魚及馬拉盞通菜就冇影到相啦。最後，是次消費經OpenRice訂枱，所以全單堂食九折。</text>
+                <Opinions>
+                    <Opinion target="" category="FOOD#QUALITY" polarity="neutral"/>
+                    <Opinion target="" category="FOOD#STYLE_OPTIONS" polarity="neutral"/>
+                    <Opinion target="" category="FOOD#PRICES" polarity="positive"/>
+                    <Opinion target="" category="SERVICE#GENERAL" polarity="positive"/>
+                </Opinions>
+            </sentence>
+            <sentence id="王家沙．花樣年華 (太古城中心)#1:2">
+                <text>嚴重唔夠店員，所以十問十唔應見到都扮見你唔到，收加一但係完全無服務。收小食錢但係得花生，對花生過敏，仲要兩碟都係花生無其他野揀。冷氣大到全程食冷飯餸。上菜速度驚人，一時全部一次過上哂，食都食唔切又上第二轉，一時等佢架車仔行均全場仲要執埋枱先記得送漏左送返返黎。碟粉皮有異物，後尾店員話唔係頭髮係洗碗個刷，咁仲得人驚，真係食茶記都無咁嬲。個麵一放上枱已經凍哂硬到最後食唔哂放棄左…個話梅排骨幾好味不過凍哂硬到好有咬口</text>
+                <Opinions>
+                    <Opinion target="" category="FOOD#QUALITY" polarity="negative"/>
+                    <Opinion target="" category="FOOD#PRICES" polarity="negative"/>
+                    <Opinion target="" category="SERVICE#GENERAL" polarity="negative"/>
+                </Opinions>
+            </sentence>
+        </sentences>
+    </Review>
 </Reviews>
