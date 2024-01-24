@@ -4,7 +4,7 @@ import pandas as pd
 import os
 from opencc import OpenCC
 
-# paste your target comment/review
+# paste your target comment/review, you may remove the data and past your own data
 reviews = ["今晚早放工，於是同老婆去咗APM行一陣，順便睇吓有咩食。行咗一陣都諗唔到食乜好，見好耐無食過KFC，於是就行去食。今次點了個二人餐，再加個鹹蛋黃炸雞翼。先講個二人餐，啲炸雞個味道偏鹹，而且啲雞胸肉好「鞋」口，唔好食。反而佢個燒雞就幾好味，有點意外。然後到個鹹蛋黃炸雞翼，又係得個鹹字，唔得。而最重點係個蘑菇飯，以前覺得好好食，啲汁好香同都幾多蘑菇，但今次啲汁偏少而且蘑菇都係唔夠，同以前差好遠。雖然食物比以前差，但始終係快餐店，都唔會有太高期望。反而重點係完全零服務，入到去好多張枱都係上手食客食完嘅食物同餐盤，根本就無人執，喺咁嘅環境吓食嘢真係完全唔掂，整體嚟講都幾失望。",
            "海鮮硬既有屎，牛肉發霉，碗碟非常非常非常唔乾淨。",
            "雪糕未見過既垃圾牌子，芝士鍋芝士後面食到完全無意義不如清湯。",
@@ -209,7 +209,7 @@ reviews = ["今晚早放工，於是同老婆去咗APM行一陣，順便睇吓�
 
            ]
 
-# paste the chatgpt dictionary output
+# paste the chatgpt dictionary output, you may remove the data and past your own data
 data = [
 {"location_traffic_convenience" : 0,  
 "location_distance_from_business_district" : -1,  
