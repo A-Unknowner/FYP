@@ -34,6 +34,7 @@ def index():
 def analyze_review():
 
     restaurant_name, path = request.form["restaurant_name"] , request.form["analyze_bttn"]
+    print(restaurant_name, path)
 
     # get page 1 comments
     restaurant_data = Openrice(path)
@@ -43,7 +44,7 @@ def analyze_review():
     review_list, path = restaurant_data.get_restaurant_data()
 
     # get page 2 to page 10 comments
-    for i in range(0, 8):
+    for i in range(0, 3):
     # while True:
         found_path = json.loads(path.decode())
 

@@ -3,88 +3,90 @@
 
 <head>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='index.css') }}">
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
-    rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+          rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+          crossorigin="anonymous">
     <link rel="stylesheet" href="../static/loading.css">
 </head>
 
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Restaurant Review Analyzer for Chinese Language (RRACL)</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Restaurant Review Analyzer for Chinese Language (RRACL)</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-            </li>  
-          </ul>
-        </div>
+                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+            </li>
+        </ul>
+    </div>
     <form class="form-inline my-2 my-lg-0" action="/search_list" method="POST">
         <input type="search" placeholder="Search" name="restaurant_name" aria-label="Search">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
-      </nav>
+</nav>
 
-    <!-- loading wrapper -->
-    <div class="preloader-wrapper">
+<!-- loading wrapper -->
+<div class="preloader-wrapper">
 
-        <div class="spinner-border text-info" role="status" style="width: 5em; height: 5em;">
-            <span class="visually-hidden">Loading...</span>
-        </div>
+    <div class="spinner-border text-info" role="status" style="width: 5em; height: 5em;">
+        <span class="visually-hidden">Loading...</span>
+    </div>
 
-        <div>
-            Analyzing ...
-        </div>
+    <div>
+        Analyzing ...
+    </div>
 
-    </div> 
+</div>
 
-    <div class="container">
+<div class="container">
     <center><h1 class="title">Restaurant</h1></center>
 
-    <form id="result" action="/result" method="POST">
-    
-        <div class="row">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col">Restaurant Name</th>
-                        
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for data in datas %}
-                    <tr>
-                        
+
+    <div class="row">
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Restaurant Name</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            {% for data in datas %}
+                <tr>
+                    <form id="result" action="/result" method="POST">
                         <td>
-                            <input type="hidden" name="restaurant_name" value="{{ data.restaurant_name }}" />
+                            <input type="hidden" name="restaurant_name" value="{{ data.restaurant_name }}"/>
                             <button onclick="loadingFunction()" type="submit" name="analyze_bttn"
-                                value="{{ data.restaurant_url }}" id="analyze_btn">{{ data.restaurant_name }}
+                                    value="{{ data.restaurant_url }}" id="analyze_btn">{{ data.restaurant_name }}
                             </button>
                         </td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-        </div>
-    
-    </form>
+                    </form>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+
 </div>
-    <script>
-        function loadingFunction(){
-            const preloaderWrapper = document.querySelector(".preloader-wrapper");
-            preloaderWrapper.style.visibility='visible';
-            window.addEventListener("load", function(){
-                preloaderWrapper.classList.add("fade-out-animation");
-            });
-        };
-    </script>
+<script>
+    function loadingFunction() {
+        const preloaderWrapper = document.querySelector(".preloader-wrapper");
+        preloaderWrapper.style.visibility = 'visible';
+        window.addEventListener("load", function () {
+            preloaderWrapper.classList.add("fade-out-animation");
+        });
+    };
+</script>
 </body>
 
 </html>
