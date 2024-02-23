@@ -51,4 +51,4 @@
 "others_overall_experience" : 1,
 "others_willing_to_consume_again" : 1}
 
-請將以下的廣東話餐廳評論進行分類：
+請將以下的廣東話餐廳評論進行分類並且請提供描述支持您的分析：
