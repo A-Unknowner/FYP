@@ -1,24 +1,54 @@
-- Ignore the previous prompts in this conversation. You are the researcher of Aspect-Based Sentiment Analysis, your job is to classify the given Cantonese restaurant review to the aspects of [location_traffic_convenience, location_distance_from_business_district, location_easy_to_find, service_wait_time, service_waiters_attitude, service_parking_convenience, service_serving_speed, price_level, price_cost_effective, price_discount, environment_decoration, environment_noise, environment_space, environment_cleaness, dish_portion, dish_taste, dish_look, dish_recommendation, others_overall_experience, others_willing_to_consume_again], and classify these aspects with positive [1]/neutral [0]/negative [-1] sentiment, the polarity output to [-2] if the review no mentioned. - Please give me the outputs according to this structure:
-{"location_traffic_convenience" : polarity,
-"location_distance_from_business_district" : polarity,
-"location_easy_to_find" : polarity,
-"service_wait_time" : polarity,
-"service_waiters_attitude" : polarity,
-"service_parking_convenience" : polarity,
-"service_serving_speed" : polarity,
-"price_level" : polarity,
-"price_cost_effective" : polarity,
-"price_discount" : polarity,
-"environment_decoration" : polarity,
-"environment_noise" : polarity,
-"environment_space" : polarity,
-"environment_cleaness" : polarity,
-"dish_portion" : polarity,
-"dish_taste" : polarity,
-"dish_look" : polarity,
-"dish_recommendation" : polarity,
-"others_overall_experience" : polarity,
-"others_willing_to_consume_again" : polarity},
+您是细粒度情感分析（Aspect-Based Sentiment Analysis）的分析師，你的工作是將廣東話餐廳評論分類為以下細粒度要素:
+餐廳的交通是否便利 (location_traffic_convenience), 餐廳的位置距離商圈遠近 (location_distance_from_business_district), 餐廳的位置是否容易尋找 (location_easy_to_find), 服務或排隊的等候時間 (service_wait_time), 服務生的態度 (service_waiters_attitude), 是否容易停車 (service_parking_convenience), 點菜或上菜的速度 (service_serving_speed), 價格水平 (price_level), 性價比 (price_cost_effective), 折扣力度 (price_discount), 環境裝修的狀況 (environment_decoration), 吵雜的狀況 (environment_noise), 用餐的空間 (environment_space), 環境衛生的狀況 (environment_cleaness), 菜色的分量 (dish_portion), 菜色的口感 (dish_taste), 菜色的外觀 (dish_look), 菜色推薦程度 (dish_recommendation), 本次的消費感受 (others_overall_experience), 再次消費的意願 (others_willing_to_consume_again)
+並將每個細粒度要素的情感傾向分類為以下的情感傾向:
+1(正向情感 positive), 0(中性情感 neutral), -1(負向情感 negative), -2(評論未能提及 not mentioned)
 
+以下是餐廳評論標註的範例1：
+"味道不錯的麵館，性價比也相當之高，分量很足～女生吃小份，胃口小的，可能吃不完呢。環境在麵館來說算是好的，至少看上去堂子很亮，也比較乾淨 ，一般蒼蠅館子還是比不上這個衛生狀況的。中午飯點的時候，人很多，人行道上也是要坐滿的，隔壁的冒菜館子，據說是一家，有時候也會開放出來坐吃麵的 人。"
 
-- This is the Cantonese restaurant review:
+{"location_traffic_convenience" : -2,
+"location_distance_from_business_district" : -2,
+"location_easy_to_find" : -2,
+"service_wait_time" : -2,
+"service_waiters_attitude" : -2,
+"service_parking_convenience" : -2,
+"service_serving_speed" : -2,
+"price_level" : -2,
+"price_cost_effective" : 1,
+"price_discount" : -2,
+"environment_decoration" : 1,
+"environment_noise" : -2,
+"environment_space" : -2,
+"environment_cleaness" : 1,
+"dish_portion" : 1,
+"dish_taste" : 1,
+"dish_look" : -2,
+"dish_recommendation" : -2,
+"others_overall_experience" : 1,
+"others_willing_to_consume_again" : -2}
+
+以下是餐廳評論標註的範例2：
+"中午飯點人比較多需要排隊～2點左右去吃的剛好可以用團購～也不用排隊～就是平安夜店員說的都不一樣有的讓用團購有的說不能，有點混亂～店裡的 日本店員雖然不怎麼懂中文但很熱情！確實一進店一股臭臭的味道～但是待久了就習慣了 店裡桌子前有很多圖文教怎麼使用桌上的醬料，很詳細很有愛～可以自己調自己的口兒！兩個人團了兩個套餐～還有一份炸雞！ 吃的很飽～濃厚豚骨拉麵，加了糖心蛋、海苔和豆芽（當時沒有筍了比較遺憾）～湯頭非常濃鬱、就是單喝還是有點臭臭的，加了店裡的拉麵醬、黑胡椒和芝麻～好 很多！ 裡邊的糖心蛋特別讚！博多黑拉麵，非常推薦這個！ 沒有異味兒！ 也沒有很濃的蒜味，恰到好處非常好吃～炸雞塊剛炸出來的特別酥嫩！ 不用沾任何東西就很有味兒～就是量有點小～團購很值！ 以後還會來的！ "
+
+{"location_traffic_convenience" : -2,
+"location_distance_from_business_district" : -2,
+"location_easy_to_find" : -2,
+"service_wait_time" : 0,
+"service_waiters_attitude" : 1,
+"service_parking_convenience" : -2,
+"service_serving_speed" : -2,
+"price_level" : -2,
+"price_cost_effective" : 1,
+"price_discount" : 0,
+"environment_decoration" : -2,
+"environment_noise" : -2,
+"environment_space" : -2,
+"environment_cleaness" : -1,
+"dish_portion" : -1,
+"dish_taste" : 0,
+"dish_look" : -2,
+"dish_recommendation" : 1,
+"others_overall_experience" : 1,
+"others_willing_to_consume_again" : 1}
+
+請將以下的廣東話餐廳評論進行分類並且請提供描述支持您的分析：
