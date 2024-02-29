@@ -52,16 +52,24 @@ class Openrice:
     def restaurant_review(self):
         converter = OpenCC("hk2s.json")
         # review_user = self.__dom.xpath('//div[@itemprop="author"]')
-        comments = self.__dom.xpath('//div[@itemprop="description"]')
+        comments = self.__dom.xpath('//section[@class="review-container"]')
+        # comments = self.__dom.xpath('//div[@itemprop="description"]')
         num_of_page = self.__dom.xpath('//*[@id="sr2-review-container"]/div[3]/div/a')
+        print("comment", comments)
 
         if len(self.__restaurant_data) == 0:
             for i in range(len(comments)):
 
                 # username = review_user[i].xpath(".//text()")[1].strip()
-                user_review = comments[i].xpath(".//text()")[0]
+                # user_review = comments[i].xpath(".//text()")[0]
+                # user_review = ''.join([com if not com in ["\n", "\r"] and not com.isdigit() and not "留言" in com and not "讚好" in com and not "瀏覽" in com else "" for com in comments[i].xpath("//section[@class='review-container']")[0].xpath(".//text()")]).replace("\r\n\r\n","")
+                user_review = ''.join([com if not com in ["\n", "\r"] and not com.isdigit() and not "留言" in com and not "讚好" in com and not "瀏覽" in com else "" for com in comments[i].xpath(".//text()")]).replace("                    ","")
+                # print("review", comments[i].xpath("//section[@class='review-container']")[0].xpath(".//text()"))
+                # print("review", ''.join([com if not com in ["\n", "\r"] and not com.isdigit() and not "留言" in com and not "讚好" in com and not "瀏覽" in com else "" for com in comments[i].xpath("//section[@class='review-container']")[0].xpath(".//text()")]).replace("\r\n\r\n",""))
+                # print("review", comments[i].xpath(".//text()"))
                 user_review = user_review.replace("\r\n", "").strip()
                 user_review = self.emoji_filter(user_review)
+                print("review", user_review)
 
                 if detect(user_review) != "en":
 
@@ -76,10 +84,14 @@ class Openrice:
             for i in range(len(comments)):
 
                 # username = review_user[i].xpath(".//text()")[1].strip()
-                user_review = comments[i].xpath(".//text()")[0]
+                # user_review = comments[i].xpath(".//text()")[1]
+                user_review = ''.join([com if not com in ["\n", "\r"] and not com.isdigit() and not "留言" in com and not "讚好" in com and not "瀏覽" in com else "" for com in comments[i].xpath(".//text()")]).replace("                    ","")
+                # print("review", comments[i].xpath(".//text()"))
+                # print("review", comments[i].xpath(".//text()"))
+
                 user_review = user_review.replace("\r\n", "").strip()
                 user_review = self.emoji_filter(user_review)
-
+                print("review", user_review)
                 if detect(user_review) != "en":
 
                     self.__restaurant_data.append(
@@ -109,7 +121,7 @@ class Openrice:
                 # print(name[i].text.strip(), address[i].text.strip().replace(" ", "").replace("/", "").split("\n\n"), image[i]["style"].replace("background-image:url(", "").replace(");", ""), "https://www.openrice.com/" + name[i]["href"])
                 self.__restaurant_data.append(
                     {"restaurant_name": name[i].text.strip(),
-                     "restaurant_img_url": image[i]["style"].replace("background-image:url(", "").replace(");", ""),
+                     # "restaurant_img_url": image[i]["style"].replace("background-image:url(", "").replace(");", ""),
                      "restaurant_address": address[i].text.strip().replace(" ", "").replace("/", "").split("\n\n"),
                      "restaurant_url": f"https://www.openrice.com/{name[i]['href']}/reviews"}
                 )
@@ -220,7 +232,7 @@ if __name__ == "__main__":
 
     # book_marked_url = "https://www.openrice.com/zh/hongkong/explore/chart/most-bookmarked"
 
-    # restaurant_review_url = "https://www.openrice.com/zh/hongkong/r-milu-thai-%E0%B8%A1%E0%B8%B4%E0%B8%A5%E0%B8%B9%E0%B9%88%E0%B9%84%E0%B8%97%E0%B8%A2-%E9%8A%85%E9%91%BC%E7%81%A3-%E6%B3%B0%E5%9C%8B%E8%8F%9C-%E6%B5%B7%E9%AE%AE-r588815/reviews"
+    restaurant_review_url = "https://www.openrice.com/zh/hongkong/r-milu-thai-%E0%B8%A1%E0%B8%B4%E0%B8%A5%E0%B8%B9%E0%B9%88%E0%B9%84%E0%B8%97%E0%B8%A2-%E9%8A%85%E9%91%BC%E7%81%A3-%E6%B3%B0%E5%9C%8B%E8%8F%9C-%E6%B5%B7%E9%AE%AE-r588815/reviews"
 
     # # get top 30 restaurant name and its url
     # results = Openrice(book_marked_url)
@@ -230,20 +242,20 @@ if __name__ == "__main__":
     # # print(restaurant_info.decode())
     # # print(path.decode())
 
-    # # get target restaurant review
-    # results = Openrice(restaurant_review_url)
-    # results.restaurant_review()
-    # reviews_info, path = results.get_restaurant_data()
+    # get target restaurant review
+    results = Openrice(restaurant_review_url)
+    results.restaurant_review()
+    reviews_info, path = results.get_restaurant_data()
 
     # CSV(reviews_info).to_csv()
 
-    restaurant_name = "MoMo"
-    search_link = f"http://www.openrice.com/chinese/restaurant/sr1.htm?inputstrwhat={restaurant_name}"
-    results = Openrice(search_link)
-    results.search_restaurant()
-    restaurant_info, path = results.get_restaurant_data()
-
-    print(restaurant_info.decode())
+    # restaurant_name = "MoMo"
+    # search_link = f"http://www.openrice.com/chinese/restaurant/sr1.htm?inputstrwhat={restaurant_name}"
+    # results = Openrice(search_link)
+    # results.search_restaurant()
+    # restaurant_info, path = results.get_restaurant_data()
+    #
+    # print(restaurant_info.decode())
     
     # print(reviews_info.decode())
     # print(path.decode())
