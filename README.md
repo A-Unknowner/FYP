@@ -34,7 +34,10 @@ put the chinese_stopwords.txt into "fsauor-master/Multi-task/Transformer+Convolu
 
 bash ./train.sh
 
-# comment
-```commandline
 
+
+
+# model and data
+```commandline
+https://gitlab.com/hkmu/FYP.git
 ```
