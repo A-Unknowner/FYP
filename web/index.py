@@ -5,7 +5,7 @@ from controller.restaurant_review_data import Openrice, CSV
 import json, subprocess, os
 # from collections import Counter
 from controller.chart_data import find_all_polarity_number, find_specific_aspect_polarity
-
+from urllib import parse
 
 
 app = Flask(__name__)
@@ -98,7 +98,7 @@ def analyze_review():
 
 @app.route("/search_list", methods=["POST"])
 def search_list():
-    restaurant_name = request.form["restaurant_name"]
+    restaurant_name = parse.quote_plus(request.form["restaurant_name"])
     search_link = f"http://www.openrice.com/chinese/restaurant/sr1.htm?inputstrwhat={restaurant_name}"
 
     results = Openrice(search_link)
