@@ -107,7 +107,7 @@ def search_list():
     restaurant_info, path = results.get_restaurant_data()
     res = json.loads(restaurant_info.decode())
     print(res)
-    return render_template("search_list.html", data=res, key=restaurant_name)
+    return render_template("search_list.html", datas=res, key=restaurant_name)
 
 
 # User Guide

@@ -1,4 +1,5 @@
 # coding=utf-8
+from urllib import parse
 
 from bs4 import BeautifulSoup
 from lxml import etree
@@ -36,15 +37,17 @@ class Openrice:
     # get 30 most popular restaurant name and its page url
     def restaurants_name(self):
         
-        link_elements = self.__dom.xpath('//div[@class="poi-chart-main-grid-item-deskop-title-row-left-section-poi-info-name"]')
+        link_elements = self.__dom.xpath('//div[@class="poi-chart-main-grid-item-deskop-title-row-left-section-poi-info"]')
+
         for element in link_elements:
 
             name = element.xpath(".//text()")[0].replace("\n", "").strip()
-
+            details = "".join(element.xpath(".//text()")[1::]).replace("\n", "").strip()
             href = element.xpath(".//@href")[0]
 
             self.__restaurant_data.append(
-                {"restaurant_name" : name, 
+                {"restaurant_name" : name,
+                 "restaurant_details" : details,
                 #  "restaurant_url" : f"https://www.openrice.com{href}/reviews"}
                  "restaurant_url" : href}
             )
@@ -55,7 +58,7 @@ class Openrice:
         comments = self.__dom.xpath('//section[@class="review-container"]')
         # comments = self.__dom.xpath('//div[@itemprop="description"]')
         num_of_page = self.__dom.xpath('//*[@id="sr2-review-container"]/div[3]/div/a')
-        print("comment", comments)
+        # print("comment", comments)
 
         if len(self.__restaurant_data) == 0:
             for i in range(len(comments)):
@@ -69,7 +72,7 @@ class Openrice:
                 # print("review", comments[i].xpath(".//text()"))
                 user_review = user_review.replace("\r\n", "").strip()
                 user_review = self.emoji_filter(user_review)
-                print("review", user_review)
+                # print("review", user_review)
 
                 if detect(user_review) != "en":
 
@@ -116,13 +119,17 @@ class Openrice:
             elements = self.__soup.find_all("section", class_="poi-list-cell-desktop-right-top-info-section")
             name = (elements[0].find_all_next("a", class_="poi-name poi-list-cell-link"))
             address = (elements[0].find_all_next("div", class_="poi-list-cell-line-info"))
+            # print(address[1].text.strip())
+            # details = (elements[0].find_all_next("div", class_="poi-list-cell-line-info-details"))
+            # print(repr(details[1].text.strip().replace("\n", "")))
             image = (elements[0].find_all_next("div", class_="rms-photo"))
             for i in range(len(elements)):
                 # print(name[i].text.strip(), address[i].text.strip().replace(" ", "").replace("/", "").split("\n\n"), image[i]["style"].replace("background-image:url(", "").replace(");", ""), "https://www.openrice.com/" + name[i]["href"])
                 self.__restaurant_data.append(
                     {"restaurant_name": name[i].text.strip(),
                      # "restaurant_img_url": image[i]["style"].replace("background-image:url(", "").replace(");", ""),
-                     "restaurant_address": address[i].text.strip().replace(" ", "").replace("/", "").split("\n\n"),
+                     "restaurant_address": address[i].text.strip().replace(" ", "").split("\n\n")[0],
+                     "restaurant_details": address[i].text.strip().replace(" ", "").split("\n\n")[1].replace("\n", " "),
                      "restaurant_url": f"https://www.openrice.com/{name[i]['href']}/reviews"}
                 )
         else:
