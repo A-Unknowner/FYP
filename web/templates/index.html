@@ -65,6 +65,7 @@
                     <form id="result" action="/result" method="POST">
                         <td>
                             <input type="hidden" name="restaurant_name" value="{{ data.restaurant_name }}"/>
+                            <img src="{{ data.restaurant_img_url }}"/>
                             <button onclick="loadingFunction()" type="submit" name="analyze_bttn"
                                     value="{{ data.restaurant_url }}" id="analyze_btn">
                                 {{ data.restaurant_name }}<br/>{{ data.restaurant_details }}
