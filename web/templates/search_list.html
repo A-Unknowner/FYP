@@ -101,6 +101,8 @@
 <script>
     function loadingFunction() {
         const preloaderWrapper = document.querySelector(".preloader-wrapper");
+         const foodback_ground = document.querySelector(".food_background");
+          foodback_ground.style.visibility = 'hidden';
         preloaderWrapper.style.visibility = 'visible';
         window.addEventListener("load", function () {
             preloaderWrapper.classList.add("fade-out-animation");
