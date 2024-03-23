@@ -99,11 +99,11 @@ def find_specific_aspect_polarity(read_csv_data):
 
     # others
     others_dict = {"others_overall_experience":Counter(others_overall_experience),
-                 "others_willing_to_consume_again":Counter(others_willing_to_consume_again)}
+                   "others_willing_to_consume_again":Counter(others_willing_to_consume_again)}
 
     return location_dict, service_dict, price_dict, environment_dict, dish_dict, others_dict
 
-def find_all_polarity_number(read_csv_data):
+def find_all_polarity_number_and_percentage(read_csv_data):
 
     location_list = list()
     service_list = list()
@@ -111,6 +111,10 @@ def find_all_polarity_number(read_csv_data):
     environment_list = list()
     dish_list = list()
     other_list = list()
+
+    each_comment_aspect_percent = list()
+
+    # print('read_csv_data["location_traffic_convenience"][str(i)]', read_csv_data["location_traffic_convenience"][str(0)])
 
     for i in range(len(read_csv_data["id"])):
         location_list.append(read_csv_data["location_traffic_convenience"][str(i)])
@@ -126,25 +130,36 @@ def find_all_polarity_number(read_csv_data):
         price_list.append(read_csv_data["price_cost_effective"][str(i)])
         price_list.append(read_csv_data["price_discount"][str(i)])
 
-        dish_list.append(read_csv_data["environment_decoration"][str(i)])
-        dish_list.append(read_csv_data["environment_noise"][str(i)])
-        dish_list.append(read_csv_data["environment_space"][str(i)])
-        dish_list.append(read_csv_data["environment_cleaness"][str(i)])
+        environment_list.append(read_csv_data["environment_decoration"][str(i)])
+        environment_list.append(read_csv_data["environment_noise"][str(i)])
+        environment_list.append(read_csv_data["environment_space"][str(i)])
+        environment_list.append(read_csv_data["environment_cleaness"][str(i)])
 
-        environment_list.append(read_csv_data["dish_portion"][str(i)])
-        environment_list.append(read_csv_data["dish_taste"][str(i)])
-        environment_list.append(read_csv_data["dish_look"][str(i)])
-        environment_list.append(read_csv_data["dish_recommendation"][str(i)])
+        dish_list.append(read_csv_data["dish_portion"][str(i)])
+        dish_list.append(read_csv_data["dish_taste"][str(i)])
+        dish_list.append(read_csv_data["dish_look"][str(i)])
+        dish_list.append(read_csv_data["dish_recommendation"][str(i)])
+
 
         other_list.append(read_csv_data["others_overall_experience"][str(i)])
         other_list.append(read_csv_data["others_willing_to_consume_again"][str(i)])
-    
-    location_counter = Counter(location_list)
-    service_counter = Counter(service_list)
-    price_counter = Counter(price_list)
-    dish_counter = Counter(dish_list)
-    environment_counter = Counter(environment_list)
-    other_counter = Counter(other_list)
+
+
+        each_comment_aspect_percent.append({str(i) : each_aspects_percentage(location_list, service_list, price_list, environment_list, dish_list, other_list)})
+                                                                    
+
+    location_counter, service_counter, price_counter, environment_counter, dish_counter, other_counter = \
+        get_aspects_counter(location_list, service_list, price_list, environment_list, dish_list, other_list)
+
+    total_list = location_list + service_list + price_list + dish_list + environment_list + other_list
+
+    total_positive_percentage, total_negative_percentage, total_neutral_percentage = total_percentage(location_list, 
+                                                                                                      service_list, 
+                                                                                                      price_list,
+                                                                                                      dish_list, 
+                                                                                                      environment_list, 
+                                                                                                      other_list, 
+                                                                                                      total_list)
 
     positive = [location_counter[1], service_counter[1], price_counter[1],
                 dish_counter[1], environment_counter[1], other_counter[1]]
@@ -157,5 +172,87 @@ def find_all_polarity_number(read_csv_data):
     
     no_mention = [location_counter[-2], service_counter[-2], price_counter[-2],
                   dish_counter[-2], environment_counter[-2], other_counter[-2]]
+    
+    return positive, negative, neutral, no_mention, total_positive_percentage, total_negative_percentage, total_neutral_percentage, each_comment_aspect_percent
 
-    return positive, negative, neutral, no_mention
+
+def total_percentage(location_list, service_list, price_list, dish_list, environment_list, other_list, total_list):
+
+    location_total, service_total, price_total, dish_total, environment_total, other_total = \
+        filter_not_mentioned(location_list, service_list, price_list, dish_list, environment_list, other_list)
+
+    total_list_counter = Counter(total_list)
+
+    total_polarities = location_total + service_total + price_total + dish_total + environment_total + other_total
+
+    positive_percentage = calculate(total_list_counter[1], total_polarities)
+
+    negative_percentage = calculate(total_list_counter[-1], total_polarities)
+
+    neutral_percentage = calculate(total_list_counter[0], total_polarities)
+
+    return positive_percentage, negative_percentage, neutral_percentage
+
+
+def get_aspects_counter(location_list, service_list, price_list, environment_list, dish_list, other_list):
+
+    return Counter(location_list), Counter(service_list), Counter(price_list), \
+           Counter(environment_list), Counter(dish_list), Counter(other_list)
+
+def calculate(value, total_value):
+
+    try:
+
+        results = (value / total_value) * 100
+        return round(results, 2)
+    
+    except ZeroDivisionError:
+
+        return 0
+    
+def filter_not_mentioned(location_list, service_list, price_list, dish_list, environment_list, other_list):
+
+    location_total = len(list(filter(lambda x: x != -2, location_list)))
+    service_total = len(list(filter(lambda x: x != -2, service_list)))
+    price_total = len(list(filter(lambda x: x != -2, price_list)))
+    dish_total = len(list(filter(lambda x: x != -2, dish_list)))
+    environment_total = len(list(filter(lambda x: x != -2, environment_list)))
+    other_total = len(list(filter(lambda x: x != -2, other_list)))
+
+    return location_total, service_total, price_total, dish_total, environment_total, other_total
+
+def each_aspects_percentage(location_list, service_list, price_list, environment_list, dish_list, other_list):
+
+    location_counter, service_counter, price_counter, environment_counter, dish_counter, other_counter = \
+        get_aspects_counter(location_list, service_list, price_list, environment_list, dish_list, other_list)
+    
+    location_total, service_total, price_total, dish_total, environment_total, other_total = \
+        filter_not_mentioned(location_list, service_list, price_list, dish_list, environment_list, other_list)
+    
+    location_percentage = {"positive_percent" : calculate(location_counter[1], location_total), 
+                           "negative_percent" : calculate(location_counter[-1], location_total), 
+                           "neutral_percent" : calculate(location_counter[0], location_total)}
+    
+    service_percentage = {"positive_percent" : calculate(service_counter[1], service_total), 
+                           "negative_percent" : calculate(service_counter[-1], service_total), 
+                           "neutral_percent" : calculate(service_counter[0], service_total)}
+
+    price_percentage = {"positive_percent" : calculate(price_counter[1], price_total), 
+                           "negative_percent" : calculate(price_counter[-1], price_total), 
+                           "neutral_percent" : calculate(price_counter[0], price_total)}
+    
+    environment_percentage = {"positive_percent" : calculate(environment_counter[1], environment_total), 
+                           "negative_percent" : calculate(environment_counter[-1], environment_total), 
+                           "neutral_percent" : calculate(environment_counter[0], environment_total)}
+    
+    dish_percentage = {"positive_percent" : calculate(dish_counter[1], dish_total), 
+                           "negative_percent" : calculate(dish_counter[-1], dish_total), 
+                           "neutral_percent" : calculate(dish_counter[0], dish_total)}
+    
+    other_percentage = {"positive_percent" : calculate(other_counter[1], other_total), 
+                        "negative_percent" : calculate(other_counter[-1], other_total), 
+                        "neutral_percent" : calculate(other_counter[0], other_total)}
+
+    return [{"location_percentage" : location_percentage}, {"service_percentage" : service_percentage}, 
+            {"price_percentage" : price_percentage}, {"environment_percentage" : environment_percentage}, 
+            {"dish_percentage" : dish_percentage}, {"other_percentage" : other_percentage}]
