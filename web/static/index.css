@@ -36,3 +36,10 @@ html {
   text-decoration: none;
   float: right;
 }
+
+.food_background {
+  height: 100%;
+  background-image: url("../static/bootstrap/background3.jpg");
+  background-size: auto;
+  backdrop-filter: blur(5px); /* Apply the blur effect */
+}
