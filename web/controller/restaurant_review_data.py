@@ -82,7 +82,7 @@ class Openrice:
 
                 if detect(user_review) != "en":
                     self.__restaurant_data.append(
-                        # {"username" : username, 
+                        # {"username" : username,
                         {"id": i,
                          # translate data from cantonese to simplify chinese
                          "user_review": converter.convert(user_review)}
@@ -104,7 +104,7 @@ class Openrice:
                 print("review", user_review)
                 if detect(user_review) != "en":
                     self.__restaurant_data.append(
-                        # {"username" : username, 
+                        # {"username" : username,
                         {"id": start + i,
                          # translate data from cantonese to simplify chinese
                          "user_review": converter.convert(user_review)}
@@ -266,5 +266,5 @@ if __name__ == "__main__":
 
     # print(reviews_info.decode())
     # print(path.decode())
-    # use json.loads() to convert the string to list 
+    # use json.loads() to convert the string to list
     # print(results.get_restaurant_data().decode())
