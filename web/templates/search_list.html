@@ -70,20 +70,29 @@
                 {% endif %}
                 <td class="col-md-3">
                     <form action="/result" method="POST">
-                        <div class="card mb-4">
+
+                        <button onclick="loadingFunction()" type="submit" name="analyze_bttn" 
+                         value="{{ data.restaurant_url }}" class="card card-body">
+
+                         <div class="card mb-4">
                             <img src="{{ data.restaurant_img_url }}" class="card-img-top"
                                  alt="Restaurant Image" style="width: 300px;height: 250px;">
                             <div class="card-body">
                                 <input type="hidden" name="restaurant_name"
                                        value="{{ data.restaurant_name }}"/>
-                                <button onclick="loadingFunction()" type="submit" name="analyze_bttn"
-                                        value="{{ data.restaurant_url }}" class="btn btn-primary">
-                                    {{ data.restaurant_name }}
-                                </button>
+                    
+
+
+                                    <p class="card-text">{{ data.restaurant_name }}</p>
                                     <p class="card-text">{{ data.restaurant_details }}</p>
+                                    <p class="card-text">{{ data.restaurant_address }}</p>
 
                             </div>
                         </div>
+
+                        </button>
+                        
+
                     </form>
                 </td>
                 {% if loop.index0 % 4 == 3 or loop.last %}
