@@ -4,12 +4,11 @@ from flask import (Flask, render_template, request)
 from controller.restaurant_review_data import Openrice, CSV
 import json, subprocess, os
 # from collections import Counter
-from controller.chart_data import find_all_polarity_number, find_specific_aspect_polarity
+from controller.chart_data import find_all_polarity_number_and_percentage, find_specific_aspect_polarity
 from urllib import parse
 
 
 app = Flask(__name__)
-
 
 # testing
 
@@ -34,7 +33,6 @@ def index():
 def analyze_review():
 
     restaurant_name, path = request.form["restaurant_name"] , request.form["analyze_bttn"]
-    print(restaurant_name, path)
 
     # get page 1 comments
     restaurant_data = Openrice(path)
@@ -68,9 +66,21 @@ def analyze_review():
 
     read_csv_data = json.loads(read_csv_data.read_csv())
 
-    positive_list, negative_list, neutral_list, no_mention_list = \
-        find_all_polarity_number(read_csv_data)
+    positive_list, negative_list, neutral_list, no_mention_list, \
+    total_positive_percentage, total_negative_percentage, total_neutral_percentage, each_comment_aspect_percentage= \
+        find_all_polarity_number_and_percentage(read_csv_data)
+    
+    # positive emoji 
+    # neutral emoji
+    # negative emoji
+    # depends on the percentage in result.html
 
+    print("total_positive_percentage", total_positive_percentage)
+    print("total_negative_percentage", total_negative_percentage)
+    print("total_neutral_percentage", total_neutral_percentage)
+    print("each_comment_aspect_percentage", each_comment_aspect_percentage)
+
+    
     location_dict, service_dict, price_dict, environment_dict, dish_dict, others_dict = \
         find_specific_aspect_polarity(read_csv_data)
 
@@ -93,7 +103,13 @@ def analyze_review():
                            price_dict=price_dict, 
                            environment_dict=environment_dict, 
                            dish_dict=dish_dict, 
-                           others_dict=others_dict)
+                           others_dict=others_dict,
+                           
+                           # total percentage
+                           total_positive_percentage = total_positive_percentage, 
+                           total_negative_percentage = total_negative_percentage, 
+                           total_neutral_percentage = total_neutral_percentage, 
+                           each_comment_percentage = each_comment_aspect_percentage)
 
 
 @app.route("/search_list", methods=["POST"])
@@ -106,7 +122,7 @@ def search_list():
 
     restaurant_info, path = results.get_restaurant_data()
     res = json.loads(restaurant_info.decode())
-    print(res)
+    # print(res)
     return render_template("search_list.html", datas=res, key=restaurant_name)
 
 
