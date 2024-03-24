@@ -27,7 +27,7 @@
 
 </head>
 
-<body style="background-color: #060202">
+<body style="background-color: #dcdcdc">
 
 
 <!-- Navbar start -->
@@ -35,18 +35,22 @@
 <nav class="navbar navbar-expand-lg navbar-light shadow-sm py-3 py-lg-0 px-3 px-lg-0"
      style="background-color:white ;">
     <a href="/" class="navbar-brand ms-lg-3">
-        <h3 class="display-10 m-0 text-primary">Restaurant Review Analyzer for Chinese Language<span
-                style="color: #F14D5D;">(RRACL)</span></h3>
+        <h3 class="display-10 m-0" style="color: #555;">Restaurant Review Analyzer for Chinese Language<span
+                style="color: #555;"> (RRACL)</span></h3>
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav ms-auto py-0">
-            <a href="index.html" class="nav-item nav-link ">Home</a>
+            <a href="index.html" class="nav-item nav-link text-light">Home</a>
             <form class="nav-item nav-link " action="/search_list" method="POST">
                 <input type="search" placeholder="Search" name="restaurant_name" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+
+                <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
+
+                <button class="btn btn-light" type="submit">Search</button>
+            
             </form>
         </div>
     </div>
@@ -85,14 +89,29 @@
             <div class="carousel-inner">
                 <div class="carousel-item active">
                     <img class="w-100" src="../static/bootstrap/food3.jpg" alt="Image" width="200" height="500">
+                    <div class="carousel-caption text-left d-none d-md-block div-blur">
+                        <div class="slide-title">Test Title</div>
+                        <div class="slide-text">Test Body</div>
+                    </div>
                 </div>
                 <div class="carousel-item">
                     <img class="w-100" src="../static/bootstrap/food1.png" alt="Image" width="200" height="500">
+                    <div class="carousel-caption text-left d-none d-md-block div-blur">
+                        <div class="slide-title">Test Title</div>
+                        <div class="slide-text">Test Body</div>
+                    </div>
                 </div>
                 <div class="carousel-item">
                     <img class="w-100" src="../static/bootstrap/food2.jpg" alt="Image" width="200" height="500">
+                    <div class="carousel-caption text-left d-none d-md-block div-blur">
+                        <div class="slide-title">Test Title</div>
+                        <div class="slide-text">Test Body</div>
+                    </div>
+
                 </div>
             </div>
+
+            <!-- set shadow for button -->
             <button class="carousel-control-prev" type="button" data-bs-target="#header-carousel"
                     data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -114,7 +133,7 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th scope="col" class="text-center" colspan="4">
+                    <th scope="col" class="text-start" colspan="4">
                         <h3>Restaurant List</h3>
                         <h9>Click one of the restaurant name to show analysis result</h9>
                     </th>
@@ -122,30 +141,33 @@
             </thead>
             <tbody>
                 {% for data in datas %}
-                {% if loop.index0 % 4 == 0 %}
+                {% if loop.index0 % 5 == 0 %}
                 <tr>
                 {% endif %}
                     <td class="col-md-3">
                         <form id="result" action="/result" method="POST">
 
                             <button onclick="loadingFunction()" type="submit" name="analyze_bttn" 
-                            value="{{ data.restaurant_url }}" class="card card-body">
+                             
+                             value="{{ data.restaurant_url }}" class="card card-body button-style">
 
-                            <div class="card mb-4">
-                                <img src="{{ data.restaurant_img_url }}" class="card-img-top"
-                                     alt="Restaurant Image" style="width: 300px;height: 250px;">
-                                <div class="card-body">
-                                    <input type="hidden" name="restaurant_name" value="{{ data.restaurant_name }}">
+                             <!-- value="{{ data.restaurant_url }}"> -->
 
-                                        <p class="card-title">{{ data.restaurant_name }}</p>
-        
-                                    <p class="card-text">{{ data.restaurant_details }}</p>
+                                <div class="card mb-3">
+                                    <img src="{{ data.restaurant_img_url }}" class="card-img-top"
+                                        alt="Restaurant Image" style="width: 300px;height: 250px;">
+                                    <div class="card-body">
+                                        <input type="hidden" name="restaurant_name" value="{{ data.restaurant_name }}">
+
+                                            <p class="card-title">{{ data.restaurant_name }}</p>
+            
+                                        <p class="card-text">{{ data.restaurant_details }}</p>
+                                    </div>
                                 </div>
-                            </div>
-                        </button>
+                            </button>
                         </form>
                     </td>
-                {% if loop.index0 % 4 == 3 or loop.last %}
+                {% if loop.index0 % 5 == 4 or loop.last %}
                 </tr>
                 {% endif %}
                 {% endfor %}
@@ -156,15 +178,15 @@
 
 
 <!-- Footer start -->
-<div class="container-fluid bg-primary text-light py-4">
+<div class="container-fluid bg-light text-light py-4">
     <div class="container">
         <div class="row g-6">
             <div class="col-md-6 text-center text-md-start">
-                <p class="mb-md-0">&copy; <a class="text-white border-bottom text-decoration-none" href="#">Restaurant Review Analyzer for
+                <p class="mb-md-0">&copy; <a class="border-bottom text-decoration-none" href="#" style="color: #555;">Restaurant Review Analyzer for
                     Chinese Language</a></p>
             </div>
             <div class="col-md-6 text-center text-md-end">
-                <p class="mb-0">RRACL<a class="text-white border-bottom" href="https://htmlcodex.com"></a></p>
+                <p class="mb-0" style="color: #555;">RRACL<a class="text-white border-bottom" href="https://htmlcodex.com"></a></p>
             </div>
         </div>
     </div>
@@ -192,6 +214,7 @@
             preloaderWrapper.classList.add("fade-out-animation");
         });
     };
+
 </script>
 
 
