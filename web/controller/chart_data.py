@@ -204,7 +204,7 @@ def calculate(value, total_value):
     try:
 
         results = (value / total_value) * 100
-        return round(results, 2)
+        return round(results)
     
     except ZeroDivisionError:
 
