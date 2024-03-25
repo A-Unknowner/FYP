@@ -8,38 +8,54 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='result.css') }}">
     <title></title>
+
+    <!-- Template Stylesheet -->
+    <link href="../static/bootstrap/style.css" rel="stylesheet">    
+
 </head>
 
 <body>
-  <div class="container-fluid">
-    
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Restaurant Review Analyzer for Chinese Language (RRACL)</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-            </li>  
-          </ul>
+
+<!-- Navbar start -->
+<nav class="navbar navbar-expand-lg navbar-light shadow-sm py-3 py-lg-0 px-3 px-lg-0"
+     style="background-color:white ;">
+    <a href="/" class="navbar-brand ms-lg-3">
+        <h3 class="display-10 m-0 text-primary">Restaurant Review Analyzer for Chinese Language<span
+                style="color: #F14D5D;">(RRACL)</span></h3>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <div class="navbar-nav ms-auto py-0">
+            <a href="/" class="nav-item nav-link ">Home</a>
+            <form class="nav-item nav-link " action="/search_list" method="POST">
+                <input type="search" placeholder="Search" name="restaurant_name" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
         </div>
-      </nav>
-
-    <div align="center" style="font-size: 25px;">
-        Restaurant Name: {{restaurant_name}}
     </div>
+</nav>
+<!-- Navbar end -->
 
 
-    <div align="center" style="font-size: 25px;">
-        <label style="color:#00873E"> positive : {{ overall_positive }}</label>
+<div align="center" style="font-size: 25px;">
+    Restaurant Name: {{restaurant_name}}
+</div>
 
-        <label style="color:#CE2029">negative : {{ overall_negative }}</label>
 
-        <label style="color:#DEC20B">neutral : {{ overall_neutral }}</label>
-    </div>
+<div align="center" style="font-size: 25px;">
 
+    <label style="color:#00873E"> positive : {{ total_positive_percentage }}</label>
+
+    <label style="color:#CE2029">negative : {{ total_negative_percentage }}</label>
+
+    <label style="color:#DEC20B">neutral : {{ total_neutral_percentage }}</label>
+
+</div>
+
+
+<div class="container-fluid">
 
     <div>
 
@@ -64,12 +80,14 @@
                 <tbody>
 
                     {% for i in range(datas["content"]|length) %}
-
+                    
                     <tr>
                         <td style="width: 75%;"><b>{{ datas["content"][index_list[i]] }}</b></td>
+                        
                         <!-- location -->
                         <td>
                             <div>
+                                
                                 <div class="card-location border border-secondary" style="width: 25rem; margin-bottom: 10%;padding: 10%;">
                                     <div class="card-body-location">
                                         <h3 class="card-location" style="padding: left;"><svg xmlns="http://www.w3.org/2000/svg" style="color: blue;" width="16" height="16"
@@ -94,6 +112,7 @@
                                     </div>
                                 </div>
 
+                        <!-- end of location     -->
 
                                 <!-- service -->
 
@@ -145,11 +164,14 @@
                                                 {{datas["price_discount"][index_list[i]]}}</label></b>
                                     </div>
                                 </div>
+
                             </div>
                         </td>
+                        
                         <td>
                             <!-- Environment -->
                             <div>
+
                                 <div class="card-Environment border border-secondary" style="width: 25rem;margin-bottom: 10%;padding: 10%;">
                                     <div class="card-body-Environment">
                                         <h3 class="card-Environment" style="padding: left;"><svg xmlns="http://www.w3.org/2000/svg" style="color: red;" width="16" height="16" fill="currentColor" class="bi bi-shop-window" viewBox="0 0 16 16">
@@ -221,6 +243,9 @@
                                                 class="others_willing_to_consume_again">{{datas["others_willing_to_consume_again"][index_list[i]]}}</label></b></br>
                                     </div>
                                 </div>
+
+
+
                             </div>
                         </td>
                     </tr>
@@ -335,15 +360,15 @@
          function getWord(sentiment) {
         switch (sentiment) {
             case "0":
-                return { word: "Neutral", color: "#DEC20B" };
+                return 0x1F610;
             case "1":
-                return { word: "Positive", color: "#00873E" };
+                return 0x1F604;
             case "-1":
-                return { word: "Negative", color: "#CE2029" };
+                return 0x1F922;
             case "-2":
-                return { word: "Not Mentioned", color: "#0F52BA" };
+                return 0x1F21A;
             default:
-                return { word: "", color: "black" };
+                return "";
         }
     }
 
@@ -384,8 +409,9 @@
 
         function changeColor(element, sentiment) {
             const result = getWord(sentiment);
-            element.innerText = result.word;
-            element.style.color = result.color;
+            console.log("result word"+  String.fromCodePoint(result) );
+            element.innerText = String.fromCodePoint(result);
+            // element.style.color = result.color;
         }
 
         // location 
@@ -491,60 +517,7 @@
     });
 
     </script>
-    <!-- <script>
-        var ctx = document.getElementById("targetPolarityBarChart").getContext("2d");
-        
-        var data = [8, 47, 59, 78, 152, 111]
-        
-        var data = {
-            labels: ["dish_portion", "dish_taste", "dish_look", "dish_recommendation"],
-            // labels: ["Chocolate", "Vanilla", "Strawberry"],
-            datasets: [
-                {
-                    label: "Positive",
-                    backgroundColor: "blue",
-                    // data: [3,7,4]
-                    data:{{[dish_dict["dish_portion"][1], 
-                            dish_dict["dish_taste"][1],
-                            dish_dict["dish_look"][1]],
-                            dish_dict["dish_recommendation"][1]}}
-                },
-                {
-                    label: "Negative",
-                    backgroundColor: "red",
-                    data:{{[dish_dict["dish_portion"][-1], 
-                            dish_dict["dish_taste"][-1],
-                            dish_dict["dish_look"][-1]],
-                            dish_dict["dish_recommendation"][-1]}}
-                },
-                {
-                    label: "Neutral",
-                    backgroundColor: "green",
-                    data:{{[dish_dict["dish_portion"][0], 
-                            dish_dict["dish_taste"][0],
-                            dish_dict["dish_look"][0],
-                            dish_dict["dish_recommendation"][0]]}}
-                }
-            ]
-        };
-        
-        var myBarChart = new Chart(ctx, {
-            type: 'bar',
-            data: data,
-            options: {
-                barValueSpacing: 20,
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            min: 0,
-                        }
-                    }]
-                }
-            }
-        });
 
-
-    </script> -->
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
