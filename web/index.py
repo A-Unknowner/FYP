@@ -4,7 +4,7 @@ from flask import (Flask, render_template, request)
 from controller.restaurant_review_data import Openrice, CSV
 import json, subprocess, os
 # from collections import Counter
-from controller.chart_data import find_all_polarity_number_and_percentage, find_specific_aspect_polarity
+from controller.chart_data import find_all_polarity_number_and_percentage, find_specific_aspect_polarity, total_coarse_grain_aspect_percentage
 from urllib import parse
 
 
@@ -70,15 +70,17 @@ def analyze_review():
     total_positive_percentage, total_negative_percentage, total_neutral_percentage, each_comment_aspect_percentage= \
         find_all_polarity_number_and_percentage(read_csv_data)
     
+    total_coarse_grain_aspect_percentage_list = total_coarse_grain_aspect_percentage(positive_list, negative_list, neutral_list)
+    
     # positive emoji 
     # neutral emoji
     # negative emoji
     # depends on the percentage in result.html
 
-    print("total_positive_percentage", total_positive_percentage)
-    print("total_negative_percentage", total_negative_percentage)
-    print("total_neutral_percentage", total_neutral_percentage)
-    print("each_comment_aspect_percentage", each_comment_aspect_percentage)
+    # print("total_positive_percentage", total_positive_percentage)
+    # print("total_negative_percentage", total_negative_percentage)
+    # print("total_neutral_percentage", total_neutral_percentage)
+    # print("each_comment_aspect_percentage", each_comment_aspect_percentage)
 
     
     location_dict, service_dict, price_dict, environment_dict, dish_dict, others_dict = \
@@ -96,6 +98,10 @@ def analyze_review():
                            negative_list=negative_list,
                            neutral_list=neutral_list,
                            no_mention_list=no_mention_list,
+
+                           # each aspects total percent list
+                           each_aspects_total_percent_list = total_coarse_grain_aspect_percentage_list,
+
 
                            # specific aspect results
                            location_dict=location_dict, 
