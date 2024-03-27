@@ -102,7 +102,7 @@ class Openrice:
                 # username = review_user[i].xpath(".//text()")[1].strip()
                 # user_review = comments[i].xpath(".//text()")[1]
                 user_review = ''.join([com if not com in ["\n",
-                                                          "\r"] and not com.isdigit() and not "留言" in com and not "讚好" in com and not "瀏覽" in com else ""
+                                                          "\r"] and not com.isdigit() and not "comments" in com and not "likes" in com and not "views" in com else ""
                                        for com in comments[i].xpath(".//text()")]).replace("                    ", "")
                 # print("review", comments[i].xpath(".//text()"))
                 # print("review", comments[i].xpath(".//text()"))
@@ -242,7 +242,7 @@ class CSV:
         df.to_csv(self.__file_path, encoding="utf_8_sig", index=False)
 
     def read_csv(self):
-        converter = OpenCC("s2hk.json")
+        # converter = OpenCC("s2hk.json")
 
         data_list = [data["user_review"] for data in self.review]
 
