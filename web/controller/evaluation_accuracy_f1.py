@@ -14,8 +14,10 @@ from sklearn.metrics import accuracy_score, f1_score
 from model.helper import Params
 
 CHINESE_WORD_INT_PATH = f"{os.getcwd()}/chinese_vectors/word_idx_table.json"
-STOPWORDS_PATH = f"{os.getcwd()}/chinese_vectors/chinese_stopwords.txt"
+STOPWORDS_PATH = f"{os.getcwd()}/chinese_vectors/cantonese_stopword.txt"
 
+
+jieba.load_userdict('./cantonese_wordlist.txt')
 
 def _add_sub_or_unk_word(word, vocab):
     res = []
@@ -157,7 +159,6 @@ def main1():
     sentence_label_save(
         dataset_path, word_int_table, params)
 
-
 # subprocess.run(["python", f"{os.getcwd()}/predict_sentiment.py"])
 import os
 import numpy as np
@@ -259,7 +260,7 @@ def predict(unused):
 
     save_or_update_predict(results,
                            test_path,
-                           "openrice_restaurant_predict_result.csv")
+                           "predict_data.csv")
 
 
 def main2():
@@ -269,8 +270,12 @@ def main2():
 
 
 def openrice_restaurant_predict_result(fiters, predictions_path):
+
+    print("path ",os.path.exists(predictions_path))
     try:
         prediction = pd.read_csv(predictions_path)
+
+        # return False, prediction
         return (len(prediction[fiters[0]])<=0, prediction)
     except FileNotFoundError:
         return (True, None)
@@ -281,7 +286,9 @@ if __name__ == "__main__":
               "price_level", "price_cost_effective", "price_discount", "environment_decoration", "environment_noise",
               "environment_space", "environment_cleaness", "dish_portion", "dish_taste", "dish_look",
               "dish_recommendation", "others_overall_experience", "others_willing_to_consume_again"]
-    predict_data, pred = openrice_restaurant_predict_result(fiters, f"{os.getcwd()}/data/val/openrice_restaurant_predict_result.csv")
+    predict_data, pred = openrice_restaurant_predict_result(fiters, f"{os.getcwd()}/data/val/predict_data.csv")
+
+    print(predict_data)
     if predict_data:
         main1()
         main2()
