@@ -16,12 +16,17 @@ import numpy as np
 from model.helper import Params
 
 CHINESE_WORD_INT_PATH = f"{os.getcwd()}/controller/chinese_vectors/word_idx_table.json"
-STOPWORDS_PATH = f"{os.getcwd()}/controller/chinese_vectors/chinese_stopwords.txt"
+STOPWORDS_PATH = f"{os.getcwd()}/controller/chinese_vectors/cantonese_stopword.txt"
 
+# use cantonese wordlist
+jieba.load_userdict(f'{os.getcwd()}/controller/cantonese_wordlist.txt')
 
+# word segmentation
 def _add_sub_or_unk_word(word, vocab):
   res = []
+
   tmp = jieba.lcut(word, cut_all=True)
+  # print("lcut",tmp)
   for i in (0, -1):
     if tmp[i] in vocab:
       res.append(tmp[i])
@@ -51,7 +56,10 @@ def tokenize_sentence(line, vocab):
   line = rule.sub('', line)
 
   sentence = []
+  # print("cut",jieba.cut(line, cut_all=False))
   for word in jieba.cut(line, cut_all=False):
+    # print("cut word", word)
+    
     if word in vocab:
       try:
         sentence.append(_add_num_token(word))
