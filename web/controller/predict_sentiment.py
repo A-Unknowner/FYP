@@ -19,8 +19,6 @@ def save_or_update_predict(predicts,
       dirname (str): 测试集所在的文件夹地址
       predict_save_name (str): 保存到本地的文件名称
   """
-  print("\n\n\nrunning\n\n\n")
-
 
   for filename in os.listdir(dirname):
     if "openrice" in filename:
@@ -80,8 +78,6 @@ def predict(unused):
       config=config,
       params=params
   )
-
-  print("\n--Predict data--\n")
 
   predict_results = nn.predict(input_fn=test_input_fn)
 
