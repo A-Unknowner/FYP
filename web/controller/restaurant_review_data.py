@@ -9,7 +9,7 @@ from opencc import OpenCC
 
 import pandas as pd
 
-import numpy as np
+# import numpy as np
 
 headers = requests.utils.default_headers()
 headers.update({
