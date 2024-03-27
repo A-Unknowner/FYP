@@ -103,6 +103,8 @@ def find_specific_aspect_polarity(read_csv_data):
 
     return location_dict, service_dict, price_dict, environment_dict, dish_dict, others_dict
 
+
+
 def find_all_polarity_number_and_percentage(read_csv_data):
 
     location_list = list()
@@ -145,7 +147,7 @@ def find_all_polarity_number_and_percentage(read_csv_data):
         other_list.append(read_csv_data["others_willing_to_consume_again"][str(i)])
 
 
-        each_comment_aspect_percent.append({str(i) : each_aspects_percentage(location_list, service_list, price_list, environment_list, dish_list, other_list)})
+        each_comment_aspect_percent.append(each_aspects_percentage(location_list, service_list, price_list, environment_list, dish_list, other_list))
                                                                     
 
     location_counter, service_counter, price_counter, environment_counter, dish_counter, other_counter = \
@@ -193,6 +195,78 @@ def total_percentage(location_list, service_list, price_list, dish_list, environ
 
     return positive_percentage, negative_percentage, neutral_percentage
 
+def total_coarse_grain_aspect_percentage(positive_list, negative_list, neutral_list):
+
+    location_total_num, service_total_num, price_total_num, environment_total_num, dish_total_num, others_total_num = \
+        [sum(item) for item in zip(positive_list, negative_list, neutral_list)]
+
+    location_positive_num, service_positive_num, price_positive_num, environment_positive_num, dish_positive_num, others_positive_num = \
+        positive_list
+    
+    location_negative_num, service_negative_num, price_negative_num, environment_negative_num, dish_negative_num, others_negative_num = \
+        negative_list 
+
+    location_neutral_num, service_neutral_num, price_neutral_num, environment_neutral_num, dish_neutral_num, others_neutral_num = \
+        neutral_list 
+    
+    location_positive_percent,  location_negative_percent,  location_neutral_percent = \
+                                (calculate(location_positive_num, location_total_num), 
+                                 calculate(location_negative_num, location_total_num), 
+                                 calculate(location_neutral_num, location_total_num))
+
+    service_positive_percent,  service_negative_percent,  service_neutral_percent = \
+                                (calculate(service_positive_num, service_total_num), 
+                                 calculate(service_negative_num, service_total_num), 
+                                 calculate(service_neutral_num, service_total_num))
+
+    price_positive_percent,  price_negative_percent,  price_neutral_percent = \
+                                (calculate(price_positive_num, price_total_num), 
+                                 calculate(price_negative_num, price_total_num), 
+                                 calculate(price_neutral_num, price_total_num))
+    
+    environment_positive_percent,  environment_negative_percent,  environment_neutral_percent = \
+                                (calculate(environment_positive_num, environment_total_num), 
+                                 calculate(environment_negative_num, environment_total_num), 
+                                 calculate(environment_neutral_num, environment_total_num))
+    
+    dish_positive_percent,  dish_negative_percent,  dish_neutral_percent = \
+                                (calculate(dish_positive_num, dish_total_num), 
+                                 calculate(dish_negative_num, dish_total_num), 
+                                 calculate(dish_neutral_num, dish_total_num))
+    
+    others_positive_percent,  others_negative_percent,  others_neutral_percent = \
+                                (calculate(others_positive_num, others_total_num), 
+                                 calculate(others_negative_num, others_total_num), 
+                                 calculate(others_neutral_num, others_total_num))
+
+
+    return [
+
+        {"total_location_positive_percent" : location_positive_percent,  
+         "total_location_negative_percent" : location_negative_percent,  
+         "total_location_neutral_percent" : location_neutral_percent},
+
+        {"total_service_positive_percent" : service_positive_percent,  
+         "total_service_negative_percent" : service_negative_percent,  
+         "total_service_neutral_percent" : service_neutral_percent},
+
+        {"total_price_positive_percent" : price_positive_percent,  
+         "total_price_negative_percent" : price_negative_percent,  
+         "total_price_neutral_percent" : price_neutral_percent},
+
+        {"total_environment_positive_percent" : environment_positive_percent,  
+         "total_environment_negative_percent" : environment_negative_percent,  
+         "total_environment_neutral_percent" : environment_neutral_percent},
+
+        {"total_dish_positive_percent" : dish_positive_percent,  
+         "total_dish_negative_percent" : dish_negative_percent,  
+         "total_dish_neutral_percent" : dish_neutral_percent},
+
+        {"total_others_positive_percent" : others_positive_percent, 
+         "total_others_negative_percent" : others_negative_percent, 
+         "total_others_neutral_percent" : others_neutral_percent}
+    ]
+
 
 def get_aspects_counter(location_list, service_list, price_list, environment_list, dish_list, other_list):
 
@@ -204,11 +278,13 @@ def calculate(value, total_value):
     try:
 
         results = (value / total_value) * 100
-        return round(results)
+        # print(results)
+        return round(results, 1)
     
     except ZeroDivisionError:
 
         return 0
+    
     
 def filter_not_mentioned(location_list, service_list, price_list, dish_list, environment_list, other_list):
 
