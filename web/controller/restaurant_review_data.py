@@ -31,6 +31,7 @@ class Openrice:
             self.__url = f"https://www.openrice.com{url}/reviews"
         else:
             self.__url = url
+
         self.__page = requests.get(self.__url, headers=headers)
         self.__soup = BeautifulSoup(self.__page.content, "html.parser")
         self.__dom = etree.HTML(str(self.__soup))
@@ -40,13 +41,18 @@ class Openrice:
 
         link_elements = self.__dom.xpath('//div[@class="poi-chart-main-grid-item-deskop-title-row-left-section"]')
         # print(link_elements[1].xpath('.//text()'))
-        print(link_elements[1].xpath('.//@src'))
+        # print(link_elements[1].xpath('.//@src'))
+
+        
 
         for element in link_elements:
             name = element.xpath(".//text()")[0].replace("\n", "").strip()
             details = "".join(element.xpath(".//text()")[1::]).replace("\n", "").strip()
             href = element.xpath(".//@href")[0]
+            location = element.xpath(".//@href")
             image = element.xpath('.//@src')[0]
+
+            # print(len(location))
 
             self.__restaurant_data.append(
                 {"restaurant_name": name,
@@ -56,8 +62,9 @@ class Openrice:
                  "restaurant_url": href}
             )
 
+
     def restaurant_review(self):
-        converter = OpenCC("hk2s.json")
+        converter = OpenCC("s2hk.json")
         # review_user = self.__dom.xpath('//div[@itemprop="author"]')
         comments = self.__dom.xpath('//section[@class="review-container"]')
         # comments = self.__dom.xpath('//div[@itemprop="description"]')
@@ -71,13 +78,14 @@ class Openrice:
                 # user_review = comments[i].xpath(".//text()")[0]
                 # user_review = ''.join([com if not com in ["\n", "\r"] and not com.isdigit() and not "留言" in com and not "讚好" in com and not "瀏覽" in com else "" for com in comments[i].xpath("//section[@class='review-container']")[0].xpath(".//text()")]).replace("\r\n\r\n","")
                 user_review = ''.join([com if not com in ["\n",
-                                                          "\r"] and not com.isdigit() and not "留言" in com and not "讚好" in com and not "瀏覽" in com else ""
+                                                        #   "\r"] and not com.isdigit() and not "留言" in com and not "讚好" in com and not "瀏覽" in com else ""
+                                                          "\r"] and not com.isdigit() and not "comments" in com and not "likes" in com and not "views" in com else ""
                                        for com in comments[i].xpath(".//text()")]).replace("                    ", "")
                 # print("review", comments[i].xpath("//section[@class='review-container']")[0].xpath(".//text()"))
                 # print("review", ''.join([com if not com in ["\n", "\r"] and not com.isdigit() and not "留言" in com and not "讚好" in com and not "瀏覽" in com else "" for com in comments[i].xpath("//section[@class='review-container']")[0].xpath(".//text()")]).replace("\r\n\r\n",""))
                 # print("review", comments[i].xpath(".//text()"))
                 user_review = user_review.replace("\r\n", "").strip()
-                user_review = self.emoji_filter(user_review)
+                # user_review = self.emoji_filter(user_review)
                 # print("review", user_review)
 
                 if detect(user_review) != "en":
@@ -100,7 +108,7 @@ class Openrice:
                 # print("review", comments[i].xpath(".//text()"))
 
                 user_review = user_review.replace("\r\n", "").strip()
-                user_review = self.emoji_filter(user_review)
+                # user_review = self.emoji_filter(user_review)
                 print("review", user_review)
                 if detect(user_review) != "en":
                     self.__restaurant_data.append(
@@ -110,9 +118,9 @@ class Openrice:
                          "user_review": converter.convert(user_review)}
                     )
 
-        print('num_of_page[-1].xpath(".//@class")', num_of_page[-1].xpath(".//@class"))
+        # print('num_of_page[-1].xpath(".//@class")', num_of_page[-1].xpath(".//@class"))
         next_button_class = num_of_page[-1].xpath(".//@class")[0]
-        print('num_of_page[-1].xpath(".//@href")', num_of_page[-1].xpath(".//@href"))
+        # print('num_of_page[-1].xpath(".//@href")', num_of_page[-1].xpath(".//@href"))
         next_page_path = num_of_page[-1].xpath(".//@href")
 
         if (next_button_class == "pagination-button next js-next" and
@@ -141,45 +149,54 @@ class Openrice:
         return json.dumps(self.__restaurant_data, ensure_ascii=False).encode('utf8'), \
             json.dumps(self.__next_page_path, ensure_ascii=False).encode('utf8')
 
-    def emoji_filter(self, text):
+    def get_restaurant_address(self):
+        xpath = '//a[@data-href="#map"]'
+        chinese_address = self.__dom.xpath(xpath)[0].text.replace("\n", "").strip()
+        english_address = self.__dom.xpath(xpath)[1].text.replace("\n", "").strip()
 
-        try:
-            # Wide UCS-4 build
-            myre = re.compile(u'['
-                              u'\U0001F300-\U0001F64F'
-                              u'\U0001F680-\U0001F6FF'
-                              u'\u2600-\u2B55'
-                              u'\u23cf'
-                              u'\u23e9'
-                              u'\u231a'
-                              u'\u3030'
-                              u'\ufe0f'
-                              u"\U0001F600-\U0001F64F"  # emoticons
-                              u"\U0001F300-\U0001F5FF"  # symbols & pictographs
-                              u'\U00010000-\U0010ffff'
-                              u'\U0001F1E0-\U0001F1FF'  # flags (iOS)
-                              u'\U00002702-\U000027B0]+',
-                              re.UNICODE)
-        except re.error:
-            myre = re.compile(u'('
-                              u'\ud83c[\udf00-\udfff]|'
-                              u'\ud83d[\udc00-\ude4f]|'
-                              u'\uD83D[\uDE80-\uDEFF]|'
-                              u"(\ud83d[\ude00-\ude4f])|"  # emoticon
-                              u'[\u2600-\u2B55]|'
-                              u'[\u23cf]|'
-                              u'[\u1f918]|'
-                              u'[\u23e9]|'
-                              u'[\u231a]|'
-                              u'[\u3030]|'
-                              u'[\ufe0f]|'
-                              u'\uD83D[\uDE00-\uDE4F]|'
-                              u'\uD83C[\uDDE0-\uDDFF]|'
-                              u'[\u2702-\u27B0]|'
-                              u'\uD83D[\uDC00-\uDDFF])+',
-                              re.UNICODE)
-        text = myre.sub('', text)
-        return text
+        return json.dumps(chinese_address, ensure_ascii=False).encode('utf8'), \
+               json.dumps(english_address, ensure_ascii=False).encode('utf8')
+
+
+    # def emoji_filter(self, text):
+
+    #     try:
+    #         # Wide UCS-4 build
+    #         myre = re.compile(u'['
+    #                           u'\U0001F300-\U0001F64F'
+    #                           u'\U0001F680-\U0001F6FF'
+    #                           u'\u2600-\u2B55'
+    #                           u'\u23cf'
+    #                           u'\u23e9'
+    #                           u'\u231a'
+    #                           u'\u3030'
+    #                           u'\ufe0f'
+    #                           u"\U0001F600-\U0001F64F"  # emoticons
+    #                           u"\U0001F300-\U0001F5FF"  # symbols & pictographs
+    #                           u'\U00010000-\U0010ffff'
+    #                           u'\U0001F1E0-\U0001F1FF'  # flags (iOS)
+    #                           u'\U00002702-\U000027B0]+',
+    #                           re.UNICODE)
+    #     except re.error:
+    #         myre = re.compile(u'('
+    #                           u'\ud83c[\udf00-\udfff]|'
+    #                           u'\ud83d[\udc00-\ude4f]|'
+    #                           u'\uD83D[\uDE80-\uDEFF]|'
+    #                           u"(\ud83d[\ude00-\ude4f])|"  # emoticon
+    #                           u'[\u2600-\u2B55]|'
+    #                           u'[\u23cf]|'
+    #                           u'[\u1f918]|'
+    #                           u'[\u23e9]|'
+    #                           u'[\u231a]|'
+    #                           u'[\u3030]|'
+    #                           u'[\ufe0f]|'
+    #                           u'\uD83D[\uDE00-\uDE4F]|'
+    #                           u'\uD83C[\uDDE0-\uDDFF]|'
+    #                           u'[\u2702-\u27B0]|'
+    #                           u'\uD83D[\uDC00-\uDDFF])+',
+    #                           re.UNICODE)
+    #     text = myre.sub('', text)
+    #     return text
 
 
 class CSV:
@@ -227,7 +244,9 @@ class CSV:
     def read_csv(self):
         converter = OpenCC("s2hk.json")
 
-        data_list = [converter.convert(data["user_review"]) for data in self.review]
+        data_list = [data["user_review"] for data in self.review]
+
+        # data_list = [converter.convert(data["user_review"]) for data in self.review]
 
         df_datas = pd.read_csv(self.__file_path)
 
