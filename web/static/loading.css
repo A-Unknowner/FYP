@@ -88,3 +88,7 @@ div.navbar-nav.ms-auto.py-0{
     }
 }
 
+button.card:hover{
+    background-color: rgba(187,187,187, 0.5);
+}
+
