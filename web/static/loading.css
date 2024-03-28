@@ -65,6 +65,10 @@ div.navbar-nav.ms-auto.py-0{
     margin-bottom: 0rem;
 }
 
+.color555{
+    color: #555;
+}
+
 @media screen  and (max-width: 1285px){
     .web-title-short{
         display: block;
