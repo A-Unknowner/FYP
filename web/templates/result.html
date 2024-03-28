@@ -15,24 +15,28 @@
 
 </head>
 
-<body>
+<body style="background-color: #dcdcdc">
 
 <!-- Navbar start -->
 <nav class="navbar navbar-expand-lg navbar-light shadow-sm py-3 py-lg-0 px-3 px-lg-0"
      style="background-color:white ;">
     <a href="/" class="navbar-brand ms-lg-3">
-        <h3 class="display-10 m-0 text-primary">Restaurant Review Analyzer for Chinese Language<span
-                style="color: #F14D5D;">(RRACL)</span></h3>
+        <h3 class="display-10 m-0" style="color: #555;">Restaurant Review Analyzer for Chinese Language<span
+                style="color: #555;"> (RRACL)</span></h3>
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav ms-auto py-0">
-            <a href="/" class="nav-item nav-link ">Home</a>
+            <a href="index.html" class="nav-item nav-link text-light">Home</a>
             <form class="nav-item nav-link " action="/search_list" method="POST">
                 <input type="search" placeholder="Search" name="restaurant_name" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+
+                <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
+
+                <button class="btn btn-light" type="submit">Search</button>
+            
             </form>
         </div>
     </div>
@@ -42,55 +46,53 @@
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col-1">
 
-        </div>
-        <div class="col-11">
+        <div class="col pt-5 ps-5">
             <div style="color:#555;font-family: 'Noto Sans','sans-serif'">
                 <h2>{{restaurant_name}} - Analyze Result</h2>
             </div>
         </div>
     </div>
 </div>
-<div class="container">
+<div class="container-fluid">
     <div class="row">
 
-        <div class="col-3">
+        <div class="col-3 col-3 pt-2 ps-5 pe-5">
             <div class="card mb-3">
-                <div class="card-body d-flex flex-column justify-content-center align-items-center text-center">
+                <div class="card-body d-flex flex-column justify-content-center align-items-center text-center shadow">
                     <h2><label style="color:#00873E;"><i class="fas fa-smile"></i></label> <label
                             style="color:#555;font-family: 'Noto Sans','sans-serif'">{{
                         total_positive_percentage}}%</label></h2>
-                    <label style="color:#555;font-family: 'Noto Sans','sans-serif'">Total positive</label>
+                    <label style="color:#555;font-family: 'Noto Sans','sans-serif'">Total Positive Rating</label>
                 </div>
             </div>
         </div>
 
-        <div class="col-3">
+        <div class="col-3 col-3 pt-2 ps-5 pe-5">
             <div class="card mb-3">
-                <div class="card-body d-flex flex-column justify-content-center align-items-center text-center">
+                <div class="card-body d-flex flex-column justify-content-center align-items-center text-center shadow">
                     <h2><label style="color:#DEC20B;"><i class="fas fa-meh"></i></label> <label
                             style="color:#555;font-family: 'Noto Sans','sans-serif'">{{ total_neutral_percentage
                         }}%</label></h2>
-                    <label style="color:#555;font-family: 'Noto Sans','sans-serif'">Total neutral</label>
+                    <label style="color:#555;font-family: 'Noto Sans','sans-serif'">Total Neutral Rating</label>
                 </div>
             </div>
         </div>
 
-        <div class="col-3">
+        <div class="col-3 col-3 pt-2 ps-5 pe-5">
             <div class="card mb-3">
-                <div class="card-body d-flex flex-column justify-content-center align-items-center text-center">
+                <div class="card-body d-flex flex-column justify-content-center align-items-center text-center shadow">
                     <h2><label style="color:#CE2029;"><i class="fas fa-frown"></i></label> <label
                             style="color:#555;font-family: 'Noto Sans','sans-serif'">{{ total_negative_percentage
                         }}%</label></h2>
-                    <label style="color:#555;font-family: 'Noto Sans','sans-serif'">Total negative</label>
+                    <label style="color:#555;font-family: 'Noto Sans','sans-serif'">Total Negative Rating</label>
                 </div>
             </div>
         </div>
 
-        <div class="col-3">
+        <div class="col-3 col-3 pt-2 ps-5 pe-5">
             <div class="card mb-3">
-                <div class="card-body d-flex flex-column justify-content-center align-items-center text-center">
+                <div class="card-body d-flex flex-column justify-content-center align-items-center text-center shadow">
                     <h2><label style="color:#0b0b53;"><i class="fas fa-comments"></i></label> <label
                             style="color:#555;font-family: 'Noto Sans','sans-serif'">{{ datas["content"]|length
                         }}</label></h2>
@@ -100,22 +102,193 @@
         </div>
 
     </div>
-</div>
 
+    <div class="row">
+        <div class="col-2 ps-5 pe-5">
+
+            <div class="card mb-2">
+                <div class="card-body d-flex flex-column justify-content-center align-items-center text-center shadow">
+                    <h4><label style="color:#00873E;"><i class="fas fa-smile"></i></label> 
+                        <label
+                            style="color:#555;font-family: 'Noto Sans','sans-serif'">{{each_aspects_total_percent_list[0]["total_location_positive_percent"]}}%
+                        </label>
+                    </h4>
+                    
+                    <h4><label style="color:#DEC20B;"><i class="fas fa-meh"></i></label> 
+                        <label
+                            style="color:#555;font-family: 'Noto Sans','sans-serif'">{{each_aspects_total_percent_list[0]["total_location_neutral_percent"]}}%
+                        </label>
+                    </h4>
+
+                    <h4><label style="color:#CE2029;"><i class="fas fa-frown"></i></label>
+                        <label
+                            style="color:#555;font-family: 'Noto Sans','sans-serif'">{{each_aspects_total_percent_list[0]["total_location_negative_percent"]}}%
+                        </label>
+                    </h4>
+
+                    <label style="color:#555;font-family: 'Noto Sans','sans-serif'">Total Location Rating</label>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="col-2 ps-5 pe-5">
+
+            <div class="card mb-2">
+                <div class="card-body d-flex flex-column justify-content-center align-items-center text-center shadow">
+                    <h4><label style="color:#00873E;"><i class="fas fa-smile"></i></label> 
+                        <label
+                            style="color:#555;font-family: 'Noto Sans','sans-serif'">{{each_aspects_total_percent_list[1]["total_service_positive_percent"]}}%
+                        </label>
+                    </h4>
+                    
+                    <h4><label style="color:#DEC20B;"><i class="fas fa-meh"></i></label> 
+                        <label
+                            style="color:#555;font-family: 'Noto Sans','sans-serif'">{{each_aspects_total_percent_list[1]["total_service_neutral_percent"]}}%
+                        </label>
+                    </h4>
+
+                    <h4><label style="color:#CE2029;"><i class="fas fa-frown"></i></label>
+                        <label
+                            style="color:#555;font-family: 'Noto Sans','sans-serif'">{{each_aspects_total_percent_list[1]["total_service_negative_percent"]}}%
+                        </label>
+                    </h4>
+
+                    <label style="color:#555;font-family: 'Noto Sans','sans-serif'">Total Service Rating</label>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-2 ps-5 pe-5">
+
+            <div class="card mb-2">
+                <div class="card-body d-flex flex-column justify-content-center align-items-center text-center shadow">
+                    <h4><label style="color:#00873E;"><i class="fas fa-smile"></i></label> 
+                        <label
+                            style="color:#555;font-family: 'Noto Sans','sans-serif'">{{each_aspects_total_percent_list[2]["total_price_positive_percent"]}}%
+                        </label>
+                    </h4>
+                    
+                    <h4><label style="color:#DEC20B;"><i class="fas fa-meh"></i></label> 
+                        <label
+                            style="color:#555;font-family: 'Noto Sans','sans-serif'">{{each_aspects_total_percent_list[2]["total_price_neutral_percent"]}}%
+                        </label>
+                    </h4>
+
+                    <h4><label style="color:#CE2029;"><i class="fas fa-frown"></i></label>
+                        <label
+                            style="color:#555;font-family: 'Noto Sans','sans-serif'">{{each_aspects_total_percent_list[2]["total_price_negative_percent"]}}%
+                        </label>
+                    </h4>
+
+                    <label style="color:#555;font-family: 'Noto Sans','sans-serif'">Total Price Rating</label>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="col-2 ps-5 pe-5">
+
+            <div class="card mb-2">
+                <div class="card-body d-flex flex-column justify-content-center align-items-center text-center shadow">
+                    <h4><label style="color:#00873E;"><i class="fas fa-smile"></i></label> 
+                        <label
+                            style="color:#555;font-family: 'Noto Sans','sans-serif'">{{each_aspects_total_percent_list[3]["total_environment_positive_percent"]}}%
+                        </label>
+                    </h4>
+                    
+                    <h4><label style="color:#DEC20B;"><i class="fas fa-meh"></i></label> 
+                        <label
+                            style="color:#555;font-family: 'Noto Sans','sans-serif'">{{each_aspects_total_percent_list[3]["total_environment_negative_percent"]}}%
+                        </label>
+                    </h4>
+
+                    <h4><label style="color:#CE2029;"><i class="fas fa-frown"></i></label>
+                        <label
+                            style="color:#555;font-family: 'Noto Sans','sans-serif'">{{each_aspects_total_percent_list[3]["total_environment_neutral_percent"]}}%
+                        </label>
+                    </h4>
+
+                    <label style="color:#555;font-family: 'Noto Sans','sans-serif'">Total Environment Rating</label>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-2 ps-5 pe-5">
+
+            <div class="card mb-2">
+                <div class="card-body d-flex flex-column justify-content-center align-items-center text-center shadow">
+                    <h4><label style="color:#00873E;"><i class="fas fa-smile"></i></label> 
+                        <label
+                            style="color:#555;font-family: 'Noto Sans','sans-serif'">{{each_aspects_total_percent_list[4]["total_dish_positive_percent"]}}%
+                        </label>
+                    </h4>
+                    
+                    <h4><label style="color:#DEC20B;"><i class="fas fa-meh"></i></label> 
+                        <label
+                            style="color:#555;font-family: 'Noto Sans','sans-serif'">{{each_aspects_total_percent_list[4]["total_dish_neutral_percent"]}}%
+                        </label>
+                    </h4>
+
+                    <h4><label style="color:#CE2029;"><i class="fas fa-frown"></i></label>
+                        <label
+                            style="color:#555;font-family: 'Noto Sans','sans-serif'">{{each_aspects_total_percent_list[4]["total_dish_negative_percent"]}}%
+                        </label>
+                    </h4>
+
+                    <label style="color:#555;font-family: 'Noto Sans','sans-serif'">Total Dish Rating</label>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-2 ps-5 pe-5">
+
+            <div class="card mb-2">
+                <div class="card-body d-flex flex-column justify-content-center align-items-center text-center shadow">
+                    <h4><label style="color:#00873E;"><i class="fas fa-smile"></i></label> 
+                        <label
+                            style="color:#555;font-family: 'Noto Sans','sans-serif'">{{each_aspects_total_percent_list[5]["total_others_positive_percent"]}}%
+                        </label>
+                    </h4>
+                    
+                    <h4><label style="color:#DEC20B;"><i class="fas fa-meh"></i></label> 
+                        <label
+                            style="color:#555;font-family: 'Noto Sans','sans-serif'">{{each_aspects_total_percent_list[5]["total_others_neutral_percent"]}}%
+                        </label>
+                    </h4>
+
+                    <h4><label style="color:#CE2029;"><i class="fas fa-frown"></i></label>
+                        <label
+                            style="color:#555;font-family: 'Noto Sans','sans-serif'">{{each_aspects_total_percent_list[5]["total_others_negative_percent"]}}%
+                        </label>
+                    </h4>
+
+                    <label style="color:#555;font-family: 'Noto Sans','sans-serif'">Total Others Rating</label>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col-6">
+        <div class="col-6 p-5">
             <div class="card mb-3">
-                <div class="card-body d-flex flex-column justify-content-center align-items-center text-center">
+                <div class="card-body d-flex flex-column justify-content-center align-items-center text-center shadow">
                     <canvas id="aspectDoughnutChart"></canvas>
                 </div>
             </div>
         </div>
 
-        <div class="col-6">
+        <div class="col-6 p-5">
             <div class="card mb-3">
-                <div class="card-body d-flex flex-column justify-content-center align-items-center text-center">
+                <div class="card-body d-flex flex-column justify-content-center align-items-center text-center shadow">
                     <canvas id="polarityBarChart"></canvas>
                 </div>
             </div>
@@ -125,7 +298,7 @@
     <!--   this part is the header/table head -->
 
     <div class="card">
-        <div class="card-body d-flex flex-column justify-content-center align-items-center text-center"
+        <div class="card-body d-flex flex-column justify-content-center align-items-center text-center shadow"
              style="padding: 0">
             <div class="row" style="width: 100%">
                 <div class="col-6">
@@ -141,7 +314,7 @@
 
     <!--   this part is the header/table head end here -->
     <div class="card">
-        <div class="card-body d-flex flex-column justify-content-center align-items-center text-center">
+        <div class="card-body d-flex flex-column justify-content-center align-items-center text-center shadow">
             <div class="row">
                 <div class="col-6">
                     <b>{{ datas["content"][index_list[i]] }}</b>
@@ -399,7 +572,7 @@
       options: {
         title: {
           display: true,
-          text: "Overall mentioned aspects"
+          text: "Total Mentioned Aspects"
         }
       }
     });
