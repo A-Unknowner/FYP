@@ -63,7 +63,7 @@
                     <h2><label style="color:#00873E;"><i class="fas fa-smile"></i></label> <label
                             style="color:#555;font-family: 'Noto Sans','sans-serif'">{{
                         total_positive_percentage}}%</label></h2>
-                    <label style="color:#555;font-family: 'Noto Sans','sans-serif'">Total Positive Rating</label>
+                    <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><b>Total Positive Rating</b></label>
                 </div>
             </div>
         </div>
@@ -74,7 +74,7 @@
                     <h2><label style="color:#DEC20B;"><i class="fas fa-meh"></i></label> <label
                             style="color:#555;font-family: 'Noto Sans','sans-serif'">{{ total_neutral_percentage
                         }}%</label></h2>
-                    <label style="color:#555;font-family: 'Noto Sans','sans-serif'">Total Neutral Rating</label>
+                    <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><b>Total Neutral Rating</b></label>
                 </div>
             </div>
         </div>
@@ -85,7 +85,7 @@
                     <h2><label style="color:#CE2029;"><i class="fas fa-frown"></i></label> <label
                             style="color:#555;font-family: 'Noto Sans','sans-serif'">{{ total_negative_percentage
                         }}%</label></h2>
-                    <label style="color:#555;font-family: 'Noto Sans','sans-serif'">Total Negative Rating</label>
+                    <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><b>Total Negative Rating</b></label>
                 </div>
             </div>
         </div>
@@ -96,7 +96,7 @@
                     <h2><label style="color:#0b0b53;"><i class="fas fa-comments"></i></label> <label
                             style="color:#555;font-family: 'Noto Sans','sans-serif'">{{ datas["content"]|length
                         }}</label></h2>
-                    <label style="color:#555;font-family: 'Noto Sans','sans-serif'">Total Comments</label>
+                    <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><b>Analyzed Reviews</b></label>
                 </div>
             </div>
         </div>
@@ -126,7 +126,7 @@
                         </label>
                     </h4>
 
-                    <label style="color:#555;font-family: 'Noto Sans','sans-serif'">Total Location Rating</label>
+                    <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><b>Total Location Rating</b></label>
                 </div>
             </div>
 
@@ -155,7 +155,7 @@
                         </label>
                     </h4>
 
-                    <label style="color:#555;font-family: 'Noto Sans','sans-serif'">Total Service Rating</label>
+                    <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><b>Total Service Rating</b></label>
                 </div>
             </div>
 
@@ -183,7 +183,7 @@
                         </label>
                     </h4>
 
-                    <label style="color:#555;font-family: 'Noto Sans','sans-serif'">Total Price Rating</label>
+                    <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><b>Total Price Rating</b></label>
                 </div>
             </div>
 
@@ -212,7 +212,7 @@
                         </label>
                     </h4>
 
-                    <label style="color:#555;font-family: 'Noto Sans','sans-serif'">Total Environment Rating</label>
+                    <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><b>Total Environment Rating</b></label>
                 </div>
             </div>
 
@@ -240,7 +240,7 @@
                         </label>
                     </h4>
 
-                    <label style="color:#555;font-family: 'Noto Sans','sans-serif'">Total Dish Rating</label>
+                    <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><b>Total Dish Rating</b></label>
                 </div>
             </div>
 
@@ -268,7 +268,7 @@
                         </label>
                     </h4>
 
-                    <label style="color:#555;font-family: 'Noto Sans','sans-serif'">Total Others Rating</label>
+                    <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><b>Total Others Rating</b></label>
                 </div>
             </div>
 
@@ -294,7 +294,9 @@
             </div>
         </div>
     </div>
+</div>
 
+<div class="container-fluid">
     <!--   this part is the header/table head -->
 
     <div class="card">
@@ -314,12 +316,14 @@
 
     <!--   this part is the header/table head end here -->
     <div class="card">
-        <div class="card-body d-flex flex-column justify-content-center align-items-center text-center shadow">
+        <div class="card-body d-flex flex-column justify-content-center align-items-center shadow">
             <div class="row">
                 <div class="col-6">
-                    <b>{{ datas["content"][index_list[i]] }}</b>
+
+                    {{ datas["content"][index_list[i]] }}
+                    <!-- <b>{{ datas["content"][index_list[i]] }}</b> -->
                 </div>
-                <div class="col-6">
+                <div class="col-6 ps-5 pe-5 pt-5">
                     <div class="row" style="padding-bottom: 5%">
 
                         <!--location-->
@@ -590,24 +594,24 @@
         datasets: [
             {
                 label: "Total",
-                backgroundColor: "pink",
+                backgroundColor: "#124076",
                 // data: [3,7,4]
                 data:{{overall_aspect}}
             },
             {
                 label: "Positive",
-                backgroundColor: "blue",
+                backgroundColor: "#7F9F80",
                 // data: [3,7,4]
                 data:{{positive_list}}
             },
             {
                 label: "Negative",
-                backgroundColor: "red",
+                backgroundColor: "#F9E897",
                 data:{{negative_list}}
             },
             {
                 label: "Neutral",
-                backgroundColor: "green",
+                backgroundColor: "#FFC374",
                 data:{{neutral_list}}
             }
         ]
