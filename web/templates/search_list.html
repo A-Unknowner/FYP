@@ -15,25 +15,31 @@
 
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-light shadow-sm py-3 py-lg-0 px-2 px-lg-0"
-     style="background-color:white ;">
-    <a href="/" class="navbar-brand ms-lg-3">
-        <h3 class="display-10 m-0 text-primary">Restaurant Review Analyzer for Chinese Language<span
-                style="color: #F14D5D;">(RRACL)</span></h3>
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarCollapse">
-        <div class="navbar-nav ms-auto py-0">
-            <a href="index.html" class="nav-item nav-link ">Home</a>
-            <form class="nav-item nav-link " action="/search_list" method="POST">
-                <input type="search" placeholder="Search" name="restaurant_name" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
-        </div>
-    </div>
+<!-- Navbar start -->
+    <nav class="navbar navbar-expand-lg navbar-light shadow-sm py-3 py-lg-0 px-3 px-lg-0"
+    style="background-color:white ;">
+   <a href="/" class="navbar-brand ms-lg-3">
+       <h3 class="display-10 m-0" style="color: #555;">Restaurant Review Analyzer for Chinese Language<span
+               style="color: #555;"> (RRACL)</span></h3>
+   </a>
+   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+       <span class="navbar-toggler-icon"></span>
+   </button>
+   <div class="collapse navbar-collapse" id="navbarCollapse">
+       <div class="navbar-nav ms-auto py-0">
+           <a href="index.html" class="nav-item nav-link text-light">Home</a>
+           <form class="nav-item nav-link " action="/search_list" method="POST">
+               <input type="search" placeholder="Search" name="restaurant_name" aria-label="Search">
+
+               <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
+
+               <button class="btn btn-light" type="submit">Search</button>
+           
+           </form>
+       </div>
+   </div>
 </nav>
+<!-- Navbar end -->
 
 
 <!-- loading wrapper -->
@@ -69,28 +75,26 @@
             <tr>
                 {% endif %}
                 <td class="col-md-3">
-                    <form action="/result" method="POST">
+                    <form id="result" action="/result" method="POST">
 
                         <button onclick="loadingFunction()" type="submit" name="analyze_bttn" 
-                         value="{{ data.restaurant_url }}" class="card card-body">
+                         
+                         value="{{ data.restaurant_url }}" class="card card-body button-style">
 
-                         <div class="card mb-4">
-                            <img src="{{ data.restaurant_img_url }}" class="card-img-top"
-                                 alt="Restaurant Image" style="width: 300px;height: 250px;">
-                            <div class="card-body">
-                                <input type="hidden" name="restaurant_name"
-                                       value="{{ data.restaurant_name }}"/>
-                    
-                                    <p class="card-title">{{ data.restaurant_name }}</p>
+                         <!-- value="{{ data.restaurant_url }}"> -->
+
+                            <div class="card mb-3">
+                                <img src="{{ data.restaurant_img_url }}" class="card-img-top"
+                                    alt="Restaurant Image" style="width: 300px;height: 250px;">
+                                <div class="card-body">
+                                    <input type="hidden" name="restaurant_name" value="{{ data.restaurant_name }}">
+
+                                        <p class="card-title">{{ data.restaurant_name }}</p>
+        
                                     <p class="card-text">{{ data.restaurant_details }}</p>
-                                    <p class="card-text">{{ data.restaurant_address }}</p>
-
+                                </div>
                             </div>
-                        </div>
-
                         </button>
-                        
-
                     </form>
                 </td>
                 {% if loop.index0 % 4 == 3 or loop.last %}
