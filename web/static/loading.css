@@ -61,6 +61,10 @@ div.navbar-nav.ms-auto.py-0{
     object-fit: cover;
 }
 
+.card-title {
+    margin-bottom: 0rem;
+}
+
 @media screen  and (max-width: 1285px){
     .web-title-short{
         display: block;
