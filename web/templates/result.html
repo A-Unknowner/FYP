@@ -586,8 +586,6 @@
 <script>
     var ctx = document.getElementById("polarityBarChart").getContext("2d");
     
-    var data = [8, 47, 59, 78, 152, 111]
-    
     var data = {
         labels: ["Location", "Service", "Price", "Environment", "Dish", "Others"],
         // labels: ["Chocolate", "Vanilla", "Strawberry"],
@@ -623,10 +621,10 @@
         options: {
 
 
-        title: {
-          display: true,
-          text: "The polarity of each aspect"
-        },
+            title: {
+                display: true,
+                text: "Numbers of Each Aspect's Polarities"
+            },
 
             barValueSpacing: 20,
             scales: {
@@ -638,6 +636,7 @@
             }
             
         }
+        
     });
 
 
