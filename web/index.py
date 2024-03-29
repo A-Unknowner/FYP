@@ -4,7 +4,7 @@ from flask import (Flask, render_template, request)
 from controller.restaurant_review_data import Openrice, CSV
 import json, subprocess, os
 # from collections import Counter
-from controller.chart_data import find_all_polarity_number_and_percentage, find_specific_aspect_polarity, total_coarse_grain_aspect_percentage
+from controller.chart_data import find_all_polarity_number_and_percentage, total_coarse_grain_aspect_percentage, each_comment_percentage
 from urllib import parse
 
 
@@ -78,8 +78,8 @@ def analyze_review():
             total_coarse_grain_aspect_percentage_list = total_coarse_grain_aspect_percentage(positive_list, negative_list, neutral_list)
             
             
-            location_dict, service_dict, price_dict, environment_dict, dish_dict, others_dict = \
-                find_specific_aspect_polarity(read_csv_data)
+            each_comment_percentage_list = each_comment_percentage(read_csv_data)
+
 
             return render_template("result.html", 
                                 restaurant_name = restaurant_name,
@@ -97,14 +97,16 @@ def analyze_review():
                                 # each aspects total percent list
                                 each_aspects_total_percent_list = total_coarse_grain_aspect_percentage_list,
 
+                                # this list is stored the percentage for each comment
+                                each_comment_percentage_list = each_comment_percentage_list,
 
-                                # specific aspect results
-                                location_dict=location_dict, 
-                                service_dict=service_dict, 
-                                price_dict=price_dict, 
-                                environment_dict=environment_dict, 
-                                dish_dict=dish_dict, 
-                                others_dict=others_dict,
+                                # # specific aspect results
+                                # location_dict=location_dict, 
+                                # service_dict=service_dict, 
+                                # price_dict=price_dict, 
+                                # environment_dict=environment_dict, 
+                                # dish_dict=dish_dict, 
+                                # others_dict=others_dict,
                                 
                                 # total percentage
                                 total_positive_percentage = total_positive_percentage, 
