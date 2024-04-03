@@ -60,56 +60,45 @@
     </div>
 
 </div>
+
+<!-- list start -->
 <div class="food_background">
-    <div class="container">
-        <div class="text-center">
+    <div class="container container-xl">
+        <div class="text-center" colspan="4">
             <h1>Restaurant Keyword Search : {{ key }}</h1>
+            <h3>Restaurant List</h3>
+            <h9>Click one of the restaurant name to show analysis result</h9>
         </div>
-
-        <table class="table">
-            <thead>
-            <tr>
-                <th scope="col" class="text-center" colspan="4" >
-                    <h3>Restaurant List</h3>
-                    <h9>Click one of the restaurant name to show analysis result</h9>
-                </th>
-            </tr>
-            </thead>
-            <tbody>
+        <hr/>
+        <div class="row row-cols-1 row-cols-lg-3 row-cols-xl-4 row-cols-xxl-5">
             {% for data in datas %}
-            {% if loop.index0 % 4 == 0 %}
-            <tr>
-                {% endif %}
-                <td class="col-md-3">
+                <div class="col">
                     <form id="result" action="/result" method="POST">
-
-                        <button onclick="loadingFunction()" type="submit" name="analyze_bttn" 
-                         
-                         value="{{ data.restaurant_url }}" class="card card-body button-style">
-
-                         <!-- value="{{ data.restaurant_url }}"> -->
-
-                            <div class="card mb-3">
-                                <img src="{{ data.restaurant_img_url }}" class="card-img-top"
-                                    alt="Restaurant Image" style="width: 300px;height: 250px;">
-                                <div class="card-body">
-                                    <input type="hidden" name="restaurant_name" value="{{ data.restaurant_name }}">
-
-                                        <p class="card-title">{{ data.restaurant_name }}</p>
-        
-                                    <p class="card-text">{{ data.restaurant_details }}</p>
+                        <div class="card card-body-text">
+                            <button onclick="loadingFunction()" type="submit" name="analyze_bttn"
+                                    value="{{ data.restaurant_url }}" class="card">
+                                <div class="row">
+                                    <div class="col-8 col-lg-12">
+                                        <img src="{{ data.restaurant_img_url }}" class="card-img-top"
+                                             alt="Restaurant Image" height="250px">
+                                    </div>
+                                    <div class="col-4 col-lg-12">
+                                        <div class="card-body">
+                                            <input type="hidden" name="restaurant_name"
+                                                   value="{{ data.restaurant_name }}">
+                                            <p class="card-title">{{ data.restaurant_name }}</p>
+                                            <p class="card-text">{{ data.restaurant_details }}</p>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </button>
+                            </button>
+                        </div>
                     </form>
-                </td>
-                {% if loop.index0 % 4 == 3 or loop.last %}
-            </tr>
-            {% endif %}
+                </div>
             {% endfor %}
-            </tbody>
-        </table>
+        </div>
     </div>
+    <!-- list end -->
 
     <!-- Footer start -->
     <div class="container-fluid bg-light text-light py-4">
