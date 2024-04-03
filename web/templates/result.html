@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 
 <head>
 
@@ -17,6 +16,8 @@
 </head>
 
 <body style="background-color: #dcdcdc">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 
     <!-- Navbar start -->
 <!-- JavaScript Libraries -->
@@ -122,42 +123,39 @@
                     <div
                         class="card-body d-flex flex-column justify-content-center align-items-center text-center shadow">
 
-                        <div class="row">
-                            <div class="col">
-                                <h4><label style="color:#00873E;"><i class="fas fa-smile"></i></label></h4>
+                        <canvas id="locationPie"></canvas>
 
-                                <h4><label style="color:#DEC20B;"><i class="fas fa-meh"></i></label></h4>
+                        <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><b>Total Location Rating</b></label>
+                    </div>
 
-                                <h4><label style="color:#CE2029;"><i class="fas fa-frown"></i></label></h4>
+                </div>
 
-                            </div>
-                            <div class="col">
-                                <h4>
-                                    <label
-                                        style="color:#555;font-family: 'Noto Sans','sans-serif'">{{each_aspects_total_percent_list[0]["total_location_positive_percent"]}}%
-                                    </label>
-                                </h4>
-                                <h4>
-                                    <label
-                                        style="color:#555;font-family: 'Noto Sans','sans-serif'">{{each_aspects_total_percent_list[0]["total_location_neutral_percent"]}}%
-                                    </label>
-                                </h4>
-                                <h4>
-                                    <label
-                                        style="color:#555;font-family: 'Noto Sans','sans-serif'">{{each_aspects_total_percent_list[0]["total_location_negative_percent"]}}%
-                                    </label>
-                                </h4>
-                            </div>
-                        </div>
-                        <div class="row" style="width: 100%;">
+            </div>
+            <div class="col-2 ps-5 pe-5">
 
-                            <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><b>Total Location
-                                    Rating</b></label>
-                        </div>
+                <div class="card mb-2">
+                    <div
+                        class="card-body d-flex flex-column justify-content-center align-items-center text-center shadow">
 
+                        <canvas id="servicePie"></canvas>
 
+                        <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><b>Total Service Rating</b></label>
                     </div>
                 </div>
+
+            </div>
+
+            <div class="col-2 ps-5 pe-5">
+
+                <div class="card mb-2">
+                    <div
+                        class="card-body d-flex flex-column justify-content-center align-items-center text-center shadow">
+                        <canvas id="pricePie"></canvas>
+
+                        <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><b>Total Price Rating</b></label>
+                    </div>
+                </div>
+
             </div>
 
 
@@ -167,40 +165,9 @@
                     <div
                         class="card-body d-flex flex-column justify-content-center align-items-center text-center shadow">
 
-                        <div class="row">
-                            <div class="col">
-                                <h4><label style="color:#00873E;"><i class="fas fa-smile"></i></label></h4>
+                        <canvas id="environmentPie"></canvas>
 
-                                <h4><label style="color:#DEC20B;"><i class="fas fa-meh"></i></label></h4>
-
-                                <h4><label style="color:#CE2029;"><i class="fas fa-frown"></i></label></h4>
-
-                            </div>
-                            <div class="col">
-                                <h4>
-                                    <label
-                                        style="color:#555;font-family: 'Noto Sans','sans-serif'">{{each_aspects_total_percent_list[1]["total_service_positive_percent"]}}%
-                                    </label>
-                                </h4>
-                                <h4>
-                                    <label
-                                        style="color:#555;font-family: 'Noto Sans','sans-serif'">{{each_aspects_total_percent_list[1]["total_service_neutral_percent"]}}%
-                                    </label>
-                                </h4>
-                                <h4>
-                                    <label
-                                        style="color:#555;font-family: 'Noto Sans','sans-serif'">{{each_aspects_total_percent_list[1]["total_service_negative_percent"]}}%
-                                    </label>
-                                </h4>
-                            </div>
-                        </div>
-                        <div class="row" style="width: 100%;">
-
-                            <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><b>Total service
-                                    Rating</b></label>
-                        </div>
-
-
+                        <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><b>Total Environment Rating</b></label>
                     </div>
                 </div>
 
@@ -209,130 +176,12 @@
             <div class="col-2 ps-5 pe-5">
 
                 <div class="card mb-2">
-
                     <div
                         class="card-body d-flex flex-column justify-content-center align-items-center text-center shadow">
 
-                        <div class="row">
-                            <div class="col">
-                                <h4><label style="color:#00873E;"><i class="fas fa-smile"></i></label></h4>
+                        <canvas id="dishPie"></canvas>
 
-                                <h4><label style="color:#DEC20B;"><i class="fas fa-meh"></i></label></h4>
-
-                                <h4><label style="color:#CE2029;"><i class="fas fa-frown"></i></label></h4>
-
-                            </div>
-                            <div class="col">
-                                <h4>
-                                    <label
-                                        style="color:#555;font-family: 'Noto Sans','sans-serif'">{{each_aspects_total_percent_list[2]["total_price_positive_percent"]}}%
-                                    </label>
-                                </h4>
-                                <h4>
-                                    <label
-                                        style="color:#555;font-family: 'Noto Sans','sans-serif'">{{each_aspects_total_percent_list[2]["total_price_neutral_percent"]}}%
-                                    </label>
-                                </h4>
-                                <h4>
-                                    <label
-                                        style="color:#555;font-family: 'Noto Sans','sans-serif'">{{each_aspects_total_percent_list[2]["total_price_negative_percent"]}}%
-                                    </label>
-                                </h4>
-                            </div>
-                        </div>
-                        <div class="row" style="width: 100%;">
-
-                            <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><b>Total Price
-                                    Rating</b></label>
-                        </div>
-
-
-                    </div>
-                </div>
-
-            </div>
-
-
-            <div class="col-2 ps-5 pe-6">
-                <div class="card mb-2">
-                    <div
-                        class="card-body d-flex flex-column justify-content-center align-items-center text-center shadow">
-
-                        <div class="row">
-                            <div class="col">
-                                <h4><label style="color:#00873E;"><i class="fas fa-smile"></i></label></h4>
-
-                                <h4><label style="color:#DEC20B;"><i class="fas fa-meh"></i></label></h4>
-
-                                <h4><label style="color:#CE2029;"><i class="fas fa-frown"></i></label></h4>
-
-                            </div>
-                            <div class="col">
-                                <h4>
-                                    <label
-                                        style="color:#555;font-family: 'Noto Sans','sans-serif'">{{each_aspects_total_percent_list[3]["total_environment_positive_percent"]}}%
-                                    </label>
-                                </h4>
-                                <h4>
-                                    <label
-                                        style="color:#555;font-family: 'Noto Sans','sans-serif'">{{each_aspects_total_percent_list[3]["total_environment_neutral_percent"]}}%
-                                    </label>
-                                </h4>
-                                <h4>
-                                    <label
-                                        style="color:#555;font-family: 'Noto Sans','sans-serif'">{{each_aspects_total_percent_list[3]["total_environment_negative_percent"]}}%
-                                    </label>
-                                </h4>
-                            </div>
-                        </div>
-                        <div class="row" style="width: 100%;">
-
-                            <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><b>Total Environment
-                                    Rating</b></label>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-2 ps-5 pe-5">
-                <div class="card mb-2">
-                    <div
-                        class="card-body d-flex flex-column justify-content-center align-items-center text-center shadow">
-
-                        <div class="row">
-                            <div class="col">
-                                <h4><label style="color:#00873E;"><i class="fas fa-smile"></i></label></h4>
-
-                                <h4><label style="color:#DEC20B;"><i class="fas fa-meh"></i></label></h4>
-
-                                <h4><label style="color:#CE2029;"><i class="fas fa-frown"></i></label></h4>
-
-                            </div>
-                            <div class="col">
-                                <h4>
-                                    <label
-                                        style="color:#555;font-family: 'Noto Sans','sans-serif'">{{each_aspects_total_percent_list[4]["total_dish_positive_percent"]}}%
-                                    </label>
-                                </h4>
-                                <h4>
-                                    <label
-                                        style="color:#555;font-family: 'Noto Sans','sans-serif'">{{each_aspects_total_percent_list[4]["total_dish_neutral_percent"]}}%
-                                    </label>
-                                </h4>
-                                <h4>
-                                    <label
-                                        style="color:#555;font-family: 'Noto Sans','sans-serif'">{{each_aspects_total_percent_list[4]["total_dish_negative_percent"]}}%
-                                    </label>
-                                </h4>
-                            </div>
-                        </div>
-                        <div class="row" style="width: 100%;">
-
-                            <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><b>Total Dish
-                                    Rating</b></label>
-                        </div>
-
+                        <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><b>Total Dish Rating</b></label>
                     </div>
                 </div>
 
@@ -341,45 +190,15 @@
             <div class="col-2 ps-5 pe-5">
 
                 <div class="card mb-2">
-
-
                     <div
                         class="card-body d-flex flex-column justify-content-center align-items-center text-center shadow">
 
-                        <div class="row">
-                            <div class="col">
-                                <h4><label style="color:#00873E;"><i class="fas fa-smile"></i></label></h4>
+                        <canvas id="othersPie"></canvas>
 
-                                <h4><label style="color:#DEC20B;"><i class="fas fa-meh"></i></label></h4>
-
-                                <h4><label style="color:#CE2029;"><i class="fas fa-frown"></i></label></h4>
-
-                            </div>
-                            <div class="col">
-                                <h4>
-                                    <label
-                                        style="color:#555;font-family: 'Noto Sans','sans-serif'">{{each_aspects_total_percent_list[5]["total_others_positive_percent"]}}%
-                                    </label>
-                                </h4>
-                                <h4>
-                                    <label
-                                        style="color:#555;font-family: 'Noto Sans','sans-serif'">{{each_aspects_total_percent_list[5]["total_others_neutral_percent"]}}%
-                                    </label>
-                                </h4>
-                                <h4>
-                                    <label
-                                        style="color:#555;font-family: 'Noto Sans','sans-serif'">{{each_aspects_total_percent_list[5]["total_others_negative_percent"]}}%
-                                    </label>
-                                </h4>
-                            </div>
-                        </div>
-                        <div class="row" style="width: 100%;">
-
-                            <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><b>Total Others
-                                    Rating</b></label>
-                        </div>
+                        <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><b>Total Others Rating</b></label>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
@@ -405,6 +224,7 @@
             </div>
         </div>
     </div>
+
 
 
     <!--   this part is the header/table head -->
@@ -729,17 +549,72 @@
     </div>
 
 
-
-
-
+    <!--  chart script -->
     <script>
+
+        var ctx = document.getElementById("polarityBarChart").getContext("2d");
+
+        var data = {
+            labels: ["Location", "Service", "Price", "Environment", "Dish", "Others"],
+            // labels: ["Chocolate", "Vanilla", "Strawberry"],
+            datasets: [
+                {
+                    label: "Total",
+                    backgroundColor: "#124076",
+                    data: {{ overall_aspect }}
+        },
+        {
+            label: "Positive",
+                backgroundColor: "#7F9F80",
+                    data: {{ positive_list }}
+        },
+        {
+            label: "Neutral",
+                backgroundColor: "#F9E897",
+                    data: {{ neutral_list }}
+        },
+
+        {
+            label: "Negative",
+                backgroundColor: "#FFC374",
+                    data: {{ negative_list }}
+        }
+    ]
+};
+
+        var myBarChart = new Chart(ctx, {
+            type: 'bar',
+            data: data,
+            options: {
+
+
+                title: {
+                    display: true,
+                    text: "The polarity of each aspect"
+                },
+
+                barValueSpacing: 20,
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            min: 0,
+                        }
+                    }]
+                }
+
+            }
+        });
+
+
+
+
+        // Total Aspect Doughnut
         var xValues = ["Location", "Service", "Price",
             "Environment", "Dish", "Other"];
         var test = '{{ datas }}';
 
-        var yValues = {{overall_aspect}};
+        var yValues = {{ overall_aspect }};
 
-        // var yValues = [55, 0, 0, 0, 0, 0];
         var barColors = [
             "#b91d47",
             "#00aba9",
@@ -766,63 +641,360 @@
                 }
             }
         });
-    </script>
-
-    <script>
-            var ctx = document.getElementById("polarityBarChart").getContext("2d");
-
-            var data = {
-                labels: ["Location", "Service", "Price", "Environment", "Dish", "Others"],
-                // labels: ["Chocolate", "Vanilla", "Strawberry"],
-                datasets: [
-                    {
-                        label: "Total",
-                        backgroundColor: "#124076",
-                        // data: [3,7,4]
-                        data: {{ overall_aspect }}
-                },
-            {
-                label: "Positive",
-                    backgroundColor: "#7F9F80",
-                        // data: [3,7,4]
-                        data:{{positive_list}}
-            },
-            {
-                label: "Negative",
-                    backgroundColor: "#F9E897",
-                        data: {{negative_list }}
-            },
-            {
-                label: "Neutral",
-                    backgroundColor: "#FFC374",
-                        data: {{neutral_list}}
-            }
-            ]
-        };
-
-            var myBarChart = new Chart(ctx, {
-                type: 'bar',
-                data: data,
-                options: {
+        // Total Aspect Doughnut
 
 
-                    title: {
-                        display: true,
-                        text: "Numbers of Each Aspect's Polarities"
-                    },
+        // Location
+        var xValues = ["Positive", "Neutral", "Negative"];
 
-                    barValueSpacing: 20,
-                    scales: {
-                        yAxes: [{
-                            ticks: {
-                                min: 0,
-                            }
-                        }]
+        var yValues = [
+            {{ each_aspects_total_percent_list[0]["total_location_positive_percent"] }},
+
+        {{ each_aspects_total_percent_list[0]["total_location_neutral_percent"] }},
+
+        {{ each_aspects_total_percent_list[0]["total_location_negative_percent"] }}
+                    ];
+
+        if (yValues.reduce((a, b) => a + b, 0) != 0) {
+
+            locationPieSet = new Chart("locationPie", {
+                type: "pie",
+                data: {
+                    labels: xValues,
+                    datasets: [{
+                        backgroundColor: ["green", "yellow", "red"],
+                        data: yValues
                     }
 
-                }
-
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    legend: { display: false },
+                    tooltips: {
+                        callbacks: {
+                            label: function(tooltipItem, data) {
+                                var allData = data.datasets[tooltipItem.datasetIndex].data;
+                                var tooltipLabel = data.labels[tooltipItem.index];
+                                var tooltipData = allData[tooltipItem.index];
+                                var total = 0;
+                                for (var i in allData) {
+                                    total += allData[i];
+                                }
+                                
+                                return tooltipLabel + ': ' + tooltipData + '%';
+                            }
+                        }
+                    }
+                },
+                
             });
+
+            locationPieSet.canvas.parentNode.style.height = '200px';
+            locationPieSet.canvas.parentNode.style.width = '200px';
+
+        } else {
+
+            const location_canvas = document.getElementById("locationPie");
+            const location_ctx = location_canvas.getContext("2d");
+            location_ctx.font = "30px Arial";
+            location_ctx.fillText("Not Available", 10, 50);
+
+        };
+
+
+        // Service
+        var yValues = [
+            {{ each_aspects_total_percent_list[1]["total_service_positive_percent"] }},
+
+        {{ each_aspects_total_percent_list[1]["total_service_neutral_percent"] }},
+
+        {{ each_aspects_total_percent_list[1]["total_service_negative_percent"] }}
+                    ];
+
+        if (yValues.reduce((a, b) => a + b, 0) != 0) {
+
+            servicePieSet = new Chart("servicePie", {
+                type: "pie",
+                data: {
+                    labels: xValues,
+                    datasets: [{
+                        backgroundColor: ["green", "yellow", "red"],
+                        data: yValues
+                    }
+
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    legend: { display: false },
+
+                    tooltips: {
+                        callbacks: {
+                            label: function(tooltipItem, data) {
+                                var allData = data.datasets[tooltipItem.datasetIndex].data;
+                                var tooltipLabel = data.labels[tooltipItem.index];
+                                var tooltipData = allData[tooltipItem.index];
+                                var total = 0;
+                                for (var i in allData) {
+                                    total += allData[i];
+                                }
+                                
+                                return tooltipLabel + ': ' + tooltipData + '%';
+                            }
+                        }
+                    }
+
+                },
+                
+            });
+
+            servicePieSet.canvas.parentNode.style.height = '200px';
+            servicePieSet.canvas.parentNode.style.width = '200px';
+
+        } else {
+
+            const service_canvas = document.getElementById("servicePie");
+            const service_ctx = service_canvas.getContext("2d");
+            service_ctx.font = "30px Arial";
+            service_ctx.fillText("Not Available", 10, 50);
+
+        }
+
+        // Price
+        var yValues = [
+            {{ each_aspects_total_percent_list[2]["total_price_positive_percent"] }},
+
+        {{ each_aspects_total_percent_list[2]["total_price_neutral_percent"] }},
+
+        {{ each_aspects_total_percent_list[2]["total_price_negative_percent"] }}
+                    ];
+
+        if (yValues.reduce((a, b) => a + b, 0) != 0) {
+
+            pricePieSet = new Chart("pricePie", {
+                type: "pie",
+                data: {
+                    labels: xValues,
+                    datasets: [{
+                        backgroundColor: ["green", "yellow", "red"],
+                        data: yValues
+                    }
+
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    legend: { display: false },
+                    tooltips: {
+                        callbacks: {
+                            label: function(tooltipItem, data) {
+                                var allData = data.datasets[tooltipItem.datasetIndex].data;
+                                var tooltipLabel = data.labels[tooltipItem.index];
+                                var tooltipData = allData[tooltipItem.index];
+                                var total = 0;
+                                for (var i in allData) {
+                                    total += allData[i];
+                                }
+                                
+                                return tooltipLabel + ': ' + tooltipData + '%';
+                            }
+                        }
+                    }
+                }
+            });
+
+            pricePieSet.canvas.parentNode.style.height = '200px';
+            pricePieSet.canvas.parentNode.style.width = '200px';
+
+        } else {
+
+            const price_canvas = document.getElementById("pricePie");
+            const price_ctx = price_canvas.getContext("2d");
+            price_ctx.font = "30px Arial";
+            price_ctx.fillText("Not Available", 10, 50);
+
+        }
+
+        // Environment
+        var yValues = [
+            {{ each_aspects_total_percent_list[3]["total_environment_positive_percent"] }},
+
+        {{ each_aspects_total_percent_list[3]["total_environment_neutral_percent"] }},
+
+        {{ each_aspects_total_percent_list[3]["total_environment_negative_percent"] }}
+                    ];
+
+        if (yValues.reduce((a, b) => a + b, 0) != 0) {
+
+            environmentPieSet = new Chart("environmentPie", {
+                type: "pie",
+                data: {
+                    labels: xValues,
+                    datasets: [{
+                        backgroundColor: ["green", "yellow", "red"],
+                        data: yValues
+                    }
+
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    legend: { display: false },
+                    tooltips: {
+                        callbacks: {
+                            label: function(tooltipItem, data) {
+                                var allData = data.datasets[tooltipItem.datasetIndex].data;
+                                var tooltipLabel = data.labels[tooltipItem.index];
+                                var tooltipData = allData[tooltipItem.index];
+                                var total = 0;
+                                for (var i in allData) {
+                                    total += allData[i];
+                                }
+                                
+                                return tooltipLabel + ': ' + tooltipData + '%';
+                            }
+                        }
+                    }
+                }
+            });
+
+            environmentPieSet.canvas.parentNode.style.height = '200px';
+            environmentPieSet.canvas.parentNode.style.width = '200px';
+
+        } else {
+
+            const environment_canvas = document.getElementById("environmentPie");
+            const environment_ctx = environment_canvas.getContext("2d");
+            environment_ctx.font = "30px Arial";
+            environment_ctx.fillText("Not Available", 10, 50);
+
+        }
+
+        // Dish
+        var yValues = [
+            {{ each_aspects_total_percent_list[4]["total_dish_positive_percent"] }},
+
+        {{ each_aspects_total_percent_list[4]["total_dish_neutral_percent"] }},
+
+        {{ each_aspects_total_percent_list[4]["total_dish_negative_percent"] }}
+                    ];
+
+        if (yValues.reduce((a, b) => a + b, 0) != 0) {
+
+            dishPieSet = new Chart("dishPie", {
+                type: "pie",
+                data: {
+                    labels: xValues,
+                    datasets: [{
+                        backgroundColor: ["green", "yellow", "red"],
+                        data: yValues
+                    }
+
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    legend: { display: false },
+                    tooltips: {
+                        callbacks: {
+                            label: function(tooltipItem, data) {
+                                var allData = data.datasets[tooltipItem.datasetIndex].data;
+                                var tooltipLabel = data.labels[tooltipItem.index];
+                                var tooltipData = allData[tooltipItem.index];
+                                var total = 0;
+                                for (var i in allData) {
+                                    total += allData[i];
+                                }
+                                
+                                return tooltipLabel + ': ' + tooltipData + '%';
+                            }
+                        }
+                    }
+                }
+            });
+
+            dishPieSet.canvas.parentNode.style.height = '200px';
+            dishPieSet.canvas.parentNode.style.width = '200px';
+
+        } else {
+
+            const dish_canvas = document.getElementById("dishPie");
+            const dish_ctx = dish_canvas.getContext("2d");
+            dish_ctx.font = "30px Arial";
+            dish_ctx.fillText("Not Available", 10, 50);
+
+        }
+
+
+        // Others
+        var yValues = [
+            {{ each_aspects_total_percent_list[5]["total_others_positive_percent"] }},
+
+        {{ each_aspects_total_percent_list[5]["total_others_neutral_percent"] }},
+
+        {{ each_aspects_total_percent_list[5]["total_others_negative_percent"] }}
+                    ];
+
+        if (yValues.reduce((a, b) => a + b, 0) != 0) {
+
+            othersPieSet = new Chart("othersPie", {
+                type: "pie",
+                data: {
+                    labels: xValues,
+                    datasets: [{
+                        backgroundColor: ["green", "yellow", "red"],
+                        data: yValues
+                    }
+
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    legend: { display: false },
+                    tooltips: {
+                        callbacks: {
+                            label: function(tooltipItem, data) {
+                                var allData = data.datasets[tooltipItem.datasetIndex].data;
+                                var tooltipLabel = data.labels[tooltipItem.index];
+                                var tooltipData = allData[tooltipItem.index];
+                                var total = 0;
+                                for (var i in allData) {
+                                    total += allData[i];
+                                }
+                                
+                                return tooltipLabel + ': ' + tooltipData + '%';
+                            }
+                        }
+                    }
+                }
+            });
+
+            othersPieSet.canvas.parentNode.style.height = '200px';
+            othersPieSet.canvas.parentNode.style.width = '200px';
+
+        } else {
+
+            const others_canvas = document.getElementById("othersPie");
+            const others_ctx = others_canvas.getContext("2d");
+            others_ctx.font = "30px Arial";
+            others_ctx.fillText("Not Available", 10, 50);
+
+        }
+
+
+
+    </script>
+    <!--  chart script -->
+
+    <script>
+
 
         function getWord(sentiment) {
             const label = document.createElement("label");
