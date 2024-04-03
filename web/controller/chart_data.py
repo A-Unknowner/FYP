@@ -231,11 +231,39 @@ def each_aspects_percentage(location_list, service_list, price_list, environment
             {"dish_percentage" : dish_percentage}, {"other_percentage" : other_percentage}]
 
 
+def five_star_calculate(positve_number, negative_number, total_number):
 
-def each_comment_percentage(read_csv_data):
+    return round((positve_number - negative_number) / total_number, 1)
+
+
+def five_star_condition(result):
+
+    if result == -1:
+        return "0"
+    
+    if result == 1:
+        return "5"
+
+    if result > -1 and result < -0.6:
+        return "1"
+
+    if result > -0.6 and result < -0.2:
+        return "2"
+
+    if result > -0.2 and result < 0.2:
+        return "3"
+
+    if result > 0.2 and result < 0.6:
+        return "4"
+    
+    if result > 0.6 and result < 1:
+        return "5"
+
+
+def five_star_calculation(read_csv_data):
 
     each_comment_polarity = list()
-    each_comment_percentage_list = list()
+    each_comment_five_star_list = list()
     
 
     for i in range(len(read_csv_data["id"])):
@@ -271,23 +299,20 @@ def each_comment_percentage(read_csv_data):
 
     for i, data in enumerate(each_comment_polarity):
         comment_counter = Counter(data)
-
-        print(comment_counter)
+        # print(comment_counter)
 
         comment_total = comment_counter[1] + comment_counter[0] + comment_counter[-1]
 
-        print(comment_total)
+        # print(comment_total)
 
-        positive_value = calculate(comment_counter[1], comment_total)
+        caculate_result = five_star_calculate(comment_counter[1], comment_counter[-1], comment_total)
 
-        neutral_value = calculate(comment_counter[0], comment_total)
+        # print(caculate_result)
 
-        negative_value = calculate(comment_counter[-1], comment_total)
+        # call function
+        each_comment_five_star_list.append({i : five_star_condition(caculate_result)})
 
-        each_comment_percentage_list.append({"positive_value" : positive_value,
-                                             "neutral_value" : neutral_value,
-                                             "negative_value" : negative_value})
+    return each_comment_five_star_list
 
-    # print(read_csv_data)
 
-    return each_comment_percentage_list
+
