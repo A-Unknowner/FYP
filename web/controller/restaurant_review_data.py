@@ -1,6 +1,7 @@
 # coding=utf-8
 from urllib import parse
 
+import lxml.html
 from bs4 import BeautifulSoup
 from lxml import etree
 import requests, json, re, os
@@ -40,10 +41,6 @@ class Openrice:
     def restaurants_name(self):
 
         link_elements = self.__dom.xpath('//div[@class="poi-chart-main-grid-item-deskop-title-row-left-section"]')
-        # print(link_elements[1].xpath('.//text()'))
-        # print(link_elements[1].xpath('.//@src'))
-
-        
 
         for element in link_elements:
             name = element.xpath(".//text()")[0].replace("\n", "").strip()
@@ -136,11 +133,12 @@ class Openrice:
                 address = element.find_all_next("div", class_="poi-list-cell-line-info")[0]
                 image = element.find_all_next("div", class_="rms-photo")[0]
                 self.__restaurant_data.append(
-                    {"restaurant_name": name.text.strip(),
-                     "restaurant_img_url": image["style"].replace('background-image:url(', '').replace(');', ''),
-                     "restaurant_address": address.text.strip().replace(" ", "").split("\n\n")[0],
-                     "restaurant_details": address.text.strip().replace(" ", "").split("\n\n")[1].replace("\n", " "),
-                     "restaurant_url": f"https://www.openrice.com/{name['href']}/reviews"}
+                    {
+                        "restaurant_name": name.text.strip(),
+                         "restaurant_img_url": image["style"].replace('background-image:url(', '').replace(');', ''),
+                         "restaurant_address": address.text.strip().replace(" ", "").split("\n\n")[0],
+                         "restaurant_details": address.text.strip().replace(" ", "").split("\n\n")[1].replace("\n", " "),
+                         "restaurant_url": f"https://www.openrice.com/{name['href']}/reviews"}
                 )
         else:
             print("Error: search_restaurant(): No results found.")
@@ -149,13 +147,13 @@ class Openrice:
         return json.dumps(self.__restaurant_data, ensure_ascii=False).encode('utf8'), \
             json.dumps(self.__next_page_path, ensure_ascii=False).encode('utf8')
 
-    def get_restaurant_address(self):
-        xpath = '//a[@data-href="#map"]'
-        chinese_address = self.__dom.xpath(xpath)[0].text.replace("\n", "").strip()
-        english_address = self.__dom.xpath(xpath)[1].text.replace("\n", "").strip()
-
-        return json.dumps(chinese_address, ensure_ascii=False).encode('utf8'), \
-               json.dumps(english_address, ensure_ascii=False).encode('utf8')
+    # def get_restaurant_address(self):
+    #     xpath = '//a[@data-href="#map"]'
+    #     chinese_address = self.__dom.xpath(xpath)[0].text.replace("\n", "").strip()
+    #     english_address = self.__dom.xpath(xpath)[1].text.replace("\n", "").strip()
+    #
+    #     return json.dumps(chinese_address, ensure_ascii=False).encode('utf8'), \
+    #            json.dumps(english_address, ensure_ascii=False).encode('utf8')
 
 
     # def emoji_filter(self, text):
@@ -197,6 +195,71 @@ class Openrice:
     #                           re.UNICODE)
     #     text = myre.sub('', text)
     #     return text
+    def restaurant_info(self):
+        xpath = '//a[@data-href="#map"]'
+        chinese_address = self.__dom.xpath(xpath)[0].text.replace("\n", "").strip()
+        english_address = self.__dom.xpath(xpath)[1].text.replace("\n", "").strip()
+        xpath = '//div[@class="content js-text-wrapper"]'
+        transport_section = self.__dom.xpath(xpath)[0].text.replace("\n", "").strip()
+        xpath = '//div[@class="left-col-content-section left-middle-col-section"]//div[@class="content"]'
+        telephone = self.__dom.xpath(xpath)[0].text.replace("\n", "").strip()
+        xpath = '//div[@class="content js-text-wrapper"]'
+        introduction_section = self.__dom.xpath(xpath)[1].text.replace("\n", "").strip()
+        today_opening_hours = str()
+        opening_hours = list()
+        xpath = '//div[@class="opening-hours-day"]'
+        elements = self.__dom.xpath(xpath)
+        for element_index in range(len(elements)):
+            if element_index == 0:
+                today_opening_hours = elements[element_index].xpath('.//div[@class="opening-hours-time"]//div')[0].text.strip()
+            else:
+                opening_hours.append(
+                    {
+                        "date": elements[element_index].xpath('.//div[@class="opening-hours-date"]')[0].text.strip(),
+                        "time": elements[element_index].xpath('.//div[@class="opening-hours-time"]//div')[0].text.strip()
+                    }
+                )
+        xpath = '//div[@class="or-section-expandable collapse"]//section'
+        elements = self.__dom.xpath(xpath)
+        payment = list()
+        seats_num = int()
+        other_service = list()
+        for element in elements:
+            if element.xpath('.//div[@class="title"]')[0].text.strip() == "付款方式":
+                for tags in element.xpath('.//div[@class="comma-tags"]//span'):
+                    payment.append(tags.text.strip())
+            elif element.xpath('.//div[@class="title"]')[0].text.strip() == "座位數目":
+                seats_num = int(element.xpath('.//div[@class="content"]')[0].text.strip())
+            elif element.xpath('.//div[@class="title"]')[0].text.strip() == "其他資料":
+                for tags in element.xpath('.//div//div[@class="condition-item"]'):
+                    if tags.xpath('.//span')[0].attrib['class'] == 'or-sprite-inline-block d_sr2_lhs_tick_desktop':
+                        other_service.append(
+                            {
+                                "had": True,
+                                "tags": tags.xpath('.//span[@class="condition-name"]')[0].text.strip()
+                            }
+                        )
+                    elif tags.xpath('.//span')[0].attrib['class'] == 'or-sprite-inline-block d_sr2_lhs_cross_desktop':
+                        other_service.append(
+                            {
+                                "had": False,
+                                "tags": tags.xpath('.//span[@class="condition-name"]')[0].text.strip(),
+                            }
+                        )
+        self.__restaurant_data.append(
+            {
+                "chinese_address": chinese_address,
+                "english_address": english_address,
+                "transport_section": transport_section,
+                "telephone": telephone,
+                "introduction_section": introduction_section,
+                "today_opening_hours": today_opening_hours,
+                "opening_hours": opening_hours,
+                "payment": payment,
+                "seats_num": seats_num,
+                "other_service": other_service
+            }
+        )
 
 
 class CSV:
@@ -258,7 +321,8 @@ class CSV:
 if __name__ == "__main__":
     # book_marked_url = "https://www.openrice.com/zh/hongkong/explore/chart/most-bookmarked"
 
-    restaurant_review_url = "https://www.openrice.com/zh/hongkong/r-milu-thai-%E0%B8%A1%E0%B8%B4%E0%B8%A5%E0%B8%B9%E0%B9%88%E0%B9%84%E0%B8%97%E0%B8%A2-%E9%8A%85%E9%91%BC%E7%81%A3-%E6%B3%B0%E5%9C%8B%E8%8F%9C-%E6%B5%B7%E9%AE%AE-r588815/reviews"
+    # restaurant_review_url = "https://www.openrice.com/zh/hongkong/r-milu-thai-%E0%B8%A1%E0%B8%B4%E0%B8%A5%E0%B8%B9%E0%B9%88%E0%B9%84%E0%B8%97%E0%B8%A2-%E9%8A%85%E9%91%BC%E7%81%A3-%E6%B3%B0%E5%9C%8B%E8%8F%9C-%E6%B5%B7%E9%AE%AE-r588815/reviews"
+    restaurant_review_url = "https://www.openrice.com/zh/hongkong/r-milu-thai-%E0%B8%A1%E0%B8%B4%E0%B8%A5%E0%B8%B9%E0%B9%88%E0%B9%84%E0%B8%97%E0%B8%A2-%E9%8A%85%E9%91%BC%E7%81%A3-%E6%B3%B0%E5%9C%8B%E8%8F%9C-%E6%B5%B7%E9%AE%AE-r588815"
 
     # # get top 30 restaurant name and its url
     # results = Openrice(book_marked_url)
@@ -270,8 +334,9 @@ if __name__ == "__main__":
 
     # get target restaurant review
     results = Openrice(restaurant_review_url)
-    results.restaurant_review()
+    results.restaurant_info()
     reviews_info, path = results.get_restaurant_data()
+    print(reviews_info.decode())
 
     # CSV(reviews_info).to_csv()
 

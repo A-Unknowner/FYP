@@ -22,29 +22,32 @@
 <body>
 
 <!-- Navbar start -->
-    <nav class="navbar navbar-expand-lg navbar-light shadow-sm py-3 py-lg-0 px-3 px-lg-0"
-    style="background-color:white ;">
-   <a href="/" class="navbar-brand ms-lg-3">
-       <h3 class="display-10 m-0" style="color: #555;">Restaurant Review Analyzer for Chinese Language<span
-               style="color: #555;"> (RRACL)</span></h3>
-   </a>
-   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-       <span class="navbar-toggler-icon"></span>
-   </button>
-   <div class="collapse navbar-collapse" id="navbarCollapse">
-       <div class="navbar-nav ms-auto py-0">
-           <a href="index.html" class="nav-item nav-link text-light">Home</a>
-           <form class="nav-item nav-link " action="/search_list" method="POST">
-               <input type="search" placeholder="Search" name="restaurant_name" aria-label="Search">
-
-               <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
-
-               <button class="btn btn-light" type="submit">Search</button>
-           
-           </form>
-       </div>
-   </div>
+<!-- JavaScript Libraries -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+<nav class="navbar navbar-expand-lg navbar-light shadow-sm py-3 py-lg-0 px-3 px-lg-0"
+     style="background-color:white ;">
+    <a href="/" class="navbar-brand ms-lg-3">
+        <h3 class="display-10 m-0" style="color: #555;">
+            <div class="web-title-long">Restaurant Review Analyzer for Chinese Language<span>(RRACL)</span>
+            </div>
+            <div class="web-title-short"><span>RRACL</span></div>
+        </h3>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <div class="navbar-nav ms-auto py-0">
+            <a href="index.html" class="nav-item nav-link text-gray-555">Home</a>
+            <form class="nav-item nav-link " action="/search_list" method="POST">
+                <input type="search" placeholder="Search" name="restaurant_name" aria-label="Search">
+                <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
+                <button class="btn btn-light" type="submit">Search</button>
+            </form>
+        </div>
+    </div>
 </nav>
+
 <!-- Navbar end -->
 
 
