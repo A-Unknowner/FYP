@@ -1,6 +1,6 @@
 from collections import Counter
 
-
+from controller.generate_chart import generate_bar_chart
 
 def find_all_polarity_number_and_percentage(read_csv_data):
 
@@ -244,27 +244,26 @@ def five_star_condition(result):
     if result == 1:
         return "5"
 
-    if result > -1 and result < -0.6:
+    if result > -1 and result <= -0.6:
         return "1"
 
-    if result > -0.6 and result < -0.2:
+    if result > -0.6 and result <= -0.2:
         return "2"
 
-    if result > -0.2 and result < 0.2:
+    if result > -0.2 and result <= 0.2:
         return "3"
 
-    if result > 0.2 and result < 0.6:
+    if result > 0.2 and result <= 0.6:
         return "4"
     
     if result > 0.6 and result < 1:
         return "5"
 
 
-def five_star_calculation(read_csv_data):
+
+def each_comment_polarity(read_csv_data):
 
     each_comment_polarity = list()
-    each_comment_five_star_list = list()
-    
 
     for i in range(len(read_csv_data["id"])):
         each_review_data = [
@@ -294,10 +293,69 @@ def five_star_calculation(read_csv_data):
             read_csv_data["others_overall_experience"][str(i)],
             read_csv_data["others_willing_to_consume_again"][str(i)]
         ]
+        
 
         each_comment_polarity.append(each_review_data)
 
-    for i, data in enumerate(each_comment_polarity):
+    return each_comment_polarity
+
+# def each_comment_aspect_polarity(read_csv_data):
+
+#     each_comment_aspect_polarity = list()
+
+#     for i in range(len(read_csv_data["id"])):
+#         each_review_data = {
+#             "location_traffic_convenience" : read_csv_data["location_traffic_convenience"][str(i)],
+#             "location_distance_from_business_district" : read_csv_data["location_distance_from_business_district"][str(i)],
+#             "location_easy_to_find" : read_csv_data["location_easy_to_find"][str(i)],
+
+#             "service_wait_time" : read_csv_data["service_wait_time"][str(i)],
+#             "service_waiters_attitude" : read_csv_data["service_waiters_attitude"][str(i)],
+#             "service_parking_convenience" : read_csv_data["service_parking_convenience"][str(i)],
+#             "service_serving_speed" : read_csv_data["service_serving_speed"][str(i)],
+
+#             "price_level" : read_csv_data["price_level"][str(i)],
+#             "price_cost_effective" : read_csv_data["price_cost_effective"][str(i)],
+#             "price_discount" : read_csv_data["price_discount"][str(i)],
+
+#             "environment_decoration" : read_csv_data["environment_decoration"][str(i)],
+#             "environment_noise" : read_csv_data["environment_noise"][str(i)],
+#             "environment_space" : read_csv_data["environment_space"][str(i)],
+#             "environment_cleaness" : read_csv_data["environment_cleaness"][str(i)],
+
+#             "dish_portion" : read_csv_data["dish_portion"][str(i)],
+#             "dish_taste" : read_csv_data["dish_taste"][str(i)],
+#             "dish_look" : read_csv_data["dish_look"][str(i)],
+#             "dish_recommendation" : read_csv_data["dish_recommendation"][str(i)],
+
+#             "others_overall_experience" : read_csv_data["others_overall_experience"][str(i)],
+#             "others_willing_to_consume_again" : read_csv_data["others_willing_to_consume_again"][str(i)]
+#         }
+        
+
+#         each_comment_aspect_polarity.append(each_review_data)
+
+#     return each_comment_aspect_polarity
+
+
+def each_comment_data(dataframe_data):
+
+    generate_bar_chart(dataframe_data.drop(columns=['id', 'content']).iloc[0])
+
+
+
+def five_star_calculation(read_csv_data):
+
+    # print("read_csv_data",read_csv_data)
+
+    each_comment_polarity_list = each_comment_polarity(read_csv_data)
+
+    # print(each_comment_polarity_list)
+
+    each_comment_five_star_list = list()
+    
+
+    for i, data in enumerate(each_comment_polarity_list):
         comment_counter = Counter(data)
         # print(comment_counter)
 
@@ -315,4 +373,6 @@ def five_star_calculation(read_csv_data):
     return each_comment_five_star_list
 
 
+if __name__ == "__main__":
 
+    pass
