@@ -4,6 +4,7 @@
     --secondary: #F14D5D;
     --light: #ECF4FF;
     --dark: #120F2D;
+    --gary: #EEEEEE;
 }
 
 [class^=flaticon-]:before,
@@ -45,15 +46,22 @@ h6,
     color: #FFFFFF;
 }
 
+.btn-gary{
+    background-color: var(--gary) ;
+
+}
+
+
+
 .btn-primary:hover {
     background: var(--secondary);
     border-color: var(--secondary);
 }
 
-.btn-secondary:hover {
+/* .btn-secondary:hover {
     background: var(--primary);
     border-color: var(--primary);
-}
+} */
 
 .btn-square {
     width: 36px;
