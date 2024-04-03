@@ -1,282 +1,301 @@
 <!DOCTYPE html>
 <html lang="">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+
 <head>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-          rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-          crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='result.css') }}">
     <title></title>
 
     <!-- Template Stylesheet -->
     <link href="../static/bootstrap/style.css" rel="stylesheet">
 
+    
 </head>
 
 <body style="background-color: #dcdcdc">
 
-<!-- Navbar start -->
-<nav class="navbar navbar-expand-lg navbar-light shadow-sm py-3 py-lg-0 px-3 px-lg-0"
-     style="background-color:white ;">
-    <a href="/" class="navbar-brand ms-lg-3">
-        <h3 class="display-10 m-0" style="color: #555;">Restaurant Review Analyzer for Chinese Language<span
-                style="color: #555;"> (RRACL)</span></h3>
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarCollapse">
-        <div class="navbar-nav ms-auto py-0">
-            <a href="index.html" class="nav-item nav-link text-light">Home</a>
-            <form class="nav-item nav-link " action="/search_list" method="POST">
-                <input type="search" placeholder="Search" name="restaurant_name" aria-label="Search">
+    <!-- Navbar start -->
+    <nav class="navbar navbar-expand-lg navbar-light shadow-sm py-3 py-lg-0 px-3 px-lg-0"
+        style="background-color:white ;">
+        <a href="/" class="navbar-brand ms-lg-3">
+            <h3 class="display-10 m-0" style="color: #555;">Restaurant Review Analyzer for Chinese Language<span
+                    style="color: #555;"> (RRACL)</span></h3>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto py-0">
+                <a href="index.html" class="nav-item nav-link text-light">Home</a>
+                <form class="nav-item nav-link " action="/search_list" method="POST">
+                    <input type="search" placeholder="Search" name="restaurant_name" aria-label="Search">
 
-                <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
+                    <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
 
-                <button class="btn btn-light" type="submit">Search</button>
-            
-            </form>
+                    <button class="btn btn-light" type="submit">Search</button>
+
+                </form>
+            </div>
+        </div>
+    </nav>
+    <!-- Navbar end -->
+
+
+    <div class="container-fluid">
+        <div class="row">
+
+            <div class="col pt-5 ps-5">
+                <div style="color:#555;font-family: 'Noto Sans','sans-serif'">
+                    <h2>{{restaurant_name}} - Analyze Result</h2>
+                </div>
+            </div>
         </div>
     </div>
-</nav>
-<!-- Navbar end -->
+    <div class="container-fluid">
+        <div class="row">
+
+            <div class="col-3 col-3 pt-2 ps-5 pe-5">
+                <div class="card mb-3">
+                    <div
+                        class="card-body d-flex flex-column justify-content-center align-items-center text-center shadow">
+                        <h2><label style="color:#00873E;"><i class="fas fa-smile"></i></label> <label
+                                style="color:#555;font-family: 'Noto Sans','sans-serif'">{{
+                                total_positive_percentage}}%</label></h2>
+                        <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><b>Total Positive
+                                Rating</b></label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-3 col-3 pt-2 ps-5 pe-5">
+                <div class="card mb-3">
+                    <div
+                        class="card-body d-flex flex-column justify-content-center align-items-center text-center shadow">
+                        <h2><label style="color:#DEC20B;"><i class="fas fa-meh"></i></label> <label
+                                style="color:#555;font-family: 'Noto Sans','sans-serif'">{{ total_neutral_percentage
+                                }}%</label></h2>
+                        <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><b>Total Neutral
+                                Rating</b></label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-3 col-3 pt-2 ps-5 pe-5">
+                <div class="card mb-3">
+                    <div
+                        class="card-body d-flex flex-column justify-content-center align-items-center text-center shadow">
+                        <h2><label style="color:#CE2029;"><i class="fas fa-frown"></i></label> <label
+                                style="color:#555;font-family: 'Noto Sans','sans-serif'">{{ total_negative_percentage
+                                }}%</label></h2>
+                        <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><b>Total Negative
+                                Rating</b></label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-3 col-3 pt-2 ps-5 pe-5">
+                <div class="card mb-3">
+                    <div
+                        class="card-body d-flex flex-column justify-content-center align-items-center text-center shadow">
+                        <h2><label style="color:#0b0b53;"><i class="fas fa-comments"></i></label> <label
+                                style="color:#555;font-family: 'Noto Sans','sans-serif'">{{ datas["content"]|length
+                                }}</label></h2>
+                        <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><b>Analyzed Reviews</b></label>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-2 ps-5 pe-5">
+
+                <div class="card mb-2">
+                    <div
+                        class="card-body d-flex flex-column justify-content-center align-items-center text-center shadow">
+                        <h4><label style="color:#00873E;"><i class="fas fa-smile"></i></label>
+                            <label
+                                style="color:#555;font-family: 'Noto Sans','sans-serif'">{{each_aspects_total_percent_list[0]["total_location_positive_percent"]}}%
+                            </label>
+                        </h4>
+
+                        <h4><label style="color:#DEC20B;"><i class="fas fa-meh"></i></label>
+                            <label
+                                style="color:#555;font-family: 'Noto Sans','sans-serif'">{{each_aspects_total_percent_list[0]["total_location_neutral_percent"]}}%
+                            </label>
+                        </h4>
+
+                        <h4><label style="color:#CE2029;"><i class="fas fa-frown"></i></label>
+                            <label
+                                style="color:#555;font-family: 'Noto Sans','sans-serif'">{{each_aspects_total_percent_list[0]["total_location_negative_percent"]}}%
+                            </label>
+                        </h4>
+
+                        <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><b>Total Location
+                                Rating</b></label>
+                    </div>
+                </div>
+
+            </div>
 
 
-<div class="container-fluid">
-    <div class="row">
+            <div class="col-2 ps-5 pe-5">
 
-        <div class="col pt-5 ps-5">
-            <div style="color:#555;font-family: 'Noto Sans','sans-serif'">
-                <h2>{{restaurant_name}} - Analyze Result</h2>
+                <div class="card mb-2">
+                    <div
+                        class="card-body d-flex flex-column justify-content-center align-items-center text-center shadow">
+                        <h4><label style="color:#00873E;"><i class="fas fa-smile"></i></label>
+                            <label
+                                style="color:#555;font-family: 'Noto Sans','sans-serif'">{{each_aspects_total_percent_list[1]["total_service_positive_percent"]}}%
+                            </label>
+                        </h4>
+
+                        <h4><label style="color:#DEC20B;"><i class="fas fa-meh"></i></label>
+                            <label
+                                style="color:#555;font-family: 'Noto Sans','sans-serif'">{{each_aspects_total_percent_list[1]["total_service_neutral_percent"]}}%
+                            </label>
+                        </h4>
+
+                        <h4><label style="color:#CE2029;"><i class="fas fa-frown"></i></label>
+                            <label
+                                style="color:#555;font-family: 'Noto Sans','sans-serif'">{{each_aspects_total_percent_list[1]["total_service_negative_percent"]}}%
+                            </label>
+                        </h4>
+
+                        <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><b>Total Service
+                                Rating</b></label>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-2 ps-5 pe-5">
+
+                <div class="card mb-2">
+                    <div
+                        class="card-body d-flex flex-column justify-content-center align-items-center text-center shadow">
+                        <h4><label style="color:#00873E;"><i class="fas fa-smile"></i></label>
+                            <label
+                                style="color:#555;font-family: 'Noto Sans','sans-serif'">{{each_aspects_total_percent_list[2]["total_price_positive_percent"]}}%
+                            </label>
+                        </h4>
+
+                        <h4><label style="color:#DEC20B;"><i class="fas fa-meh"></i></label>
+                            <label
+                                style="color:#555;font-family: 'Noto Sans','sans-serif'">{{each_aspects_total_percent_list[2]["total_price_neutral_percent"]}}%
+                            </label>
+                        </h4>
+
+                        <h4><label style="color:#CE2029;"><i class="fas fa-frown"></i></label>
+                            <label
+                                style="color:#555;font-family: 'Noto Sans','sans-serif'">{{each_aspects_total_percent_list[2]["total_price_negative_percent"]}}%
+                            </label>
+                        </h4>
+
+                        <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><b>Total Price
+                                Rating</b></label>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="col-2 ps-5 pe-5">
+
+                <div class="card mb-2">
+                    <div
+                        class="card-body d-flex flex-column justify-content-center align-items-center text-center shadow">
+                        <h4><label style="color:#00873E;"><i class="fas fa-smile"></i></label>
+                            <label
+                                style="color:#555;font-family: 'Noto Sans','sans-serif'">{{each_aspects_total_percent_list[3]["total_environment_positive_percent"]}}%
+                            </label>
+                        </h4>
+
+                        <h4><label style="color:#DEC20B;"><i class="fas fa-meh"></i></label>
+                            <label
+                                style="color:#555;font-family: 'Noto Sans','sans-serif'">{{each_aspects_total_percent_list[3]["total_environment_negative_percent"]}}%
+                            </label>
+                        </h4>
+
+                        <h4><label style="color:#CE2029;"><i class="fas fa-frown"></i></label>
+                            <label
+                                style="color:#555;font-family: 'Noto Sans','sans-serif'">{{each_aspects_total_percent_list[3]["total_environment_neutral_percent"]}}%
+                            </label>
+                        </h4>
+
+                        <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><b>Total Environment
+                                Rating</b></label>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-2 ps-5 pe-5">
+
+                <div class="card mb-2">
+                    <div
+                        class="card-body d-flex flex-column justify-content-center align-items-center text-center shadow">
+                        <h4><label style="color:#00873E;"><i class="fas fa-smile"></i></label>
+                            <label
+                                style="color:#555;font-family: 'Noto Sans','sans-serif'">{{each_aspects_total_percent_list[4]["total_dish_positive_percent"]}}%
+                            </label>
+                        </h4>
+
+                        <h4><label style="color:#DEC20B;"><i class="fas fa-meh"></i></label>
+                            <label
+                                style="color:#555;font-family: 'Noto Sans','sans-serif'">{{each_aspects_total_percent_list[4]["total_dish_neutral_percent"]}}%
+                            </label>
+                        </h4>
+
+                        <h4><label style="color:#CE2029;"><i class="fas fa-frown"></i></label>
+                            <label
+                                style="color:#555;font-family: 'Noto Sans','sans-serif'">{{each_aspects_total_percent_list[4]["total_dish_negative_percent"]}}%
+                            </label>
+                        </h4>
+
+                        <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><b>Total Dish Rating</b></label>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-2 ps-5 pe-5">
+
+                <div class="card mb-2">
+                    <div
+                        class="card-body d-flex flex-column justify-content-center align-items-center text-center shadow">
+                        <h4><label style="color:#00873E;"><i class="fas fa-smile"></i></label>
+                            <label
+                                style="color:#555;font-family: 'Noto Sans','sans-serif'">{{each_aspects_total_percent_list[5]["total_others_positive_percent"]}}%
+                            </label>
+                        </h4>
+
+                        <h4><label style="color:#DEC20B;"><i class="fas fa-meh"></i></label>
+                            <label
+                                style="color:#555;font-family: 'Noto Sans','sans-serif'">{{each_aspects_total_percent_list[5]["total_others_neutral_percent"]}}%
+                            </label>
+                        </h4>
+
+                        <h4><label style="color:#CE2029;"><i class="fas fa-frown"></i></label>
+                            <label
+                                style="color:#555;font-family: 'Noto Sans','sans-serif'">{{each_aspects_total_percent_list[5]["total_others_negative_percent"]}}%
+                            </label>
+                        </h4>
+
+                        <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><b>Total Others
+                                Rating</b></label>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
-</div>
-<div class="container-fluid">
-    <div class="row">
 
-        <div class="col-3 col-3 pt-2 ps-5 pe-5">
-            <div class="card mb-3">
-                <div class="card-body d-flex flex-column justify-content-center align-items-center text-center shadow">
-                    <h2><label style="color:#00873E;"><i class="fas fa-smile"></i></label> <label
-                            style="color:#555;font-family: 'Noto Sans','sans-serif'">{{
-                        total_positive_percentage}}%</label></h2>
-                    <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><b>Total Positive Rating</b></label>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-3 col-3 pt-2 ps-5 pe-5">
-            <div class="card mb-3">
-                <div class="card-body d-flex flex-column justify-content-center align-items-center text-center shadow">
-                    <h2><label style="color:#DEC20B;"><i class="fas fa-meh"></i></label> <label
-                            style="color:#555;font-family: 'Noto Sans','sans-serif'">{{ total_neutral_percentage
-                        }}%</label></h2>
-                    <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><b>Total Neutral Rating</b></label>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-3 col-3 pt-2 ps-5 pe-5">
-            <div class="card mb-3">
-                <div class="card-body d-flex flex-column justify-content-center align-items-center text-center shadow">
-                    <h2><label style="color:#CE2029;"><i class="fas fa-frown"></i></label> <label
-                            style="color:#555;font-family: 'Noto Sans','sans-serif'">{{ total_negative_percentage
-                        }}%</label></h2>
-                    <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><b>Total Negative Rating</b></label>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-3 col-3 pt-2 ps-5 pe-5">
-            <div class="card mb-3">
-                <div class="card-body d-flex flex-column justify-content-center align-items-center text-center shadow">
-                    <h2><label style="color:#0b0b53;"><i class="fas fa-comments"></i></label> <label
-                            style="color:#555;font-family: 'Noto Sans','sans-serif'">{{ datas["content"]|length
-                        }}</label></h2>
-                    <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><b>Analyzed Reviews</b></label>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-    <div class="row">
-        <div class="col-2 ps-5 pe-5">
-
-            <div class="card mb-2">
-                <div class="card-body d-flex flex-column justify-content-center align-items-center text-center shadow">
-                    <h4><label style="color:#00873E;"><i class="fas fa-smile"></i></label> 
-                        <label
-                            style="color:#555;font-family: 'Noto Sans','sans-serif'">{{each_aspects_total_percent_list[0]["total_location_positive_percent"]}}%
-                        </label>
-                    </h4>
-                    
-                    <h4><label style="color:#DEC20B;"><i class="fas fa-meh"></i></label> 
-                        <label
-                            style="color:#555;font-family: 'Noto Sans','sans-serif'">{{each_aspects_total_percent_list[0]["total_location_neutral_percent"]}}%
-                        </label>
-                    </h4>
-
-                    <h4><label style="color:#CE2029;"><i class="fas fa-frown"></i></label>
-                        <label
-                            style="color:#555;font-family: 'Noto Sans','sans-serif'">{{each_aspects_total_percent_list[0]["total_location_negative_percent"]}}%
-                        </label>
-                    </h4>
-
-                    <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><b>Total Location Rating</b></label>
-                </div>
-            </div>
-
-        </div>
-
-
-        <div class="col-2 ps-5 pe-5">
-
-            <div class="card mb-2">
-                <div class="card-body d-flex flex-column justify-content-center align-items-center text-center shadow">
-                    <h4><label style="color:#00873E;"><i class="fas fa-smile"></i></label> 
-                        <label
-                            style="color:#555;font-family: 'Noto Sans','sans-serif'">{{each_aspects_total_percent_list[1]["total_service_positive_percent"]}}%
-                        </label>
-                    </h4>
-                    
-                    <h4><label style="color:#DEC20B;"><i class="fas fa-meh"></i></label> 
-                        <label
-                            style="color:#555;font-family: 'Noto Sans','sans-serif'">{{each_aspects_total_percent_list[1]["total_service_neutral_percent"]}}%
-                        </label>
-                    </h4>
-
-                    <h4><label style="color:#CE2029;"><i class="fas fa-frown"></i></label>
-                        <label
-                            style="color:#555;font-family: 'Noto Sans','sans-serif'">{{each_aspects_total_percent_list[1]["total_service_negative_percent"]}}%
-                        </label>
-                    </h4>
-
-                    <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><b>Total Service Rating</b></label>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="col-2 ps-5 pe-5">
-
-            <div class="card mb-2">
-                <div class="card-body d-flex flex-column justify-content-center align-items-center text-center shadow">
-                    <h4><label style="color:#00873E;"><i class="fas fa-smile"></i></label> 
-                        <label
-                            style="color:#555;font-family: 'Noto Sans','sans-serif'">{{each_aspects_total_percent_list[2]["total_price_positive_percent"]}}%
-                        </label>
-                    </h4>
-                    
-                    <h4><label style="color:#DEC20B;"><i class="fas fa-meh"></i></label> 
-                        <label
-                            style="color:#555;font-family: 'Noto Sans','sans-serif'">{{each_aspects_total_percent_list[2]["total_price_neutral_percent"]}}%
-                        </label>
-                    </h4>
-
-                    <h4><label style="color:#CE2029;"><i class="fas fa-frown"></i></label>
-                        <label
-                            style="color:#555;font-family: 'Noto Sans','sans-serif'">{{each_aspects_total_percent_list[2]["total_price_negative_percent"]}}%
-                        </label>
-                    </h4>
-
-                    <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><b>Total Price Rating</b></label>
-                </div>
-            </div>
-
-        </div>
-
-
-        <div class="col-2 ps-5 pe-5">
-
-            <div class="card mb-2">
-                <div class="card-body d-flex flex-column justify-content-center align-items-center text-center shadow">
-                    <h4><label style="color:#00873E;"><i class="fas fa-smile"></i></label> 
-                        <label
-                            style="color:#555;font-family: 'Noto Sans','sans-serif'">{{each_aspects_total_percent_list[3]["total_environment_positive_percent"]}}%
-                        </label>
-                    </h4>
-                    
-                    <h4><label style="color:#DEC20B;"><i class="fas fa-meh"></i></label> 
-                        <label
-                            style="color:#555;font-family: 'Noto Sans','sans-serif'">{{each_aspects_total_percent_list[3]["total_environment_negative_percent"]}}%
-                        </label>
-                    </h4>
-
-                    <h4><label style="color:#CE2029;"><i class="fas fa-frown"></i></label>
-                        <label
-                            style="color:#555;font-family: 'Noto Sans','sans-serif'">{{each_aspects_total_percent_list[3]["total_environment_neutral_percent"]}}%
-                        </label>
-                    </h4>
-
-                    <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><b>Total Environment Rating</b></label>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="col-2 ps-5 pe-5">
-
-            <div class="card mb-2">
-                <div class="card-body d-flex flex-column justify-content-center align-items-center text-center shadow">
-                    <h4><label style="color:#00873E;"><i class="fas fa-smile"></i></label> 
-                        <label
-                            style="color:#555;font-family: 'Noto Sans','sans-serif'">{{each_aspects_total_percent_list[4]["total_dish_positive_percent"]}}%
-                        </label>
-                    </h4>
-                    
-                    <h4><label style="color:#DEC20B;"><i class="fas fa-meh"></i></label> 
-                        <label
-                            style="color:#555;font-family: 'Noto Sans','sans-serif'">{{each_aspects_total_percent_list[4]["total_dish_neutral_percent"]}}%
-                        </label>
-                    </h4>
-
-                    <h4><label style="color:#CE2029;"><i class="fas fa-frown"></i></label>
-                        <label
-                            style="color:#555;font-family: 'Noto Sans','sans-serif'">{{each_aspects_total_percent_list[4]["total_dish_negative_percent"]}}%
-                        </label>
-                    </h4>
-
-                    <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><b>Total Dish Rating</b></label>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="col-2 ps-5 pe-5">
-
-            <div class="card mb-2">
-                <div class="card-body d-flex flex-column justify-content-center align-items-center text-center shadow">
-                    <h4><label style="color:#00873E;"><i class="fas fa-smile"></i></label> 
-                        <label
-                            style="color:#555;font-family: 'Noto Sans','sans-serif'">{{each_aspects_total_percent_list[5]["total_others_positive_percent"]}}%
-                        </label>
-                    </h4>
-                    
-                    <h4><label style="color:#DEC20B;"><i class="fas fa-meh"></i></label> 
-                        <label
-                            style="color:#555;font-family: 'Noto Sans','sans-serif'">{{each_aspects_total_percent_list[5]["total_others_neutral_percent"]}}%
-                        </label>
-                    </h4>
-
-                    <h4><label style="color:#CE2029;"><i class="fas fa-frown"></i></label>
-                        <label
-                            style="color:#555;font-family: 'Noto Sans','sans-serif'">{{each_aspects_total_percent_list[5]["total_others_negative_percent"]}}%
-                        </label>
-                    </h4>
-
-                    <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><b>Total Others Rating</b></label>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</div>
-
- <div class="container-fluid">
+    <div class="container-fluid">
         <div class="row">
             <div class="col-6 p-5">
                 <div class="card mb-3">
@@ -300,7 +319,7 @@
 
 
     <!--   this part is the header/table head -->
-      <div class="container-fluid">
+    <div class="container-fluid">
         <div class="row">
             <div class="col-12 ps-5 pe-5">
                 <div class="card">
@@ -326,405 +345,433 @@
                                 {{ datas["content"][index_list[i]] }}
                             </div>
                             <div class="col-6 ps-5 pe-5 pt-5">
-                                <div class="row" style="padding-bottom: 5%">
 
-                                    <!--location-->
-                                    <div class="col-4">
-                                        <button class="btn btn-primary" type="button" data-toggle="collapse"
-                                            data-target="#collapse_location_{{ i }}" aria-expanded="false"
-                                            aria-controls="collapse_location_{{ i }}" style="width: 100%">
-                                            <label>
-                                                <h1 style="color:#555;font-family: 'Noto Sans','sans-serif'">
-                                                    <div class="row">
-                                                        <div class="col-3">
-                                                            <i class="fas fa-map-marker-alt"></i>
-                                                        </div>
-                                                        <div class="col-9">
-                                                            location
-                                                        </div>
-                                                    </div>
-                                                </h1>
-                                            </label>
-                                        </button>
-
-                                        <div class="collapse" id="collapse_location_{{ i }}">
-                                            <div class="card card-body">
-                                                <div class="container-fluid">
-                                                    <div class="row" style="width: 100%">
-                                                        <h6>Traffic Convenience :
-                                                            <label
-                                                                class="location_traffic_convenience">{{datas["location_traffic_convenience"][index_list[i]]}}</label>
-                                                        </h6>
-                                                    </div>
-
-                                                    <div class="row" style="width: 100%">
-                                                        <h6>Distance from Business District :
-                                                            <label
-                                                                class="location_distance_from_business_district">{{datas["location_distance_from_business_district"][index_list[i]]}}</label>
-                                                        </h6>
-                                                    </div>
-
-                                                    <div class="row" style="width: 100%">
-                                                        <h6>Easy to Find :
-                                                            <label
-                                                                class="location_easy_to_find">{{datas["location_easy_to_find"][index_list[i]]}}</label>
-                                                        </h6>
-                                                    </div>
+                                <div class="row" style="padding-bottom: 2%">
+                                    <div class="card-body d-flex flex-column justify-content-center align-items-center shadow">
+                                        <div class="container-fluid">
+                                            <div class="row">
+                                                <div class="col d-flex align-items-center justify-content-center">
+                                                    <h4> <label
+                                                            style="color:#555;font-family: 'Noto Sans','sans-serif'">Total
+                                                            Percentage</label></h4>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div>
 
-                                    <!--services-->
-                                    <div class="col-4">
-                                        <button class="btn btn-primary" type="button" data-toggle="collapse"
-                                            data-target="#collapse_service_{{ i }}" aria-expanded="false"
-                                            aria-controls="collapse_service_{{ i }}" style="width: 100%">
-                                            <label>
-                                                <h1 style="color:#555;font-family: 'Noto Sans','sans-serif'">
-                                                    <div class="row">
-                                                        <div class="col-3">
-                                                            <i class="fas fa-bell-concierge"></i>
-                                                        </div>
-                                                        <div class="col-9">
-                                                            service
-                                                        </div>
-                                                    </div>
-                                                </h1>
-                                            </label>
-                                        </button>
-
-                                        <div class="collapse" id="collapse_service_{{ i }}">
-                                            <div class="card card-body">
-                                                <div class="container-fluid">
-                                                    <div class="row" style="width: 100%">
-                                                        <h6>Waiting Time :
-                                                            <label
-                                                                class="service_wait_time">{{datas["service_wait_time"][index_list[i]]}}</label>
-                                                        </h6>
-                                                    </div>
-
-                                                    <div class="row" style="width: 100%">
-                                                        <h6>Waiters Attitude :
-                                                            <label
-                                                                class="service_waiters_attitude">{{datas["service_waiters_attitude"][index_list[i]]}}</label>
-                                                        </h6>
-                                                    </div>
-
-                                                    <div class="row" style="width: 100%">
-                                                        <h6>Parking Convenience :
-                                                            <label
-                                                                class="service_serving_speed">{{datas["service_serving_speed"][index_list[i]]}}</label>
-                                                        </h6>
-                                                    </div>
+                                            <div class="row">
+                                                <div class="col d-flex align-items-center justify-content-center">
+                                                    <label style="color:#00873E;"><i class="fas fa-smile"></i></label>
+                                                    {{each_comment_percentage_list[i]["positive_value"]}}%
                                                 </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!--prices-->
-                                    <div class="col-4">
-                                        <button class="btn btn-primary" type="button" data-toggle="collapse"
-                                            data-target="#collapse_price_{{ i }}" aria-expanded="false"
-                                            aria-controls="collapse_price_{{ i }}" style="width: 100%">
-                                            <label>
-                                                <h1 style="color:#555;font-family: 'Noto Sans','sans-serif'">
-                                                    <div class="row">
-                                                        <div class="col-3">
-                                                            <i class="fas fa-dollar-sign"></i>
-                                                        </div>
-                                                        <div class="col-9">
-                                                            Price
-                                                        </div>
-                                                    </div>
-                                                </h1>
-                                            </label>
-                                        </button>
-
-                                        <div class="collapse" id="collapse_price_{{ i }}">
-                                            <div class="card card-body">
-                                                <div class="container-fluid">
-                                                    <div class="row" style="width: 100%">
-                                                        <h6>Price Level :
-                                                            <label
-                                                                class="price_level">{{datas["price_level"][index_list[i]]}}</label>
-                                                        </h6>
-                                                    </div>
-
-                                                    <div class="row" style="width: 100%">
-                                                        <h6>Cost Effective :
-                                                            <label
-                                                                class="price_cost_effective">{{datas["price_cost_effective"][index_list[i]]}}</label>
-                                                        </h6>
-                                                    </div>
-
-                                                    <div class="row" style="width: 100%">
-                                                        <h6>Discount :
-                                                            <label
-                                                                class="price_discount">{{datas["price_discount"][index_list[i]]}}</label>
-                                                        </h6>
-                                                    </div>
+                                                <div class="col d-flex align-items-center justify-content-center">
+                                                    <label style="color:#DEC20B;"><i
+                                                            class="fas fa-meh"></i></label>{{each_comment_percentage_list[i]["neutral_value"]}}%
+                                                </div>
+                                                <div class="col d-flex align-items-center justify-content-center">
+                                                    <label style="color:#CE2029;"><i
+                                                            class="fas fa-frown"></i></label>{{each_comment_percentage_list[i]["negative_value"]}}%
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
 
-                                <!-- Environment -->
-                                <div class="row">
-                                    <div class="col-4">
-                                        <button class="btn btn-primary" type="button" data-toggle="collapse"
-                                            data-target="#collapse_Environment_{{ i }}" aria-expanded="false"
-                                            aria-controls="collapse_Environment_{{ i }}" style="width: 100%">
-                                            <label>
-                                                <h1 style="color:#555;font-family: 'Noto Sans','sans-serif'">
-                                                    <div class="row">
-                                                        <div class="col-2">
-                                                            <i class="fas fa-shop"></i>
-                                                        </div>
-                                                        <div class="col-10">
-                                                            Environment
-                                                        </div>
-                                                    </div>
-                                                </h1>
-                                            </label>
+                                <div class="row" style="padding-bottom: 5%">
+                                    <div class="col">
+                                        <button class="btn btn-gary" type="button" data-toggle="collapse"
+                                            data-target="#collapse_location_{{ i }}" aria-expanded="false"
+                                            aria-controls="collapse_location_{{ i }}" style="width: 100%">
+                                            <label>View Details</label>
                                         </button>
 
-                                        <div class="collapse" id="collapse_Environment_{{ i }}">
+                                        <div class="collapse" id="collapse_location_{{ i }}">
                                             <div class="card card-body">
                                                 <div class="container-fluid">
-                                                    <div class="row" style="width: 100%">
-                                                        <h6>Environment Decoration :
-                                                            <label
-                                                                class="environment_decoration">{{datas["environment_decoration"][index_list[i]]}}</label>
-                                                        </h6>
-                                                    </div>
-
-                                                    <div class="row" style="width: 100%">
-                                                        <h6>Environment Noise :
-                                                            <label
-                                                                class="environment_noise">{{datas["environment_noise"][index_list[i]]}}</label>
-                                                        </h6>
-                                                    </div>
-
-                                                    <div class="row" style="width: 100%">
-                                                        <h6>Environment Space :
-                                                            <label
-                                                                class="environment_space">{{datas["environment_space"][index_list[i]]}}</label>
-                                                        </h6>
-                                                    </div>
-
-                                                    <div class="row" style="width: 100%">
-                                                        <h6>Environment Hygiene :
-                                                            <label
-                                                                class="environment_cleaness">{{datas["environment_cleaness"][index_list[i]]}}</label>
-                                                        </h6>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Dish -->
-                                    <div class="col-4">
-                                        <button class="btn btn-primary" type="button" data-toggle="collapse"
-                                            data-target="#collapse_dish_{{ i }}" aria-expanded="false"
-                                            aria-controls="collapse_dish_{{ i }}" style="width: 100%">
-                                            <label>
-                                                <h1 style="color:#555;font-family: 'Noto Sans','sans-serif'">
                                                     <div class="row">
-                                                        <div class="col-3">
-                                                            <i class="fa-solid fa-utensils"></i>
+
+                                                        <!-- location -->
+                                                        <div class="col-4">
+                                                            <div class="card card-body">
+                                                                <div class="container-fluid">
+                                                                    <div class="row">
+                                                                        <div class="col-1">
+                                                                            <i class="fas fa-map-marker-alt"></i>
+                                                                        </div>
+                                                                        <div class="col-11">
+                                                                            location
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row" style="width: 100%">
+                                                                        <h6>Traffic Convenience :
+                                                                            <label
+                                                                                class="location_traffic_convenience">{{datas["location_traffic_convenience"][index_list[i]]}}</label>
+                                                                        </h6>
+                                                                    </div>
+
+                                                                    <div class="row" style="width: 100%">
+                                                                        <h6>Distance from Business District :
+                                                                            <label
+                                                                                class="location_distance_from_business_district">{{datas["location_distance_from_business_district"][index_list[i]]}}</label>
+                                                                        </h6>
+                                                                    </div>
+
+                                                                    <div class="row" style="width: 100%">
+                                                                        <h6>Easy to Find :
+                                                                            <label
+                                                                                class="location_easy_to_find">{{datas["location_easy_to_find"][index_list[i]]}}</label>
+                                                                        </h6>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
                                                         </div>
-                                                        <div class="col-9">
-                                                            Dish
+
+                                                        <!-- service -->
+                                                        <div class="col-4">
+                                                            <div class="card card-body">
+                                                                <div class="container-fluid">
+                                                                    <div class="row">
+                                                                        <div class="col-1">
+                                                                            <i class="fa-solid fa-bell-concierge"></i>
+                                                                        </div>
+                                                                        <div class="col-11">
+                                                                            service
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row" style="width: 100%">
+                                                                        <h6>Waiting Time :
+                                                                            <label
+                                                                                class="service_wait_time">{{datas["service_wait_time"][index_list[i]]}}</label>
+                                                                        </h6>
+                                                                    </div>
+
+                                                                    <div class="row" style="width: 100%">
+                                                                        <h6>Waiters Attitude :
+                                                                            <label
+                                                                                class="service_waiters_attitude">{{datas["service_waiters_attitude"][index_list[i]]}}</label>
+                                                                        </h6>
+                                                                    </div>
+
+                                                                    <div class="row" style="width: 100%">
+                                                                        <h6>Parking Convenience :
+                                                                            <label
+                                                                                class="service_serving_speed">{{datas["service_parking_convenience"][index_list[i]]}}</label>
+                                                                        </h6>
+                                                                    </div>
+
+                                                                    <div class="row" style="width: 100%">
+                                                                        <h6>Serving Speed :
+                                                                            <label
+                                                                                class="service_serving_speed">{{datas["service_serving_speed"][index_list[i]]}}</label>
+                                                                        </h6>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <!-- Price -->
+                                                        <div class="col-4">
+                                                            <div class="card card-body">
+                                                                <div class="container-fluid">
+                                                                    <div class="row">
+                                                                        <div class="col-1">
+                                                                            <i class="fa-solid fa-dollar-sign"></i>
+                                                                        </div>
+                                                                        <div class="col-11">
+                                                                            Price
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row" style="width: 100%">
+                                                                        <h6>Price Level :
+                                                                            <label
+                                                                                class="price_level">{{datas["price_level"][index_list[i]]}}</label>
+                                                                        </h6>
+                                                                    </div>
+
+                                                                    <div class="row" style="width: 100%">
+                                                                        <h6>Cost Effective :
+                                                                            <label
+                                                                                class="price_cost_effective">{{datas["price_cost_effective"][index_list[i]]}}</label>
+                                                                        </h6>
+                                                                    </div>
+
+                                                                    <div class="row" style="width: 100%">
+                                                                        <h6>Discount :
+                                                                            <label
+                                                                                class="price_discount">{{datas["price_discount"][index_list[i]]}}</label>
+                                                                        </h6>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </h1>
-                                            </label>
-                                        </button>
 
-                                        <div class="collapse" id="collapse_dish_{{ i }}">
-                                            <div class="card card-body">
-                                                <div class="container-fluid">
-                                                    <div class="row" style="width: 100%">
-                                                        <h6>Dish Portion :
-                                                            <label
-                                                                class="dish_portion">{{datas["dish_portion"][index_list[i]]}}</label>
-                                                        </h6>
-                                                    </div>
-
-                                                    <div class="row" style="width: 100%">
-                                                        <h6>Taste :
-                                                            <label
-                                                                class="dish_taste">{{datas["dish_taste"][index_list[i]]}}</label>
-                                                        </h6>
-                                                    </div>
-
-                                                    <div class="row" style="width: 100%">
-                                                        <h6>Dish Design :
-                                                            <label
-                                                                class="dish_look">{{datas["dish_look"][index_list[i]]}}</label>
-                                                        </h6>
-                                                    </div>
-
-                                                    <div class="row" style="width: 100%">
-                                                        <h6>Dish Recommendation:
-                                                            <label
-                                                                class="dish_recommendation">{{datas["dish_recommendation"][index_list[i]]}}</label>
-                                                        </h6>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Others -->
-                                    <div class="col-4">
-                                        <button class="btn btn-primary" type="button" data-toggle="collapse"
-                                            data-target="#collapse_others_{{ i }}" aria-expanded="false"
-                                            aria-controls="collapse_others_{{ i }}" style="width: 100%">
-                                            <label>
-                                                <h1 style="color:#555;font-family: 'Noto Sans','sans-serif'">
+                                                    <!-- Environment -->
                                                     <div class="row">
-                                                        <div class="col-3">
-                                                            <i class="fa-solid fa-bars"></i>
-                                                        </div>
-                                                        <div class="col-9">
-                                                            Others
-                                                        </div>
-                                                    </div>
-                                                </h1>
-                                            </label>
-                                        </button>
+                                                        <div class="col-4">
+                                                            <div class="card card-body">
+                                                                <div class="container-fluid">
+                                                                    <div class="row">
+                                                                        <div class="col-1">
+                                                                            <i class="fa-solid fa-shop"></i>
+                                                                        </div>
+                                                                        <div class="col-11">
+                                                                            Environment
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row" style="width: 100%">
+                                                                        <h6>Environment Decoration :
+                                                                            <label
+                                                                                class="environment_decoration">{{datas["environment_decoration"][index_list[i]]}}</label>
+                                                                        </h6>
+                                                                    </div>
 
-                                        <div class="collapse" id="collapse_others_{{ i }}">
-                                            <div class="card card-body">
-                                                <div class="container-fluid">
-                                                    <div class="row" style="width: 100%">
-                                                        <h6>Overall Experience :
-                                                            <label
-                                                                class="others_overall_experience">{{datas["others_overall_experience"][index_list[i]]}}</label>
-                                                            <!-- <label style="color:#00873E;"><i className="fas fa-smile"></i></label>; -->
-                                                        </h6>
+                                                                    <div class="row" style="width: 100%">
+                                                                        <h6>Environment Noise :
+                                                                            <label
+                                                                                class="environment_noise">{{datas["environment_noise"][index_list[i]]}}</label>
+                                                                        </h6>
+                                                                    </div>
+
+                                                                    <div class="row" style="width: 100%">
+                                                                        <h6>Environment Space :
+                                                                            <label
+                                                                                class="environment_space">{{datas["environment_space"][index_list[i]]}}</label>
+                                                                        </h6>
+                                                                    </div>
+
+                                                                    <div class="row" style="width: 100%">
+                                                                        <h6>Environment Hygiene :
+                                                                            <label
+                                                                                class="environment_cleaness">{{datas["environment_cleaness"][index_list[i]]}}</label>
+                                                                        </h6>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <!-- Dish -->
+                                                        <div class="col-4">
+                                                            <div class="card card-body">
+                                                                <div class="container-fluid">
+                                                                    <div class="row">
+                                                                        <div class="col-1">
+                                                                            <i class="fa-solid fa-utensils"></i>
+                                                                        </div>
+                                                                        <div class="col-11">
+                                                                            Dish
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row" style="width: 100%">
+                                                                        <h6>Dish Portion :
+                                                                            <label
+                                                                                class="dish_portion">{{datas["dish_portion"][index_list[i]]}}</label>
+                                                                        </h6>
+                                                                    </div>
+
+                                                                    <div class="row" style="width: 100%">
+                                                                        <h6>Taste :
+                                                                            <label
+                                                                                class="dish_taste">{{datas["dish_taste"][index_list[i]]}}</label>
+                                                                        </h6>
+                                                                    </div>
+
+                                                                    <div class="row" style="width: 100%">
+                                                                        <h6>Dish Design :
+                                                                            <label
+                                                                                class="dish_look">{{datas["dish_look"][index_list[i]]}}</label>
+                                                                        </h6>
+                                                                    </div>
+
+                                                                    <div class="row" style="width: 100%">
+                                                                        <h6>Dish Recommendation:
+                                                                            <label
+                                                                                class="dish_recommendation">{{datas["dish_recommendation"][index_list[i]]}}</label>
+                                                                        </h6>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <!-- Others -->
+                                                        <div class="col-4">
+                                                            <div class="card card-body">
+                                                                <div class="container-fluid">
+                                                                    <div class="row">
+                                                                        <div class="col-1">
+                                                                            <i class="fa-solid fa-bars"></i>
+                                                                        </div>
+                                                                        <div class="col-11">
+                                                                            Others
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="row" style="width: 100%">
+                                                                        <h6>Overall Experience :
+                                                                            <label
+                                                                                class="others_overall_experience">{{datas["others_overall_experience"][index_list[i]]}}</label>
+                                                                        </h6>
+                                                                    </div>
+
+                                                                    <div class="row" style="width: 100%">
+                                                                        <h6>Willing to consume again :
+                                                                            <label
+                                                                                class="others_willing_to_consume_again">{{datas["others_willing_to_consume_again"][index_list[i]]}}</label>
+                                                                        </h6>
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
                                                     </div>
 
-                                                    <div class="row" style="width: 100%">
-                                                        <h6>Willing to consume again :
-                                                            <label
-                                                                class="others_willing_to_consume_again">{{datas["others_willing_to_consume_again"][index_list[i]]}}</label>
-                                                        </h6>
-                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
+                        
                 </div>
-                {% endfor %}
-            </div>
-        </div>
+
+
+    <!-- Others -->
+    <!-- <div class="col-4">
+                                    <button class="btn btn-primary" type="button" data-toggle="collapse"
+                                        data-target="#collapse_others_{{ i }}" aria-expanded="false"
+                                        aria-controls="collapse_others_{{ i }}" style="width: 100%">
+                                        <label>
+                                            <h1 style="color:#555;font-family: 'Noto Sans','sans-serif'">
+                                                <div class="row">
+                                                    <div class="col-3">
+                                                        <i class="fa-solid fa-bars"></i>
+                                                    </div>
+                                                    <div class="col-9">
+                                                        Others
+                                                    </div>
+                                                </div>
+                                            </h1>
+                                        </label>
+                                    </button> -->
+
+    <!-- <div class="collapse" id="collapse_others_{{ i }}">
+                                        <div class="card card-body">
+                                            <div class="container-fluid">
+                                                <div class="row" style="width: 100%">
+                                                    <h6>Overall Experience :
+                                                        <label class="others_overall_experience">{{datas["others_overall_experience"][index_list[i]]}}</label>
+                                                        <label style="color:#00873E;"><i className="fas fa-smile"></i></label>; -->
+    <!-- </h6>
+                                                </div>
+
+                                                <div class="row" style="width: 100%">
+                                                    <h6>Willing to consume again :
+                                                        <label
+                                                            class="others_willing_to_consume_again">{{datas["others_willing_to_consume_again"][index_list[i]]}}</label>
+                                                    </h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> -->
+    </div>
+    {% endfor %}
+    </div>
     </div>
 
 
-<script>
-    var xValues = ["Location", "Service", "Price", 
-                   "Environment", "Dish", "Other"];
-    var test = '{{ datas }}';
+    <script>
+        var xValues = ["Location", "Service", "Price",
+            "Environment", "Dish", "Other"];
+        var test = '{{ datas }}';
 
-    var yValues = {{overall_aspect}};
+        var yValues = {{ overall_aspect }};
 
-    // var yValues = [55, 0, 0, 0, 0, 0];
-    var barColors = [
-      "#b91d47",
-      "#00aba9",
-      "#2b5797",
-      "#e8c3b9",
-      "#1e7145"
-    ];
-    
-    new Chart("aspectDoughnutChart", {
-      type: "doughnut",
-      data: {
-        labels: xValues,
-        datasets: [{
-          backgroundColor: barColors,
-          data: yValues
-        }
-    
-    ]
-      },
-      options: {
-        title: {
-          display: true,
-          text: "Total Mentioned Aspects"
-        }
-      }
-    });
-</script>
+        // var yValues = [55, 0, 0, 0, 0, 0];
+        var barColors = [
+            "#b91d47",
+            "#00aba9",
+            "#2b5797",
+            "#e8c3b9",
+            "#1e7145"
+        ];
 
+        new Chart("aspectDoughnutChart", {
+            type: "doughnut",
+            data: {
+                labels: xValues,
+                datasets: [{
+                    backgroundColor: barColors,
+                    data: yValues
+                }
 
-<script>
-    var ctx = document.getElementById("polarityBarChart").getContext("2d");
-    
-    var data = {
-        labels: ["Location", "Service", "Price", "Environment", "Dish", "Others"],
-        // labels: ["Chocolate", "Vanilla", "Strawberry"],
-        datasets: [
-            {
-                label: "Total",
-                backgroundColor: "#124076",
-                // data: [3,7,4]
-                data:{{overall_aspect}}
+                ]
             },
-            {
-                label: "Positive",
-                backgroundColor: "#7F9F80",
-                // data: [3,7,4]
-                data:{{positive_list}}
-            },
-            {
-                label: "Negative",
-                backgroundColor: "#F9E897",
-                data:{{negative_list}}
-            },
-            {
-                label: "Neutral",
-                backgroundColor: "#FFC374",
-                data:{{neutral_list}}
+            options: {
+                title: {
+                    display: true,
+                    text: "Total Mentioned Aspects"
+                }
             }
-        ]
-    };
-    
-    var myBarChart = new Chart(ctx, {
-        type: 'bar',
-        data: data,
-        options: {
+        });
+    </script>
 
-
-            title: {
-                display: true,
-                text: "Numbers of Each Aspect's Polarities"
-            },
-
-            barValueSpacing: 20,
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        min: 0,
-                    }
-                }]
-            }
-            
-        }
+    <script>
+        var ctx = document.getElementById("polarityBarChart").getContext("2d");
         
-    });
-</script>
+        var data = [8, 47, 59, 78, 152, 111]
+        
+        var data = {
+            labels: ["Location", "Service", "Price", "Environment", "Dish", "Others"],
+            // labels: ["Chocolate", "Vanilla", "Strawberry"],
+            datasets: [
+                {
+                    label: "Total",
+                    backgroundColor: "pink",
+                    // data: [3,7,4]
+                    data:{{overall_aspect}}
+                },
+                {
+                    label: "Positive",
+                    backgroundColor: "blue",
+                    // data: [3,7,4]
+                    data:{{positive_list}}
+                },
+                {
+                    label: "Negative",
+                    backgroundColor: "red",
+                    data:{{negative_list}}
+                },
+                {
+                    label: "Neutral",
+                    backgroundColor: "green",
+                    data:{{neutral_list}}
+                }
+            ]
+        };
+        
+        var myBarChart = new Chart(ctx, {
+            type: 'bar',
+            data: data,
+            options: {
 
-<script>
+    
+            title: {
+              display: true,
+              text: "The polarity of each aspect"
+            },
+
+                barValueSpacing: 20,
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            min: 0,
+                        }
+                    }]
+                }
+                
+            }
+        });
+    
+       
         function getWord(sentiment) {
             const label = document.createElement("label");
             const icon = document.createElement("i");
@@ -900,21 +947,21 @@
             });
         });
 
-</script>
+    </script>
 
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
         crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"
         integrity="sha512-+vZzLQZVJ7zv7jZzJ7zv7jZzJ7zv7jZzJ7zv7jZzJ7zv7jZzJ7zv7jZzJ7zv7jZzJ7zv7jZzJ7zv7jZzJ7zv7g=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-</body>
+    </body>
 
 </html>
