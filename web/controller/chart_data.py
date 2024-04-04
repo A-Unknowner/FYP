@@ -1,7 +1,5 @@
 from collections import Counter
 
-from controller.generate_chart import generate_bar_chart
-
 def find_all_polarity_number_and_percentage(read_csv_data):
 
     location_list = list()
