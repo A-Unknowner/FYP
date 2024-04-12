@@ -15,39 +15,45 @@
 
 </head>
 
+
 <body style="background-color: #dcdcdc">
-    
+
+
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 
-    <!-- Navbar start -->
-<!-- JavaScript Libraries -->
-    <link rel="stylesheet" href="../static/loading.css">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-<nav class="navbar navbar-expand-lg navbar-light shadow-sm py-3 py-lg-0 px-3 px-lg-0"
-     style="background-color:white ;">
-    <a href="/" class="navbar-brand ms-lg-3">
-        <h3 class="display-10 m-0" style="color: #555;">
-            <div class="web-title-long">Restaurant Review Analyzer for Chinese Language<span>(RRACL)</span>
-            </div>
-            <div class="web-title-short"><span>RRACL</span></div>
-        </h3>
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarCollapse">
-        <div class="navbar-nav ms-auto py-0">
-            <a href="index.html" class="nav-item nav-link text-gray-555">Home</a>
-            <form class="nav-item nav-link " action="/search_list" method="POST">
-                <input type="search" placeholder="Search" name="restaurant_name" aria-label="Search">
-                <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
-                <button class="btn btn-light" type="submit">Search</button>
-            </form>
-        </div>
-    </div>
-</nav>
 
-<!-- Navbar end -->
+    <!-- Navbar start -->
+    <!-- JavaScript Libraries -->
+    <link rel="stylesheet" href="../static/loading.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <nav class="navbar navbar-expand-lg navbar-light shadow-sm py-3 py-lg-0 px-3 px-lg-0"
+        style="background-color:white ;">
+        <a href="/" class="navbar-brand ms-lg-3">
+            <h3 class="display-10 m-0" style="color: #555;">
+                <div class="web-title-long">Restaurant Review Analyzer for Chinese Language<span>(RRACL)</span>
+                </div>
+                <div class="web-title-short"><span>RRACL</span></div>
+            </h3>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto py-0">
+                <a href="index.html" class="nav-item nav-link text-gray-555">Home</a>
+                <form class="nav-item nav-link " action="/search_list" method="POST">
+                    <input type="search" placeholder="Search" name="restaurant_name" aria-label="Search">
+                    <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
+                    <button class="btn btn-light" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+
+
+    <!-- Navbar end -->
 
 
     <div class="container-fluid">
@@ -70,8 +76,7 @@
                         <h2><label style="color:#00873E;"><i class="fas fa-smile"></i></label> <label
                                 style="color:#555;font-family: 'Noto Sans','sans-serif'">{{
                                 total_positive_percentage}}%</label></h2>
-                        <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><b>Total Positive
-                                Rating</b></label>
+                        <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><h5><b>Total Number of Positive: {{ overall_positive }}</b></h5></label>
                     </div>
                 </div>
             </div>
@@ -83,8 +88,7 @@
                         <h2><label style="color:#DEC20B;"><i class="fas fa-meh"></i></label> <label
                                 style="color:#555;font-family: 'Noto Sans','sans-serif'">{{ total_neutral_percentage
                                 }}%</label></h2>
-                        <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><b>Total Neutral
-                                Rating</b></label>
+                        <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><h5><b>Total Number of Neutral: {{ overall_neutral }}</b></h5></label>
                     </div>
                 </div>
             </div>
@@ -96,8 +100,7 @@
                         <h2><label style="color:#CE2029;"><i class="fas fa-frown"></i></label> <label
                                 style="color:#555;font-family: 'Noto Sans','sans-serif'">{{ total_negative_percentage
                                 }}%</label></h2>
-                        <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><b>Total Negative
-                                Rating</b></label>
+                        <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><h5><b>Total Number of Negative: {{ overall_negative }}</b></h5></label>
                     </div>
                 </div>
             </div>
@@ -109,7 +112,7 @@
                         <h2><label style="color:#0b0b53;"><i class="fas fa-comments"></i></label> <label
                                 style="color:#555;font-family: 'Noto Sans','sans-serif'">{{ datas["content"]|length
                                 }}</label></h2>
-                        <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><b>Analyzed Reviews</b></label>
+                        <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><h5><b>Analyzed Reviews</b></h5></label>
                     </div>
                 </div>
             </div>
@@ -125,7 +128,8 @@
 
                         <canvas id="locationPie"></canvas>
 
-                        <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><b>Total Location Rating</b></label>
+                        <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><b>Total Location
+                                Rating</b></label>
                     </div>
 
                 </div>
@@ -139,7 +143,8 @@
 
                         <canvas id="servicePie"></canvas>
 
-                        <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><b>Total Service Rating</b></label>
+                        <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><b>Total Service
+                                Rating</b></label>
                     </div>
                 </div>
 
@@ -152,7 +157,8 @@
                         class="card-body d-flex flex-column justify-content-center align-items-center text-center shadow">
                         <canvas id="pricePie"></canvas>
 
-                        <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><b>Total Price Rating</b></label>
+                        <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><b>Total Price
+                                Rating</b></label>
                     </div>
                 </div>
 
@@ -167,7 +173,8 @@
 
                         <canvas id="environmentPie"></canvas>
 
-                        <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><b>Total Environment Rating</b></label>
+                        <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><b>Total Environment
+                                Rating</b></label>
                     </div>
                 </div>
 
@@ -195,7 +202,8 @@
 
                         <canvas id="othersPie"></canvas>
 
-                        <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><b>Total Others Rating</b></label>
+                        <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><b>Total Others
+                                Rating</b></label>
                     </div>
                 </div>
 
@@ -270,17 +278,15 @@
                                             <div class="row">
                                                 <div class="col d-flex align-items-center justify-content-center">
                                                     <label style="color:#00873E;"><i class="fas fa-smile"></i></label>
-                                          
+
                                                 </div>
                                                 <div class="col d-flex align-items-center justify-content-center">
-                                                    <label style="color:#DEC20B;"><i
-                                                            class="fas fa-meh"></i></label>
-                                         
+                                                    <label style="color:#DEC20B;"><i class="fas fa-meh"></i></label>
+
                                                 </div>
                                                 <div class="col d-flex align-items-center justify-content-center">
-                                                    <label style="color:#CE2029;"><i
-                                                            class="fas fa-frown"></i></label>
-                                                         
+                                                    <label style="color:#CE2029;"><i class="fas fa-frown"></i></label>
+
                                                 </div>
                                             </div>
                                         </div>
@@ -300,239 +306,11 @@
                                                 <div class="container-fluid">
                                                     <div class="row">
 
-                                                        <!-- location -->
-                                                        <div class="col-4">
-                                                            <div class="card card-body">
-                                                                <div class="container-fluid">
-                                                                    <div class="row">
-                                                                        <div class="col-1">
-                                                                            <i class="fas fa-map-marker-alt"></i>
-                                                                        </div>
-                                                                        <div class="col-11">
-                                                                            location
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="row" style="width: 100%">
-                                                                        <h6>Traffic Convenience :
-                                                                            <label
-                                                                                class="location_traffic_convenience">{{datas["location_traffic_convenience"][index_list[i]]}}</label>
-                                                                        </h6>
-                                                                    </div>
+                                                        
 
-                                                                    <div class="row" style="width: 100%">
-                                                                        <h6>Distance from Business District :
-                                                                            <label
-                                                                                class="location_distance_from_business_district">{{datas["location_distance_from_business_district"][index_list[i]]}}</label>
-                                                                        </h6>
-                                                                    </div>
-
-                                                                    <div class="row" style="width: 100%">
-                                                                        <h6>Easy to Find :
-                                                                            <label
-                                                                                class="location_easy_to_find">{{datas["location_easy_to_find"][index_list[i]]}}</label>
-                                                                        </h6>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        <!-- service -->
-                                                        <div class="col-4">
-                                                            <div class="card card-body">
-                                                                <div class="container-fluid">
-                                                                    <div class="row">
-                                                                        <div class="col-1">
-                                                                            <i class="fa-solid fa-bell-concierge"></i>
-                                                                        </div>
-                                                                        <div class="col-11">
-                                                                            service
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="row" style="width: 100%">
-                                                                        <h6>Waiting Time :
-                                                                            <label
-                                                                                class="service_wait_time">{{datas["service_wait_time"][index_list[i]]}}</label>
-                                                                        </h6>
-                                                                    </div>
-
-                                                                    <div class="row" style="width: 100%">
-                                                                        <h6>Waiters Attitude :
-                                                                            <label
-                                                                                class="service_waiters_attitude">{{datas["service_waiters_attitude"][index_list[i]]}}</label>
-                                                                        </h6>
-                                                                    </div>
-
-                                                                    <div class="row" style="width: 100%">
-                                                                        <h6>Parking Convenience :
-                                                                            <label
-                                                                                class="service_serving_speed">{{datas["service_parking_convenience"][index_list[i]]}}</label>
-                                                                        </h6>
-                                                                    </div>
-
-                                                                    <div class="row" style="width: 100%">
-                                                                        <h6>Serving Speed :
-                                                                            <label
-                                                                                class="service_serving_speed">{{datas["service_serving_speed"][index_list[i]]}}</label>
-                                                                        </h6>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        <!-- Price -->
-                                                        <div class="col-4">
-                                                            <div class="card card-body">
-                                                                <div class="container-fluid">
-                                                                    <div class="row">
-                                                                        <div class="col-1">
-                                                                            <i class="fa-solid fa-dollar-sign"></i>
-                                                                        </div>
-                                                                        <div class="col-11">
-                                                                            Price
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="row" style="width: 100%">
-                                                                        <h6>Price Level :
-                                                                            <label
-                                                                                class="price_level">{{datas["price_level"][index_list[i]]}}</label>
-                                                                        </h6>
-                                                                    </div>
-
-                                                                    <div class="row" style="width: 100%">
-                                                                        <h6>Cost Effective :
-                                                                            <label
-                                                                                class="price_cost_effective">{{datas["price_cost_effective"][index_list[i]]}}</label>
-                                                                        </h6>
-                                                                    </div>
-
-                                                                    <div class="row" style="width: 100%">
-                                                                        <h6>Discount :
-                                                                            <label
-                                                                                class="price_discount">{{datas["price_discount"][index_list[i]]}}</label>
-                                                                        </h6>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <!-- Environment -->
-                                                    <div class="row">
-                                                        <div class="col-4">
-                                                            <div class="card card-body">
-                                                                <div class="container-fluid">
-                                                                    <div class="row">
-                                                                        <div class="col-1">
-                                                                            <i class="fa-solid fa-shop"></i>
-                                                                        </div>
-                                                                        <div class="col-11">
-                                                                            Environment
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="row" style="width: 100%">
-                                                                        <h6>Environment Decoration :
-                                                                            <label
-                                                                                class="environment_decoration">{{datas["environment_decoration"][index_list[i]]}}</label>
-                                                                        </h6>
-                                                                    </div>
-
-                                                                    <div class="row" style="width: 100%">
-                                                                        <h6>Environment Noise :
-                                                                            <label
-                                                                                class="environment_noise">{{datas["environment_noise"][index_list[i]]}}</label>
-                                                                        </h6>
-                                                                    </div>
-
-                                                                    <div class="row" style="width: 100%">
-                                                                        <h6>Environment Space :
-                                                                            <label
-                                                                                class="environment_space">{{datas["environment_space"][index_list[i]]}}</label>
-                                                                        </h6>
-                                                                    </div>
-
-                                                                    <div class="row" style="width: 100%">
-                                                                        <h6>Environment Hygiene :
-                                                                            <label
-                                                                                class="environment_cleaness">{{datas["environment_cleaness"][index_list[i]]}}</label>
-                                                                        </h6>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        <!-- Dish -->
-                                                        <div class="col-4">
-                                                            <div class="card card-body">
-                                                                <div class="container-fluid">
-                                                                    <div class="row">
-                                                                        <div class="col-1">
-                                                                            <i class="fa-solid fa-utensils"></i>
-                                                                        </div>
-                                                                        <div class="col-11">
-                                                                            Dish
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="row" style="width: 100%">
-                                                                        <h6>Dish Portion :
-                                                                            <label
-                                                                                class="dish_portion">{{datas["dish_portion"][index_list[i]]}}</label>
-                                                                        </h6>
-                                                                    </div>
-
-                                                                    <div class="row" style="width: 100%">
-                                                                        <h6>Taste :
-                                                                            <label
-                                                                                class="dish_taste">{{datas["dish_taste"][index_list[i]]}}</label>
-                                                                        </h6>
-                                                                    </div>
-
-                                                                    <div class="row" style="width: 100%">
-                                                                        <h6>Dish Design :
-                                                                            <label
-                                                                                class="dish_look">{{datas["dish_look"][index_list[i]]}}</label>
-                                                                        </h6>
-                                                                    </div>
-
-                                                                    <div class="row" style="width: 100%">
-                                                                        <h6>Dish Recommendation:
-                                                                            <label
-                                                                                class="dish_recommendation">{{datas["dish_recommendation"][index_list[i]]}}</label>
-                                                                        </h6>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        <!-- Others -->
-                                                        <div class="col-4">
-                                                            <div class="card card-body">
-                                                                <div class="container-fluid">
-                                                                    <div class="row">
-                                                                        <div class="col-1">
-                                                                            <i class="fa-solid fa-bars"></i>
-                                                                        </div>
-                                                                        <div class="col-11">
-                                                                            Others
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <div class="row" style="width: 100%">
-                                                                        <h6>Overall Experience :
-                                                                            <label
-                                                                                class="others_overall_experience">{{datas["others_overall_experience"][index_list[i]]}}</label>
-                                                                        </h6>
-                                                                    </div>
-
-                                                                    <div class="row" style="width: 100%">
-                                                                        <h6>Willing to consume again :
-                                                                            <label
-                                                                                class="others_willing_to_consume_again">{{datas["others_willing_to_consume_again"][index_list[i]]}}</label>
-                                                                        </h6>
-                                                                    </div>
-
-                                                                </div>
-                                                            </div>
-                                                        </div>
+                                                        <canvas id="commentBarChart{{i}}"></canvas>
+                                                
+                                                    
 
                                                     </div>
 
@@ -676,7 +454,7 @@
                     legend: { display: false },
                     tooltips: {
                         callbacks: {
-                            label: function(tooltipItem, data) {
+                            label: function (tooltipItem, data) {
                                 var allData = data.datasets[tooltipItem.datasetIndex].data;
                                 var tooltipLabel = data.labels[tooltipItem.index];
                                 var tooltipData = allData[tooltipItem.index];
@@ -684,13 +462,13 @@
                                 for (var i in allData) {
                                     total += allData[i];
                                 }
-                                
+
                                 return tooltipLabel + ': ' + tooltipData + '%';
                             }
                         }
                     }
                 },
-                
+
             });
 
             locationPieSet.canvas.parentNode.style.height = '200px';
@@ -735,7 +513,7 @@
 
                     tooltips: {
                         callbacks: {
-                            label: function(tooltipItem, data) {
+                            label: function (tooltipItem, data) {
                                 var allData = data.datasets[tooltipItem.datasetIndex].data;
                                 var tooltipLabel = data.labels[tooltipItem.index];
                                 var tooltipData = allData[tooltipItem.index];
@@ -743,14 +521,14 @@
                                 for (var i in allData) {
                                     total += allData[i];
                                 }
-                                
+
                                 return tooltipLabel + ': ' + tooltipData + '%';
                             }
                         }
                     }
 
                 },
-                
+
             });
 
             servicePieSet.canvas.parentNode.style.height = '200px';
@@ -793,7 +571,7 @@
                     legend: { display: false },
                     tooltips: {
                         callbacks: {
-                            label: function(tooltipItem, data) {
+                            label: function (tooltipItem, data) {
                                 var allData = data.datasets[tooltipItem.datasetIndex].data;
                                 var tooltipLabel = data.labels[tooltipItem.index];
                                 var tooltipData = allData[tooltipItem.index];
@@ -801,7 +579,7 @@
                                 for (var i in allData) {
                                     total += allData[i];
                                 }
-                                
+
                                 return tooltipLabel + ': ' + tooltipData + '%';
                             }
                         }
@@ -849,7 +627,7 @@
                     legend: { display: false },
                     tooltips: {
                         callbacks: {
-                            label: function(tooltipItem, data) {
+                            label: function (tooltipItem, data) {
                                 var allData = data.datasets[tooltipItem.datasetIndex].data;
                                 var tooltipLabel = data.labels[tooltipItem.index];
                                 var tooltipData = allData[tooltipItem.index];
@@ -857,7 +635,7 @@
                                 for (var i in allData) {
                                     total += allData[i];
                                 }
-                                
+
                                 return tooltipLabel + ': ' + tooltipData + '%';
                             }
                         }
@@ -905,7 +683,7 @@
                     legend: { display: false },
                     tooltips: {
                         callbacks: {
-                            label: function(tooltipItem, data) {
+                            label: function (tooltipItem, data) {
                                 var allData = data.datasets[tooltipItem.datasetIndex].data;
                                 var tooltipLabel = data.labels[tooltipItem.index];
                                 var tooltipData = allData[tooltipItem.index];
@@ -913,7 +691,7 @@
                                 for (var i in allData) {
                                     total += allData[i];
                                 }
-                                
+
                                 return tooltipLabel + ': ' + tooltipData + '%';
                             }
                         }
@@ -962,7 +740,7 @@
                     legend: { display: false },
                     tooltips: {
                         callbacks: {
-                            label: function(tooltipItem, data) {
+                            label: function (tooltipItem, data) {
                                 var allData = data.datasets[tooltipItem.datasetIndex].data;
                                 var tooltipLabel = data.labels[tooltipItem.index];
                                 var tooltipData = allData[tooltipItem.index];
@@ -970,7 +748,7 @@
                                 for (var i in allData) {
                                     total += allData[i];
                                 }
-                                
+
                                 return tooltipLabel + ': ' + tooltipData + '%';
                             }
                         }
@@ -995,186 +773,358 @@
     </script>
     <!--  chart script -->
 
+
+    <!-- comment chart -->
+
     <script>
 
+        for (let i = 0; i < {{ id_length }}; i++) {
 
-        function getWord(sentiment) {
-            const label = document.createElement("label");
-            const icon = document.createElement("i");
-            label.appendChild(icon);
+            var location_traffic_convenience_data = [0, 0, 0, 0, 0, 0];
+            var location_distance_from_business_district_data = [0, 0, 0, 0, 0, 0];
+            var location_easy_to_find_data = [0, 0, 0, 0, 0, 0];
 
-            switch (sentiment) {
-                case "0":
-                    icon.classList.add("fas", "fa-meh");
-                    label.style.color = "#DEC20B";
-                    label.style.fontSize = "170%";
-                    break;
-                case "1":
-                    icon.classList.add("fas", "fa-smile");
-                    label.style.color = "#00873E";
-                    label.style.fontSize = "170%";
-                    break;
-                case "-1":
-                    icon.classList.add("fas", "fa-frown");
-                    label.style.color = "#CE2029";
-                    label.style.fontSize = "170%";
-                    break;
-                case "-2":
-                    label.textContent = "N/A"
-                    break;
-                default:
-                    break;
-            }
+            var service_wait_time_data = [0, 0, 0, 0, 0, 0];
+            var service_waiters_attitude_data = [0, 0, 0, 0, 0, 0];
+            var service_parking_convenience_data = [0, 0, 0, 0, 0, 0];
+            var service_serving_speed_data = [0, 0, 0, 0, 0, 0];
 
-            return label;
-        }
+            var price_level_data = [0, 0, 0, 0, 0, 0];
+            var price_cost_effective_data = [0, 0, 0, 0, 0, 0];
+            var price_discount_data = [0, 0, 0, 0, 0, 0];
 
+            var environment_decoration_data = [0, 0, 0, 0, 0, 0];
+            var environment_noise_data = [0, 0, 0, 0, 0, 0];
+            var environment_space_data = [0, 0, 0, 0, 0, 0];
+            var environment_cleaness_data = [0, 0, 0, 0, 0, 0];
 
+            var dish_portion_data = [0, 0, 0, 0, 0, 0];
+            var dish_taste_data = [0, 0, 0, 0, 0, 0];
+            var dish_look_data = [0, 0, 0, 0, 0, 0];
+            var dish_recommendation_data = [0, 0, 0, 0, 0, 0];
 
-        function changeColor(element, sentiment) {
-            const result = getWord(sentiment);
-            console.log(result);
-            element.innerHTML = "";
-            element.appendChild(result);
-        }
+            var others_overall_experience_data = [0, 0, 0, 0, 0, 0];
+            var others_willing_to_consume_again_data = [0, 0, 0, 0, 0, 0];
 
-        document.addEventListener("DOMContentLoaded", function () {
-            // location
-            const location_traffic_convenience = document.getElementsByClassName("location_traffic_convenience");
-            const location_distance_from_business_district = document.getElementsByClassName("location_distance_from_business_district");
-            const location_easy_to_find = document.getElementsByClassName("location_easy_to_find");
+            if ({{ location_traffic_convenience_list }}[i] != -2) { location_traffic_convenience_data = [1, 0, 0, 0, 0, 0] };
+            if ({{ location_distance_from_business_district_list }}[i] != -2) { location_distance_from_business_district_data = [1, 0, 0, 0, 0, 0] };
+            if ({{ location_easy_to_find_list }}[i] != -2) { location_easy_to_find_data = [1, 0, 0, 0, 0, 0] };
 
-            // service
-            const service_wait_time = document.getElementsByClassName("service_wait_time");
-            const service_waiters_attitude = document.getElementsByClassName("service_waiters_attitude");
-            const service_parking_convenience = document.getElementsByClassName("service_parking_convenience");
-            const service_serving_speed = document.getElementsByClassName("service_serving_speed");
+            if ({{ service_wait_time_list }}[i] != -2) { service_wait_time_data = [0, 1, 0, 0, 0, 0] };
+            if ({{ service_waiters_attitude_list }}[i] != -2) { service_waiters_attitude_data = [0, 1, 0, 0, 0, 0] };
+            if ({{ service_parking_convenience_list }}[i] != -2) { service_parking_convenience_data = [0, 1, 0, 0, 0, 0] };
+            if ({{ service_serving_speed_list }}[i] != -2) { service_serving_speed_data = [0, 1, 0, 0, 0, 0] };
 
-            // price
-            const price_level = document.getElementsByClassName("price_level");
-            const price_cost_effective = document.getElementsByClassName("price_cost_effective");
-            const price_discount = document.getElementsByClassName("price_discount");
+            if ({{ price_level_list }}[i] != -2) { price_level_data = [0, 0, 1, 0, 0, 0] };
+            if ({{ price_cost_effective_list }}[i] != -2) { price_cost_effective_data = [0, 0, 1, 0, 0, 0] };
+            if ({{ price_discount_list }}[i] != -2) { price_discount_data = [0, 0, 1, 0, 0, 0] };
 
-            // Environment
-            const environment_decoration = document.getElementsByClassName("environment_decoration");
-            const environment_noise = document.getElementsByClassName("environment_noise");
-            const environment_space = document.getElementsByClassName("environment_space");
-            const environment_cleaness = document.getElementsByClassName("environment_cleaness");
+            if ({{ environment_decoration_list }}[i] != -2) { environment_decoration_data = [0, 0, 0, 1, 0, 0] };
+            if ({{ environment_noise_list }}[i] != -2) { environment_noise_data = [0, 0, 0, 1, 0, 0] };
+            if ({{ environment_space_list }}[i] != -2) { environment_space_data = [0, 0, 0, 1, 0, 0] };
+            if ({{ environment_cleaness_list }}[i] != -2) { environment_cleaness_data = [0, 0, 0, 1, 0, 0] };
 
-            // Dish
-            const dish_portion = document.getElementsByClassName("dish_portion");
-            const dish_taste = document.getElementsByClassName("dish_taste");
-            const dish_look = document.getElementsByClassName("dish_look");
-            const dish_recommendation = document.getElementsByClassName("dish_recommendation");
+            if ({{ dish_portion_list }}[i] != -2) { dish_portion_data = [0, 0, 0, 0, 1, 0] };
+            if ({{ dish_taste_list }}[i] != -2) { dish_taste_data = [0, 0, 0, 0, 1, 0] };
+            if ({{ dish_look_list }}[i] != -2) { dish_look_data = [0, 0, 0, 0, 1, 0] };
+            if ({{ dish_recommendation_list }}[i] != -2) { dish_recommendation_data = [0, 0, 0, 0, 1, 0] };
 
-            //others
-            const others_overall_experience = document.getElementsByClassName("others_overall_experience");
-            const others_willing_to_consume_again = document.getElementsByClassName("others_willing_to_consume_again");
+            if ({{ others_overall_experience_list }}[i] != -2) { others_overall_experience_data = [0, 0, 0, 0, 0, 1] };
+            if ({{ others_willing_to_consume_again_list }}[i] != -2) { others_willing_to_consume_again_data = [0, 0, 0, 0, 0, 1] };
 
-            // location
-            Array.from(location_traffic_convenience).forEach(function (labelElement) {
-                const labelValue = labelElement.innerText;
-                changeColor(labelElement, labelValue);
+            datasets = [
+
+                ////////////// location
+                { label: 'location_traffic_convenience', data: location_traffic_convenience_data, backgroundColor: '#22aa99' },
+                { label: 'location_distance_from_business_district', data: location_distance_from_business_district_data, backgroundColor: '#994499' },
+                { label: 'location_easy_to_find', data: location_easy_to_find_data, backgroundColor: '#316395' },
+
+                ////////////// service
+                { label: 'service_wait_time', data: service_wait_time_data, backgroundColor: 'yellow' },
+                { label: 'service_waiters_attitude', data: service_waiters_attitude_data, backgroundColor: 'red' },
+                { label: 'service_parking_convenience', data: service_parking_convenience_data, backgroundColor: 'blue' },
+                { label: 'service_serving_speed', data: service_serving_speed_data, backgroundColor: 'green' },
+
+                ////////////// price
+                { label: 'price_level', data: price_level_data, backgroundColor: 'yellow' },
+                { label: 'price_cost_effective', data: price_cost_effective_data, backgroundColor: 'red' },
+                { label: 'price_discount', data: price_discount_data, backgroundColor: 'blue' },
+
+                ////////////// environment
+                { label: 'environment_decoration', data: environment_decoration_data, backgroundColor: 'yellow' },
+                { label: 'environment_noise', data: environment_noise_data, backgroundColor: 'red' },
+                { label: 'environment_space', data: environment_space_data, backgroundColor: 'blue' },
+                { label: 'environment_cleaness', data: environment_cleaness_data, backgroundColor: 'green' },
+
+                ////////////// dish
+                { label: 'dish_portion', data: dish_portion_data, backgroundColor: 'yellow' },
+                { label: 'dish_taste', data: dish_taste_data, backgroundColor: 'red' },
+                { label: 'dish_look', data: dish_look_data, backgroundColor: 'blue' },
+                { label: 'dish_recommendation', data: dish_recommendation_data, backgroundColor: 'green' },
+
+                ////////////// others
+                { label: 'others_overall_experience', data: others_overall_experience_data, backgroundColor: 'yellow' },
+                { label: 'others_willing_to_consume_again', data: others_willing_to_consume_again_data, backgroundColor: 'red' }
+
+            ]
+
+            var ctx = document.getElementById("commentBarChart" + i.toString()).getContext('2d');
+
+            var comment_chart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Location', 'Service', "Price", "Environment", "Dish", "Others"], 
+                    datasets: datasets
+                },
+                options: {
+                      responsive: false,
+                      legend: { display : false },
+                    scales: {
+                        xAxes: [{ stacked: true }],
+                        yAxes: [{ stacked: true }]
+                    },
+
+                    tooltips: {
+                        callbacks: {
+                            label: function (tooltipItem, data) {
+                                function setPolarity(hover_label, index_num) {
+
+                                    // the dictionary value store the bar name  
+                                    aspect_name_dict = {"location_traffic_convenience" : "location traffic convenience",
+                                                        "location_distance_from_business_district" : "location distance from business district",
+                                                        "location_easy_to_find" : "location easy to find",
+
+                                                        "service_wait_time" : "service wait time",
+                                                        "service_waiters_attitude" : "service waiters attitude",
+                                                        "service_parking_convenience" : "service parking convenience",
+                                                        "service_serving_speed" : "service serving speed",
+
+                                                        "price_level" : "price level",
+                                                        "price_cost_effective" : "price cost effective",
+                                                        "price_discount" : "price discount",
+
+                                                        "environment_decoration" : "environment decoration",
+                                                        "environment_noise" : "environment noise",
+                                                        "environment_space" : "environment space",
+                                                        "environment_cleaness" : "environment cleaness",
+
+                                                        "dish_portion" : "dish portion",
+                                                        "dish_taste" : "dish taste",
+                                                        "dish_look" : "dish look",
+                                                        "dish_recommendation" : "dish recommendation",
+
+                                                        "others_overall_experience" : "others overall experience",
+                                                        "others_willing_to_consume_again" : "others willing to consume again"
+
+                                                    }
+                                    if (hover_label == "location_traffic_convenience"){
+                                        switch ({{ location_traffic_convenience_list }}[index_num]) {
+                                            case 1: var polarity = "Positive"; break;
+                                            case 0: var polarity = "Neutral"; break;
+                                            case -1: var polarity = "Negative"; break;
+                                            default: var polarity = "Null"; break;
+                                        }
+
+                                    }
+
+                                    if (hover_label == "location_distance_from_business_district"){
+                                        switch ({{ location_distance_from_business_district_list }}[index_num]) {
+                                            case 1: var polarity = "Positive"; break;
+                                            case 0: var polarity = "Neutral"; break;
+                                            case -1: var polarity = "Negative"; break;
+                                            default: var polarity = "Null"; break;
+                                        }
+                                    }
+                                    
+                                    if (hover_label == "location_easy_to_find"){
+                                        switch ({{ location_easy_to_find_list }}[index_num]) {
+                                            case 1: var polarity = "Positive"; break;
+                                            case 0: var polarity = "Neutral"; break;
+                                            case -1: var polarity = "Negative"; break;
+                                            default: var polarity = "Null"; break;
+                                        }
+
+                                    }
+                                    
+                                    if (hover_label == "service_wait_time"){
+                                        switch ({{ service_wait_time_list }}[index_num]) {
+                                            case 1: var polarity = "Positive"; break;
+                                            case 0: var polarity = "Neutral"; break;
+                                            case -1: var polarity = "Negative"; break;
+                                            default: var polarity = "Null"; break;
+                                        }
+                                    }
+
+                                    if (hover_label == "service_waiters_attitude"){
+                                        switch ({{ service_waiters_attitude_list }}[index_num]) {
+                                            case 1: var polarity = "Positive"; break;
+                                            case 0: var polarity = "Neutral"; break;
+                                            case -1: var polarity = "Negative"; break;
+                                            default: var polarity = "Null"; break;
+                                        }
+                                    }
+
+                                    if (hover_label == "service_parking_convenience"){
+                                        switch ({{ service_parking_convenience_list }}[index_num]) {
+                                            case 1: var polarity = "Positive"; break;
+                                            case 0: var polarity = "Neutral"; break;
+                                            case -1: var polarity = "Negative"; break;
+                                            default: var polarity = "Null"; break;
+                                        }
+                                    }
+
+                                    if (hover_label == "service_serving_speed"){
+                                        switch ({{ service_serving_speed_list }}[index_num]) {
+                                            case 1: var polarity = "Positive"; break;
+                                            case 0: var polarity = "Neutral"; break;
+                                            case -1: var polarity = "Negative"; break;
+                                            default: var polarity = "Null"; break;
+                                        }
+                                    }
+
+                                    if (hover_label == "price_level"){
+                                        switch ({{ price_level_list }}[index_num]) {
+                                            case 1: var polarity = "Positive"; break;
+                                            case 0: var polarity = "Neutral"; break;
+                                            case -1: var polarity = "Negative"; break;
+                                            default: var polarity = "Null"; break;
+                                        }
+                                    }
+             
+                                    if (hover_label == "price_cost_effective"){
+                                        switch ({{ price_cost_effective_list }}[index_num]) {
+                                            case 1: var polarity = "Positive"; break;
+                                            case 0: var polarity = "Neutral"; break;
+                                            case -1: var polarity = "Negative"; break;
+                                            default: var polarity = "Null"; break;
+                                        }
+                                    }
+
+                                    if (hover_label == "price_discount"){
+                                        switch ({{ price_discount_list }}[index_num]) {
+                                            case 1: var polarity = "Positive"; break;
+                                            case 0: var polarity = "Neutral"; break;
+                                            case -1: var polarity = "Negative"; break;
+                                            default: var polarity = "Null"; break;
+                                        }
+                                    }
+
+                                    if (hover_label == "environment_decoration"){
+                                        switch ({{ environment_decoration_list }}[index_num]) {
+                                            case 1: var polarity = "Positive"; break;
+                                            case 0: var polarity = "Neutral"; break;
+                                            case -1: var polarity = "Negative"; break;
+                                            default: var polarity = "Null"; break;
+                                        }
+                                    }
+
+                                    if (hover_label == "environment_noise"){
+                                        switch ({{ environment_noise_list }}[index_num]) {
+                                            case 1: var polarity = "Positive"; break;
+                                            case 0: var polarity = "Neutral"; break;
+                                            case -1: var polarity = "Negative"; break;
+                                            default: var polarity = "Null"; break;
+                                        }
+
+                                    }
+
+                                    if (hover_label == "environment_space"){
+                                        switch ({{ environment_space_list }}[index_num]) {
+                                            case 1: var polarity = "Positive"; break;
+                                            case 0: var polarity = "Neutral"; break;
+                                            case -1: var polarity = "Negative"; break;
+                                            default: var polarity = "Null"; break;
+                                        }
+                                    }
+
+                                    if (hover_label == "environment_cleaness"){
+                                        switch ({{ environment_cleaness_list }}[index_num]) {
+                                            case 1: var polarity = "Positive"; break;
+                                            case 0: var polarity = "Neutral"; break;
+                                            case -1: var polarity = "Negative"; break;
+                                            default: var polarity = "Null"; break;
+                                        }
+                                    }
+
+                                    if (hover_label == "dish_portion"){
+                                        switch ({{ dish_portion_list }}[index_num]) {
+                                            case 1: var polarity = "Positive"; break;
+                                            case 0: var polarity = "Neutral"; break;
+                                            case -1: var polarity = "Negative"; break;
+                                            default: var polarity = "Null"; break;
+                                        }
+                                    }
+
+                                    if (hover_label == "dish_taste"){
+                                        switch ({{ dish_taste_list }}[index_num]) {
+                                            case 1: var polarity = "Positive"; break;
+                                            case 0: var polarity = "Neutral"; break;
+                                            case -1: var polarity = "Negative"; break;
+                                            default: var polarity = "Null"; break;
+                                        }
+                                    }
+
+                                    if (hover_label == "dish_look"){
+                                        switch ({{ dish_look_list }}[index_num]) {
+                                            case 1: var polarity = "Positive"; break;
+                                            case 0: var polarity = "Neutral"; break;
+                                            case -1: var polarity = "Negative"; break;
+                                            default: var polarity = "Null"; break;
+                                        }
+
+                                    }
+
+                                    if (hover_label == "dish_recommendation"){
+                                        switch ({{ dish_recommendation_list }}[index_num]) {
+                                            case 1: var polarity = "Positive"; break;
+                                            case 0: var polarity = "Neutral"; break;
+                                            case -1: var polarity = "Negative"; break;
+                                            default: var polarity = "Null"; break;
+                                        }
+                                    }
+
+                                    if (hover_label == "others_overall_experience"){
+                                        switch ({{ others_overall_experience_list }}[index_num]) {
+                                            case 1: var polarity = "Positive"; break;
+                                            case 0: var polarity = "Neutral"; break;
+                                            case -1: var polarity = "Negative"; break;
+                                            default: var polarity = "Null"; break;
+                                        }
+                                    }
+
+                                    if (hover_label == "others_willing_to_consume_again"){
+                                        switch ({{ others_willing_to_consume_again_list }}[index_num]) {
+                                            case 1: var polarity = "Positive"; break;
+                                            case 0: var polarity = "Neutral"; break;
+                                            case -1: var polarity = "Negative"; break;
+                                            default: var polarity = "Null"; break;
+                                        }
+                                    }
+
+                                    return `${aspect_name_dict[hover_label]} (${polarity})`;
+
+                                }
+
+                                var hover_label = data.datasets[tooltipItem.datasetIndex].label;
+
+                                new_label = setPolarity(hover_label, i);
+
+                                return new_label;
+
+                            }
+                        }
+
+                    }
+                }
             });
-            Array.from(location_distance_from_business_district).forEach(function (labelElement) {
-                const labelValue = labelElement.innerText;
-                changeColor(labelElement, labelValue);
-            });
 
-            Array.from(location_easy_to_find).forEach(function (labelElement) {
-                const labelValue = labelElement.innerText;
-                changeColor(labelElement, labelValue);
-            });
+            // comment_chart.canvas.parentNode.style.height = '500px';
+            // comment_chart.canvas.parentNode.style.width = '500px';
 
-            // service
-
-            Array.from(service_wait_time).forEach(function (labelElement) {
-                const labelValue = labelElement.innerText;
-                changeColor(labelElement, labelValue);
-            });
-            Array.from(service_waiters_attitude).forEach(function (labelElement) {
-                const labelValue = labelElement.innerText;
-                changeColor(labelElement, labelValue);
-            });
-
-            Array.from(service_parking_convenience).forEach(function (labelElement) {
-                const labelValue = labelElement.innerText;
-                changeColor(labelElement, labelValue);
-            });
-            Array.from(service_serving_speed).forEach(function (labelElement) {
-                const labelValue = labelElement.innerText;
-                changeColor(labelElement, labelValue);
-            });
-
-            //price
-
-            Array.from(price_level).forEach(function (labelElement) {
-                const labelValue = labelElement.innerText;
-                changeColor(labelElement, labelValue);
-            });
-
-            Array.from(price_cost_effective).forEach(function (labelElement) {
-                const labelValue = labelElement.innerText;
-                changeColor(labelElement, labelValue);
-            });
-            Array.from(price_discount).forEach(function (labelElement) {
-                const labelValue = labelElement.innerText;
-                changeColor(labelElement, labelValue);
-            });
-
-            // Environment
-
-            Array.from(environment_decoration).forEach(function (labelElement) {
-                const labelValue = labelElement.innerText;
-                changeColor(labelElement, labelValue);
-            });
-            Array.from(environment_noise).forEach(function (labelElement) {
-                const labelValue = labelElement.innerText;
-                changeColor(labelElement, labelValue);
-            });
-
-            Array.from(environment_space).forEach(function (labelElement) {
-                const labelValue = labelElement.innerText;
-                changeColor(labelElement, labelValue);
-            });
-            Array.from(environment_cleaness).forEach(function (labelElement) {
-                const labelValue = labelElement.innerText;
-                changeColor(labelElement, labelValue);
-            });
-
-            // Dish
-
-            Array.from(dish_portion).forEach(function (labelElement) {
-                const labelValue = labelElement.innerText;
-                changeColor(labelElement, labelValue);
-            });
-            Array.from(dish_taste).forEach(function (labelElement) {
-                const labelValue = labelElement.innerText;
-                changeColor(labelElement, labelValue);
-            });
-
-            Array.from(dish_look).forEach(function (labelElement) {
-                const labelValue = labelElement.innerText;
-                changeColor(labelElement, labelValue);
-            });
-            Array.from(dish_recommendation).forEach(function (labelElement) {
-                const labelValue = labelElement.innerText;
-                changeColor(labelElement, labelValue);
-            });
-            // others
-
-            Array.from(others_overall_experience).forEach(function (labelElement) {
-                const labelValue = labelElement.innerText;
-                changeColor(labelElement, labelValue);
-            });
-            Array.from(others_willing_to_consume_again).forEach(function (labelElement) {
-                const labelValue = labelElement.innerText;
-                changeColor(labelElement, labelValue);
-            });
-        });
+        };
 
     </script>
-
+    <!-- comment chart -->
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
