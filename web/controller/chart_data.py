@@ -1,5 +1,6 @@
 from collections import Counter
 
+
 def find_all_polarity_number_and_percentage(read_csv_data):
 
     location_list = list()
@@ -10,8 +11,6 @@ def find_all_polarity_number_and_percentage(read_csv_data):
     other_list = list()
 
     each_comment_aspect_percent = list()
-
-    # print('read_csv_data["location_traffic_convenience"][str(i)]', read_csv_data["location_traffic_convenience"][str(0)])
 
     for i in range(len(read_csv_data["id"])):
         location_list.append(read_csv_data["location_traffic_convenience"][str(i)])
@@ -297,49 +296,74 @@ def each_comment_polarity(read_csv_data):
 
     return each_comment_polarity
 
-# def each_comment_aspect_polarity(read_csv_data):
+def each_comment_sub_aspect_polarity(read_csv_data):
 
-#     each_comment_aspect_polarity = list()
+    location_traffic_convenience_list = list()
+    location_distance_from_business_district_list = list()
+    location_easy_to_find_list = list()
 
-#     for i in range(len(read_csv_data["id"])):
-#         each_review_data = {
-#             "location_traffic_convenience" : read_csv_data["location_traffic_convenience"][str(i)],
-#             "location_distance_from_business_district" : read_csv_data["location_distance_from_business_district"][str(i)],
-#             "location_easy_to_find" : read_csv_data["location_easy_to_find"][str(i)],
+    service_wait_time_list = list()
+    service_waiters_attitude_list = list()
+    service_parking_convenience_list = list()
+    service_serving_speed_list = list()
 
-#             "service_wait_time" : read_csv_data["service_wait_time"][str(i)],
-#             "service_waiters_attitude" : read_csv_data["service_waiters_attitude"][str(i)],
-#             "service_parking_convenience" : read_csv_data["service_parking_convenience"][str(i)],
-#             "service_serving_speed" : read_csv_data["service_serving_speed"][str(i)],
+    price_level_list = list()
+    price_cost_effective_list = list()
+    price_discount_list = list()
 
-#             "price_level" : read_csv_data["price_level"][str(i)],
-#             "price_cost_effective" : read_csv_data["price_cost_effective"][str(i)],
-#             "price_discount" : read_csv_data["price_discount"][str(i)],
+    environment_decoration_list = list()
+    environment_noise_list = list()
+    environment_space_list = list()
+    environment_cleaness_list = list()
 
-#             "environment_decoration" : read_csv_data["environment_decoration"][str(i)],
-#             "environment_noise" : read_csv_data["environment_noise"][str(i)],
-#             "environment_space" : read_csv_data["environment_space"][str(i)],
-#             "environment_cleaness" : read_csv_data["environment_cleaness"][str(i)],
+    dish_portion_list = list()
+    dish_taste_list = list()
+    dish_look_list = list()
+    dish_recommendation_list = list()
 
-#             "dish_portion" : read_csv_data["dish_portion"][str(i)],
-#             "dish_taste" : read_csv_data["dish_taste"][str(i)],
-#             "dish_look" : read_csv_data["dish_look"][str(i)],
-#             "dish_recommendation" : read_csv_data["dish_recommendation"][str(i)],
+    others_overall_experience_list = list()
+    others_willing_to_consume_again_list = list()
 
-#             "others_overall_experience" : read_csv_data["others_overall_experience"][str(i)],
-#             "others_willing_to_consume_again" : read_csv_data["others_willing_to_consume_again"][str(i)]
-#         }
-        
-
-#         each_comment_aspect_polarity.append(each_review_data)
-
-#     return each_comment_aspect_polarity
+    for i in range(len(read_csv_data["id"])):
 
 
-def each_comment_data(dataframe_data):
+            location_traffic_convenience_list.append(read_csv_data["location_traffic_convenience"][str(i)])
+            location_distance_from_business_district_list.append(read_csv_data["location_distance_from_business_district"][str(i)])
+            location_easy_to_find_list.append(read_csv_data["location_easy_to_find"][str(i)])
 
-    generate_bar_chart(dataframe_data.drop(columns=['id', 'content']).iloc[0])
+            service_wait_time_list.append(read_csv_data["service_wait_time"][str(i)])
+            service_waiters_attitude_list.append(read_csv_data["service_waiters_attitude"][str(i)])
+            service_parking_convenience_list.append(read_csv_data["service_parking_convenience"][str(i)])
+            service_serving_speed_list.append(read_csv_data["service_serving_speed"][str(i)])
 
+            price_level_list.append(read_csv_data["price_level"][str(i)])
+            price_cost_effective_list.append(read_csv_data["price_cost_effective"][str(i)])
+            price_discount_list.append(read_csv_data["price_discount"][str(i)])
+
+            environment_decoration_list.append(read_csv_data["environment_decoration"][str(i)])
+            environment_noise_list.append(read_csv_data["environment_noise"][str(i)])
+            environment_space_list.append(read_csv_data["environment_space"][str(i)])
+            environment_cleaness_list.append(read_csv_data["environment_cleaness"][str(i)])
+
+            dish_portion_list.append(read_csv_data["dish_portion"][str(i)])
+            dish_taste_list.append(read_csv_data["dish_taste"][str(i)])
+            dish_look_list.append(read_csv_data["dish_look"][str(i)])
+            dish_recommendation_list.append(read_csv_data["dish_recommendation"][str(i)])
+
+            others_overall_experience_list.append(read_csv_data["others_overall_experience"][str(i)])
+            others_willing_to_consume_again_list.append(read_csv_data["others_willing_to_consume_again"][str(i)])
+
+
+    return location_traffic_convenience_list, location_distance_from_business_district_list, \
+            location_easy_to_find_list, service_wait_time_list, \
+            service_waiters_attitude_list, service_parking_convenience_list, \
+            service_serving_speed_list, price_level_list, \
+            price_cost_effective_list, price_discount_list, \
+            environment_decoration_list, environment_noise_list, \
+            environment_space_list, environment_cleaness_list, \
+            dish_portion_list, dish_taste_list,\
+            dish_look_list, dish_recommendation_list,\
+            others_overall_experience_list, others_willing_to_consume_again_list 
 
 
 def five_star_calculation(read_csv_data):
@@ -369,6 +393,9 @@ def five_star_calculation(read_csv_data):
         each_comment_five_star_list.append({i : five_star_condition(caculate_result)})
 
     return each_comment_five_star_list
+
+
+
 
 
 if __name__ == "__main__":
