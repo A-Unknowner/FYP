@@ -4,7 +4,7 @@ from flask import (Flask, render_template, request)
 from controller.restaurant_review_data import Openrice, CSV
 import json, subprocess, os
 # from collections import Counter
-from controller.chart_data import find_all_polarity_number_and_percentage, total_coarse_grain_aspect_percentage, five_star_calculation
+from controller.chart_data import find_all_polarity_number_and_percentage, total_coarse_grain_aspect_percentage, five_star_calculation, each_comment_sub_aspect_polarity
 from urllib import parse
 
 
@@ -57,55 +57,98 @@ def analyze_review():
                     file_path = f"{os.getcwd()}/controller/data/openrice/openrice_sc.csv")
     to_csv_data.to_csv()
     
-    preprocess_result = subprocess.run(["python", f"{os.getcwd()}/controller/preprocess_data.py"])
+    # preprocess_result = subprocess.run(["python", f"{os.getcwd()}/controller/preprocess_data.py"])
 
-    if preprocess_result.returncode == 0:
+    # if preprocess_result.returncode == 0:
 
-        predict_result = subprocess.run(["python", f"{os.getcwd()}/controller/predict_sentiment.py"])
+        # predict_result = subprocess.run(["python", f"{os.getcwd()}/controller/predict_sentiment.py"])
 
-        if predict_result.returncode == 0:
-
-
-            read_csv_data = CSV(review=review_list,
-                                file_path=f"{os.getcwd()}/controller/data/openrice/openrice_restaurant_predict_result.csv")
-
-            read_csv_data = json.loads(read_csv_data.read_csv())
-
-            positive_list, negative_list, neutral_list, no_mention_list, \
-            total_positive_percentage, total_negative_percentage, total_neutral_percentage, each_comment_aspect_percentage= \
-                find_all_polarity_number_and_percentage(read_csv_data)
-            
-            total_coarse_grain_aspect_percentage_list = total_coarse_grain_aspect_percentage(positive_list, negative_list, neutral_list)
-            
-            five_star_list = five_star_calculation(read_csv_data)
-
-            print("five_star_list", five_star_list)
-
-            return render_template("result.html", 
-                                restaurant_name = restaurant_name,
-                                datas=read_csv_data,
-                                index_list=[str(i) for i in range(len(read_csv_data["id"]))],
-                                overall_positive = sum(positive_list),
-                                overall_negative = sum(negative_list),
-                                overall_neutral = sum(neutral_list),
-                                overall_aspect = [sum(item) for item in zip(positive_list, negative_list, neutral_list)],
-                                positive_list=positive_list, 
-                                negative_list=negative_list,
-                                neutral_list=neutral_list,
-                                no_mention_list=no_mention_list,
-
-                                # each aspects total percent list
-                                each_aspects_total_percent_list = total_coarse_grain_aspect_percentage_list,
-
-                                # this list is stored the 5 stars values
-                                five_star_list = five_star_list,
+        # if predict_result.returncode == 0:
 
 
-                                # total percentage
-                                total_positive_percentage = total_positive_percentage, 
-                                total_negative_percentage = total_negative_percentage, 
-                                total_neutral_percentage = total_neutral_percentage, 
-                                each_comment_percentage = each_comment_aspect_percentage)
+    read_csv_data = CSV(review=review_list,
+                        file_path=f"{os.getcwd()}/controller/data/openrice/openrice_restaurant_predict_result.csv")
+
+    read_csv_data = json.loads(read_csv_data.read_csv())
+
+    positive_list, negative_list, neutral_list, no_mention_list, \
+    total_positive_percentage, total_negative_percentage, total_neutral_percentage, each_comment_aspect_percentage= \
+        find_all_polarity_number_and_percentage(read_csv_data)
+    
+    total_coarse_grain_aspect_percentage_list = total_coarse_grain_aspect_percentage(positive_list, negative_list, neutral_list)
+    
+    five_star_list = five_star_calculation(read_csv_data)
+
+
+
+
+    location_traffic_convenience_list, location_distance_from_business_district_list, \
+            location_easy_to_find_list, service_wait_time_list, \
+            service_waiters_attitude_list, service_parking_convenience_list, \
+            service_serving_speed_list, price_level_list, \
+            price_cost_effective_list, price_discount_list, \
+            environment_decoration_list, environment_noise_list, \
+            environment_space_list, environment_cleaness_list, \
+            dish_portion_list, dish_taste_list,\
+            dish_look_list, dish_recommendation_list,\
+            others_overall_experience_list, others_willing_to_consume_again_list = each_comment_sub_aspect_polarity(read_csv_data)
+
+    print("five_star_list", five_star_list)
+
+    return render_template("result.html", 
+                        restaurant_name = restaurant_name,
+                        datas=read_csv_data,
+                        index_list=[str(i) for i in range(len(read_csv_data["id"]))],
+                        overall_positive = sum(positive_list),
+                        overall_negative = sum(negative_list),
+                        overall_neutral = sum(neutral_list),
+                        overall_aspect = [sum(item) for item in zip(positive_list, negative_list, neutral_list)],
+                        positive_list=positive_list, 
+                        negative_list=negative_list,
+                        neutral_list=neutral_list,
+                        no_mention_list=no_mention_list,
+
+                        id_length = len(read_csv_data["id"]),
+
+
+                        # each sub aspects polarity list
+                        location_traffic_convenience_list = location_traffic_convenience_list,
+                        location_distance_from_business_district_list = location_distance_from_business_district_list, 
+                        location_easy_to_find_list = location_easy_to_find_list, 
+
+                        service_wait_time_list = service_wait_time_list, 
+                        service_waiters_attitude_list = service_waiters_attitude_list, 
+                        service_parking_convenience_list = service_parking_convenience_list, 
+                        service_serving_speed_list = service_serving_speed_list, 
+
+                        price_level_list = price_level_list, 
+                        price_cost_effective_list = price_cost_effective_list, 
+                        price_discount_list = price_discount_list, 
+
+                        environment_decoration_list = environment_decoration_list, 
+                        environment_noise_list = environment_noise_list, 
+                        environment_space_list = environment_space_list, 
+                        environment_cleaness_list = environment_cleaness_list, 
+
+                        dish_portion_list = dish_portion_list, 
+                        dish_taste_list = dish_taste_list,
+                        dish_look_list = dish_look_list, 
+                        dish_recommendation_list = dish_recommendation_list,
+
+                        others_overall_experience_list = others_overall_experience_list, 
+                        others_willing_to_consume_again_list = others_willing_to_consume_again_list,
+
+                        # each aspects total percent list
+                        each_aspects_total_percent_list = total_coarse_grain_aspect_percentage_list,
+
+                        # this list is stored the 5 stars values
+                        five_star_list = five_star_list,
+
+                        # total percentage
+                        total_positive_percentage = total_positive_percentage, 
+                        total_negative_percentage = total_negative_percentage, 
+                        total_neutral_percentage = total_neutral_percentage, 
+                        each_comment_percentage = each_comment_aspect_percentage)
     
 
 @app.route("/search_list", methods=["POST"])
