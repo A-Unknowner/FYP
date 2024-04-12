@@ -368,36 +368,18 @@ def each_comment_sub_aspect_polarity(read_csv_data):
 
 def five_star_calculation(read_csv_data):
 
-    # print("read_csv_data",read_csv_data)
-
     each_comment_polarity_list = each_comment_polarity(read_csv_data)
-
-    # print(each_comment_polarity_list)
 
     each_comment_five_star_list = list()
     
-
     for i, data in enumerate(each_comment_polarity_list):
         comment_counter = Counter(data)
-        # print(comment_counter)
 
         comment_total = comment_counter[1] + comment_counter[0] + comment_counter[-1]
 
-        # print(comment_total)
-
         caculate_result = five_star_calculate(comment_counter[1], comment_counter[-1], comment_total)
-
-        # print(caculate_result)
 
         # call function
         each_comment_five_star_list.append({i : five_star_condition(caculate_result)})
 
     return each_comment_five_star_list
-
-
-
-
-
-if __name__ == "__main__":
-
-    pass
