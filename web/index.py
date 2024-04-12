@@ -57,19 +57,19 @@ def analyze_review():
                     file_path = f"{os.getcwd()}/controller/data/openrice/openrice_sc.csv")
     to_csv_data.to_csv()
     
-    # preprocess_result = subprocess.run(["python", f"{os.getcwd()}/controller/preprocess_data.py"])
+    preprocess_result = subprocess.run(["python", f"{os.getcwd()}/controller/preprocess_data.py"])
 
-    # if preprocess_result.returncode == 0:
+    if preprocess_result.returncode == 0:
 
-        # predict_result = subprocess.run(["python", f"{os.getcwd()}/controller/predict_sentiment.py"])
+        predict_result = subprocess.run(["python", f"{os.getcwd()}/controller/predict_sentiment.py"])
 
-        # if predict_result.returncode == 0:
+        if predict_result.returncode == 0:
 
 
-    read_csv_data = CSV(review=review_list,
-                        file_path=f"{os.getcwd()}/controller/data/openrice/openrice_restaurant_predict_result.csv")
+            read_csv_data = CSV(review=review_list,
+                                file_path=f"{os.getcwd()}/controller/data/openrice/openrice_restaurant_predict_result.csv")
 
-    read_csv_data = json.loads(read_csv_data.read_csv())
+            read_csv_data = json.loads(read_csv_data.read_csv())
 
     positive_list, negative_list, neutral_list, no_mention_list, \
     total_positive_percentage, total_negative_percentage, total_neutral_percentage, each_comment_aspect_percentage= \
