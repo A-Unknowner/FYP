@@ -99,3 +99,7 @@
   margin: auto;
 
 }
+
+.card-body{
+  height: 124px;
+}

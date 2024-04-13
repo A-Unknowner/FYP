@@ -24,3 +24,7 @@
     background-size: auto;
     backdrop-filter: blur(5px); /* Apply the blur effect */
 }
+
+.card-body{
+  height: 124px;
+}
