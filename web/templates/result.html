@@ -151,7 +151,7 @@
                         class="card-body d-flex flex-column justify-content-center align-items-center text-center">
                     <canvas id="pricePie"></canvas>
 
-                    <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><b>價錢評級總數</b></label>
+                    <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><b>價格評級總數</b></label>
                 </div>
             </div>
 
@@ -180,7 +180,7 @@
 
                     <canvas id="dishPie"></canvas>
 
-                    <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><b>味道評級總數</b></label>
+                    <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><b>食物評級總數</b></label>
                 </div>
             </div>
 
@@ -328,27 +328,27 @@
     var ctx = document.getElementById("polarityBarChart").getContext("2d");
 
     var data = {
-        labels: ["Location", "Service", "Price", "Environment", "Dish", "Others"],
+        labels: ["位置", "服務", "價格", "環境", "食物", "其他"],
         // labels: ["Chocolate", "Vanilla", "Strawberry"],
         datasets: [
             {
-                label: "Total",
+                label: "總共",
                 backgroundColor: "#124076",
                 data: {{ overall_aspect }}
             },
             {
-                label: "Positive",
+                label: "正面",
                 backgroundColor: "#7F9F80",
                 data: {{ positive_list }}
             },
             {
-                label: "Neutral",
+                label: "中立",
                 backgroundColor: "#F9E897",
                 data: {{ neutral_list }}
             },
 
             {
-                label: "Negative",
+                label: "負面",
                 backgroundColor: "#FFC374",
                 data: {{ negative_list }}
             }
@@ -380,8 +380,8 @@
 
 
     // Total Aspect Doughnut
-    var xValues = ["Location", "Service", "Price",
-        "Environment", "Dish", "Other"];
+    var xValues = ["位置", "服務", "價格",
+        "環境", "食物", "其他"];
     var test = '{{ datas }}';
 
     var yValues = {{ overall_aspect }};
@@ -416,7 +416,7 @@
 
 
     // Location
-    var xValues = ["Positive", "Neutral", "Negative"];
+    var xValues = ["正面", "中立", "負面"];
 
     var yValues = [
         {{ each_aspects_total_percent_list[0]["total_location_positive_percent"] }},
@@ -924,7 +924,7 @@
         var comment_chart = new Chart(ctx, {
             type: 'bar',
             data: {
-                labels: ['Location', 'Service', "Price", "Environment", "Dish", "Others"],
+                labels: ['位置', '服務', "價格", "環境", "食物", "其他"],
                 datasets: datasets
             },
             options: {
@@ -943,46 +943,46 @@
 
                                 // the dictionary value store the bar name
                                 aspect_name_dict = {
-                                    "location_traffic_convenience": "location traffic convenience",
-                                    "location_distance_from_business_district": "location distance from business district",
-                                    "location_easy_to_find": "location easy to find",
+                                    "location_traffic_convenience": "交通是否便利",
+                                    "location_distance_from_business_district": "距離商業區遠近",
+                                    "location_easy_to_find": "餐廳是否容易尋找",
 
-                                    "service_wait_time": "service wait time",
-                                    "service_waiters_attitude": "service waiters attitude",
-                                    "service_parking_convenience": "service parking convenience",
-                                    "service_serving_speed": "service serving speed",
+                                    "service_wait_time": "排隊等候時間",
+                                    "service_waiters_attitude": "服務人員態度",
+                                    "service_parking_convenience": "是否容易泊車",
+                                    "service_serving_speed": "點菜/上菜速度",
 
-                                    "price_level": "price level",
-                                    "price_cost_effective": "price cost effective",
-                                    "price_discount": "price discount",
+                                    "price_level": "價格水平",
+                                    "price_cost_effective": "性價比",
+                                    "price_discount": "折扣力度",
 
-                                    "environment_decoration": "environment decoration",
-                                    "environment_noise": "environment noise",
-                                    "environment_space": "environment space",
-                                    "environment_cleaness": "environment cleaness",
+                                    "environment_decoration": "裝修狀況",
+                                    "environment_noise": "噪音狀況",
+                                    "environment_space": "用餐空間",
+                                    "environment_cleaness": "衛生狀況",
 
-                                    "dish_portion": "dish portion",
-                                    "dish_taste": "dish taste",
-                                    "dish_look": "dish look",
-                                    "dish_recommendation": "dish recommendation",
+                                    "dish_portion": "食物分量",
+                                    "dish_taste": "食物口感/味道",
+                                    "dish_look": "食物外觀",
+                                    "dish_recommendation": "食物推薦程度",
 
-                                    "others_overall_experience": "others overall experience",
-                                    "others_willing_to_consume_again": "others willing to consume again"
+                                    "others_overall_experience": "本次消費感受",
+                                    "others_willing_to_consume_again": "再次消費的意願"
 
                                 }
                                 if (hover_label == "location_traffic_convenience") {
                                     switch ({{ location_traffic_convenience_list }}[index_num]) {
                                         case 1:
-                                            var polarity = "Positive";
+                                            var polarity = "正面";
                                             break;
                                         case 0:
-                                            var polarity = "Neutral";
+                                            var polarity = "中立";
                                             break;
                                         case -1:
-                                            var polarity = "Negative";
+                                            var polarity = "負面";
                                             break;
                                         default:
-                                            var polarity = "Null";
+                                            var polarity = "不適用";
                                             break;
                                     }
 
@@ -991,16 +991,16 @@
                                 if (hover_label == "location_distance_from_business_district") {
                                     switch ({{ location_distance_from_business_district_list }}[index_num]) {
                                         case 1:
-                                            var polarity = "Positive";
+                                            var polarity = "正面";
                                             break;
                                         case 0:
-                                            var polarity = "Neutral";
+                                            var polarity = "中立";
                                             break;
                                         case -1:
-                                            var polarity = "Negative";
+                                            var polarity = "負面";
                                             break;
                                         default:
-                                            var polarity = "Null";
+                                            var polarity = "不適用";
                                             break;
                                     }
                                 }
@@ -1008,16 +1008,16 @@
                                 if (hover_label == "location_easy_to_find") {
                                     switch ({{ location_easy_to_find_list }}[index_num]) {
                                         case 1:
-                                            var polarity = "Positive";
+                                            var polarity = "正面";
                                             break;
                                         case 0:
-                                            var polarity = "Neutral";
+                                            var polarity = "中立";
                                             break;
                                         case -1:
-                                            var polarity = "Negative";
+                                            var polarity = "負面";
                                             break;
                                         default:
-                                            var polarity = "Null";
+                                            var polarity = "不適用";
                                             break;
                                     }
 
@@ -1026,16 +1026,16 @@
                                 if (hover_label == "service_wait_time") {
                                     switch ({{ service_wait_time_list }}[index_num]) {
                                         case 1:
-                                            var polarity = "Positive";
+                                            var polarity = "正面";
                                             break;
                                         case 0:
-                                            var polarity = "Neutral";
+                                            var polarity = "中立";
                                             break;
                                         case -1:
-                                            var polarity = "Negative";
+                                            var polarity = "負面";
                                             break;
                                         default:
-                                            var polarity = "Null";
+                                            var polarity = "不適用";
                                             break;
                                     }
                                 }
@@ -1043,16 +1043,16 @@
                                 if (hover_label == "service_waiters_attitude") {
                                     switch ({{ service_waiters_attitude_list }}[index_num]) {
                                         case 1:
-                                            var polarity = "Positive";
+                                            var polarity = "正面";
                                             break;
                                         case 0:
-                                            var polarity = "Neutral";
+                                            var polarity = "中立";
                                             break;
                                         case -1:
-                                            var polarity = "Negative";
+                                            var polarity = "負面";
                                             break;
                                         default:
-                                            var polarity = "Null";
+                                            var polarity = "不適用";
                                             break;
                                     }
                                 }
@@ -1060,16 +1060,16 @@
                                 if (hover_label == "service_parking_convenience") {
                                     switch ({{ service_parking_convenience_list }}[index_num]) {
                                         case 1:
-                                            var polarity = "Positive";
+                                            var polarity = "正面";
                                             break;
                                         case 0:
-                                            var polarity = "Neutral";
+                                            var polarity = "中立";
                                             break;
                                         case -1:
-                                            var polarity = "Negative";
+                                            var polarity = "負面";
                                             break;
                                         default:
-                                            var polarity = "Null";
+                                            var polarity = "不適用";
                                             break;
                                     }
                                 }
@@ -1077,16 +1077,16 @@
                                 if (hover_label == "service_serving_speed") {
                                     switch ({{ service_serving_speed_list }}[index_num]) {
                                         case 1:
-                                            var polarity = "Positive";
+                                            var polarity = "正面";
                                             break;
                                         case 0:
-                                            var polarity = "Neutral";
+                                            var polarity = "中立";
                                             break;
                                         case -1:
-                                            var polarity = "Negative";
+                                            var polarity = "負面";
                                             break;
                                         default:
-                                            var polarity = "Null";
+                                            var polarity = "不適用";
                                             break;
                                     }
                                 }
@@ -1094,16 +1094,16 @@
                                 if (hover_label == "price_level") {
                                     switch ({{ price_level_list }}[index_num]) {
                                         case 1:
-                                            var polarity = "Positive";
+                                            var polarity = "正面";
                                             break;
                                         case 0:
-                                            var polarity = "Neutral";
+                                            var polarity = "中立";
                                             break;
                                         case -1:
-                                            var polarity = "Negative";
+                                            var polarity = "負面";
                                             break;
                                         default:
-                                            var polarity = "Null";
+                                            var polarity = "不適用";
                                             break;
                                     }
                                 }
@@ -1111,16 +1111,16 @@
                                 if (hover_label == "price_cost_effective") {
                                     switch ({{ price_cost_effective_list }}[index_num]) {
                                         case 1:
-                                            var polarity = "Positive";
+                                            var polarity = "正面";
                                             break;
                                         case 0:
-                                            var polarity = "Neutral";
+                                            var polarity = "中立";
                                             break;
                                         case -1:
-                                            var polarity = "Negative";
+                                            var polarity = "負面";
                                             break;
                                         default:
-                                            var polarity = "Null";
+                                            var polarity = "不適用";
                                             break;
                                     }
                                 }
@@ -1128,16 +1128,16 @@
                                 if (hover_label == "price_discount") {
                                     switch ({{ price_discount_list }}[index_num]) {
                                         case 1:
-                                            var polarity = "Positive";
+                                            var polarity = "正面";
                                             break;
                                         case 0:
-                                            var polarity = "Neutral";
+                                            var polarity = "中立";
                                             break;
                                         case -1:
-                                            var polarity = "Negative";
+                                            var polarity = "負面";
                                             break;
                                         default:
-                                            var polarity = "Null";
+                                            var polarity = "不適用";
                                             break;
                                     }
                                 }
@@ -1145,16 +1145,16 @@
                                 if (hover_label == "environment_decoration") {
                                     switch ({{ environment_decoration_list }}[index_num]) {
                                         case 1:
-                                            var polarity = "Positive";
+                                            var polarity = "正面";
                                             break;
                                         case 0:
-                                            var polarity = "Neutral";
+                                            var polarity = "中立";
                                             break;
                                         case -1:
-                                            var polarity = "Negative";
+                                            var polarity = "負面";
                                             break;
                                         default:
-                                            var polarity = "Null";
+                                            var polarity = "不適用";
                                             break;
                                     }
                                 }
@@ -1162,16 +1162,16 @@
                                 if (hover_label == "environment_noise") {
                                     switch ({{ environment_noise_list }}[index_num]) {
                                         case 1:
-                                            var polarity = "Positive";
+                                            var polarity = "正面";
                                             break;
                                         case 0:
-                                            var polarity = "Neutral";
+                                            var polarity = "中立";
                                             break;
                                         case -1:
-                                            var polarity = "Negative";
+                                            var polarity = "負面";
                                             break;
                                         default:
-                                            var polarity = "Null";
+                                            var polarity = "不適用";
                                             break;
                                     }
 
@@ -1180,16 +1180,16 @@
                                 if (hover_label == "environment_space") {
                                     switch ({{ environment_space_list }}[index_num]) {
                                         case 1:
-                                            var polarity = "Positive";
+                                            var polarity = "正面";
                                             break;
                                         case 0:
-                                            var polarity = "Neutral";
+                                            var polarity = "中立";
                                             break;
                                         case -1:
-                                            var polarity = "Negative";
+                                            var polarity = "負面";
                                             break;
                                         default:
-                                            var polarity = "Null";
+                                            var polarity = "不適用";
                                             break;
                                     }
                                 }
@@ -1197,16 +1197,16 @@
                                 if (hover_label == "environment_cleaness") {
                                     switch ({{ environment_cleaness_list }}[index_num]) {
                                         case 1:
-                                            var polarity = "Positive";
+                                            var polarity = "正面";
                                             break;
                                         case 0:
-                                            var polarity = "Neutral";
+                                            var polarity = "中立";
                                             break;
                                         case -1:
-                                            var polarity = "Negative";
+                                            var polarity = "負面";
                                             break;
                                         default:
-                                            var polarity = "Null";
+                                            var polarity = "不適用";
                                             break;
                                     }
                                 }
@@ -1214,16 +1214,16 @@
                                 if (hover_label == "dish_portion") {
                                     switch ({{ dish_portion_list }}[index_num]) {
                                         case 1:
-                                            var polarity = "Positive";
+                                            var polarity = "正面";
                                             break;
                                         case 0:
-                                            var polarity = "Neutral";
+                                            var polarity = "中立";
                                             break;
                                         case -1:
-                                            var polarity = "Negative";
+                                            var polarity = "負面";
                                             break;
                                         default:
-                                            var polarity = "Null";
+                                            var polarity = "不適用";
                                             break;
                                     }
                                 }
@@ -1231,16 +1231,16 @@
                                 if (hover_label == "dish_taste") {
                                     switch ({{ dish_taste_list }}[index_num]) {
                                         case 1:
-                                            var polarity = "Positive";
+                                            var polarity = "正面";
                                             break;
                                         case 0:
-                                            var polarity = "Neutral";
+                                            var polarity = "中立";
                                             break;
                                         case -1:
-                                            var polarity = "Negative";
+                                            var polarity = "負面";
                                             break;
                                         default:
-                                            var polarity = "Null";
+                                            var polarity = "不適用";
                                             break;
                                     }
                                 }
@@ -1248,16 +1248,16 @@
                                 if (hover_label == "dish_look") {
                                     switch ({{ dish_look_list }}[index_num]) {
                                         case 1:
-                                            var polarity = "Positive";
+                                            var polarity = "正面";
                                             break;
                                         case 0:
-                                            var polarity = "Neutral";
+                                            var polarity = "中立";
                                             break;
                                         case -1:
-                                            var polarity = "Negative";
+                                            var polarity = "負面";
                                             break;
                                         default:
-                                            var polarity = "Null";
+                                            var polarity = "不適用";
                                             break;
                                     }
 
@@ -1266,16 +1266,16 @@
                                 if (hover_label == "dish_recommendation") {
                                     switch ({{ dish_recommendation_list }}[index_num]) {
                                         case 1:
-                                            var polarity = "Positive";
+                                            var polarity = "正面";
                                             break;
                                         case 0:
-                                            var polarity = "Neutral";
+                                            var polarity = "中立";
                                             break;
                                         case -1:
-                                            var polarity = "Negative";
+                                            var polarity = "負面";
                                             break;
                                         default:
-                                            var polarity = "Null";
+                                            var polarity = "不適用";
                                             break;
                                     }
                                 }
@@ -1283,16 +1283,16 @@
                                 if (hover_label == "others_overall_experience") {
                                     switch ({{ others_overall_experience_list }}[index_num]) {
                                         case 1:
-                                            var polarity = "Positive";
+                                            var polarity = "正面";
                                             break;
                                         case 0:
-                                            var polarity = "Neutral";
+                                            var polarity = "中立";
                                             break;
                                         case -1:
-                                            var polarity = "Negative";
+                                            var polarity = "負面";
                                             break;
                                         default:
-                                            var polarity = "Null";
+                                            var polarity = "不適用";
                                             break;
                                     }
                                 }
@@ -1300,16 +1300,16 @@
                                 if (hover_label == "others_willing_to_consume_again") {
                                     switch ({{ others_willing_to_consume_again_list }}[index_num]) {
                                         case 1:
-                                            var polarity = "Positive";
+                                            var polarity = "正面";
                                             break;
                                         case 0:
-                                            var polarity = "Neutral";
+                                            var polarity = "中立";
                                             break;
                                         case -1:
-                                            var polarity = "Negative";
+                                            var polarity = "負面";
                                             break;
                                         default:
-                                            var polarity = "Null";
+                                            var polarity = "不適用";
                                             break;
                                     }
                                 }
