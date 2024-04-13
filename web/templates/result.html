@@ -17,7 +17,6 @@
 
 
 <body style="background-color: #dcdcdc">
-    
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 
 <!-- Navbar start -->
@@ -118,7 +117,8 @@
         <div class="col-2 ps-5 pe-5">
 
             <div class="card mb-2">
-                <div class="card-body d-flex flex-column justify-content-center align-items-center text-center">
+                <div
+                        class="card-body d-flex flex-column justify-content-center align-items-center text-center">
 
                     <canvas id="locationPie"></canvas>
 
@@ -426,10 +426,6 @@
 
 
     // Location
-    var location_positive_count = {{ each_aspects_total_percent_list[0]["location_positive"] }};
-    var location_negative_count = {{ each_aspects_total_percent_list[0]["location_negative"] }};
-    var location_neutral_count = {{ each_aspects_total_percent_list[0]["location_neutral"] }};
-
     var backgroundColor = ["#00873E", "#de8d0b", "#ad181f"];
 
     var xValues = ["正面", "中立", "負面"];
@@ -465,13 +461,12 @@
                             var allData = data.datasets[tooltipItem.datasetIndex].data;
                             var tooltipLabel = data.labels[tooltipItem.index];
                             var tooltipData = allData[tooltipItem.index];
-                            switch(tooltipLabel){
-                                case "正面": var text = `${tooltipLabel}: ${location_positive_count} (${tooltipData}%)`; break;
-                                case "中立": var text = `${tooltipLabel}: ${location_neutral_count} (${tooltipData}%)`; break;
-                                case "負面": var text = `${tooltipLabel}: ${location_negative_count} (${tooltipData}%)`; break;
-                                default: console.log("not found"); break;
+                            var total = 0;
+                            for (var i in allData) {
+                                total += allData[i];
                             }
-                            return text
+
+                            return tooltipLabel + ': ' + tooltipData + '%';
                         }
                     }
                 }
@@ -486,19 +481,14 @@
 
         const location_canvas = document.getElementById("locationPie");
         const location_ctx = location_canvas.getContext("2d");
-        location_ctx.font = "30px : let polarity = Noto Sans";
-        // Not Available
-        location_ctx.fillText("不適用", 10, 50);
+        location_ctx.font = "30px 'Noto Sans', sans-serif";
+        location_ctx.fillText("不適用", 105, 80);
 
     }
     ;
 
 
     // Service
-    var service_positive_count = {{ each_aspects_total_percent_list[1]["service_positive"] }};
-    var service_negative_count = {{ each_aspects_total_percent_list[1]["service_negative"] }};
-    var service_neutral_count = {{ each_aspects_total_percent_list[1]["service_neutral"] }};
-
     var yValues = [
         {{ each_aspects_total_percent_list[1]["total_service_positive_percent"] }},
 
@@ -531,13 +521,12 @@
                             var allData = data.datasets[tooltipItem.datasetIndex].data;
                             var tooltipLabel = data.labels[tooltipItem.index];
                             var tooltipData = allData[tooltipItem.index];
-                            switch(tooltipLabel){
-                                case "正面": var text = `${tooltipLabel}: ${service_positive_count} (${tooltipData}%)`; break;
-                                case "中立": var text = `${tooltipLabel}: ${service_neutral_count} (${tooltipData}%)`; break;
-                                case "負面": var text = `${tooltipLabel}: ${service_negative_count} (${tooltipData}%)`; break;
-                                default: console.log("not found"); break;
+                            var total = 0;
+                            for (var i in allData) {
+                                total += allData[i];
                             }
-                            return text
+
+                            return tooltipLabel + ': ' + tooltipData + '%';
                         }
                     }
                 }
@@ -553,16 +542,11 @@
 
         const service_canvas = document.getElementById("servicePie");
         const service_ctx = service_canvas.getContext("2d");
-        service_ctx.font = "30px : let polarity = Noto Sans";
-        service_ctx.fillText("不適用", 10, 50);
-
+        service_ctx.font = "30px 'Noto Sans', sans-serif";
+        service_ctx.fillText("不適用", 105, 80);
     }
 
     // Price
-    var price_positive_count = {{ each_aspects_total_percent_list[2]["price_positive"] }};
-    var price_negative_count = {{ each_aspects_total_percent_list[2]["price_negative"] }};
-    var price_neutral_count = {{ each_aspects_total_percent_list[2]["price_neutral"] }};
-
     var yValues = [
         {{ each_aspects_total_percent_list[2]["total_price_positive_percent"] }},
 
@@ -594,13 +578,12 @@
                             var allData = data.datasets[tooltipItem.datasetIndex].data;
                             var tooltipLabel = data.labels[tooltipItem.index];
                             var tooltipData = allData[tooltipItem.index];
-                            switch(tooltipLabel){
-                                case "正面": var text = `${tooltipLabel}: ${price_positive_count} (${tooltipData}%)`; break;
-                                case "中立": var text = `${tooltipLabel}: ${price_neutral_count} (${tooltipData}%)`; break;
-                                case "負面": var text = `${tooltipLabel}: ${price_negative_count} (${tooltipData}%)`; break;
-                                default: console.log("not found"); break;
+                            var total = 0;
+                            for (var i in allData) {
+                                total += allData[i];
                             }
-                            return text
+
+                            return tooltipLabel + ': ' + tooltipData + '%';
                         }
                     }
                 }
@@ -614,16 +597,12 @@
 
         const price_canvas = document.getElementById("pricePie");
         const price_ctx = price_canvas.getContext("2d");
-        price_ctx.font = "30px : let polarity = Noto Sans";
-        price_ctx.fillText("不適用", 10, 50);
+        price_ctx.font = "30px 'Noto Sans', sans-serif";
+        price_ctx.fillText("不適用", 105, 80);
 
     }
 
     // Environment
-    var environment_positive_count = {{ each_aspects_total_percent_list[3]["environment_positive"] }};
-    var environment_negative_count = {{ each_aspects_total_percent_list[3]["environment_negative"] }};
-    var environment_neutral_count = {{ each_aspects_total_percent_list[3]["environment_neutral"] }};
-
     var yValues = [
         {{ each_aspects_total_percent_list[3]["total_environment_positive_percent"] }},
 
@@ -655,13 +634,12 @@
                             var allData = data.datasets[tooltipItem.datasetIndex].data;
                             var tooltipLabel = data.labels[tooltipItem.index];
                             var tooltipData = allData[tooltipItem.index];
-                            switch(tooltipLabel){
-                                case "正面": var text = `${tooltipLabel}: ${environment_positive_count} (${tooltipData}%)`; break;
-                                case "中立": var text = `${tooltipLabel}: ${environment_neutral_count} (${tooltipData}%)`; break;
-                                case "負面": var text = `${tooltipLabel}: ${environment_negative_count} (${tooltipData}%)`; break;
-                                default: console.log("not found"); break;
+                            var total = 0;
+                            for (var i in allData) {
+                                total += allData[i];
                             }
-                            return text
+
+                            return tooltipLabel + ': ' + tooltipData + '%';
                         }
                     }
                 }
@@ -675,16 +653,11 @@
 
         const environment_canvas = document.getElementById("environmentPie");
         const environment_ctx = environment_canvas.getContext("2d");
-        environment_ctx.font = "30px : let polarity = Noto Sans";
-        environment_ctx.fillText("不適用", 10, 50);
-
+        environment_ctx.font = "30px 'Noto Sans', sans-serif";
+        environment_ctx.fillText("不適用", 105, 80);
     }
 
     // Dish
-    var dish_positive_count = {{ each_aspects_total_percent_list[4]["dish_positive"] }};
-    var dish_negative_count = {{ each_aspects_total_percent_list[4]["dish_negative"] }};
-    var dish_neutral_count = {{ each_aspects_total_percent_list[4]["dish_neutral"] }};
-
     var yValues = [
         {{ each_aspects_total_percent_list[4]["total_dish_positive_percent"] }},
 
@@ -716,13 +689,12 @@
                             var allData = data.datasets[tooltipItem.datasetIndex].data;
                             var tooltipLabel = data.labels[tooltipItem.index];
                             var tooltipData = allData[tooltipItem.index];
-                            switch(tooltipLabel){
-                                case "正面": var text = `${tooltipLabel}: ${dish_positive_count} (${tooltipData}%)`; break;
-                                case "中立": var text = `${tooltipLabel}: ${dish_neutral_count} (${tooltipData}%)`; break;
-                                case "負面": var text = `${tooltipLabel}: ${dish_negative_count} (${tooltipData}%)`; break;
-                                default: console.log("not found"); break;
+                            var total = 0;
+                            for (var i in allData) {
+                                total += allData[i];
                             }
-                            return text
+
+                            return tooltipLabel + ': ' + tooltipData + '%';
                         }
                     }
                 }
@@ -736,17 +708,14 @@
 
         const dish_canvas = document.getElementById("dishPie");
         const dish_ctx = dish_canvas.getContext("2d");
-        dish_ctx.font = "30px : let polarity = Noto Sans";
-        dish_ctx.fillText("不適用", 10, 50);
+        dish_ctx.font = "30px 'Noto Sans', sans-serif";
+        dish_ctx.fillText("不適用", 105, 80);
+     
 
     }
 
 
     // Others
-    var others_positive_count = {{ each_aspects_total_percent_list[5]["others_positive"] }};
-    var others_negative_count = {{ each_aspects_total_percent_list[5]["others_negative"] }};
-    var others_neutral_count = {{ each_aspects_total_percent_list[5]["others_neutral"] }};
-
     var yValues = [
         {{ each_aspects_total_percent_list[5]["total_others_positive_percent"] }},
 
@@ -778,13 +747,12 @@
                             var allData = data.datasets[tooltipItem.datasetIndex].data;
                             var tooltipLabel = data.labels[tooltipItem.index];
                             var tooltipData = allData[tooltipItem.index];
-                            switch(tooltipLabel){
-                                case "正面": var text = `${tooltipLabel}: ${others_positive_count} (${tooltipData}%)`; break;
-                                case "中立": var text = `${tooltipLabel}: ${others_neutral_count} (${tooltipData}%)`; break;
-                                case "負面": var text = `${tooltipLabel}: ${others_negative_count} (${tooltipData}%)`; break;
-                                default: console.log("not found"); break;
+                            var total = 0;
+                            for (var i in allData) {
+                                total += allData[i];
                             }
-                            return text
+
+                            return tooltipLabel + ': ' + tooltipData + '%';
                         }
                     }
                 }
@@ -798,9 +766,8 @@
 
         const others_canvas = document.getElementById("othersPie");
         const others_ctx = others_canvas.getContext("2d");
-        others_ctx.font = "30px : let polarity = Noto Sans";
-        others_ctx.fillText("不適用", 10, 50);
-
+        others_ctx.font = "30px 'Noto Sans', sans-serif";
+        others_ctx.fillText("不適用", 105, 80);
     }
 
 
