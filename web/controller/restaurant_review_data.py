@@ -75,8 +75,8 @@ class Openrice:
                 # user_review = comments[i].xpath(".//text()")[0]
                 # user_review = ''.join([com if not com in ["\n", "\r"] and not com.isdigit() and not "留言" in com and not "讚好" in com and not "瀏覽" in com else "" for com in comments[i].xpath("//section[@class='review-container']")[0].xpath(".//text()")]).replace("\r\n\r\n","")
                 user_review = ''.join([com if not com in ["\n",
-                                                        #   "\r"] and not com.isdigit() and not "留言" in com and not "讚好" in com and not "瀏覽" in com else ""
-                                                          "\r"] and not com.isdigit() and not "comments" in com and not "likes" in com and not "views" in com else ""
+                                                          "\r"] and not com.isdigit() and not "留言" in com and not "讚好" in com and not "瀏覽" in com else ""
+                                                        #   "\r"] and not com.isdigit() and not "comments" in com and not "likes" in com and not "views" in com else ""
                                        for com in comments[i].xpath(".//text()")]).replace("                    ", "")
                 # print("review", comments[i].xpath("//section[@class='review-container']")[0].xpath(".//text()"))
                 # print("review", ''.join([com if not com in ["\n", "\r"] and not com.isdigit() and not "留言" in com and not "讚好" in com and not "瀏覽" in com else "" for com in comments[i].xpath("//section[@class='review-container']")[0].xpath(".//text()")]).replace("\r\n\r\n",""))
