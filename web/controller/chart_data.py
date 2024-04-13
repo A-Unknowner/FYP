@@ -228,36 +228,6 @@ def each_aspects_percentage(location_list, service_list, price_list, environment
             {"dish_percentage" : dish_percentage}, {"other_percentage" : other_percentage}]
 
 
-def five_star_calculate(positve_number, negative_number, total_number):
-
-    return round((positve_number - negative_number) / total_number, 1)
-
-
-def five_star_condition(result):
-
-    if result == -1:
-        return "0"
-    
-    if result == 1:
-        return "5"
-
-    if result > -1 and result <= -0.6:
-        return "1"
-
-    if result > -0.6 and result <= -0.2:
-        return "2"
-
-    if result > -0.2 and result <= 0.2:
-        return "3"
-
-    if result > 0.2 and result <= 0.6:
-        return "4"
-    
-    if result > 0.6 and result < 1:
-        return "5"
-
-
-
 def each_comment_polarity(read_csv_data):
 
     each_comment_polarity = list()
@@ -365,7 +335,45 @@ def each_comment_sub_aspect_polarity(read_csv_data):
             dish_look_list, dish_recommendation_list,\
             others_overall_experience_list, others_willing_to_consume_again_list 
 
+def five_star_calculate(positve_number, negative_number, total_number):
 
+    return round((positve_number - negative_number) / total_number, 1)
+
+def five_star_condition(result):
+
+    if result == -1:
+        return "0.0"
+    
+    if result == 1:
+        return "5.0"
+
+    if result > -1 and result < -0.6:
+        return "1.0"
+    
+    if result == -0.6:
+        return "1.5"
+
+    if result > -0.6 and result < -0.2:
+        return "2.0"
+    
+    if result == -0.2:
+        return "2.5"
+
+    if result > -0.2 and result < 0.2:
+        return "3.0"
+
+    if result == 0.2:
+        return "3.5"
+
+    if result > 0.2 and result < 0.6:
+        return "4.0"
+    
+    if result == 0.6:
+        return "4.5"
+    
+    if result > 0.6 and result < 1:
+        return "5.0"
+    
 def five_star_calculation(read_csv_data):
 
     each_comment_polarity_list = each_comment_polarity(read_csv_data)
