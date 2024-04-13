@@ -4,8 +4,8 @@
 <head>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='result.css') }}">
     <title></title>
 
@@ -19,239 +19,240 @@
 <body style="background-color: #dcdcdc">
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 
 
-<!-- Navbar start -->
-<!-- JavaScript Libraries -->
-<link rel="stylesheet" href="../static/loading.css">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-<nav class="navbar navbar-expand-lg navbar-light shadow-sm py-3 py-lg-0 px-3 px-lg-0"
-     style="background-color:white ;">
-    <a href="/" class="navbar-brand ms-lg-3">
-        <h3 class="display-10 m-0" style="color: #555;">
-            <div class="web-title-long">Restaurant Review Analyzer for Chinese Language<span>(RRACL)</span>
-            </div>
-            <div class="web-title-short"><span>RRACL</span></div>
-        </h3>
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarCollapse">
-        <div class="navbar-nav ms-auto py-0">
-            <a href="index.html" class="nav-item nav-link text-gray-555">首頁</a>
-            <form class="nav-item nav-link " action="/search_list" method="POST">
-                <input type="search" placeholder="Search" name="restaurant_name" aria-label="搜尋餐廳">
-                <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
-                <button class="btn btn-light" type="submit">搜尋</button>
-            </form>
-        </div>
-    </div>
-</nav>
-<!-- Navbar end -->
-
-
-<div class="container-fluid">
-    <div class="row">
-
-        <div class="col pt-5 ps-5">
-            <div style="color:#555;font-family: 'Noto Sans','sans-serif'">
-                <h2>{{ restaurant_name }} - Analyze Result</h2>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="container-fluid">
-    <div class="row">
-
-        <div class="col-3 col-3 pt-2 ps-5 pe-5">
-            <div class="card mb-3">
-                <div
-                        class="card-body d-flex flex-column justify-content-center align-items-center text-center shadow">
-                    <h2><label style="color:#00873E;"><i class="fas fa-smile"></i></label> <label
-                            style="color:#555;font-family: 'Noto Sans','sans-serif'">{{ total_positive_percentage }}%</label>
-                    </h2>
-                    <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><h5><b>Total Number of
-                        Positive: {{ overall_positive }}</b></h5></label>
+    <!-- Navbar start -->
+    <!-- JavaScript Libraries -->
+    <link rel="stylesheet" href="../static/loading.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <nav class="navbar navbar-expand-lg navbar-light shadow-sm py-3 py-lg-0 px-3 px-lg-0"
+        style="background-color:white ;">
+        <a href="/" class="navbar-brand ms-lg-3">
+            <h3 class="display-10 m-0" style="color: #555;">
+                <div class="web-title-long">Restaurant Review Analyzer for Chinese Language<span>(RRACL)</span>
                 </div>
+                <div class="web-title-short"><span>RRACL</span></div>
+            </h3>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto py-0">
+                <a href="index.html" class="nav-item nav-link text-gray-555">Home</a>
+                <form class="nav-item nav-link " action="/search_list" method="POST">
+                    <input type="search" placeholder="Search" name="restaurant_name" aria-label="Search">
+                    <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
+                    <button class="btn btn-light" type="submit">Search</button>
+                </form>
             </div>
         </div>
-
-        <div class="col-3 col-3 pt-2 ps-5 pe-5">
-            <div class="card mb-3">
-                <div
-                        class="card-body d-flex flex-column justify-content-center align-items-center text-center shadow">
-                    <h2><label style="color:#DEC20B;"><i class="fas fa-meh"></i></label> <label
-                            style="color:#555;font-family: 'Noto Sans','sans-serif'">{{ total_neutral_percentage }}%</label>
-                    </h2>
-                    <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><h5><b>Total Number of
-                        Neutral: {{ overall_neutral }}</b></h5></label>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-3 col-3 pt-2 ps-5 pe-5">
-            <div class="card mb-3">
-                <div
-                        class="card-body d-flex flex-column justify-content-center align-items-center text-center shadow">
-                    <h2><label style="color:#CE2029;"><i class="fas fa-frown"></i></label> <label
-                            style="color:#555;font-family: 'Noto Sans','sans-serif'">{{ total_negative_percentage }}%</label>
-                    </h2>
-                    <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><h5><b>Total Number of
-                        Negative: {{ overall_negative }}</b></h5></label>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-3 col-3 pt-2 ps-5 pe-5">
-            <div class="card mb-3">
-                <div
-                        class="card-body d-flex flex-column justify-content-center align-items-center text-center shadow">
-                    <h2><label style="color:#0b0b53;"><i class="fas fa-comments"></i></label> <label
-                            style="color:#555;font-family: 'Noto Sans','sans-serif'">{{ datas["content"]|length }}</label>
-                    </h2>
-                    <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><h5><b>Analyzed Reviews</b></h5>
-                    </label>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-    <div class="row">
-        <div class="col-2 ps-5 pe-5">
-
-            <div class="card mb-2">
-                <div
-                        class="card-body d-flex flex-column justify-content-center align-items-center text-center shadow">
-
-                    <canvas id="locationPie"></canvas>
-
-                    <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><b>Total Location
-                        Rating</b></label>
-                </div>
-
-            </div>
-
-        </div>
-        <div class="col-2 ps-5 pe-5">
-
-            <div class="card mb-2">
-                <div
-                        class="card-body d-flex flex-column justify-content-center align-items-center text-center shadow">
-
-                    <canvas id="servicePie"></canvas>
-
-                    <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><b>Total Service
-                        Rating</b></label>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="col-2 ps-5 pe-5">
-
-            <div class="card mb-2">
-                <div
-                        class="card-body d-flex flex-column justify-content-center align-items-center text-center shadow">
-                    <canvas id="pricePie"></canvas>
-
-                    <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><b>Total Price
-                        Rating</b></label>
-                </div>
-            </div>
-
-        </div>
+    </nav>
 
 
-        <div class="col-2 ps-5 pe-5">
 
-            <div class="card mb-2">
-                <div
-                        class="card-body d-flex flex-column justify-content-center align-items-center text-center shadow">
+    <!-- Navbar end -->
 
-                    <canvas id="environmentPie"></canvas>
 
-                    <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><b>Total Environment
-                        Rating</b></label>
-                </div>
-            </div>
+    <div class="container-fluid">
+        <div class="row">
 
-        </div>
-
-        <div class="col-2 ps-5 pe-5">
-
-            <div class="card mb-2">
-                <div
-                        class="card-body d-flex flex-column justify-content-center align-items-center text-center shadow">
-
-                    <canvas id="dishPie"></canvas>
-
-                    <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><b>Total Dish Rating</b></label>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="col-2 ps-5 pe-5">
-
-            <div class="card mb-2">
-                <div
-                        class="card-body d-flex flex-column justify-content-center align-items-center text-center shadow">
-
-                    <canvas id="othersPie"></canvas>
-
-                    <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><b>Total Others
-                        Rating</b></label>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</div>
-
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-6 p-5">
-            <div class="card mb-3">
-                <div
-                        class="card-body d-flex flex-column justify-content-center align-items-center text-center shadow">
-                    <canvas id="aspectDoughnutChart"></canvas>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-6 p-5">
-            <div class="card mb-3">
-                <div
-                        class="card-body d-flex flex-column justify-content-center align-items-center text-center shadow">
-                    <canvas id="polarityBarChart"></canvas>
+            <div class="col pt-5 ps-5">
+                <div style="color:#555;font-family: 'Noto Sans','sans-serif'">
+                    <h2>{{restaurant_name}} - Analyze Result</h2>
                 </div>
             </div>
         </div>
     </div>
-</div>
+    <div class="container-fluid">
+        <div class="row">
 
-
-<!--   this part is the header/table head -->
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-12 ps-5 pe-5">
-            <div class="card">
-                <div class="card-body d-flex flex-column justify-content-center align-items-center text-center shadow"
-                     style="padding: 0">
-                    <div class="row" style="width: 100%">
-                        <div class="col-6">
-                            <h1 style="color:#555;font-family: 'Noto Sans','sans-serif'">Reviews</h1>
-                        </div>
-                        <div class="col-6">
-                            <h1 style="color:#555;font-family: 'Noto Sans','sans-serif'">Aspect</h1>
-                        </div>
+            <div class="col-3 col-3 pt-2 ps-5 pe-5">
+                <div class="card mb-3">
+                    <div
+                        class="card-body d-flex flex-column justify-content-center align-items-center text-center shadow">
+                        <h2><label style="color:#00873E;"><i class="fas fa-smile"></i></label> <label
+                                style="color:#555;font-family: 'Noto Sans','sans-serif'">{{
+                                total_positive_percentage}}%</label></h2>
+                        <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><h5><b>Total Number of Positive: {{ overall_positive }}</b></h5></label>
                     </div>
                 </div>
             </div>
-            {% for i in range(datas["content"]|length) %}
+
+            <div class="col-3 col-3 pt-2 ps-5 pe-5">
+                <div class="card mb-3">
+                    <div
+                        class="card-body d-flex flex-column justify-content-center align-items-center text-center shadow">
+                        <h2><label style="color:#DEC20B;"><i class="fas fa-meh"></i></label> <label
+                                style="color:#555;font-family: 'Noto Sans','sans-serif'">{{ total_neutral_percentage
+                                }}%</label></h2>
+                        <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><h5><b>Total Number of Neutral: {{ overall_neutral }}</b></h5></label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-3 col-3 pt-2 ps-5 pe-5">
+                <div class="card mb-3">
+                    <div
+                        class="card-body d-flex flex-column justify-content-center align-items-center text-center shadow">
+                        <h2><label style="color:#CE2029;"><i class="fas fa-frown"></i></label> <label
+                                style="color:#555;font-family: 'Noto Sans','sans-serif'">{{ total_negative_percentage
+                                }}%</label></h2>
+                        <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><h5><b>Total Number of Negative: {{ overall_negative }}</b></h5></label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-3 col-3 pt-2 ps-5 pe-5">
+                <div class="card mb-3">
+                    <div
+                        class="card-body d-flex flex-column justify-content-center align-items-center text-center shadow">
+                        <h2><label style="color:#0b0b53;"><i class="fas fa-comments"></i></label> <label
+                                style="color:#555;font-family: 'Noto Sans','sans-serif'">{{ datas["content"]|length
+                                }}</label></h2>
+                        <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><h5><b>Analyzed Reviews</b></h5></label>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-2 ps-5 pe-5">
+
+                <div class="card mb-2">
+                    <div
+                        class="card-body d-flex flex-column justify-content-center align-items-center text-center shadow">
+
+                        <canvas id="locationPie"></canvas>
+
+                        <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><b>Total Location
+                                Rating</b></label>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="col-2 ps-5 pe-5">
+
+                <div class="card mb-2">
+                    <div
+                        class="card-body d-flex flex-column justify-content-center align-items-center text-center shadow">
+
+                        <canvas id="servicePie"></canvas>
+
+                        <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><b>Total Service
+                                Rating</b></label>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-2 ps-5 pe-5">
+
+                <div class="card mb-2">
+                    <div
+                        class="card-body d-flex flex-column justify-content-center align-items-center text-center shadow">
+                        <canvas id="pricePie"></canvas>
+
+                        <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><b>Total Price
+                                Rating</b></label>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="col-2 ps-5 pe-5">
+
+                <div class="card mb-2">
+                    <div
+                        class="card-body d-flex flex-column justify-content-center align-items-center text-center shadow">
+
+                        <canvas id="environmentPie"></canvas>
+
+                        <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><b>Total Environment
+                                Rating</b></label>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-2 ps-5 pe-5">
+
+                <div class="card mb-2">
+                    <div
+                        class="card-body d-flex flex-column justify-content-center align-items-center text-center shadow">
+
+                        <canvas id="dishPie"></canvas>
+
+                        <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><b>Total Dish Rating</b></label>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-2 ps-5 pe-5">
+
+                <div class="card mb-2">
+                    <div
+                        class="card-body d-flex flex-column justify-content-center align-items-center text-center shadow">
+
+                        <canvas id="othersPie"></canvas>
+
+                        <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><b>Total Others
+                                Rating</b></label>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-6 p-5">
+                <div class="card mb-3">
+                    <div
+                        class="card-body d-flex flex-column justify-content-center align-items-center text-center shadow">
+                        <canvas id="aspectDoughnutChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-6 p-5">
+                <div class="card mb-3">
+                    <div
+                        class="card-body d-flex flex-column justify-content-center align-items-center text-center shadow">
+                        <canvas id="polarityBarChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!--   this part is the header/table head -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 ps-5 pe-5">
+                <div class="card">
+                    <div class="card-body d-flex flex-column justify-content-center align-items-center text-center shadow"
+                        style="padding: 0">
+                        <div class="row" style="width: 100%">
+                            <div class="col-6">
+                                <h1 style="color:#555;font-family: 'Noto Sans','sans-serif'">Reviews</h1>
+                            </div>
+                            <div class="col-6">
+                                <h1 style="color:#555;font-family: 'Noto Sans','sans-serif'">Aspect</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% for i in range(datas["content"]|length) %}
 
                 <!--   this part is the header/table head end here -->
                 <div class="card">
@@ -264,13 +265,13 @@
 
                                 <div class="row" style="padding-bottom: 2%">
                                     <div
-                                            class="card-body d-flex flex-column justify-content-center align-items-center shadow">
+                                        class="card-body d-flex flex-column justify-content-center align-items-center shadow">
                                         <div class="container-fluid">
                                             <div class="row">
                                                 <div class="col d-flex align-items-center justify-content-center">
-                                                    <h4><label
+                                                    <h4> <label
                                                             style="color:#555;font-family: 'Noto Sans','sans-serif'">Total
-                                                        Percentage</label></h4>
+                                                            Percentage</label></h4>
                                                 </div>
                                             </div>
 
@@ -295,8 +296,8 @@
                                 <div class="row" style="padding-bottom: 5%">
                                     <div class="col">
                                         <button class="btn btn-gary" type="button" data-toggle="collapse"
-                                                data-target="#collapse_{{ i }}" aria-expanded="false"
-                                                aria-controls="collapse_{{ i }}" style="width: 100%">
+                                            data-target="#collapse_{{ i }}" aria-expanded="false"
+                                            aria-controls="collapse_{{ i }}" style="width: 100%">
                                             <label>View Details</label>
                                         </button>
 
@@ -305,9 +306,9 @@
                                                 <div class="container-fluid">
                                                     <div class="card-body d-flex flex-column justify-content-center align-items-center text-center shadow">
 
-
-                                                        <canvas id="commentBarChart{{ i }}"></canvas>
-
+                                                        <canvas id="commentBarChart{{i}}"></canvas>
+                                                
+                                                    
 
                                                     </div>
 
@@ -320,1100 +321,820 @@
                         </div>
                     </div>
                 </div>
-            {% endfor %}
+                {% endfor %}
+            </div>
         </div>
     </div>
-</div>
 
 
-<!--  chart script -->
-<script>
+    <!--  chart script -->
+    <script>
 
-    var ctx = document.getElementById("polarityBarChart").getContext("2d");
+        var ctx = document.getElementById("polarityBarChart").getContext("2d");
 
-    var data = {
-        labels: ["Location", "Service", "Price", "Environment", "Dish", "Others"],
-        // labels: ["Chocolate", "Vanilla", "Strawberry"],
-        datasets: [
-            {
-                label: "Total",
-                backgroundColor: "#124076",
-                data: {{ overall_aspect }}
-            },
-            {
-                label: "Positive",
-                backgroundColor: "#7F9F80",
-                data: {{ positive_list }}
-            },
-            {
-                label: "Neutral",
-                backgroundColor: "#F9E897",
-                data: {{ neutral_list }}
-            },
+        var data = {
+            labels: ["Location", "Service", "Price", "Environment", "Dish", "Others"],
+            // labels: ["Chocolate", "Vanilla", "Strawberry"],
+            datasets: [
+                {
+                    label: "Total",
+                    backgroundColor: "#124076",
+                    data: {{ overall_aspect }}
+                },
+                {
+                    label: "Positive",
+                        backgroundColor: "#7F9F80",
+                            data: {{ positive_list }}
+                },
+                {
+                    label: "Neutral",
+                        backgroundColor: "#F9E897",
+                            data: {{ neutral_list }}
+                },
 
-            {
-                label: "Negative",
-                backgroundColor: "#FFC374",
-                data: {{ negative_list }}
-            }
-        ]
-    };
-
-    var myBarChart = new Chart(ctx, {
-        type: 'bar',
-        data: data,
-        options: {
-
-
-            title: {
-                display: true,
-                text: "The polarity of each aspect"
-            },
-
-            barValueSpacing: 20,
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        min: 0,
-                    }
-                }]
-            }
-
-        }
-    });
-
-
-    // Total Aspect Doughnut
-    var xValues = ["Location", "Service", "Price",
-        "Environment", "Dish", "Other"];
-    var test = '{{ datas }}';
-
-    var yValues = {{ overall_aspect }};
-
-    var barColors = [
-        "#b91d47",
-        "#00aba9",
-        "#2b5797",
-        "#e8c3b9",
-        "#1e7145"
-    ];
-
-    new Chart("aspectDoughnutChart", {
-        type: "doughnut",
-        data: {
-            labels: xValues,
-            datasets: [{
-                backgroundColor: barColors,
-                data: yValues
-            }
-
+                {
+                    label: "Negative",
+                        backgroundColor: "#FFC374",
+                            data: {{ negative_list }}
+                }
             ]
-        },
-        options: {
-            title: {
-                display: true,
-                text: "Total Mentioned Aspects"
+        };
+
+        var myBarChart = new Chart(ctx, {
+            type: 'bar',
+            data: data,
+            options: {
+
+
+                title: {
+                    display: true,
+                    text: "The polarity of each aspect"
+                },
+
+                barValueSpacing: 20,
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            min: 0,
+                        }
+                    }]
+                }
+
             }
-        }
-    });
-    // Total Aspect Doughnut
+        });
 
 
-    // Location
-    var xValues = ["Positive", "Neutral", "Negative"];
 
-    var yValues = [
-        {{ each_aspects_total_percent_list[0]["total_location_positive_percent"] }},
+
+        // Total Aspect Doughnut
+        var xValues = ["Location", "Service", "Price",
+            "Environment", "Dish", "Other"];
+        var test = '{{ datas }}';
+
+        var yValues = {{ overall_aspect }};
+
+        var barColors = [
+            "#b91d47",
+            "#00aba9",
+            "#2b5797",
+            "#e8c3b9",
+            "#1e7145"
+        ];
+
+        new Chart("aspectDoughnutChart", {
+            type: "doughnut",
+            data: {
+                labels: xValues,
+                datasets: [{
+                    backgroundColor: barColors,
+                    data: yValues
+                }
+
+                ]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: "Total Mentioned Aspects"
+                }
+            }
+        });
+        // Total Aspect Doughnut
+
+
+        // Location
+        var xValues = ["Positive", "Neutral", "Negative"];
+
+        var yValues = [
+            {{ each_aspects_total_percent_list[0]["total_location_positive_percent"] }},
 
         {{ each_aspects_total_percent_list[0]["total_location_neutral_percent"] }},
 
         {{ each_aspects_total_percent_list[0]["total_location_negative_percent"] }}
-    ];
+                    ];
 
-    if (yValues.reduce((a, b) => a + b, 0) != 0) {
+        if (yValues.reduce((a, b) => a + b, 0) != 0) {
 
-        locationPieSet = new Chart("locationPie", {
-            type: "doughnut",
-            data: {
-                labels: xValues,
-                datasets: [{
-                    backgroundColor: ["green", "yellow", "red"],
-                    data: yValues
-                }
+            locationPieSet = new Chart("locationPie", {
+                type: "doughnut",
+                data: {
+                    labels: xValues,
+                    datasets: [{
+                        backgroundColor: ["green", "yellow", "red"],
+                        data: yValues
+                    }
 
-                ]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                legend: {display: false},
-                tooltips: {
-                    callbacks: {
-                        label: function (tooltipItem, data) {
-                            var allData = data.datasets[tooltipItem.datasetIndex].data;
-                            var tooltipLabel = data.labels[tooltipItem.index];
-                            var tooltipData = allData[tooltipItem.index];
-                            var total = 0;
-                            for (var i in allData) {
-                                total += allData[i];
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    legend: { display: false },
+                    tooltips: {
+                        callbacks: {
+                            label: function (tooltipItem, data) {
+                                var allData = data.datasets[tooltipItem.datasetIndex].data;
+                                var tooltipLabel = data.labels[tooltipItem.index];
+                                var tooltipData = allData[tooltipItem.index];
+                                var total = 0;
+                                for (var i in allData) {
+                                    total += allData[i];
+                                }
+
+                                return tooltipLabel + ': ' + tooltipData + '%';
                             }
-
-                            return tooltipLabel + ': ' + tooltipData + '%';
                         }
                     }
-                }
-            },
+                },
 
-        });
+            });
 
-        locationPieSet.canvas.parentNode.style.height = '200px';
-        locationPieSet.canvas.parentNode.style.width = '200px';
+            locationPieSet.canvas.parentNode.style.height = '200px';
+            locationPieSet.canvas.parentNode.style.width = '200px';
 
-    } else {
+        } else {
 
-        const location_canvas = document.getElementById("locationPie");
-        const location_ctx = location_canvas.getContext("2d");
-        location_ctx.font = "30px : let polarity = Noto Sans";
-        location_ctx.fillText("Not Available", 10, 50);
+            const location_canvas = document.getElementById("locationPie");
+            const location_ctx = location_canvas.getContext("2d");
+            location_ctx.font = "30px : let polarity = Noto Sans";
+            location_ctx.fillText("Not Available", 10, 50);
 
-    }
-    ;
+        };
 
 
-    // Service
-    var yValues = [
-        {{ each_aspects_total_percent_list[1]["total_service_positive_percent"] }},
+        // Service
+        var yValues = [
+            {{ each_aspects_total_percent_list[1]["total_service_positive_percent"] }},
 
         {{ each_aspects_total_percent_list[1]["total_service_neutral_percent"] }},
 
         {{ each_aspects_total_percent_list[1]["total_service_negative_percent"] }}
-    ];
+                    ];
 
-    if (yValues.reduce((a, b) => a + b, 0) != 0) {
+        if (yValues.reduce((a, b) => a + b, 0) != 0) {
 
-        servicePieSet = new Chart("servicePie", {
-            type: "doughnut",
-            data: {
-                labels: xValues,
-                datasets: [{
-                    backgroundColor: ["green", "yellow", "red"],
-                    data: yValues
-                }
+            servicePieSet = new Chart("servicePie", {
+                type: "doughnut",
+                data: {
+                    labels: xValues,
+                    datasets: [{
+                        backgroundColor: ["green", "yellow", "red"],
+                        data: yValues
+                    }
 
-                ]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                legend: {display: false},
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    legend: { display: false },
 
-                tooltips: {
-                    callbacks: {
-                        label: function (tooltipItem, data) {
-                            var allData = data.datasets[tooltipItem.datasetIndex].data;
-                            var tooltipLabel = data.labels[tooltipItem.index];
-                            var tooltipData = allData[tooltipItem.index];
-                            var total = 0;
-                            for (var i in allData) {
-                                total += allData[i];
+                    tooltips: {
+                        callbacks: {
+                            label: function (tooltipItem, data) {
+                                var allData = data.datasets[tooltipItem.datasetIndex].data;
+                                var tooltipLabel = data.labels[tooltipItem.index];
+                                var tooltipData = allData[tooltipItem.index];
+                                var total = 0;
+                                for (var i in allData) {
+                                    total += allData[i];
+                                }
+
+                                return tooltipLabel + ': ' + tooltipData + '%';
                             }
-
-                            return tooltipLabel + ': ' + tooltipData + '%';
                         }
                     }
-                }
 
-            },
+                },
 
-        });
+            });
 
-        servicePieSet.canvas.parentNode.style.height = '200px';
-        servicePieSet.canvas.parentNode.style.width = '200px';
+            servicePieSet.canvas.parentNode.style.height = '200px';
+            servicePieSet.canvas.parentNode.style.width = '200px';
 
-    } else {
+        } else {
 
-        const service_canvas = document.getElementById("servicePie");
-        const service_ctx = service_canvas.getContext("2d");
-        service_ctx.font = "30px : let polarity = Noto Sans";
-        service_ctx.fillText("Not Available", 10, 50);
+            const service_canvas = document.getElementById("servicePie");
+            const service_ctx = service_canvas.getContext("2d");
+            service_ctx.font = "30px : let polarity = Noto Sans";
+            service_ctx.fillText("Not Available", 10, 50);
 
-    }
+        }
 
-    // Price
-    var yValues = [
-        {{ each_aspects_total_percent_list[2]["total_price_positive_percent"] }},
+        // Price
+        var yValues = [
+            {{ each_aspects_total_percent_list[2]["total_price_positive_percent"] }},
 
         {{ each_aspects_total_percent_list[2]["total_price_neutral_percent"] }},
 
         {{ each_aspects_total_percent_list[2]["total_price_negative_percent"] }}
-    ];
+                    ];
 
-    if (yValues.reduce((a, b) => a + b, 0) != 0) {
+        if (yValues.reduce((a, b) => a + b, 0) != 0) {
 
-        pricePieSet = new Chart("pricePie", {
-            type: "doughnut",
-            data: {
-                labels: xValues,
-                datasets: [{
-                    backgroundColor: ["green", "yellow", "red"],
-                    data: yValues
-                }
+            pricePieSet = new Chart("pricePie", {
+                type: "doughnut",
+                data: {
+                    labels: xValues,
+                    datasets: [{
+                        backgroundColor: ["green", "yellow", "red"],
+                        data: yValues
+                    }
 
-                ]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                legend: {display: false},
-                tooltips: {
-                    callbacks: {
-                        label: function (tooltipItem, data) {
-                            var allData = data.datasets[tooltipItem.datasetIndex].data;
-                            var tooltipLabel = data.labels[tooltipItem.index];
-                            var tooltipData = allData[tooltipItem.index];
-                            var total = 0;
-                            for (var i in allData) {
-                                total += allData[i];
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    legend: { display: false },
+                    tooltips: {
+                        callbacks: {
+                            label: function (tooltipItem, data) {
+                                var allData = data.datasets[tooltipItem.datasetIndex].data;
+                                var tooltipLabel = data.labels[tooltipItem.index];
+                                var tooltipData = allData[tooltipItem.index];
+                                var total = 0;
+                                for (var i in allData) {
+                                    total += allData[i];
+                                }
+
+                                return tooltipLabel + ': ' + tooltipData + '%';
                             }
-
-                            return tooltipLabel + ': ' + tooltipData + '%';
                         }
                     }
                 }
-            }
-        });
+            });
 
-        pricePieSet.canvas.parentNode.style.height = '200px';
-        pricePieSet.canvas.parentNode.style.width = '200px';
+            pricePieSet.canvas.parentNode.style.height = '200px';
+            pricePieSet.canvas.parentNode.style.width = '200px';
 
-    } else {
+        } else {
 
-        const price_canvas = document.getElementById("pricePie");
-        const price_ctx = price_canvas.getContext("2d");
-        price_ctx.font = "30px : let polarity = Noto Sans";
-        price_ctx.fillText("Not Available", 10, 50);
+            const price_canvas = document.getElementById("pricePie");
+            const price_ctx = price_canvas.getContext("2d");
+            price_ctx.font = "30px : let polarity = Noto Sans";
+            price_ctx.fillText("Not Available", 10, 50);
 
-    }
+        }
 
-    // Environment
-    var yValues = [
-        {{ each_aspects_total_percent_list[3]["total_environment_positive_percent"] }},
+        // Environment
+        var yValues = [
+            {{ each_aspects_total_percent_list[3]["total_environment_positive_percent"] }},
 
         {{ each_aspects_total_percent_list[3]["total_environment_neutral_percent"] }},
 
         {{ each_aspects_total_percent_list[3]["total_environment_negative_percent"] }}
-    ];
+                    ];
 
-    if (yValues.reduce((a, b) => a + b, 0) != 0) {
+        if (yValues.reduce((a, b) => a + b, 0) != 0) {
 
-        environmentPieSet = new Chart("environmentPie", {
-            type: "doughnut",
-            data: {
-                labels: xValues,
-                datasets: [{
-                    backgroundColor: ["green", "yellow", "red"],
-                    data: yValues
-                }
+            environmentPieSet = new Chart("environmentPie", {
+                type: "doughnut",
+                data: {
+                    labels: xValues,
+                    datasets: [{
+                        backgroundColor: ["green", "yellow", "red"],
+                        data: yValues
+                    }
 
-                ]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                legend: {display: false},
-                tooltips: {
-                    callbacks: {
-                        label: function (tooltipItem, data) {
-                            var allData = data.datasets[tooltipItem.datasetIndex].data;
-                            var tooltipLabel = data.labels[tooltipItem.index];
-                            var tooltipData = allData[tooltipItem.index];
-                            var total = 0;
-                            for (var i in allData) {
-                                total += allData[i];
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    legend: { display: false },
+                    tooltips: {
+                        callbacks: {
+                            label: function (tooltipItem, data) {
+                                var allData = data.datasets[tooltipItem.datasetIndex].data;
+                                var tooltipLabel = data.labels[tooltipItem.index];
+                                var tooltipData = allData[tooltipItem.index];
+                                var total = 0;
+                                for (var i in allData) {
+                                    total += allData[i];
+                                }
+
+                                return tooltipLabel + ': ' + tooltipData + '%';
                             }
-
-                            return tooltipLabel + ': ' + tooltipData + '%';
                         }
                     }
                 }
-            }
-        });
+            });
 
-        environmentPieSet.canvas.parentNode.style.height = '200px';
-        environmentPieSet.canvas.parentNode.style.width = '200px';
+            environmentPieSet.canvas.parentNode.style.height = '200px';
+            environmentPieSet.canvas.parentNode.style.width = '200px';
 
-    } else {
+        } else {
 
-        const environment_canvas = document.getElementById("environmentPie");
-        const environment_ctx = environment_canvas.getContext("2d");
-        environment_ctx.font = "30px : let polarity = Noto Sans";
-        environment_ctx.fillText("Not Available", 10, 50);
+            const environment_canvas = document.getElementById("environmentPie");
+            const environment_ctx = environment_canvas.getContext("2d");
+            environment_ctx.font = "30px : let polarity = Noto Sans";
+            environment_ctx.fillText("Not Available", 10, 50);
 
-    }
+        }
 
-    // Dish
-    var yValues = [
-        {{ each_aspects_total_percent_list[4]["total_dish_positive_percent"] }},
+        // Dish
+        var yValues = [
+            {{ each_aspects_total_percent_list[4]["total_dish_positive_percent"] }},
 
         {{ each_aspects_total_percent_list[4]["total_dish_neutral_percent"] }},
 
         {{ each_aspects_total_percent_list[4]["total_dish_negative_percent"] }}
-    ];
+                    ];
 
-    if (yValues.reduce((a, b) => a + b, 0) != 0) {
+        if (yValues.reduce((a, b) => a + b, 0) != 0) {
 
-        dishPieSet = new Chart("dishPie", {
-            type: "doughnut",
-            data: {
-                labels: xValues,
-                datasets: [{
-                    backgroundColor: ["green", "yellow", "red"],
-                    data: yValues
-                }
+            dishPieSet = new Chart("dishPie", {
+                type: "doughnut",
+                data: {
+                    labels: xValues,
+                    datasets: [{
+                        backgroundColor: ["green", "yellow", "red"],
+                        data: yValues
+                    }
 
-                ]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                legend: {display: false},
-                tooltips: {
-                    callbacks: {
-                        label: function (tooltipItem, data) {
-                            var allData = data.datasets[tooltipItem.datasetIndex].data;
-                            var tooltipLabel = data.labels[tooltipItem.index];
-                            var tooltipData = allData[tooltipItem.index];
-                            var total = 0;
-                            for (var i in allData) {
-                                total += allData[i];
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    legend: { display: false },
+                    tooltips: {
+                        callbacks: {
+                            label: function (tooltipItem, data) {
+                                var allData = data.datasets[tooltipItem.datasetIndex].data;
+                                var tooltipLabel = data.labels[tooltipItem.index];
+                                var tooltipData = allData[tooltipItem.index];
+                                var total = 0;
+                                for (var i in allData) {
+                                    total += allData[i];
+                                }
+
+                                return tooltipLabel + ': ' + tooltipData + '%';
                             }
-
-                            return tooltipLabel + ': ' + tooltipData + '%';
                         }
                     }
                 }
-            }
-        });
+            });
 
-        dishPieSet.canvas.parentNode.style.height = '200px';
-        dishPieSet.canvas.parentNode.style.width = '200px';
+            dishPieSet.canvas.parentNode.style.height = '200px';
+            dishPieSet.canvas.parentNode.style.width = '200px';
 
-    } else {
+        } else {
 
-        const dish_canvas = document.getElementById("dishPie");
-        const dish_ctx = dish_canvas.getContext("2d");
-        dish_ctx.font = "30px : let polarity = Noto Sans";
-        dish_ctx.fillText("Not Available", 10, 50);
+            const dish_canvas = document.getElementById("dishPie");
+            const dish_ctx = dish_canvas.getContext("2d");
+            dish_ctx.font = "30px : let polarity = Noto Sans";
+            dish_ctx.fillText("Not Available", 10, 50);
 
-    }
+        }
 
 
-    // Others
-    var yValues = [
-        {{ each_aspects_total_percent_list[5]["total_others_positive_percent"] }},
+        // Others
+        var yValues = [
+            {{ each_aspects_total_percent_list[5]["total_others_positive_percent"] }},
 
         {{ each_aspects_total_percent_list[5]["total_others_neutral_percent"] }},
 
         {{ each_aspects_total_percent_list[5]["total_others_negative_percent"] }}
-    ];
+                    ];
 
-    if (yValues.reduce((a, b) => a + b, 0) != 0) {
+        if (yValues.reduce((a, b) => a + b, 0) != 0) {
 
-        othersPieSet = new Chart("othersPie", {
-            type: "doughnut",
-            data: {
-                labels: xValues,
-                datasets: [{
-                    backgroundColor: ["green", "yellow", "red"],
-                    data: yValues
-                }
-
-                ]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                legend: {display: false},
-                tooltips: {
-                    callbacks: {
-                        label: function (tooltipItem, data) {
-                            var allData = data.datasets[tooltipItem.datasetIndex].data;
-                            var tooltipLabel = data.labels[tooltipItem.index];
-                            var tooltipData = allData[tooltipItem.index];
-                            var total = 0;
-                            for (var i in allData) {
-                                total += allData[i];
-                            }
-
-                            return tooltipLabel + ': ' + tooltipData + '%';
-                        }
+            othersPieSet = new Chart("othersPie", {
+                type: "doughnut",
+                data: {
+                    labels: xValues,
+                    datasets: [{
+                        backgroundColor: ["green", "yellow", "red"],
+                        data: yValues
                     }
-                }
-            }
-        });
 
-        othersPieSet.canvas.parentNode.style.height = '200px';
-        othersPieSet.canvas.parentNode.style.width = '200px';
-
-    } else {
-
-        const others_canvas = document.getElementById("othersPie");
-        const others_ctx = others_canvas.getContext("2d");
-        others_ctx.font = "30px : let polarity = Noto Sans";
-        others_ctx.fillText("Not Available", 10, 50);
-
-    }
-
-
-</script>
-<!--  chart script -->
-
-
-<!-- comment chart -->
-
-<script>
-
-    for (let i = 0; i < {{ id_length }}; i++) {
-
-        var location_traffic_convenience_data = [0, 0, 0, 0, 0, 0];
-        var location_distance_from_business_district_data = [0, 0, 0, 0, 0, 0];
-        var location_easy_to_find_data = [0, 0, 0, 0, 0, 0];
-
-        var service_wait_time_data = [0, 0, 0, 0, 0, 0];
-        var service_waiters_attitude_data = [0, 0, 0, 0, 0, 0];
-        var service_parking_convenience_data = [0, 0, 0, 0, 0, 0];
-        var service_serving_speed_data = [0, 0, 0, 0, 0, 0];
-
-        var price_level_data = [0, 0, 0, 0, 0, 0];
-        var price_cost_effective_data = [0, 0, 0, 0, 0, 0];
-        var price_discount_data = [0, 0, 0, 0, 0, 0];
-
-        var environment_decoration_data = [0, 0, 0, 0, 0, 0];
-        var environment_noise_data = [0, 0, 0, 0, 0, 0];
-        var environment_space_data = [0, 0, 0, 0, 0, 0];
-        var environment_cleaness_data = [0, 0, 0, 0, 0, 0];
-
-        var dish_portion_data = [0, 0, 0, 0, 0, 0];
-        var dish_taste_data = [0, 0, 0, 0, 0, 0];
-        var dish_look_data = [0, 0, 0, 0, 0, 0];
-        var dish_recommendation_data = [0, 0, 0, 0, 0, 0];
-
-        var others_overall_experience_data = [0, 0, 0, 0, 0, 0];
-        var others_willing_to_consume_again_data = [0, 0, 0, 0, 0, 0];
-
-        if ({{ location_traffic_convenience_list }}[i] != -2) {
-            location_traffic_convenience_data = [1, 0, 0, 0, 0, 0]
-        }
-        ;
-        if ({{ location_distance_from_business_district_list }}[i] != -2) {
-            location_distance_from_business_district_data = [1, 0, 0, 0, 0, 0]
-        }
-        ;
-        if ({{ location_easy_to_find_list }}[i] != -2) {
-            location_easy_to_find_data = [1, 0, 0, 0, 0, 0]
-        }
-        ;
-
-        if ({{ service_wait_time_list }}[i] != -2) {
-            service_wait_time_data = [0, 1, 0, 0, 0, 0]
-        }
-        ;
-        if ({{ service_waiters_attitude_list }}[i] != -2) {
-            service_waiters_attitude_data = [0, 1, 0, 0, 0, 0]
-        }
-        ;
-        if ({{ service_parking_convenience_list }}[i] != -2) {
-            service_parking_convenience_data = [0, 1, 0, 0, 0, 0]
-        }
-        ;
-        if ({{ service_serving_speed_list }}[i] != -2) {
-            service_serving_speed_data = [0, 1, 0, 0, 0, 0]
-        }
-        ;
-
-        if ({{ price_level_list }}[i] != -2) {
-            price_level_data = [0, 0, 1, 0, 0, 0]
-        }
-        ;
-        if ({{ price_cost_effective_list }}[i] != -2) {
-            price_cost_effective_data = [0, 0, 1, 0, 0, 0]
-        }
-        ;
-        if ({{ price_discount_list }}[i] != -2) {
-            price_discount_data = [0, 0, 1, 0, 0, 0]
-        }
-        ;
-
-        if ({{ environment_decoration_list }}[i] != -2) {
-            environment_decoration_data = [0, 0, 0, 1, 0, 0]
-        }
-        ;
-        if ({{ environment_noise_list }}[i] != -2) {
-            environment_noise_data = [0, 0, 0, 1, 0, 0]
-        }
-        ;
-        if ({{ environment_space_list }}[i] != -2) {
-            environment_space_data = [0, 0, 0, 1, 0, 0]
-        }
-        ;
-        if ({{ environment_cleaness_list }}[i] != -2) {
-            environment_cleaness_data = [0, 0, 0, 1, 0, 0]
-        }
-        ;
-
-        if ({{ dish_portion_list }}[i] != -2) {
-            dish_portion_data = [0, 0, 0, 0, 1, 0]
-        }
-        ;
-        if ({{ dish_taste_list }}[i] != -2) {
-            dish_taste_data = [0, 0, 0, 0, 1, 0]
-        }
-        ;
-        if ({{ dish_look_list }}[i] != -2) {
-            dish_look_data = [0, 0, 0, 0, 1, 0]
-        }
-        ;
-        if ({{ dish_recommendation_list }}[i] != -2) {
-            dish_recommendation_data = [0, 0, 0, 0, 1, 0]
-        }
-        ;
-
-        if ({{ others_overall_experience_list }}[i] != -2) {
-            others_overall_experience_data = [0, 0, 0, 0, 0, 1]
-        }
-        ;
-        if ({{ others_willing_to_consume_again_list }}[i] != -2) {
-            others_willing_to_consume_again_data = [0, 0, 0, 0, 0, 1]
-        }
-        ;
-
-        datasets = [
-
-            ////////////// location
-            {
-                label: 'location_traffic_convenience',
-                data: location_traffic_convenience_data,
-                backgroundColor: '#22aa99',
-                barThickness: 'flex'
-            },
-            {
-                label: 'location_distance_from_business_district',
-                data: location_distance_from_business_district_data,
-                backgroundColor: '#994499',
-                barThickness: 'flex'
-            },
-            {
-                label: 'location_easy_to_find',
-                data: location_easy_to_find_data,
-                backgroundColor: '#316395',
-                barThickness: 'flex'
-            },
-
-            ////////////// service
-            {label: 'service_wait_time', data: service_wait_time_data, backgroundColor: 'yellow', barThickness: 'flex'},
-            {
-                label: 'service_waiters_attitude',
-                data: service_waiters_attitude_data,
-                backgroundColor: 'red',
-                barThickness: 'flex'
-            },
-            {
-                label: 'service_parking_convenience',
-                data: service_parking_convenience_data,
-                backgroundColor: 'blue',
-                barThickness: 'flex'
-            },
-            {
-                label: 'service_serving_speed',
-                data: service_serving_speed_data,
-                backgroundColor: 'green',
-                barThickness: 'flex'
-            },
-
-            ////////////// price
-            {label: 'price_level', data: price_level_data, backgroundColor: 'yellow', barThickness: 'flex'},
-            {
-                label: 'price_cost_effective',
-                data: price_cost_effective_data,
-                backgroundColor: 'red',
-                barThickness: 'flex'
-            },
-            {label: 'price_discount', data: price_discount_data, backgroundColor: 'blue', barThickness: 'flex'},
-
-            ////////////// environment
-            {
-                label: 'environment_decoration',
-                data: environment_decoration_data,
-                backgroundColor: 'yellow',
-                barThickness: 'flex'
-            },
-            {label: 'environment_noise', data: environment_noise_data, backgroundColor: 'red', barThickness: 'flex'},
-            {label: 'environment_space', data: environment_space_data, backgroundColor: 'blue', barThickness: 'flex'},
-            {
-                label: 'environment_cleaness',
-                data: environment_cleaness_data,
-                backgroundColor: 'green',
-                barThickness: 'flex'
-            },
-
-            ////////////// dish
-            {label: 'dish_portion', data: dish_portion_data, backgroundColor: 'yellow', barThickness: 'flex'},
-            {label: 'dish_taste', data: dish_taste_data, backgroundColor: 'red', barThickness: 'flex'},
-            {label: 'dish_look', data: dish_look_data, backgroundColor: 'blue', barThickness: 'flex'},
-            {
-                label: 'dish_recommendation',
-                data: dish_recommendation_data,
-                backgroundColor: 'green',
-                barThickness: 'flex'
-            },
-
-            ////////////// others
-            {
-                label: 'others_overall_experience',
-                data: others_overall_experience_data,
-                backgroundColor: 'yellow',
-                barThickness: 'flex'
-            },
-            {
-                label: 'others_willing_to_consume_again',
-                data: others_willing_to_consume_again_data,
-                backgroundColor: 'red',
-                barThickness: 'flex'
-            }
-
-        ]
-
-        var ctx = document.getElementById("commentBarChart" + i.toString()).getContext('2d');
-
-        var comment_chart = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: ['Location', 'Service', "Price", "Environment", "Dish", "Others"],
-                datasets: datasets
-            },
-            options: {
-                responsive: false,
-                legend: {display: false},
-                scales: {
-                    xAxes: [{stacked: true}],
-                    yAxes: [{stacked: true}],
-
+                    ]
                 },
-
-                tooltips: {
-                    callbacks: {
-                        label: function (tooltipItem, data) {
-                            function setPolarity(hover_label, index_num) {
-
-                                // the dictionary value store the bar name
-                                aspect_name_dict = {
-                                    "location_traffic_convenience": "location traffic convenience",
-                                    "location_distance_from_business_district": "location distance from business district",
-                                    "location_easy_to_find": "location easy to find",
-
-                                    "service_wait_time": "service wait time",
-                                    "service_waiters_attitude": "service waiters attitude",
-                                    "service_parking_convenience": "service parking convenience",
-                                    "service_serving_speed": "service serving speed",
-
-                                    "price_level": "price level",
-                                    "price_cost_effective": "price cost effective",
-                                    "price_discount": "price discount",
-
-                                    "environment_decoration": "environment decoration",
-                                    "environment_noise": "environment noise",
-                                    "environment_space": "environment space",
-                                    "environment_cleaness": "environment cleaness",
-
-                                    "dish_portion": "dish portion",
-                                    "dish_taste": "dish taste",
-                                    "dish_look": "dish look",
-                                    "dish_recommendation": "dish recommendation",
-
-                                    "others_overall_experience": "others overall experience",
-                                    "others_willing_to_consume_again": "others willing to consume again"
-
-                                }
-                                if (hover_label == "location_traffic_convenience") {
-                                    switch ({{ location_traffic_convenience_list }}[index_num]) {
-                                        case 1:
-                                            var polarity = "Positive";
-                                            break;
-                                        case 0:
-                                            var polarity = "Neutral";
-                                            break;
-                                        case -1:
-                                            var polarity = "Negative";
-                                            break;
-                                        default:
-                                            var polarity = "Null";
-                                            break;
-                                    }
-
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    legend: { display: false },
+                    tooltips: {
+                        callbacks: {
+                            label: function (tooltipItem, data) {
+                                var allData = data.datasets[tooltipItem.datasetIndex].data;
+                                var tooltipLabel = data.labels[tooltipItem.index];
+                                var tooltipData = allData[tooltipItem.index];
+                                var total = 0;
+                                for (var i in allData) {
+                                    total += allData[i];
                                 }
 
-                                if (hover_label == "location_distance_from_business_district") {
-                                    switch ({{ location_distance_from_business_district_list }}[index_num]) {
-                                        case 1:
-                                            var polarity = "Positive";
-                                            break;
-                                        case 0:
-                                            var polarity = "Neutral";
-                                            break;
-                                        case -1:
-                                            var polarity = "Negative";
-                                            break;
-                                        default:
-                                            var polarity = "Null";
-                                            break;
-                                    }
-                                }
-
-                                if (hover_label == "location_easy_to_find") {
-                                    switch ({{ location_easy_to_find_list }}[index_num]) {
-                                        case 1:
-                                            var polarity = "Positive";
-                                            break;
-                                        case 0:
-                                            var polarity = "Neutral";
-                                            break;
-                                        case -1:
-                                            var polarity = "Negative";
-                                            break;
-                                        default:
-                                            var polarity = "Null";
-                                            break;
-                                    }
-
-                                }
-
-                                if (hover_label == "service_wait_time") {
-                                    switch ({{ service_wait_time_list }}[index_num]) {
-                                        case 1:
-                                            var polarity = "Positive";
-                                            break;
-                                        case 0:
-                                            var polarity = "Neutral";
-                                            break;
-                                        case -1:
-                                            var polarity = "Negative";
-                                            break;
-                                        default:
-                                            var polarity = "Null";
-                                            break;
-                                    }
-                                }
-
-                                if (hover_label == "service_waiters_attitude") {
-                                    switch ({{ service_waiters_attitude_list }}[index_num]) {
-                                        case 1:
-                                            var polarity = "Positive";
-                                            break;
-                                        case 0:
-                                            var polarity = "Neutral";
-                                            break;
-                                        case -1:
-                                            var polarity = "Negative";
-                                            break;
-                                        default:
-                                            var polarity = "Null";
-                                            break;
-                                    }
-                                }
-
-                                if (hover_label == "service_parking_convenience") {
-                                    switch ({{ service_parking_convenience_list }}[index_num]) {
-                                        case 1:
-                                            var polarity = "Positive";
-                                            break;
-                                        case 0:
-                                            var polarity = "Neutral";
-                                            break;
-                                        case -1:
-                                            var polarity = "Negative";
-                                            break;
-                                        default:
-                                            var polarity = "Null";
-                                            break;
-                                    }
-                                }
-
-                                if (hover_label == "service_serving_speed") {
-                                    switch ({{ service_serving_speed_list }}[index_num]) {
-                                        case 1:
-                                            var polarity = "Positive";
-                                            break;
-                                        case 0:
-                                            var polarity = "Neutral";
-                                            break;
-                                        case -1:
-                                            var polarity = "Negative";
-                                            break;
-                                        default:
-                                            var polarity = "Null";
-                                            break;
-                                    }
-                                }
-
-                                if (hover_label == "price_level") {
-                                    switch ({{ price_level_list }}[index_num]) {
-                                        case 1:
-                                            var polarity = "Positive";
-                                            break;
-                                        case 0:
-                                            var polarity = "Neutral";
-                                            break;
-                                        case -1:
-                                            var polarity = "Negative";
-                                            break;
-                                        default:
-                                            var polarity = "Null";
-                                            break;
-                                    }
-                                }
-
-                                if (hover_label == "price_cost_effective") {
-                                    switch ({{ price_cost_effective_list }}[index_num]) {
-                                        case 1:
-                                            var polarity = "Positive";
-                                            break;
-                                        case 0:
-                                            var polarity = "Neutral";
-                                            break;
-                                        case -1:
-                                            var polarity = "Negative";
-                                            break;
-                                        default:
-                                            var polarity = "Null";
-                                            break;
-                                    }
-                                }
-
-                                if (hover_label == "price_discount") {
-                                    switch ({{ price_discount_list }}[index_num]) {
-                                        case 1:
-                                            var polarity = "Positive";
-                                            break;
-                                        case 0:
-                                            var polarity = "Neutral";
-                                            break;
-                                        case -1:
-                                            var polarity = "Negative";
-                                            break;
-                                        default:
-                                            var polarity = "Null";
-                                            break;
-                                    }
-                                }
-
-                                if (hover_label == "environment_decoration") {
-                                    switch ({{ environment_decoration_list }}[index_num]) {
-                                        case 1:
-                                            var polarity = "Positive";
-                                            break;
-                                        case 0:
-                                            var polarity = "Neutral";
-                                            break;
-                                        case -1:
-                                            var polarity = "Negative";
-                                            break;
-                                        default:
-                                            var polarity = "Null";
-                                            break;
-                                    }
-                                }
-
-                                if (hover_label == "environment_noise") {
-                                    switch ({{ environment_noise_list }}[index_num]) {
-                                        case 1:
-                                            var polarity = "Positive";
-                                            break;
-                                        case 0:
-                                            var polarity = "Neutral";
-                                            break;
-                                        case -1:
-                                            var polarity = "Negative";
-                                            break;
-                                        default:
-                                            var polarity = "Null";
-                                            break;
-                                    }
-
-                                }
-
-                                if (hover_label == "environment_space") {
-                                    switch ({{ environment_space_list }}[index_num]) {
-                                        case 1:
-                                            var polarity = "Positive";
-                                            break;
-                                        case 0:
-                                            var polarity = "Neutral";
-                                            break;
-                                        case -1:
-                                            var polarity = "Negative";
-                                            break;
-                                        default:
-                                            var polarity = "Null";
-                                            break;
-                                    }
-                                }
-
-                                if (hover_label == "environment_cleaness") {
-                                    switch ({{ environment_cleaness_list }}[index_num]) {
-                                        case 1:
-                                            var polarity = "Positive";
-                                            break;
-                                        case 0:
-                                            var polarity = "Neutral";
-                                            break;
-                                        case -1:
-                                            var polarity = "Negative";
-                                            break;
-                                        default:
-                                            var polarity = "Null";
-                                            break;
-                                    }
-                                }
-
-                                if (hover_label == "dish_portion") {
-                                    switch ({{ dish_portion_list }}[index_num]) {
-                                        case 1:
-                                            var polarity = "Positive";
-                                            break;
-                                        case 0:
-                                            var polarity = "Neutral";
-                                            break;
-                                        case -1:
-                                            var polarity = "Negative";
-                                            break;
-                                        default:
-                                            var polarity = "Null";
-                                            break;
-                                    }
-                                }
-
-                                if (hover_label == "dish_taste") {
-                                    switch ({{ dish_taste_list }}[index_num]) {
-                                        case 1:
-                                            var polarity = "Positive";
-                                            break;
-                                        case 0:
-                                            var polarity = "Neutral";
-                                            break;
-                                        case -1:
-                                            var polarity = "Negative";
-                                            break;
-                                        default:
-                                            var polarity = "Null";
-                                            break;
-                                    }
-                                }
-
-                                if (hover_label == "dish_look") {
-                                    switch ({{ dish_look_list }}[index_num]) {
-                                        case 1:
-                                            var polarity = "Positive";
-                                            break;
-                                        case 0:
-                                            var polarity = "Neutral";
-                                            break;
-                                        case -1:
-                                            var polarity = "Negative";
-                                            break;
-                                        default:
-                                            var polarity = "Null";
-                                            break;
-                                    }
-
-                                }
-
-                                if (hover_label == "dish_recommendation") {
-                                    switch ({{ dish_recommendation_list }}[index_num]) {
-                                        case 1:
-                                            var polarity = "Positive";
-                                            break;
-                                        case 0:
-                                            var polarity = "Neutral";
-                                            break;
-                                        case -1:
-                                            var polarity = "Negative";
-                                            break;
-                                        default:
-                                            var polarity = "Null";
-                                            break;
-                                    }
-                                }
-
-                                if (hover_label == "others_overall_experience") {
-                                    switch ({{ others_overall_experience_list }}[index_num]) {
-                                        case 1:
-                                            var polarity = "Positive";
-                                            break;
-                                        case 0:
-                                            var polarity = "Neutral";
-                                            break;
-                                        case -1:
-                                            var polarity = "Negative";
-                                            break;
-                                        default:
-                                            var polarity = "Null";
-                                            break;
-                                    }
-                                }
-
-                                if (hover_label == "others_willing_to_consume_again") {
-                                    switch ({{ others_willing_to_consume_again_list }}[index_num]) {
-                                        case 1:
-                                            var polarity = "Positive";
-                                            break;
-                                        case 0:
-                                            var polarity = "Neutral";
-                                            break;
-                                        case -1:
-                                            var polarity = "Negative";
-                                            break;
-                                        default:
-                                            var polarity = "Null";
-                                            break;
-                                    }
-                                }
-
-                                return `${aspect_name_dict[hover_label]} (${polarity})`;
-
+                                return tooltipLabel + ': ' + tooltipData + '%';
                             }
-
-                            var hover_label = data.datasets[tooltipItem.datasetIndex].label;
-
-                            new_label = setPolarity(hover_label, i);
-
-                            return new_label;
-
                         }
                     }
-
                 }
-            }
-        });
+            });
 
-        comment_chart.canvas.parentNode.style.height = '500px';
-        comment_chart.canvas.parentNode.style.width = '500px';
+            othersPieSet.canvas.parentNode.style.height = '200px';
+            othersPieSet.canvas.parentNode.style.width = '200px';
 
-    }
-    ;
+        } else {
 
-</script>
-<!-- comment chart -->
+            const others_canvas = document.getElementById("othersPie");
+            const others_ctx = others_canvas.getContext("2d");
+            others_ctx.font = "30px : let polarity = Noto Sans";
+            others_ctx.fillText("Not Available", 10, 50);
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        }
+
+
+
+    </script>
+    <!--  chart script -->
+
+
+    <!-- comment chart -->
+
+    <script>
+
+        for (let i = 0; i < {{ id_length }}; i++) {
+
+            var location_traffic_convenience_data = [0, 0, 0, 0, 0, 0];
+            var location_distance_from_business_district_data = [0, 0, 0, 0, 0, 0];
+            var location_easy_to_find_data = [0, 0, 0, 0, 0, 0];
+
+            var service_wait_time_data = [0, 0, 0, 0, 0, 0];
+            var service_waiters_attitude_data = [0, 0, 0, 0, 0, 0];
+            var service_parking_convenience_data = [0, 0, 0, 0, 0, 0];
+            var service_serving_speed_data = [0, 0, 0, 0, 0, 0];
+
+            var price_level_data = [0, 0, 0, 0, 0, 0];
+            var price_cost_effective_data = [0, 0, 0, 0, 0, 0];
+            var price_discount_data = [0, 0, 0, 0, 0, 0];
+
+            var environment_decoration_data = [0, 0, 0, 0, 0, 0];
+            var environment_noise_data = [0, 0, 0, 0, 0, 0];
+            var environment_space_data = [0, 0, 0, 0, 0, 0];
+            var environment_cleaness_data = [0, 0, 0, 0, 0, 0];
+
+            var dish_portion_data = [0, 0, 0, 0, 0, 0];
+            var dish_taste_data = [0, 0, 0, 0, 0, 0];
+            var dish_look_data = [0, 0, 0, 0, 0, 0];
+            var dish_recommendation_data = [0, 0, 0, 0, 0, 0];
+
+            var others_overall_experience_data = [0, 0, 0, 0, 0, 0];
+            var others_willing_to_consume_again_data = [0, 0, 0, 0, 0, 0];
+
+            if ({{ location_traffic_convenience_list }}[i] != -2) { location_traffic_convenience_data = [1, 0, 0, 0, 0, 0] };
+            if ({{ location_distance_from_business_district_list }}[i] != -2) { location_distance_from_business_district_data = [1, 0, 0, 0, 0, 0] };
+            if ({{ location_easy_to_find_list }}[i] != -2) { location_easy_to_find_data = [1, 0, 0, 0, 0, 0] };
+
+            if ({{ service_wait_time_list }}[i] != -2) { service_wait_time_data = [0, 1, 0, 0, 0, 0] };
+            if ({{ service_waiters_attitude_list }}[i] != -2) { service_waiters_attitude_data = [0, 1, 0, 0, 0, 0] };
+            if ({{ service_parking_convenience_list }}[i] != -2) { service_parking_convenience_data = [0, 1, 0, 0, 0, 0] };
+            if ({{ service_serving_speed_list }}[i] != -2) { service_serving_speed_data = [0, 1, 0, 0, 0, 0] };
+
+            if ({{ price_level_list }}[i] != -2) { price_level_data = [0, 0, 1, 0, 0, 0] };
+            if ({{ price_cost_effective_list }}[i] != -2) { price_cost_effective_data = [0, 0, 1, 0, 0, 0] };
+            if ({{ price_discount_list }}[i] != -2) { price_discount_data = [0, 0, 1, 0, 0, 0] };
+
+            if ({{ environment_decoration_list }}[i] != -2) { environment_decoration_data = [0, 0, 0, 1, 0, 0] };
+            if ({{ environment_noise_list }}[i] != -2) { environment_noise_data = [0, 0, 0, 1, 0, 0] };
+            if ({{ environment_space_list }}[i] != -2) { environment_space_data = [0, 0, 0, 1, 0, 0] };
+            if ({{ environment_cleaness_list }}[i] != -2) { environment_cleaness_data = [0, 0, 0, 1, 0, 0] };
+
+            if ({{ dish_portion_list }}[i] != -2) { dish_portion_data = [0, 0, 0, 0, 1, 0] };
+            if ({{ dish_taste_list }}[i] != -2) { dish_taste_data = [0, 0, 0, 0, 1, 0] };
+            if ({{ dish_look_list }}[i] != -2) { dish_look_data = [0, 0, 0, 0, 1, 0] };
+            if ({{ dish_recommendation_list }}[i] != -2) { dish_recommendation_data = [0, 0, 0, 0, 1, 0] };
+
+            if ({{ others_overall_experience_list }}[i] != -2) { others_overall_experience_data = [0, 0, 0, 0, 0, 1] };
+            if ({{ others_willing_to_consume_again_list }}[i] != -2) { others_willing_to_consume_again_data = [0, 0, 0, 0, 0, 1] };
+
+            datasets = [
+
+                ////////////// location
+                { label: 'location_traffic_convenience', data: location_traffic_convenience_data, backgroundColor: '#003C43', barThickness : 'flex' },
+                { label: 'location_distance_from_business_district', data: location_distance_from_business_district_data, backgroundColor: '#135D66', barThickness : 'flex' },
+                { label: 'location_easy_to_find', data: location_easy_to_find_data, backgroundColor: '#77B0AA', barThickness : 'flex' },
+
+                ////////////// service
+                { label: 'service_wait_time', data: service_wait_time_data, backgroundColor: '#DBA979', barThickness : 'flex' },
+                { label: 'service_waiters_attitude', data: service_waiters_attitude_data, backgroundColor: '#ECCA9C', barThickness : 'flex' },
+                { label: 'service_parking_convenience', data: service_parking_convenience_data, backgroundColor: '#E8EFCF', barThickness : 'flex' },
+                { label: 'service_serving_speed', data: service_serving_speed_data, backgroundColor: '#AFD198', barThickness : 'flex' },
+
+                ////////////// price
+                { label: 'price_level', data: price_level_data, backgroundColor: '#B3C8CF', barThickness : 'flex' },
+                { label: 'price_cost_effective', data: price_cost_effective_data, backgroundColor: '#BED7DC', barThickness : 'flex' },
+                { label: 'price_discount', data: price_discount_data, backgroundColor: '#F1EEDC', barThickness : 'flex' },
+
+                ////////////// environment
+                { label: 'environment_decoration', data: environment_decoration_data, backgroundColor: '#496989', barThickness : 'flex' },
+                { label: 'environment_noise', data: environment_noise_data, backgroundColor: '#58A399', barThickness : 'flex' },
+                { label: 'environment_space', data: environment_space_data, backgroundColor: '#A8CD9F', barThickness : 'flex' },
+                { label: 'environment_cleaness', data: environment_cleaness_data, backgroundColor: '#E2F4C5', barThickness : 'flex' },
+
+                ////////////// dish
+                { label: 'dish_portion', data: dish_portion_data, backgroundColor: '#EADFB4', barThickness : 'flex' },
+                { label: 'dish_taste', data: dish_taste_data, backgroundColor: '#9BB0C1', barThickness : 'flex' },
+                { label: 'dish_look', data: dish_look_data, backgroundColor: '#51829B', barThickness : 'flex' },
+                { label: 'dish_recommendation', data: dish_recommendation_data, backgroundColor: '#F6995C', barThickness : 'flex' },
+
+                ////////////// others
+                { label: 'others_overall_experience', data: others_overall_experience_data, backgroundColor: '#A5DD9B', barThickness : 'flex' },
+                { label: 'others_willing_to_consume_again', data: others_willing_to_consume_again_data, backgroundColor: '#C5EBAA', barThickness : 'flex' }
+
+            ]
+
+            var ctx = document.getElementById("commentBarChart" + i.toString()).getContext('2d');
+
+            var comment_chart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Location', 'Service', "Price", "Environment", "Dish", "Others"], 
+                    datasets: datasets
+                },
+                options: {
+                      responsive: false,
+                      legend: { display : false },
+                    scales: {
+                        xAxes: [{ stacked: true }],
+                        yAxes: [{ stacked: true }],
+                        
+                    },
+
+                    tooltips: {
+                        callbacks: {
+                            label: function (tooltipItem, data) {
+                                function setPolarity(hover_label, index_num) {
+
+                                    // the dictionary value store the bar name  
+                                    aspect_name_dict = {"location_traffic_convenience" : "location traffic convenience",
+                                                        "location_distance_from_business_district" : "location distance from business district",
+                                                        "location_easy_to_find" : "location easy to find",
+
+                                                        "service_wait_time" : "service wait time",
+                                                        "service_waiters_attitude" : "service waiters attitude",
+                                                        "service_parking_convenience" : "service parking convenience",
+                                                        "service_serving_speed" : "service serving speed",
+
+                                                        "price_level" : "price level",
+                                                        "price_cost_effective" : "price cost effective",
+                                                        "price_discount" : "price discount",
+
+                                                        "environment_decoration" : "environment decoration",
+                                                        "environment_noise" : "environment noise",
+                                                        "environment_space" : "environment space",
+                                                        "environment_cleaness" : "environment cleaness",
+
+                                                        "dish_portion" : "dish portion",
+                                                        "dish_taste" : "dish taste",
+                                                        "dish_look" : "dish look",
+                                                        "dish_recommendation" : "dish recommendation",
+
+                                                        "others_overall_experience" : "others overall experience",
+                                                        "others_willing_to_consume_again" : "others willing to consume again"
+
+                                                    }
+                                    if (hover_label == "location_traffic_convenience"){
+                                        switch ({{ location_traffic_convenience_list }}[index_num]) {
+                                            case 1: var polarity = "Positive"; break;
+                                            case 0: var polarity = "Neutral"; break;
+                                            case -1: var polarity = "Negative"; break;
+                                            default: var polarity = "Null"; break;
+                                        }
+
+                                    }
+
+                                    if (hover_label == "location_distance_from_business_district"){
+                                        switch ({{ location_distance_from_business_district_list }}[index_num]) {
+                                            case 1: var polarity = "Positive"; break;
+                                            case 0: var polarity = "Neutral"; break;
+                                            case -1: var polarity = "Negative"; break;
+                                            default: var polarity = "Null"; break;
+                                        }
+                                    }
+                                    
+                                    if (hover_label == "location_easy_to_find"){
+                                        switch ({{ location_easy_to_find_list }}[index_num]) {
+                                            case 1: var polarity = "Positive"; break;
+                                            case 0: var polarity = "Neutral"; break;
+                                            case -1: var polarity = "Negative"; break;
+                                            default: var polarity = "Null"; break;
+                                        }
+
+                                    }
+                                    
+                                    if (hover_label == "service_wait_time"){
+                                        switch ({{ service_wait_time_list }}[index_num]) {
+                                            case 1: var polarity = "Positive"; break;
+                                            case 0: var polarity = "Neutral"; break;
+                                            case -1: var polarity = "Negative"; break;
+                                            default: var polarity = "Null"; break;
+                                        }
+                                    }
+
+                                    if (hover_label == "service_waiters_attitude"){
+                                        switch ({{ service_waiters_attitude_list }}[index_num]) {
+                                            case 1: var polarity = "Positive"; break;
+                                            case 0: var polarity = "Neutral"; break;
+                                            case -1: var polarity = "Negative"; break;
+                                            default: var polarity = "Null"; break;
+                                        }
+                                    }
+
+                                    if (hover_label == "service_parking_convenience"){
+                                        switch ({{ service_parking_convenience_list }}[index_num]) {
+                                            case 1: var polarity = "Positive"; break;
+                                            case 0: var polarity = "Neutral"; break;
+                                            case -1: var polarity = "Negative"; break;
+                                            default: var polarity = "Null"; break;
+                                        }
+                                    }
+
+                                    if (hover_label == "service_serving_speed"){
+                                        switch ({{ service_serving_speed_list }}[index_num]) {
+                                            case 1: var polarity = "Positive"; break;
+                                            case 0: var polarity = "Neutral"; break;
+                                            case -1: var polarity = "Negative"; break;
+                                            default: var polarity = "Null"; break;
+                                        }
+                                    }
+
+                                    if (hover_label == "price_level"){
+                                        switch ({{ price_level_list }}[index_num]) {
+                                            case 1: var polarity = "Positive"; break;
+                                            case 0: var polarity = "Neutral"; break;
+                                            case -1: var polarity = "Negative"; break;
+                                            default: var polarity = "Null"; break;
+                                        }
+                                    }
+             
+                                    if (hover_label == "price_cost_effective"){
+                                        switch ({{ price_cost_effective_list }}[index_num]) {
+                                            case 1: var polarity = "Positive"; break;
+                                            case 0: var polarity = "Neutral"; break;
+                                            case -1: var polarity = "Negative"; break;
+                                            default: var polarity = "Null"; break;
+                                        }
+                                    }
+
+                                    if (hover_label == "price_discount"){
+                                        switch ({{ price_discount_list }}[index_num]) {
+                                            case 1: var polarity = "Positive"; break;
+                                            case 0: var polarity = "Neutral"; break;
+                                            case -1: var polarity = "Negative"; break;
+                                            default: var polarity = "Null"; break;
+                                        }
+                                    }
+
+                                    if (hover_label == "environment_decoration"){
+                                        switch ({{ environment_decoration_list }}[index_num]) {
+                                            case 1: var polarity = "Positive"; break;
+                                            case 0: var polarity = "Neutral"; break;
+                                            case -1: var polarity = "Negative"; break;
+                                            default: var polarity = "Null"; break;
+                                        }
+                                    }
+
+                                    if (hover_label == "environment_noise"){
+                                        switch ({{ environment_noise_list }}[index_num]) {
+                                            case 1: var polarity = "Positive"; break;
+                                            case 0: var polarity = "Neutral"; break;
+                                            case -1: var polarity = "Negative"; break;
+                                            default: var polarity = "Null"; break;
+                                        }
+
+                                    }
+
+                                    if (hover_label == "environment_space"){
+                                        switch ({{ environment_space_list }}[index_num]) {
+                                            case 1: var polarity = "Positive"; break;
+                                            case 0: var polarity = "Neutral"; break;
+                                            case -1: var polarity = "Negative"; break;
+                                            default: var polarity = "Null"; break;
+                                        }
+                                    }
+
+                                    if (hover_label == "environment_cleaness"){
+                                        switch ({{ environment_cleaness_list }}[index_num]) {
+                                            case 1: var polarity = "Positive"; break;
+                                            case 0: var polarity = "Neutral"; break;
+                                            case -1: var polarity = "Negative"; break;
+                                            default: var polarity = "Null"; break;
+                                        }
+                                    }
+
+                                    if (hover_label == "dish_portion"){
+                                        switch ({{ dish_portion_list }}[index_num]) {
+                                            case 1: var polarity = "Positive"; break;
+                                            case 0: var polarity = "Neutral"; break;
+                                            case -1: var polarity = "Negative"; break;
+                                            default: var polarity = "Null"; break;
+                                        }
+                                    }
+
+                                    if (hover_label == "dish_taste"){
+                                        switch ({{ dish_taste_list }}[index_num]) {
+                                            case 1: var polarity = "Positive"; break;
+                                            case 0: var polarity = "Neutral"; break;
+                                            case -1: var polarity = "Negative"; break;
+                                            default: var polarity = "Null"; break;
+                                        }
+                                    }
+
+                                    if (hover_label == "dish_look"){
+                                        switch ({{ dish_look_list }}[index_num]) {
+                                            case 1: var polarity = "Positive"; break;
+                                            case 0: var polarity = "Neutral"; break;
+                                            case -1: var polarity = "Negative"; break;
+                                            default: var polarity = "Null"; break;
+                                        }
+
+                                    }
+
+                                    if (hover_label == "dish_recommendation"){
+                                        switch ({{ dish_recommendation_list }}[index_num]) {
+                                            case 1: var polarity = "Positive"; break;
+                                            case 0: var polarity = "Neutral"; break;
+                                            case -1: var polarity = "Negative"; break;
+                                            default: var polarity = "Null"; break;
+                                        }
+                                    }
+
+                                    if (hover_label == "others_overall_experience"){
+                                        switch ({{ others_overall_experience_list }}[index_num]) {
+                                            case 1: var polarity = "Positive"; break;
+                                            case 0: var polarity = "Neutral"; break;
+                                            case -1: var polarity = "Negative"; break;
+                                            default: var polarity = "Null"; break;
+                                        }
+                                    }
+
+                                    if (hover_label == "others_willing_to_consume_again"){
+                                        switch ({{ others_willing_to_consume_again_list }}[index_num]) {
+                                            case 1: var polarity = "Positive"; break;
+                                            case 0: var polarity = "Neutral"; break;
+                                            case -1: var polarity = "Negative"; break;
+                                            default: var polarity = "Null"; break;
+                                        }
+                                    }
+
+                                    return `${aspect_name_dict[hover_label]} (${polarity})`;
+
+                                }
+
+                                var hover_label = data.datasets[tooltipItem.datasetIndex].label;
+
+                                new_label = setPolarity(hover_label, i);
+
+                                return new_label;
+
+                            }
+                        }
+
+                    }
+                }
+            });
+
+            comment_chart.canvas.parentNode.style.height = '500px';
+            comment_chart.canvas.parentNode.style.width = '500px';
+
+        };
+
+    </script>
+    <!-- comment chart -->
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
         crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"
         integrity="sha512-+vZzLQZVJ7zv7jZzJ7zv7jZzJ7zv7jZzJ7zv7jZzJ7zv7jZzJ7zv7jZzJ7zv7jZzJ7zv7jZzJ7zv7jZzJ7zv7g=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>
