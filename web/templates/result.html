@@ -365,7 +365,7 @@
 
             title: {
                 display: true,
-                text: "每方面的分析"
+                text: "每方面情緒比例的分析"
             },
 
             barValueSpacing: 20,
@@ -418,7 +418,7 @@
         options: {
             title: {
                 display: true,
-                text: "總共提及到的分析"
+                text: "總共提及到方面的分析"
             }
         }
     });
@@ -441,6 +441,7 @@
 
         // set the canvas to not available
         ctx.fillText("不適用", 105, 80);
+
     };
 
     function aspect_doughnut_create(id_name, dataset, positive_count, neutral_count, negative_count){
