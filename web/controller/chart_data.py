@@ -342,37 +342,25 @@ def five_star_calculate(positve_number, negative_number, total_number):
 def five_star_condition(result):
 
     if result == -1:
-        return "0.0"
+        return "0"
     
     if result == 1:
-        return "5.0"
+        return "5"
 
-    if result > -1 and result < -0.6:
-        return "1.0"
-    
-    if result == -0.6:
-        return "1.5"
+    if result > -1 and result <= -0.6:
+        return "1"
 
-    if result > -0.6 and result < -0.2:
-        return "2.0"
-    
-    if result == -0.2:
-        return "2.5"
+    if result > -0.6 and result <= -0.2:
+        return "2"
 
-    if result > -0.2 and result < 0.2:
-        return "3.0"
+    if result > -0.2 and result <= 0.2:
+        return "3"
 
-    if result == 0.2:
-        return "3.5"
-
-    if result > 0.2 and result < 0.6:
-        return "4.0"
-    
-    if result == 0.6:
-        return "4.5"
+    if result > 0.2 and result <= 0.6:
+        return "4"
     
     if result > 0.6 and result < 1:
-        return "5.0"
+        return "5"
     
 def five_star_calculation(read_csv_data):
 
