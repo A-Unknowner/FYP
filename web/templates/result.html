@@ -29,7 +29,7 @@
      style="background-color:white ;">
     <a href="/" class="navbar-brand ms-lg-3">
         <h3 class="display-10 m-0" style="color: #555;">
-            <div class="web-title-long">Restaurant Review Analyzer for Chinese Language<span>(RRACL)</span>
+            <div class="web-title-long">餐廳評論分析<span>(RRACL)</span>
             </div>
             <div class="web-title-short"><span>RRACL</span></div>
         </h3>
@@ -41,7 +41,7 @@
         <div class="navbar-nav ms-auto py-0">
             <a href="index.html" class="nav-item nav-link text-gray-555">首頁</a>
             <form class="nav-item nav-link " action="/search_list" method="POST">
-                <input type="search" placeholder="Search" name="restaurant_name" aria-label="搜尋餐廳">
+                <input type="search" placeholder="搜尋餐廳" name="restaurant_name" aria-label="Search">
                 <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
                 <button class="btn btn-light" type="submit">搜尋</button>
             </form>
@@ -56,7 +56,7 @@
 
         <div class="col pt-5 ps-5">
             <div style="color:#555;font-family: 'Noto Sans','sans-serif'">
-                <h2>{{ restaurant_name }} - Analyze Result</h2>
+                <h2>{{ restaurant_name }} - 分析結果</h2>
             </div>
         </div>
     </div>
@@ -71,8 +71,7 @@
                     <h2><label style="color:#00873E;"><i class="fas fa-smile"></i></label> <label
                             style="color:#555;font-family: 'Noto Sans','sans-serif'">{{ total_positive_percentage }}%</label>
                     </h2>
-                    <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><h5><b>Total Number of
-                        Positive: {{ overall_positive }}</b></h5></label>
+                    <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><h5><b>正面評論總數: {{ overall_positive }}</b></h5></label>
                 </div>
             </div>
         </div>
@@ -84,8 +83,7 @@
                     <h2><label style="color:#DEC20B;"><i class="fas fa-meh"></i></label> <label
                             style="color:#555;font-family: 'Noto Sans','sans-serif'">{{ total_neutral_percentage }}%</label>
                     </h2>
-                    <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><h5><b>Total Number of
-                        Neutral: {{ overall_neutral }}</b></h5></label>
+                    <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><h5><b>中立評論總數: {{ overall_neutral }}</b></h5></label>
                 </div>
             </div>
         </div>
@@ -97,8 +95,7 @@
                     <h2><label style="color:#CE2029;"><i class="fas fa-frown"></i></label> <label
                             style="color:#555;font-family: 'Noto Sans','sans-serif'">{{ total_negative_percentage }}%</label>
                     </h2>
-                    <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><h5><b>Total Number of
-                        Negative: {{ overall_negative }}</b></h5></label>
+                    <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><h5><b>負面評論總數: {{ overall_negative }}</b></h5></label>
                 </div>
             </div>
         </div>
@@ -110,7 +107,7 @@
                     <h2><label style="color:#0b0b53;"><i class="fas fa-comments"></i></label> <label
                             style="color:#555;font-family: 'Noto Sans','sans-serif'">{{ datas["content"]|length }}</label>
                     </h2>
-                    <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><h5><b>Analyzed Reviews</b></h5>
+                    <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><h5><b>分析評論總數</b></h5>
                     </label>
                 </div>
             </div>
@@ -123,12 +120,11 @@
 
             <div class="card mb-2">
                 <div
-                        class="card-body d-flex flex-column justify-content-center align-items-center text-center shadow">
+                        class="card-body d-flex flex-column justify-content-center align-items-center text-center">
 
                     <canvas id="locationPie"></canvas>
 
-                    <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><b>Total Location
-                        Rating</b></label>
+                    <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><b>位置評級總數</b></label>
                 </div>
 
             </div>
@@ -138,12 +134,11 @@
 
             <div class="card mb-2">
                 <div
-                        class="card-body d-flex flex-column justify-content-center align-items-center text-center shadow">
+                        class="card-body d-flex flex-column justify-content-center align-items-center text-center">
 
                     <canvas id="servicePie"></canvas>
 
-                    <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><b>Total Service
-                        Rating</b></label>
+                    <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><b>服務評級總數</b></label>
                 </div>
             </div>
 
@@ -153,11 +148,10 @@
 
             <div class="card mb-2">
                 <div
-                        class="card-body d-flex flex-column justify-content-center align-items-center text-center shadow">
+                        class="card-body d-flex flex-column justify-content-center align-items-center text-center">
                     <canvas id="pricePie"></canvas>
 
-                    <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><b>Total Price
-                        Rating</b></label>
+                    <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><b>價錢評級總數</b></label>
                 </div>
             </div>
 
@@ -168,12 +162,11 @@
 
             <div class="card mb-2">
                 <div
-                        class="card-body d-flex flex-column justify-content-center align-items-center text-center shadow">
+                        class="card-body d-flex flex-column justify-content-center align-items-center text-center">
 
                     <canvas id="environmentPie"></canvas>
 
-                    <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><b>Total Environment
-                        Rating</b></label>
+                    <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><b>環境評級總數</b></label>
                 </div>
             </div>
 
@@ -183,11 +176,11 @@
 
             <div class="card mb-2">
                 <div
-                        class="card-body d-flex flex-column justify-content-center align-items-center text-center shadow">
+                        class="card-body d-flex flex-column justify-content-center align-items-center text-center">
 
                     <canvas id="dishPie"></canvas>
 
-                    <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><b>Total Dish Rating</b></label>
+                    <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><b>味道評級總數</b></label>
                 </div>
             </div>
 
@@ -197,12 +190,11 @@
 
             <div class="card mb-2">
                 <div
-                        class="card-body d-flex flex-column justify-content-center align-items-center text-center shadow">
+                        class="card-body d-flex flex-column justify-content-center align-items-center text-center">
 
                     <canvas id="othersPie"></canvas>
 
-                    <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><b>Total Others
-                        Rating</b></label>
+                    <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><b>其他評級總數</b></label>
                 </div>
             </div>
 
@@ -242,10 +234,10 @@
                         style="padding: 0">
                         <div class="row" style="width: 100%">
                             <div class="col-6">
-                                <h1 style="color:#555;font-family: 'Noto Sans','sans-serif'">Reviews</h1>
+                                <h1 style="color:#555;font-family: 'Noto Sans','sans-serif'">評論</h1>
                             </div>
                             <div class="col-6">
-                                <h1 style="color:#555;font-family: 'Noto Sans','sans-serif'">Aspect</h1>
+                                <h1 style="color:#555;font-family: 'Noto Sans','sans-serif'">分析</h1>
                             </div>
                         </div>
                     </div>
@@ -270,7 +262,7 @@
                                                 <div class="col d-flex align-items-center justify-content-center">
                                                     <h4><label
                                                             style="color:#555;font-family: 'Noto Sans','sans-serif'">
-                                                            Review Rating : <label id="getstarscore_{{ i }}">{{
+                                                            評論評級： <label id="getstarscore_{{ i }}">{{
                                                                 five_star_list[i][i] }}</label></label> </h4>
                                                 </div>
                                             </div>
@@ -282,7 +274,7 @@
                                         <button class="btn btn-gary" type="button" data-toggle="collapse"
                                             data-target="#collapse_{{ i }}" aria-expanded="false"
                                             aria-controls="collapse_{{ i }}" style="width: 100%">
-                                            <label>View Details</label>
+                                            <label>詳情</label>
                                         </button>
                                         <div class="collapse" id="collapse_{{ i }}">
                                             <div class="card card-body">
@@ -371,7 +363,7 @@
 
             title: {
                 display: true,
-                text: "The polarity of each aspect"
+                text: "每方面的分析"
             },
 
             barValueSpacing: 20,
@@ -416,7 +408,7 @@
         options: {
             title: {
                 display: true,
-                text: "Total Mentioned Aspects"
+                text: "總共提及到的分析"
             }
         }
     });
