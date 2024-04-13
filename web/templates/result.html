@@ -18,6 +18,7 @@
 
 <body style="background-color: #dcdcdc">
 
+    {{ five_star_list }}
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 
@@ -80,7 +81,7 @@
             <div class="card mb-3">
                 <div
                         class="card-body d-flex flex-column justify-content-center align-items-center text-center shadow">
-                    <h2><label style="color:#DEC20B;"><i class="fas fa-meh"></i></label> <label
+                    <h2><label style="color:#de8d0b;"><i class="fas fa-meh"></i></label> <label
                             style="color:#555;font-family: 'Noto Sans','sans-serif'">{{ total_neutral_percentage }}%</label>
                     </h2>
                     <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><h5><b>中立評論總數: {{ overall_neutral }}</b></h5></label>
@@ -92,7 +93,7 @@
             <div class="card mb-3">
                 <div
                         class="card-body d-flex flex-column justify-content-center align-items-center text-center shadow">
-                    <h2><label style="color:#CE2029;"><i class="fas fa-frown"></i></label> <label
+                    <h2><label style="color:#ad181f;"><i class="fas fa-frown"></i></label> <label
                             style="color:#555;font-family: 'Noto Sans','sans-serif'">{{ total_negative_percentage }}%</label>
                     </h2>
                     <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><h5><b>負面評論總數: {{ overall_negative }}</b></h5></label>
@@ -334,22 +335,26 @@
             {
                 label: "總共",
                 backgroundColor: "#124076",
+                borderWidth: 3,
                 data: {{ overall_aspect }}
             },
             {
                 label: "正面",
                 backgroundColor: "#7F9F80",
+                borderWidth: 3,
                 data: {{ positive_list }}
             },
             {
                 label: "中立",
                 backgroundColor: "#F9E897",
+                borderWidth: 3,
                 data: {{ neutral_list }}
             },
 
             {
                 label: "負面",
                 backgroundColor: "#FFC374",
+                borderWidth: 3,
                 data: {{ negative_list }}
             }
         ]
@@ -380,8 +385,14 @@
 
 
     // Total Aspect Doughnut
-    var xValues = ["位置", "服務", "價格",
-        "環境", "食物", "其他"];
+    var xValues = [
+        "位置", 
+        "服務", 
+        "價格",
+        "環境", 
+        "食物", 
+        "其他"
+    ];
     var test = '{{ datas }}';
 
     var yValues = {{ overall_aspect }};
@@ -391,7 +402,8 @@
         "#00aba9",
         "#2b5797",
         "#e8c3b9",
-        "#1e7145"
+        "#1e7145",
+        ""
     ];
 
     new Chart("aspectDoughnutChart", {
@@ -400,7 +412,8 @@
             labels: xValues,
             datasets: [{
                 backgroundColor: barColors,
-                data: yValues
+                data: yValues, borderWidth: 3
+                
             }
 
             ]
@@ -416,6 +429,8 @@
 
 
     // Location
+    var backgroundColor = ["#00873E", "#de8d0b", "#ad181f"];
+
     var xValues = ["正面", "中立", "負面"];
 
     var yValues = [
@@ -433,8 +448,8 @@
             data: {
                 labels: xValues,
                 datasets: [{
-                    backgroundColor: ["green", "yellow", "red"],
-                    data: yValues
+                    backgroundColor,
+                    data: yValues, borderWidth: 3
                 }
 
                 ]
@@ -493,8 +508,8 @@
             data: {
                 labels: xValues,
                 datasets: [{
-                    backgroundColor: ["green", "yellow", "red"],
-                    data: yValues
+                    backgroundColor,
+                    data: yValues, borderWidth: 3
                 }
 
                 ]
@@ -552,8 +567,8 @@
             data: {
                 labels: xValues,
                 datasets: [{
-                    backgroundColor: ["green", "yellow", "red"],
-                    data: yValues
+                    backgroundColor,
+                    data: yValues, borderWidth: 3
                 }
 
                 ]
@@ -608,8 +623,8 @@
             data: {
                 labels: xValues,
                 datasets: [{
-                    backgroundColor: ["green", "yellow", "red"],
-                    data: yValues
+                    backgroundColor,
+                    data: yValues, borderWidth: 3
                 }
 
                 ]
@@ -664,8 +679,8 @@
             data: {
                 labels: xValues,
                 datasets: [{
-                    backgroundColor: ["green", "yellow", "red"],
-                    data: yValues
+                    backgroundColor,
+                    data: yValues, borderWidth: 3
                 }
 
                 ]
@@ -721,8 +736,8 @@
             data: {
                 labels: xValues,
                 datasets: [{
-                    backgroundColor: ["green", "yellow", "red"],
-                    data: yValues
+                    backgroundColor,
+                    data: yValues, borderWidth: 3
                 }
 
                 ]
@@ -887,36 +902,36 @@
         datasets = [
 
             ////////////// location
-            { label: 'location_traffic_convenience', data: location_traffic_convenience_data, backgroundColor: '#003C43', barPercentage: 0.5  },
-            { label: 'location_distance_from_business_district', data: location_distance_from_business_district_data, backgroundColor: '#135D66', barPercentage: 0.5 },
-            { label: 'location_easy_to_find', data: location_easy_to_find_data, backgroundColor: '#77B0AA', barPercentage: 0.5 },
+            { label: 'location_traffic_convenience', data: location_traffic_convenience_data, backgroundColor: '#003C43', barPercentage: 0.5,  borderWidth: 3},
+            { label: 'location_distance_from_business_district', data: location_distance_from_business_district_data, backgroundColor: '#135D66', barPercentage: 0.5,  borderWidth: 3},
+            { label: 'location_easy_to_find', data: location_easy_to_find_data, backgroundColor: '#77B0AA', barPercentage: 0.5,  borderWidth: 3},
 
             ////////////// service
-            { label: 'service_wait_time', data: service_wait_time_data, backgroundColor: '#164863', barPercentage: 0.5 },
-            { label: 'service_waiters_attitude', data: service_waiters_attitude_data, backgroundColor: '#427D9D', barPercentage: 0.5 },
-            { label: 'service_parking_convenience', data: service_parking_convenience_data, backgroundColor: '#9BBEC8', barPercentage: 0.5 },
-            { label: 'service_serving_speed', data: service_serving_speed_data, backgroundColor: '#DDF2FD', barPercentage: 0.5 },
+            { label: 'service_wait_time', data: service_wait_time_data, backgroundColor: '#164863', barPercentage: 0.5,  borderWidth: 3},
+            { label: 'service_waiters_attitude', data: service_waiters_attitude_data, backgroundColor: '#427D9D', barPercentage: 0.5,  borderWidth: 3},
+            { label: 'service_parking_convenience', data: service_parking_convenience_data, backgroundColor: '#9BBEC8', barPercentage: 0.5,  borderWidth: 3},
+            { label: 'service_serving_speed', data: service_serving_speed_data, backgroundColor: '#DDF2FD', barPercentage: 0.5,  borderWidth: 3},
 
             ////////////// price
-            { label: 'price_level', data: price_level_data, backgroundColor: '#00A9FF', barPercentage: 0.5 },
-            { label: 'price_cost_effective', data: price_cost_effective_data, backgroundColor: '#89CFF3', barPercentage: 0.5 },
-            { label: 'price_discount', data: price_discount_data, backgroundColor: '#A0E9FF', barPercentage: 0.5 },
+            { label: 'price_level', data: price_level_data, backgroundColor: '#00A9FF', barPercentage: 0.5,  borderWidth: 3},
+            { label: 'price_cost_effective', data: price_cost_effective_data, backgroundColor: '#89CFF3', barPercentage: 0.5,  borderWidth: 3},
+            { label: 'price_discount', data: price_discount_data, backgroundColor: '#A0E9FF', barPercentage: 0.5,  borderWidth: 3},
 
             ////////////// environment
-            { label: 'environment_decoration', data: environment_decoration_data, backgroundColor: '#4A55A2', barPercentage: 0.5 },
-            { label: 'environment_noise', data: environment_noise_data, backgroundColor: '#7895CB', barPercentage: 0.5 },
-            { label: 'environment_space', data: environment_space_data, backgroundColor: '#A0BFE0', barPercentage: 0.5 },
-            { label: 'environment_cleaness', data: environment_cleaness_data, backgroundColor: '#C5DFF8', barPercentage: 0.5 },
+            { label: 'environment_decoration', data: environment_decoration_data, backgroundColor: '#4A55A2', barPercentage: 0.5,  borderWidth: 3},
+            { label: 'environment_noise', data: environment_noise_data, backgroundColor: '#7895CB', barPercentage: 0.5,  borderWidth: 3},
+            { label: 'environment_space', data: environment_space_data, backgroundColor: '#A0BFE0', barPercentage: 0.5,  borderWidth: 3},
+            { label: 'environment_cleaness', data: environment_cleaness_data, backgroundColor: '#C5DFF8', barPercentage: 0.5,  borderWidth: 3},
 
             ////////////// dish
-            { label: 'dish_portion', data: dish_portion_data, backgroundColor: '#27374D', barPercentage: 0.5 },
-            { label: 'dish_taste', data: dish_taste_data, backgroundColor: '#526D82', barPercentage: 0.5 },
-            { label: 'dish_look', data: dish_look_data, backgroundColor: '#9DB2BF', barPercentage: 0.5 },
-            { label: 'dish_recommendation', data: dish_recommendation_data, backgroundColor: '#DDE6ED', barPercentage: 0.5 },
+            { label: 'dish_portion', data: dish_portion_data, backgroundColor: '#27374D', barPercentage: 0.5,  borderWidth: 3},
+            { label: 'dish_taste', data: dish_taste_data, backgroundColor: '#526D82', barPercentage: 0.5,  borderWidth: 3},
+            { label: 'dish_look', data: dish_look_data, backgroundColor: '#9DB2BF', barPercentage: 0.5,  borderWidth: 3},
+            { label: 'dish_recommendation', data: dish_recommendation_data, backgroundColor: '#DDE6ED', barPercentage: 0.5,  borderWidth: 3},
 
             ////////////// others
-            { label: 'others_overall_experience', data: others_overall_experience_data, backgroundColor: '#C4DDFF', barPercentage: 0.5 },
-            { label: 'others_willing_to_consume_again', data: others_willing_to_consume_again_data, backgroundColor: '#7FB5FF', barPercentage: 0.5 }
+            { label: 'others_overall_experience', data: others_overall_experience_data, backgroundColor: '#C4DDFF', barPercentage: 0.5,  borderWidth: 3},
+            { label: 'others_willing_to_consume_again', data: others_willing_to_consume_again_data, backgroundColor: '#7FB5FF', barPercentage: 0.5,  borderWidth: 3}
 
         ]
 
