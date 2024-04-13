@@ -1,5 +1,6 @@
-from collections import Counter
+# coding=utf-8
 
+from collections import Counter
 
 def find_all_polarity_number_and_percentage(read_csv_data):
 
@@ -138,27 +139,46 @@ def total_coarse_grain_aspect_percentage(positive_list, negative_list, neutral_l
 
         {"total_location_positive_percent" : location_positive_percent,  
          "total_location_negative_percent" : location_negative_percent,  
-         "total_location_neutral_percent" : location_neutral_percent},
+         "total_location_neutral_percent" : location_neutral_percent,
+         "location_positive" : location_positive_num,
+         "location_negative" : location_negative_num,
+         "location_neutral" : location_neutral_num},
 
         {"total_service_positive_percent" : service_positive_percent,  
          "total_service_negative_percent" : service_negative_percent,  
-         "total_service_neutral_percent" : service_neutral_percent},
+         "total_service_neutral_percent" : service_neutral_percent,
+         "service_positive" : service_positive_num,
+         "service_negative" : service_negative_num,
+         "service_neutral" : service_neutral_num},
 
         {"total_price_positive_percent" : price_positive_percent,  
          "total_price_negative_percent" : price_negative_percent,  
-         "total_price_neutral_percent" : price_neutral_percent},
+         "total_price_neutral_percent" : price_neutral_percent,
+         "price_positive" : price_positive_num,
+         "price_negative" : price_negative_num,
+         "price_neutral" : price_neutral_num},
 
         {"total_environment_positive_percent" : environment_positive_percent,  
          "total_environment_negative_percent" : environment_negative_percent,  
-         "total_environment_neutral_percent" : environment_neutral_percent},
+         "total_environment_neutral_percent" : environment_neutral_percent,
+         "environment_positive" : environment_positive_num,
+         "environment_negative" : environment_negative_num,
+         "environment_neutral" : environment_neutral_num},
 
         {"total_dish_positive_percent" : dish_positive_percent,  
          "total_dish_negative_percent" : dish_negative_percent,  
-         "total_dish_neutral_percent" : dish_neutral_percent},
+         "total_dish_neutral_percent" : dish_neutral_percent,
+         "dish_positive" : dish_positive_num,
+         "dish_negative" : dish_negative_num,
+         "dish_neutral" : dish_neutral_num},
 
         {"total_others_positive_percent" : others_positive_percent, 
          "total_others_negative_percent" : others_negative_percent, 
-         "total_others_neutral_percent" : others_neutral_percent}
+         "total_others_neutral_percent" : others_neutral_percent,
+         "others_positive" : others_positive_num,
+         "others_negative" : others_negative_num,
+         "others_neutral" : others_neutral_num},
+
     ]
 
 
