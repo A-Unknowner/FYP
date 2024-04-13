@@ -17,6 +17,7 @@
 
 
 <body style="background-color: #dcdcdc">
+    
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 
 <!-- Navbar start -->
@@ -117,8 +118,7 @@
         <div class="col-2 ps-5 pe-5">
 
             <div class="card mb-2">
-                <div
-                        class="card-body d-flex flex-column justify-content-center align-items-center text-center">
+                <div class="card-body d-flex flex-column justify-content-center align-items-center text-center">
 
                     <canvas id="locationPie"></canvas>
 
@@ -424,351 +424,147 @@
     });
     // Total Aspect Doughnut
 
+    function get_hover_text(tooltipLabel, tooltipData, positive_count, neutral_count, negative_count){
+        switch(tooltipLabel){
+            case "正面": var text = `${tooltipLabel}: ${positive_count} (${tooltipData}%)`; break;
+            case "中立": var text = `${tooltipLabel}: ${neutral_count} (${tooltipData}%)`; break;
+            case "負面": var text = `${tooltipLabel}: ${negative_count} (${tooltipData}%)`; break;
+            default: console.log("not found"); break;
+        };
+        return text
+    };
+
+    function show_not_available(id_name){
+        const canvas = document.getElementById(id_name);
+        const ctx = canvas.getContext("2d");
+        ctx.font = "30px 'Noto Sans', sans-serif";
+
+        // set the canvas to not available
+        ctx.fillText("不適用", 105, 80);
+    };
+
+    function aspect_doughnut_create(id_name, dataset, positive_count, neutral_count, negative_count){
+        var backgroundColor = ["#00873E", "#de8d0b", "#ad181f"];
+        doughNutSet = new Chart(id_name, {
+            type: "doughnut",
+            data: {
+                labels: ["正面", "中立", "負面"],
+                datasets: [{
+                    backgroundColor,
+                    data: dataset, 
+                    borderWidth: 3
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                legend: {display: false},
+                tooltips: {
+                    callbacks: {
+                        label: function (tooltipItem, data) {
+                            var allData = data.datasets[tooltipItem.datasetIndex].data;
+                            var tooltipLabel = data.labels[tooltipItem.index];
+                            var tooltipData = allData[tooltipItem.index];
+                            let text = get_hover_text(tooltipLabel, tooltipData, positive_count, neutral_count, negative_count);
+                            return text
+                        }
+                    }
+                }
+            }
+        });
+
+        doughNutSet.canvas.parentNode.style.height = '200px';
+        doughNutSet.canvas.parentNode.style.width = '200px';
+    }
 
     // Location
     var backgroundColor = ["#00873E", "#de8d0b", "#ad181f"];
-
-    var xValues = ["正面", "中立", "負面"];
-
-    var yValues = [
+    var dataset = [
         {{ each_aspects_total_percent_list[0]["total_location_positive_percent"] }},
-
         {{ each_aspects_total_percent_list[0]["total_location_neutral_percent"] }},
-
         {{ each_aspects_total_percent_list[0]["total_location_negative_percent"] }}
     ];
 
-    if (yValues.reduce((a, b) => a + b, 0) != 0) {
-
-        locationPieSet = new Chart("locationPie", {
-            type: "doughnut",
-            data: {
-                labels: xValues,
-                datasets: [{
-                    backgroundColor,
-                    data: yValues, borderWidth: 3
-                }
-
-                ]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                legend: {display: false},
-                tooltips: {
-                    callbacks: {
-                        label: function (tooltipItem, data) {
-                            var allData = data.datasets[tooltipItem.datasetIndex].data;
-                            var tooltipLabel = data.labels[tooltipItem.index];
-                            var tooltipData = allData[tooltipItem.index];
-                            var total = 0;
-                            for (var i in allData) {
-                                total += allData[i];
-                            }
-
-                            return tooltipLabel + ': ' + tooltipData + '%';
-                        }
-                    }
-                }
-            },
-
-        });
-
-        locationPieSet.canvas.parentNode.style.height = '200px';
-        locationPieSet.canvas.parentNode.style.width = '200px';
-
-    } else {
-
-        const location_canvas = document.getElementById("locationPie");
-        const location_ctx = location_canvas.getContext("2d");
-        location_ctx.font = "30px 'Noto Sans', sans-serif";
-        location_ctx.fillText("不適用", 105, 80);
-
-    }
-    ;
+    if (dataset.reduce((a, b) => a + b, 0) != 0) {
+        var location_positive_count = {{ each_aspects_total_percent_list[0]["location_positive"] }};
+        var location_negative_count = {{ each_aspects_total_percent_list[0]["location_negative"] }};
+        var location_neutral_count = {{ each_aspects_total_percent_list[0]["location_neutral"] }};
+        aspect_doughnut_create("locationPie", dataset, location_positive_count, location_neutral_count, location_negative_count);
+    } else { show_not_available("locationPie"); };
 
 
     // Service
-    var yValues = [
+    var dataset = [
         {{ each_aspects_total_percent_list[1]["total_service_positive_percent"] }},
-
         {{ each_aspects_total_percent_list[1]["total_service_neutral_percent"] }},
-
         {{ each_aspects_total_percent_list[1]["total_service_negative_percent"] }}
     ];
 
-    if (yValues.reduce((a, b) => a + b, 0) != 0) {
-
-        servicePieSet = new Chart("servicePie", {
-            type: "doughnut",
-            data: {
-                labels: xValues,
-                datasets: [{
-                    backgroundColor,
-                    data: yValues, borderWidth: 3
-                }
-
-                ]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                legend: {display: false},
-
-                tooltips: {
-                    callbacks: {
-                        label: function (tooltipItem, data) {
-                            var allData = data.datasets[tooltipItem.datasetIndex].data;
-                            var tooltipLabel = data.labels[tooltipItem.index];
-                            var tooltipData = allData[tooltipItem.index];
-                            var total = 0;
-                            for (var i in allData) {
-                                total += allData[i];
-                            }
-
-                            return tooltipLabel + ': ' + tooltipData + '%';
-                        }
-                    }
-                }
-
-            },
-
-        });
-
-        servicePieSet.canvas.parentNode.style.height = '200px';
-        servicePieSet.canvas.parentNode.style.width = '200px';
-
-    } else {
-
-        const service_canvas = document.getElementById("servicePie");
-        const service_ctx = service_canvas.getContext("2d");
-        service_ctx.font = "30px 'Noto Sans', sans-serif";
-        service_ctx.fillText("不適用", 105, 80);
-    }
+    if (dataset.reduce((a, b) => a + b, 0) != 0) {
+        var service_positive_count = {{ each_aspects_total_percent_list[1]["service_positive"] }};
+        var service_negative_count = {{ each_aspects_total_percent_list[1]["service_negative"] }};
+        var service_neutral_count = {{ each_aspects_total_percent_list[1]["service_neutral"] }};
+        aspect_doughnut_create("servicePie", dataset, service_positive_count, service_neutral_count, service_negative_count);
+    } else { show_not_available("servicePie"); };
 
     // Price
-    var yValues = [
+    var dataset = [
         {{ each_aspects_total_percent_list[2]["total_price_positive_percent"] }},
-
         {{ each_aspects_total_percent_list[2]["total_price_neutral_percent"] }},
-
         {{ each_aspects_total_percent_list[2]["total_price_negative_percent"] }}
     ];
 
-    if (yValues.reduce((a, b) => a + b, 0) != 0) {
-
-        pricePieSet = new Chart("pricePie", {
-            type: "doughnut",
-            data: {
-                labels: xValues,
-                datasets: [{
-                    backgroundColor,
-                    data: yValues, borderWidth: 3
-                }
-
-                ]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                legend: {display: false},
-                tooltips: {
-                    callbacks: {
-                        label: function (tooltipItem, data) {
-                            var allData = data.datasets[tooltipItem.datasetIndex].data;
-                            var tooltipLabel = data.labels[tooltipItem.index];
-                            var tooltipData = allData[tooltipItem.index];
-                            var total = 0;
-                            for (var i in allData) {
-                                total += allData[i];
-                            }
-
-                            return tooltipLabel + ': ' + tooltipData + '%';
-                        }
-                    }
-                }
-            }
-        });
-
-        pricePieSet.canvas.parentNode.style.height = '200px';
-        pricePieSet.canvas.parentNode.style.width = '200px';
-
-    } else {
-
-        const price_canvas = document.getElementById("pricePie");
-        const price_ctx = price_canvas.getContext("2d");
-        price_ctx.font = "30px 'Noto Sans', sans-serif";
-        price_ctx.fillText("不適用", 105, 80);
-
-    }
+    if (dataset.reduce((a, b) => a + b, 0) != 0) {
+        var price_positive_count = {{ each_aspects_total_percent_list[2]["price_positive"] }};
+        var price_negative_count = {{ each_aspects_total_percent_list[2]["price_negative"] }};
+        var price_neutral_count = {{ each_aspects_total_percent_list[2]["price_neutral"] }};
+        aspect_doughnut_create("pricePie", dataset, price_positive_count, price_neutral_count, price_negative_count);
+    } else { show_not_available("pricePie"); };
 
     // Environment
-    var yValues = [
+    var dataset = [
         {{ each_aspects_total_percent_list[3]["total_environment_positive_percent"] }},
-
         {{ each_aspects_total_percent_list[3]["total_environment_neutral_percent"] }},
-
         {{ each_aspects_total_percent_list[3]["total_environment_negative_percent"] }}
     ];
 
-    if (yValues.reduce((a, b) => a + b, 0) != 0) {
+    if (dataset.reduce((a, b) => a + b, 0) != 0) {
+        var environment_positive_count = {{ each_aspects_total_percent_list[3]["environment_positive"] }};
+        var environment_negative_count = {{ each_aspects_total_percent_list[3]["environment_negative"] }};
+        var environment_neutral_count = {{ each_aspects_total_percent_list[3]["environment_neutral"] }};
+        aspect_doughnut_create("environmentPie", dataset, environment_positive_count, environment_neutral_count, environment_negative_count);
 
-        environmentPieSet = new Chart("environmentPie", {
-            type: "doughnut",
-            data: {
-                labels: xValues,
-                datasets: [{
-                    backgroundColor,
-                    data: yValues, borderWidth: 3
-                }
-
-                ]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                legend: {display: false},
-                tooltips: {
-                    callbacks: {
-                        label: function (tooltipItem, data) {
-                            var allData = data.datasets[tooltipItem.datasetIndex].data;
-                            var tooltipLabel = data.labels[tooltipItem.index];
-                            var tooltipData = allData[tooltipItem.index];
-                            var total = 0;
-                            for (var i in allData) {
-                                total += allData[i];
-                            }
-
-                            return tooltipLabel + ': ' + tooltipData + '%';
-                        }
-                    }
-                }
-            }
-        });
-
-        environmentPieSet.canvas.parentNode.style.height = '200px';
-        environmentPieSet.canvas.parentNode.style.width = '200px';
-
-    } else {
-
-        const environment_canvas = document.getElementById("environmentPie");
-        const environment_ctx = environment_canvas.getContext("2d");
-        environment_ctx.font = "30px 'Noto Sans', sans-serif";
-        environment_ctx.fillText("不適用", 105, 80);
-    }
+    } else { show_not_available("environmentPie"); };
 
     // Dish
-    var yValues = [
+    var dataset = [
         {{ each_aspects_total_percent_list[4]["total_dish_positive_percent"] }},
-
         {{ each_aspects_total_percent_list[4]["total_dish_neutral_percent"] }},
-
         {{ each_aspects_total_percent_list[4]["total_dish_negative_percent"] }}
     ];
 
-    if (yValues.reduce((a, b) => a + b, 0) != 0) {
-
-        dishPieSet = new Chart("dishPie", {
-            type: "doughnut",
-            data: {
-                labels: xValues,
-                datasets: [{
-                    backgroundColor,
-                    data: yValues, borderWidth: 3
-                }
-
-                ]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                legend: {display: false},
-                tooltips: {
-                    callbacks: {
-                        label: function (tooltipItem, data) {
-                            var allData = data.datasets[tooltipItem.datasetIndex].data;
-                            var tooltipLabel = data.labels[tooltipItem.index];
-                            var tooltipData = allData[tooltipItem.index];
-                            var total = 0;
-                            for (var i in allData) {
-                                total += allData[i];
-                            }
-
-                            return tooltipLabel + ': ' + tooltipData + '%';
-                        }
-                    }
-                }
-            }
-        });
-
-        dishPieSet.canvas.parentNode.style.height = '200px';
-        dishPieSet.canvas.parentNode.style.width = '200px';
-
-    } else {
-
-        const dish_canvas = document.getElementById("dishPie");
-        const dish_ctx = dish_canvas.getContext("2d");
-        dish_ctx.font = "30px 'Noto Sans', sans-serif";
-        dish_ctx.fillText("不適用", 105, 80);
-     
-
-    }
+    if (dataset.reduce((a, b) => a + b, 0) != 0) {
+        var dish_positive_count = {{ each_aspects_total_percent_list[4]["dish_positive"] }};
+        var dish_negative_count = {{ each_aspects_total_percent_list[4]["dish_negative"] }};
+        var dish_neutral_count = {{ each_aspects_total_percent_list[4]["dish_neutral"] }};
+        aspect_doughnut_create("dishPie", dataset, dish_positive_count, dish_neutral_count, dish_negative_count);
+    } else { show_not_available("dishPie"); };
 
 
     // Others
-    var yValues = [
+    var dataset = [
         {{ each_aspects_total_percent_list[5]["total_others_positive_percent"] }},
-
         {{ each_aspects_total_percent_list[5]["total_others_neutral_percent"] }},
-
         {{ each_aspects_total_percent_list[5]["total_others_negative_percent"] }}
     ];
 
-    if (yValues.reduce((a, b) => a + b, 0) != 0) {
+    if (dataset.reduce((a, b) => a + b, 0) != 0) {
+        var others_positive_count = {{ each_aspects_total_percent_list[5]["others_positive"] }};
+        var others_negative_count = {{ each_aspects_total_percent_list[5]["others_negative"] }};
+        var others_neutral_count = {{ each_aspects_total_percent_list[5]["others_neutral"] }};
+        aspect_doughnut_create("othersPie", dataset, others_positive_count, others_neutral_count, others_negative_count);
 
-        othersPieSet = new Chart("othersPie", {
-            type: "doughnut",
-            data: {
-                labels: xValues,
-                datasets: [{
-                    backgroundColor,
-                    data: yValues, borderWidth: 3
-                }
-
-                ]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                legend: {display: false},
-                tooltips: {
-                    callbacks: {
-                        label: function (tooltipItem, data) {
-                            var allData = data.datasets[tooltipItem.datasetIndex].data;
-                            var tooltipLabel = data.labels[tooltipItem.index];
-                            var tooltipData = allData[tooltipItem.index];
-                            var total = 0;
-                            for (var i in allData) {
-                                total += allData[i];
-                            }
-
-                            return tooltipLabel + ': ' + tooltipData + '%';
-                        }
-                    }
-                }
-            }
-        });
-
-        othersPieSet.canvas.parentNode.style.height = '200px';
-        othersPieSet.canvas.parentNode.style.width = '200px';
-
-    } else {
-
-        const others_canvas = document.getElementById("othersPie");
-        const others_ctx = others_canvas.getContext("2d");
-        others_ctx.font = "30px 'Noto Sans', sans-serif";
-        others_ctx.fillText("不適用", 105, 80);
-    }
+    } else { show_not_available("othersPie"); };
 
 
 </script>
