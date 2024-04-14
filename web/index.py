@@ -167,8 +167,8 @@ def analyze_review():
 
 @app.route("/search_list", methods=["POST"])
 def search_list():
-    restaurant_name = parse.quote_plus(request.form["restaurant_name"])
-    search_link = f"http://www.openrice.com/chinese/restaurant/sr1.htm?inputstrwhat={restaurant_name}"
+    restaurant_name = request.form["restaurant_name"]
+    search_link = f"http://www.openrice.com/chinese/restaurant/sr1.htm?inputstrwhat={parse.quote_plus(restaurant_name)}"
     # search_link = f"http://www.openrice.com/english/restaurant/sr1.htm?inputstrwhat={restaurant_name}"
 
     results = Openrice(search_link)
