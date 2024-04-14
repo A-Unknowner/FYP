@@ -34,6 +34,12 @@ def analyze_review():
 
     restaurant_name, path = request.form["restaurant_name"] , request.form["analyze_bttn"]
 
+    restaurant_url = path.replace('reviews', '')
+    restaurant_result = Openrice(restaurant_url)
+    restaurant_result.restaurant_info()
+    restaurant_info, unused_path = restaurant_result.get_restaurant_data()
+
+
     # get page 1 comments
     restaurant_data = Openrice(path)
     
@@ -147,7 +153,10 @@ def analyze_review():
                         total_positive_percentage = total_positive_percentage, 
                         total_negative_percentage = total_negative_percentage, 
                         total_neutral_percentage = total_neutral_percentage, 
-                        each_comment_percentage = each_comment_aspect_percentage)
+                        each_comment_percentage = each_comment_aspect_percentage,
+
+                        # restaurant information
+                        restaurant_info = restaurant_info)
     
 
 @app.route("/search_list", methods=["POST"])

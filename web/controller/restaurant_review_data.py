@@ -182,7 +182,7 @@ class Openrice:
             else:
                 opening_hours.append(
                     {
-                        "date": elements[element_index].xpath('.//div[@class="opening-hours-date "]')[0].text.strip(),
+                        "date": elements[element_index].xpath('.//div[@class="opening-hours-date"]')[0].text.strip(),
                         "time": elements[element_index].xpath('.//div[@class="opening-hours-time"]//div')[0].text.strip()
                     }
                 )
