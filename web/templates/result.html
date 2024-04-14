@@ -28,7 +28,7 @@
      style="background-color:white ;">
     <a href="/" class="navbar-brand ms-lg-3">
         <h3 class="display-10 m-0" style="color: #555;">
-            <div class="web-title-long">餐廳評論分析<span>(RRACL)</span>
+            <div class="web-title-long">Restaurant Review Analyzer for Chinese Language<span>(RRACL)</span>
             </div>
             <div class="web-title-short"><span>RRACL</span></div>
         </h3>
@@ -49,18 +49,6 @@
 </nav>
 <!-- Navbar end -->
 
-
-<div class="container-fluid">
-    <div class="row">
-
-        <div class="col pt-5 ps-5">
-            <div style="color:#555;font-family: 'Noto Sans','sans-serif'">
-                <h2>分析結果</h2>
-
-            </div>
-        </div>
-    </div>
-</div>
 
 <div class="container-fluid">
     <div class="row">
@@ -123,7 +111,19 @@
 <div class="container-fluid">
     <div class="row">
 
-        <div class="col-3 col-3 pt-2 ps-5 pe-5">
+        <div class="col pt-5 ps-5">
+            <div style="color:#555;font-family: 'Noto Sans','sans-serif'">
+                <h2><b>分析結果</b></h2>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+
+        <div class="col pt-2 ps-5 pe-5">
             <div class="card mb-3">
                 <div
                         class="card-body d-flex flex-column justify-content-center align-items-center text-center shadow">
@@ -131,12 +131,12 @@
                             style="color:#555;font-family: 'Noto Sans','sans-serif'">{{ overall_positive }}</label>
                     </h2>
                     <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><h5>
-                        <b>正面評論佔總數評論的比例: {{ total_positive_percentage }}%</b></h5></label>
+                        <b>正面情緒的比例: {{ total_positive_percentage }}%</b></h5></label>
                 </div>
             </div>
         </div>
 
-        <div class="col-3 col-3 pt-2 ps-5 pe-5">
+        <div class="col pt-2 ps-5 pe-5">
             <div class="card mb-3">
                 <div
                         class="card-body d-flex flex-column justify-content-center align-items-center text-center shadow">
@@ -144,12 +144,12 @@
                             style="color:#555;font-family: 'Noto Sans','sans-serif'">{{ overall_neutral }}</label>
                     </h2>
                     <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><h5>
-                        <b>中立評論佔總數評論的比例: {{ total_neutral_percentage }}%</b></h5></label>
+                        <b>中立情緒的比例: {{ total_neutral_percentage }}%</b></h5></label>
                 </div>
             </div>
         </div>
 
-        <div class="col-3 col-3 pt-2 ps-5 pe-5">
+        <div class="col pt-2 ps-5 pe-5">
             <div class="card mb-3">
                 <div
                         class="card-body d-flex flex-column justify-content-center align-items-center text-center shadow">
@@ -157,19 +157,32 @@
                             style="color:#555;font-family: 'Noto Sans','sans-serif'">{{ overall_negative }}</label>
                     </h2>
                     <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><h5>
-                        <b>負面評論佔總數評論的比例: {{ total_negative_percentage }}%</b></h5></label>
+                        <b>負面情緒的比例: {{ total_negative_percentage }}%</b></h5></label>
                 </div>
             </div>
         </div>
 
-        <div class="col-3 col-3 pt-2 ps-5 pe-5">
+        <div class="col pt-2 ps-5 pe-5">
+            <div class="card mb-3">
+                <div
+                        class="card-body d-flex flex-column justify-content-center align-items-center text-center shadow">
+                    <h2><label style="color:#0b0b53;"><i class="fa-solid fa-at"></i></label> <label
+                            style="color:#555;font-family: 'Noto Sans','sans-serif'">{{ overall_positive + overall_neutral + overall_negative }}</label>
+                    </h2>
+                    <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><h5><b>已提及情緒的總數</b></h5>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="col pt-2 ps-5 pe-5">
             <div class="card mb-3">
                 <div
                         class="card-body d-flex flex-column justify-content-center align-items-center text-center shadow">
                     <h2><label style="color:#0b0b53;"><i class="fas fa-comments"></i></label> <label
                             style="color:#555;font-family: 'Noto Sans','sans-serif'">{{ datas["content"]|length }}</label>
                     </h2>
-                    <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><h5><b>分析評論總數</b></h5>
+                    <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><h5><b>已分析評論的總數</b></h5>
                     </label>
                 </div>
             </div>
@@ -185,7 +198,7 @@
 
                     <canvas id="locationPie"></canvas>
 
-                    <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><b>位置評級總數</b></label>
+                    <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><b>位置已提及的情緒比例</b></label>
                 </div>
 
             </div>
@@ -199,7 +212,7 @@
 
                     <canvas id="servicePie"></canvas>
 
-                    <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><b>服務評級總數</b></label>
+                    <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><b>服務已提及的情緒比例</b></label>
                 </div>
             </div>
 
@@ -212,7 +225,7 @@
                         class="card-body d-flex flex-column justify-content-center align-items-center text-center">
                     <canvas id="pricePie"></canvas>
 
-                    <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><b>價格評級總數</b></label>
+                    <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><b>價格已提及的情緒比例</b></label>
                 </div>
             </div>
 
@@ -227,7 +240,7 @@
 
                     <canvas id="environmentPie"></canvas>
 
-                    <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><b>環境評級總數</b></label>
+                    <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><b>環境已提及的情緒比例</b></label>
                 </div>
             </div>
 
@@ -241,7 +254,7 @@
 
                     <canvas id="dishPie"></canvas>
 
-                    <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><b>食物評級總數</b></label>
+                    <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><b>食物已提及的情緒比例</b></label>
                 </div>
             </div>
 
@@ -255,7 +268,7 @@
 
                     <canvas id="othersPie"></canvas>
 
-                    <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><b>其他評級總數</b></label>
+                    <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><b>其他已提及的情緒比例</b></label>
                 </div>
             </div>
 
@@ -425,18 +438,40 @@
         type: 'bar',
         data: data,
         options: {
-
+            legend:{
+                labels:{
+                    fontSize : 15
+                }
+            },
+            tooltips: {
+                titleFontSize: 15, // set the font size for the title
+                bodyFontSize: 15 // set the font size for the body
+            },
 
             title: {
                 display: true,
-                text: "每方面情緒比例的分析"
+                text: "每方面情緒的數量分析",
+                fontSize: 15
             },
 
             barValueSpacing: 20,
             scales: {
                 yAxes: [{
+                    scaleLabel:{
+                        display : true,
+                        labelString : "已提及的情緒數量",
+                        fontSize: 15
+
+                    },
                     ticks: {
                         min: 0,
+                        fontSize: 15
+                    }
+                }],
+                xAxes: [{
+                    ticks: {
+                        min: 0,
+                        fontSize: 15
                     }
                 }]
             }
@@ -480,9 +515,22 @@
             ]
         },
         options: {
+            legend:{
+                labels:{
+                    fontSize : 15
+                }
+            },
+
+            tooltips: {
+                titleFontSize: 15, // set the font size for the title
+                bodyFontSize: 15 // set the font size for the body
+            },
+
+
             title: {
                 display: true,
-                text: "總共提及到方面的分析"
+                text: "總共提及到方面的分析",
+                fontSize: 15
             }
         }
     });
@@ -535,6 +583,8 @@
                 maintainAspectRatio: false,
                 legend: {display: false},
                 tooltips: {
+                    titleFontSize: 15,
+                    bodyFontSize: 15,
                     callbacks: {
                         label: function (tooltipItem, data) {
                             var allData = data.datasets[tooltipItem.datasetIndex].data;
@@ -941,11 +991,25 @@
                 datasets: datasets
             },
             options: {
+
+                tooltips: {
+                    titleFontSize: 15, // set the font size for the title
+                    bodyFontSize: 15 // set the font size for the body
+                },
+
                 responsive: true,
                 legend: {display: false},
                 scales: {
-                    xAxes: [{stacked: true}],
-                    yAxes: [{stacked: true, display: false}],
+                    xAxes: [{
+                        stacked: true,
+                        ticks:{
+                            fontSize: 15 // set the font size
+                        }
+                    }],
+                    yAxes: [{
+                        stacked: true, 
+                        display: false
+                    }],
 
                 },
 
