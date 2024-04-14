@@ -1,105 +1,111 @@
 .form {
-  display:block;
-  left:50%;
-  position:absolute;
-  top:30%;
-  input[type=search] {
-    border:solid 3px #fff;
-    height:2em;
-    margin-left:-15vw;
-    outline:solid #fc0 0;
-    padding:.5em;
-    transition:all 2s ease-in;
-    width:30vw;
-    z-index:1;
-    &:focus {
-      border:solid 3px #09f;      
-      outline:solid #fc0 2000px;
+    display: block;
+    left: 50%;
+    position: absolute;
+    top: 30%;
+
+    input[type=search] {
+        border: solid 3px #fff;
+        height: 2em;
+        margin-left: -15vw;
+        outline: solid #fc0 0;
+        padding: .5em;
+        transition: all 2s ease-in;
+        width: 30vw;
+        z-index: 1;
+
+        &:focus {
+            border: solid 3px #09f;
+            outline: solid #fc0 2000px;
+        }
     }
-  }
-  
+
 }
+
 .card-title {
-  font-family: "Noto Sans", "sans-serif";
-  font-size: 20px;
-  font-weight: bold;
-  line-height: 1.5;
-  color: #555;
+    font-family: "Noto Sans", "sans-serif";
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 1.5;
+    color: #555;
 }
 
 .card-text {
-  font-family: "Noto Sans", "sans-serif";
-  font-size: 18px;
-  line-height: 1.5;
-  color: #555;
+    font-family: "Noto Sans", "sans-serif";
+    font-size: 18px;
+    line-height: 1.5;
+    color: #555;
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
 }
 
 .slide-title {
 
-  font-family: "Noto Sans", "sans-serif";
-  font-size: 30px;
-  font-weight: bold;
-  line-height: 1.5;
-  color: white;
+    font-family: "Noto Sans", "sans-serif";
+    font-size: 30px;
+    font-weight: bold;
+    line-height: 1.5;
+    color: white;
 
 }
 
 
 .slide-text {
-  font-family: "Noto Sans", "sans-serif";
-  font-size: 18px;
-  line-height: 1.5;
-  color: white;
+    font-family: "Noto Sans", "sans-serif";
+    font-size: 18px;
+    line-height: 1.5;
+    color: white;
 }
-
 
 
 .title {
-  text-align:center;
+    text-align: center;
 }
 
-.link{
-  color: black;
-  text-decoration: none;
-  float: right;
+.link {
+    color: black;
+    text-decoration: none;
+    float: right;
 }
 
 .food_background {
-  height: 100%;
-  /* background-image: url("../static/bootstrap/background3.jpg"); */
-  background-color: #dcdcdc;
-  background-size: auto;
-  /* backdrop-filter: blur(10px); Apply the blur effect */
+    height: 100%;
+    /* background-image: url("../static/bootstrap/background3.jpg"); */
+    background-color: #dcdcdc;
+    background-size: auto;
+    /* backdrop-filter: blur(10px); Apply the blur effect */
 }
 
 .div-blur {
 
-  backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
 
 
 }
 
 .carousel-control-prev {
 
-  box-shadow: 0 2px 4px rgba(79, 77, 77, 0.2);
+    box-shadow: 0 2px 4px rgba(79, 77, 77, 0.2);
 }
 
 .button-style {
 
-  height: 450px;
+    height: 450px;
 
-  box-shadow: 0 8px 16px 0 rgba(101, 78, 101, 0.2), 0 6px 20px 0 rgba(38, 22, 24, 0.2);
+    box-shadow: 0 8px 16px 0 rgba(101, 78, 101, 0.2), 0 6px 20px 0 rgba(38, 22, 24, 0.2);
 
-  /* box-shadow: 0 0 11px rgba(200,200,200,.2);  */
+    /* box-shadow: 0 0 11px rgba(200,200,200,.2);  */
 
 }
 
 .carousel-inner img {
 
-  margin: auto;
+    margin: auto;
 
 }
 
-.card-body{
-  height: 124px;
+.card-body {
+    height: 130px;
 }
