@@ -34,16 +34,15 @@ def analyze_review():
 
     restaurant_name, path = request.form["restaurant_name"] , request.form["analyze_bttn"]
 
-
-    restaurant_url = "https://www.openrice.com" + path.replace('/reviews', '')
+    # get restaurant info
     if "http" in path:
         restaurant_url = path.replace('/reviews', '')
     else:
         restaurant_url = "https://www.openrice.com" + path.replace('/reviews', '')
-    print(restaurant_name, restaurant_url)
     restaurant_result = Openrice(restaurant_url)
     restaurant_result.restaurant_info()
     restaurant_info, unused_path = restaurant_result.get_restaurant_data()
+    restaurant_info = json.loads(restaurant_info.decode())[0]
 
 
     # get page 1 comments
