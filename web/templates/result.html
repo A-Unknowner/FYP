@@ -986,18 +986,13 @@
             },
             options: {
 
-                tooltips: {
-                    titleFontSize: 15, // set the font size for the title
-                    bodyFontSize: 15 // set the font size for the body
-                },
-
                 responsive: true,
                 legend: {display: false},
                 scales: {
                     xAxes: [{
                         stacked: true,
                         ticks:{
-                            fontSize: 15 // set the font size
+                            fontSize: 20 // set the font size
                         }
                     }],
                     yAxes: [{
@@ -1008,6 +1003,8 @@
                 },
 
                 tooltips: {
+                    titleFontSize: 20, // set the font size for the title
+                    bodyFontSize: 20, // set the font size for the body
                     callbacks: {
                         label: function (tooltipItem, data) {
                             function setPolarity(hover_label, index_num) {
