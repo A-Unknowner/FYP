@@ -59,7 +59,7 @@
     </div>
 
     <div>
-        分析中 ...
+        &nbsp;&nbsp;載入中 ...
     </div>
 
 </div>
@@ -124,8 +124,33 @@
 
 
 <!-- Back to Top -->
-<a href="#" class="btn btn-lg btn-secondary btn-lg-square rounded back-to-top" display="right"><i
+<a href="#" id="back2top_btn" class="btn btn-lg btn-secondary btn-lg-square rounded back-to-top" display="right"><i
         class="bi bi-arrow-up"></i></a>
+
+<script>
+// Get the button
+let back2topbutton = document.getElementById("back2top_btn");
+back2topbutton.style.display = "none";
+
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    back2topbutton.style.display = "block";
+  } else {
+    back2topbutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+</script>
+<!-- Back to Top end -->
 
 
 <script>
