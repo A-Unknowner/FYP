@@ -17,7 +17,7 @@
 
 
 <body style="background-color: #dcdcdc">
-    
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 
 <!-- Navbar start -->
@@ -55,11 +55,71 @@
 
         <div class="col pt-5 ps-5">
             <div style="color:#555;font-family: 'Noto Sans','sans-serif'">
-                <h2>{{ restaurant_name }} - 分析結果</h2>
+                <h2>分析結果</h2>
+
             </div>
         </div>
     </div>
 </div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col pt-3 px-5">
+            <div class="card mb-3">
+                <div class="row">
+                    <div class="col-4 p-3">
+                        <div>
+                            <img src="{{ restaurant_info.restaurant_img_url }}" class="card-img-top"
+                                 alt="Restaurant Image" style="object-fit: cover;" width="100%" height="266px">
+                        </div>
+                    </div>
+
+                    <div class="col-8 p-3">
+                        <div style="color:#555;font-family: 'Noto Sans','sans-serif'">
+                            <h2>{{ restaurant_name }}</h2>
+                        </div>
+                        <div class="pt-3" style="color:#555;font-family: 'Noto Sans','sans-serif'">
+                            <div class="row">
+                                <div class="col-2" style="border-right: 1px solid rgba(128, 128, 128, 0.3);">
+                                    <!-- addrress -->
+                                    <h5 style="padding-bottom: 1%;">地址</h5>{{ restaurant_info.chinese_address }}
+                                </div>
+
+                                <div class="col-2" style="border-right: 1px solid rgba(128, 128, 128, 0.3);">
+                                    <!-- Business Hour -->
+                                    <h5>今日營業</h5>{{ restaurant_info.today_opening_hours }}
+                                    <div style="padding-top: 5%;">
+                                        <!-- Opening hours -->
+                                        {% for day in restaurant_info.opening_hours %}
+                                            {{ day.date + " " + day.time }}<br>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div style="border-bottom: 1px solid rgba(128, 128, 128, 0.3);">
+                                        <!-- payment -->
+                                        <h5> 付款方式</h5>
+                                        <div class="row">
+                                            {% for pay in restaurant_info.payment %}
+                                                <div class="col-6">{{ pay }}</div>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                    <div style="padding-top: 3%;">
+                                        <!-- telephonr -->
+                                        <h5>電話號碼 </h5>{{ restaurant_info.telephone }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
 <div class="container-fluid">
     <div class="row">
 
@@ -70,7 +130,8 @@
                     <h2><label style="color:#00873E;"><i class="fas fa-smile"></i></label> <label
                             style="color:#555;font-family: 'Noto Sans','sans-serif'">{{ overall_positive }}</label>
                     </h2>
-                    <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><h5><b>正面評論佔總數評論的比例: {{ total_positive_percentage }}%</b></h5></label>
+                    <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><h5>
+                        <b>正面評論佔總數評論的比例: {{ total_positive_percentage }}%</b></h5></label>
                 </div>
             </div>
         </div>
@@ -82,7 +143,8 @@
                     <h2><label style="color:#de8d0b;"><i class="fas fa-meh"></i></label> <label
                             style="color:#555;font-family: 'Noto Sans','sans-serif'">{{ overall_neutral }}</label>
                     </h2>
-                    <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><h5><b>中立評論佔總數評論的比例: {{ total_neutral_percentage }}%</b></h5></label>
+                    <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><h5>
+                        <b>中立評論佔總數評論的比例: {{ total_neutral_percentage }}%</b></h5></label>
                 </div>
             </div>
         </div>
@@ -94,7 +156,8 @@
                     <h2><label style="color:#ad181f;"><i class="fas fa-frown"></i></label> <label
                             style="color:#555;font-family: 'Noto Sans','sans-serif'">{{ overall_negative }}</label>
                     </h2>
-                    <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><h5><b>負面評論佔總數評論的比例: {{ total_negative_percentage }}%</b></h5></label>
+                    <label style="color:#555;font-family: 'Noto Sans','sans-serif'"><h5>
+                        <b>負面評論佔總數評論的比例: {{ total_negative_percentage }}%</b></h5></label>
                 </div>
             </div>
         </div>
@@ -223,25 +286,25 @@
 </div>
 
 
-    <!--   this part is the header/table head -->
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-12 ps-5 pe-5">
-                <div class="card">
-                    <div class="card-body d-flex flex-column justify-content-center align-items-center text-center shadow"
-                        style="padding: 0">
-                        <div class="row" style="width: 100%">
-                            <div class="col-6">
-                                <h1 style="color:#555;font-family: 'Noto Sans','sans-serif'">評論</h1>
-                            </div>
-                            <div class="col-6">
-                                <h1 style="color:#555;font-family: 'Noto Sans','sans-serif'">分析</h1>
-                            </div>
+<!--   this part is the header/table head -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 ps-5 pe-5">
+            <div class="card">
+                <div class="card-body d-flex flex-column justify-content-center align-items-center text-center shadow"
+                     style="padding: 0">
+                    <div class="row" style="width: 100%">
+                        <div class="col-6">
+                            <h1 style="color:#555;font-family: 'Noto Sans','sans-serif'">評論</h1>
+                        </div>
+                        <div class="col-6">
+                            <h1 style="color:#555;font-family: 'Noto Sans','sans-serif'">分析</h1>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                {% for i in range(datas["content"]|length) %}
+            {% for i in range(datas["content"]|length) %}
 
                 <!--   this part is the header/table head end here -->
                 <div class="card">
@@ -254,14 +317,15 @@
 
                                 <div class="row" style="padding-bottom: 2%">
                                     <div
-                                        class="card-body d-flex flex-column justify-content-center align-items-center shadow">
+                                            class="card-body d-flex flex-column justify-content-center align-items-center shadow">
                                         <div class="container-fluid">
                                             <div class="row">
                                                 <div class="col d-flex align-items-center justify-content-center">
                                                     <h4><label
                                                             style="color:#555;font-family: 'Noto Sans','sans-serif'">
-                                                            評論評分： <label id="getstarscore_{{ i }}">{{
-                                                                five_star_list[i][i] }}</label></label> </h4>
+                                                        評論評分： <label
+                                                            id="getstarscore_{{ i }}">{{ five_star_list[i][i] }}</label></label>
+                                                    </h4>
                                                 </div>
                                             </div>
                                         </div>
@@ -270,8 +334,8 @@
                                 <div class="row" style="padding-bottom: 5%">
                                     <div class="col" style="padding: 0%;">
                                         <button class="btn btn-gary" type="button" data-toggle="collapse"
-                                            data-target="#collapse_{{ i }}" aria-expanded="false"
-                                            aria-controls="collapse_{{ i }}" style="width: 100%">
+                                                data-target="#collapse_{{ i }}" aria-expanded="false"
+                                                aria-controls="collapse_{{ i }}" style="width: 100%">
                                             <label>詳情</label>
                                         </button>
                                         <div class="collapse" id="collapse_{{ i }}">
@@ -289,21 +353,21 @@
                         </div>
                     </div>
                 </div>
-                {% endfor %}
-            </div>
+            {% endfor %}
         </div>
     </div>
+</div>
 
-    {% with num_labels=five_star_list|length %}
+{% with num_labels=five_star_list|length %}
     <script>
         var numLabels = {{ num_labels }};
         for (var i = 0; i < numLabels; i++) {
-            var labelElement = document.querySelector('#getstarscore_'+ i);
+            var labelElement = document.querySelector('#getstarscore_' + i);
             labelElement.innerHTML = getstarscorethenreturnstar(labelElement.innerHTML);
             console.log(getstarscorethenreturnstar(labelElement));
         }
 
-        function getstarscorethenreturnstar(score){
+        function getstarscorethenreturnstar(score) {
             var stars = '';
             for (var i = 0; i < 5; i++) {
                 if (i < score) {
@@ -313,7 +377,7 @@
                 }
             }
             return stars;
-        } 
+        }
     </script>
 {% endwith %}
 
@@ -383,11 +447,11 @@
 
     // Total Aspect Doughnut
     var xValues = [
-        "位置", 
-        "服務", 
+        "位置",
+        "服務",
         "價格",
-        "環境", 
-        "食物", 
+        "環境",
+        "食物",
         "其他"
     ];
     var test = '{{ datas }}';
@@ -410,7 +474,7 @@
             datasets: [{
                 backgroundColor: barColors,
                 data: yValues, borderWidth: 3
-                
+
             }
 
             ]
@@ -422,19 +486,29 @@
             }
         }
     });
+
     // Total Aspect Doughnut
 
-    function get_hover_text(tooltipLabel, tooltipData, positive_count, neutral_count, negative_count){
-        switch(tooltipLabel){
-            case "正面": var text = `${tooltipLabel}: ${positive_count} (${tooltipData}%)`; break;
-            case "中立": var text = `${tooltipLabel}: ${neutral_count} (${tooltipData}%)`; break;
-            case "負面": var text = `${tooltipLabel}: ${negative_count} (${tooltipData}%)`; break;
-            default: console.log("not found"); break;
-        };
+    function get_hover_text(tooltipLabel, tooltipData, positive_count, neutral_count, negative_count) {
+        switch (tooltipLabel) {
+            case "正面":
+                var text = `${tooltipLabel}: ${positive_count} (${tooltipData}%)`;
+                break;
+            case "中立":
+                var text = `${tooltipLabel}: ${neutral_count} (${tooltipData}%)`;
+                break;
+            case "負面":
+                var text = `${tooltipLabel}: ${negative_count} (${tooltipData}%)`;
+                break;
+            default:
+                console.log("not found");
+                break;
+        }
+        ;
         return text
     };
 
-    function show_not_available(id_name){
+    function show_not_available(id_name) {
         const canvas = document.getElementById(id_name);
         const ctx = canvas.getContext("2d");
         ctx.font = "30px 'Noto Sans', sans-serif";
@@ -444,7 +518,7 @@
 
     };
 
-    function aspect_doughnut_create(id_name, dataset, positive_count, neutral_count, negative_count){
+    function aspect_doughnut_create(id_name, dataset, positive_count, neutral_count, negative_count) {
         var backgroundColor = ["#00873E", "#de8d0b", "#ad181f"];
         doughNutSet = new Chart(id_name, {
             type: "doughnut",
@@ -452,7 +526,7 @@
                 labels: ["正面", "中立", "負面"],
                 datasets: [{
                     backgroundColor,
-                    data: dataset, 
+                    data: dataset,
                     borderWidth: 3
                 }]
             },
@@ -491,7 +565,10 @@
         var location_negative_count = {{ each_aspects_total_percent_list[0]["location_negative"] }};
         var location_neutral_count = {{ each_aspects_total_percent_list[0]["location_neutral"] }};
         aspect_doughnut_create("locationPie", dataset, location_positive_count, location_neutral_count, location_negative_count);
-    } else { show_not_available("locationPie"); };
+    } else {
+        show_not_available("locationPie");
+    }
+    ;
 
 
     // Service
@@ -506,7 +583,10 @@
         var service_negative_count = {{ each_aspects_total_percent_list[1]["service_negative"] }};
         var service_neutral_count = {{ each_aspects_total_percent_list[1]["service_neutral"] }};
         aspect_doughnut_create("servicePie", dataset, service_positive_count, service_neutral_count, service_negative_count);
-    } else { show_not_available("servicePie"); };
+    } else {
+        show_not_available("servicePie");
+    }
+    ;
 
     // Price
     var dataset = [
@@ -520,7 +600,10 @@
         var price_negative_count = {{ each_aspects_total_percent_list[2]["price_negative"] }};
         var price_neutral_count = {{ each_aspects_total_percent_list[2]["price_neutral"] }};
         aspect_doughnut_create("pricePie", dataset, price_positive_count, price_neutral_count, price_negative_count);
-    } else { show_not_available("pricePie"); };
+    } else {
+        show_not_available("pricePie");
+    }
+    ;
 
     // Environment
     var dataset = [
@@ -535,7 +618,10 @@
         var environment_neutral_count = {{ each_aspects_total_percent_list[3]["environment_neutral"] }};
         aspect_doughnut_create("environmentPie", dataset, environment_positive_count, environment_neutral_count, environment_negative_count);
 
-    } else { show_not_available("environmentPie"); };
+    } else {
+        show_not_available("environmentPie");
+    }
+    ;
 
     // Dish
     var dataset = [
@@ -549,7 +635,10 @@
         var dish_negative_count = {{ each_aspects_total_percent_list[4]["dish_negative"] }};
         var dish_neutral_count = {{ each_aspects_total_percent_list[4]["dish_neutral"] }};
         aspect_doughnut_create("dishPie", dataset, dish_positive_count, dish_neutral_count, dish_negative_count);
-    } else { show_not_available("dishPie"); };
+    } else {
+        show_not_available("dishPie");
+    }
+    ;
 
 
     // Others
@@ -565,7 +654,10 @@
         var others_neutral_count = {{ each_aspects_total_percent_list[5]["others_neutral"] }};
         aspect_doughnut_create("othersPie", dataset, others_positive_count, others_neutral_count, others_negative_count);
 
-    } else { show_not_available("othersPie"); };
+    } else {
+        show_not_available("othersPie");
+    }
+    ;
 
 
 </script>
@@ -693,36 +785,150 @@
         datasets = [
 
             ////////////// location
-            { label: 'location_traffic_convenience', data: location_traffic_convenience_data, backgroundColor: '#003C43', barPercentage: 0.5,  borderWidth: 3},
-            { label: 'location_distance_from_business_district', data: location_distance_from_business_district_data, backgroundColor: '#135D66', barPercentage: 0.5,  borderWidth: 3},
-            { label: 'location_easy_to_find', data: location_easy_to_find_data, backgroundColor: '#77B0AA', barPercentage: 0.5,  borderWidth: 3},
+            {
+                label: 'location_traffic_convenience',
+                data: location_traffic_convenience_data,
+                backgroundColor: '#003C43',
+                barPercentage: 0.5,
+                borderWidth: 3
+            },
+            {
+                label: 'location_distance_from_business_district',
+                data: location_distance_from_business_district_data,
+                backgroundColor: '#135D66',
+                barPercentage: 0.5,
+                borderWidth: 3
+            },
+            {
+                label: 'location_easy_to_find',
+                data: location_easy_to_find_data,
+                backgroundColor: '#77B0AA',
+                barPercentage: 0.5,
+                borderWidth: 3
+            },
 
             ////////////// service
-            { label: 'service_wait_time', data: service_wait_time_data, backgroundColor: '#164863', barPercentage: 0.5,  borderWidth: 3},
-            { label: 'service_waiters_attitude', data: service_waiters_attitude_data, backgroundColor: '#427D9D', barPercentage: 0.5,  borderWidth: 3},
-            { label: 'service_parking_convenience', data: service_parking_convenience_data, backgroundColor: '#9BBEC8', barPercentage: 0.5,  borderWidth: 3},
-            { label: 'service_serving_speed', data: service_serving_speed_data, backgroundColor: '#DDF2FD', barPercentage: 0.5,  borderWidth: 3},
+            {
+                label: 'service_wait_time',
+                data: service_wait_time_data,
+                backgroundColor: '#164863',
+                barPercentage: 0.5,
+                borderWidth: 3
+            },
+            {
+                label: 'service_waiters_attitude',
+                data: service_waiters_attitude_data,
+                backgroundColor: '#427D9D',
+                barPercentage: 0.5,
+                borderWidth: 3
+            },
+            {
+                label: 'service_parking_convenience',
+                data: service_parking_convenience_data,
+                backgroundColor: '#9BBEC8',
+                barPercentage: 0.5,
+                borderWidth: 3
+            },
+            {
+                label: 'service_serving_speed',
+                data: service_serving_speed_data,
+                backgroundColor: '#DDF2FD',
+                barPercentage: 0.5,
+                borderWidth: 3
+            },
 
             ////////////// price
-            { label: 'price_level', data: price_level_data, backgroundColor: '#00A9FF', barPercentage: 0.5,  borderWidth: 3},
-            { label: 'price_cost_effective', data: price_cost_effective_data, backgroundColor: '#89CFF3', barPercentage: 0.5,  borderWidth: 3},
-            { label: 'price_discount', data: price_discount_data, backgroundColor: '#A0E9FF', barPercentage: 0.5,  borderWidth: 3},
+            {
+                label: 'price_level',
+                data: price_level_data,
+                backgroundColor: '#00A9FF',
+                barPercentage: 0.5,
+                borderWidth: 3
+            },
+            {
+                label: 'price_cost_effective',
+                data: price_cost_effective_data,
+                backgroundColor: '#89CFF3',
+                barPercentage: 0.5,
+                borderWidth: 3
+            },
+            {
+                label: 'price_discount',
+                data: price_discount_data,
+                backgroundColor: '#A0E9FF',
+                barPercentage: 0.5,
+                borderWidth: 3
+            },
 
             ////////////// environment
-            { label: 'environment_decoration', data: environment_decoration_data, backgroundColor: '#4A55A2', barPercentage: 0.5,  borderWidth: 3},
-            { label: 'environment_noise', data: environment_noise_data, backgroundColor: '#7895CB', barPercentage: 0.5,  borderWidth: 3},
-            { label: 'environment_space', data: environment_space_data, backgroundColor: '#A0BFE0', barPercentage: 0.5,  borderWidth: 3},
-            { label: 'environment_cleaness', data: environment_cleaness_data, backgroundColor: '#C5DFF8', barPercentage: 0.5,  borderWidth: 3},
+            {
+                label: 'environment_decoration',
+                data: environment_decoration_data,
+                backgroundColor: '#4A55A2',
+                barPercentage: 0.5,
+                borderWidth: 3
+            },
+            {
+                label: 'environment_noise',
+                data: environment_noise_data,
+                backgroundColor: '#7895CB',
+                barPercentage: 0.5,
+                borderWidth: 3
+            },
+            {
+                label: 'environment_space',
+                data: environment_space_data,
+                backgroundColor: '#A0BFE0',
+                barPercentage: 0.5,
+                borderWidth: 3
+            },
+            {
+                label: 'environment_cleaness',
+                data: environment_cleaness_data,
+                backgroundColor: '#C5DFF8',
+                barPercentage: 0.5,
+                borderWidth: 3
+            },
 
             ////////////// dish
-            { label: 'dish_portion', data: dish_portion_data, backgroundColor: '#27374D', barPercentage: 0.5,  borderWidth: 3},
-            { label: 'dish_taste', data: dish_taste_data, backgroundColor: '#526D82', barPercentage: 0.5,  borderWidth: 3},
-            { label: 'dish_look', data: dish_look_data, backgroundColor: '#9DB2BF', barPercentage: 0.5,  borderWidth: 3},
-            { label: 'dish_recommendation', data: dish_recommendation_data, backgroundColor: '#DDE6ED', barPercentage: 0.5,  borderWidth: 3},
+            {
+                label: 'dish_portion',
+                data: dish_portion_data,
+                backgroundColor: '#27374D',
+                barPercentage: 0.5,
+                borderWidth: 3
+            },
+            {
+                label: 'dish_taste',
+                data: dish_taste_data,
+                backgroundColor: '#526D82',
+                barPercentage: 0.5,
+                borderWidth: 3
+            },
+            {label: 'dish_look', data: dish_look_data, backgroundColor: '#9DB2BF', barPercentage: 0.5, borderWidth: 3},
+            {
+                label: 'dish_recommendation',
+                data: dish_recommendation_data,
+                backgroundColor: '#DDE6ED',
+                barPercentage: 0.5,
+                borderWidth: 3
+            },
 
             ////////////// others
-            { label: 'others_overall_experience', data: others_overall_experience_data, backgroundColor: '#C4DDFF', barPercentage: 0.5,  borderWidth: 3},
-            { label: 'others_willing_to_consume_again', data: others_willing_to_consume_again_data, backgroundColor: '#7FB5FF', barPercentage: 0.5,  borderWidth: 3}
+            {
+                label: 'others_overall_experience',
+                data: others_overall_experience_data,
+                backgroundColor: '#C4DDFF',
+                barPercentage: 0.5,
+                borderWidth: 3
+            },
+            {
+                label: 'others_willing_to_consume_again',
+                data: others_willing_to_consume_again_data,
+                backgroundColor: '#7FB5FF',
+                barPercentage: 0.5,
+                borderWidth: 3
+            }
 
         ]
 
@@ -739,7 +945,7 @@
                 legend: {display: false},
                 scales: {
                     xAxes: [{stacked: true}],
-                    yAxes: [{stacked: true, display:false}],
+                    yAxes: [{stacked: true, display: false}],
 
                 },
 
@@ -1137,33 +1343,34 @@
                 }
             }
         });
-    };
+    }
+    ;
 
 </script>
 <!-- comment chart -->
 
-    <!-- Footer start -->
-    <div class="container-fluid bg-light text-gray-555 py-4">
-        <div class="container">
-            <div class="row g-6">
-                <div class="col-md-9 text-center text-md-start">
-                    <p class="mb-md-0">
-                        &copy;2023-2024 2023-Keith-4
-                        <a class="border-bottom text-decoration-none color555" href="#">
-                            Restaurant Review Analyzer for Chinese Language (Cantonese)
-                        </a>
-                    </p>
-                </div>
-                <div class="col-md-3 text-center text-md-end">
-                    <p class="mb-0 color555">
-                        RRACL
-                        <a class="text-white border-bottom" href="https://htmlcodex.com"></a>
-                    </p>
-                </div>
+<!-- Footer start -->
+<div class="container-fluid bg-light text-gray-555 py-4">
+    <div class="container">
+        <div class="row g-6">
+            <div class="col-md-9 text-center text-md-start">
+                <p class="mb-md-0">
+                    &copy;2023-2024 2023-Keith-4
+                    <a class="border-bottom text-decoration-none color555" href="#">
+                        Restaurant Review Analyzer for Chinese Language (Cantonese)
+                    </a>
+                </p>
+            </div>
+            <div class="col-md-3 text-center text-md-end">
+                <p class="mb-0 color555">
+                    RRACL
+                    <a class="text-white border-bottom" href="https://htmlcodex.com"></a>
+                </p>
             </div>
         </div>
     </div>
-    <!-- Footer end -->
+</div>
+<!-- Footer end -->
 </div>
 
 
