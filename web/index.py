@@ -15,7 +15,7 @@ app = Flask(__name__)
 @app.route("/")
 def index():
 
-    book_marked_url = "https://www.openrice.com/en/hongkong/explore/chart/most-bookmarked"
+    book_marked_url = "https://www.openrice.com/zh/hongkong/explore/chart/most-bookmarked"
 
     # get top 30 restaurant name and its url
     restaurant_data = Openrice(book_marked_url)
