@@ -157,6 +157,12 @@ class Openrice:
     #            json.dumps(english_address, ensure_ascii=False).encode('utf8')
 
     def restaurant_info(self):
+        xpath = '//div[@class="photo"]'
+        image = self.__dom.xpath(xpath)[0]
+        for item in image.items():
+            if item[0] == "style":
+                restaurant_img_url = item[1].replace('background-image: url(', '')[:-1]
+                break
         xpath = '//a[@data-href="#map"]'
         chinese_address = self.__dom.xpath(xpath)[0].text.replace("\n", "").strip()
         english_address = self.__dom.xpath(xpath)[1].text.replace("\n", "").strip()
@@ -176,7 +182,7 @@ class Openrice:
             else:
                 opening_hours.append(
                     {
-                        "date": elements[element_index].xpath('.//div[@class="opening-hours-date"]')[0].text.strip(),
+                        "date": elements[element_index].xpath('.//div[@class="opening-hours-date "]')[0].text.strip(),
                         "time": elements[element_index].xpath('.//div[@class="opening-hours-time"]//div')[0].text.strip()
                     }
                 )
@@ -209,6 +215,7 @@ class Openrice:
                         )
         self.__restaurant_data.append(
             {
+                "restaurant_img_url": restaurant_img_url,
                 "chinese_address": chinese_address,
                 "english_address": english_address,
                 "transport_section": transport_section,
