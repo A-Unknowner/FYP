@@ -169,7 +169,7 @@ class Openrice:
         xpath = '//div[@class="content js-text-wrapper"]'
         transport_section = self.__dom.xpath(xpath)[0].text.replace("\n", "").strip()
         xpath = '//div[@class="left-col-content-section left-middle-col-section"]//div[@class="content"]'
-        telephone = self.__dom.xpath(xpath)[0].text.replace("\n", "").strip()
+        telephone = self.__dom.xpath(xpath)[0].text.replace("\n", "").strip() if len(self.__dom.xpath(xpath)) > 0 else "N/A"
         # xpath = '//div[@class="content js-text-wrapper"]'
         # introduction_section = self.__dom.xpath(xpath)[1].text.replace("\n", "").strip()
         today_opening_hours = str()
@@ -182,7 +182,7 @@ class Openrice:
             else:
                 opening_hours.append(
                     {
-                        "date": elements[element_index].xpath('.//div[@class="opening-hours-date "]')[0].text.strip(),
+                        "date": elements[element_index].xpath('.//div[@class="opening-hours-date "]')[0].text.strip() if len(elements[element_index].xpath('.//div[@class="opening-hours-date "]')) > 0 else elements[element_index].xpath('.//div[@class="opening-hours-date"]')[0].text.strip(),
                         "time": elements[element_index].xpath('.//div[@class="opening-hours-time"]//div')[0].text.strip()
                     }
                 )
