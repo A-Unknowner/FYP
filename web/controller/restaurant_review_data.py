@@ -225,7 +225,7 @@ class Openrice:
                 "opening_hours": opening_hours,
                 "payment": payment,
                 "seats_num": seats_num,
-                "other_service": other_service if len(other_service) > 0 else ""
+                "other_service": other_service
             }
         )
 
