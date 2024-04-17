@@ -107,7 +107,7 @@ class Openrice:
 
                 user_review = user_review.replace("\r\n", "").strip()
                 # user_review = self.emoji_filter(user_review)
-                print("review", user_review)
+                # print("review", user_review)
                 if detect(user_review) != "en":
                     self.__restaurant_data.append(
                         # {"username" : username,
