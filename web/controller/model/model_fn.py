@@ -7,7 +7,7 @@ from model.attention import (dense_logits, feedforward, inception,
 from model.embedding import position_embedding, word_embedding
 from model.hook import _LoggerHook
 from model.metrics import average_macro_f1
-
+import os
 
 def model_fn(
         features,
@@ -24,7 +24,7 @@ def model_fn(
     labels = label_smoothing(labels, epsilon=params.epsilon)
 
   # build embedding vectors
-  vector = word_embedding(x, params.vector_path, scale=False)
+  vector = word_embedding(x, f"{os.getcwd()}/controller/{params.vector_path}", scale=False)
 
   # ! reduce the fiexed word dimensions to appropriate dimension
   if params.hidden_size != vector.get_shape().as_list()[-1]:
