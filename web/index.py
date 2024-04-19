@@ -103,8 +103,6 @@ def analyze_review():
             dish_look_list, dish_recommendation_list,\
             others_overall_experience_list, others_willing_to_consume_again_list = each_comment_sub_aspect_polarity(read_csv_data)
 
-    print("five_star_list", five_star_list)
-
     return render_template("result.html", 
                         restaurant_name = restaurant_name,
                         datas=read_csv_data,
@@ -175,7 +173,7 @@ def search_list():
 
     restaurant_info, path = results.get_restaurant_data()
     res = json.loads(restaurant_info.decode())
-    # print(res)
+
     return render_template("search_list.html", datas=res, key=restaurant_name)
 
 
