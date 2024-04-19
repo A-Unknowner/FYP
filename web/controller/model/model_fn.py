@@ -7,7 +7,7 @@ from model.attention import (dense_logits, feedforward, inception,
 from model.embedding import position_embedding, word_embedding
 from model.hook import _LoggerHook
 from model.metrics import average_macro_f1
-import os
+
 
 def model_fn(
         features,
@@ -24,7 +24,7 @@ def model_fn(
     labels = label_smoothing(labels, epsilon=params.epsilon)
 
   # build embedding vectors
-  vector = word_embedding(x, f"{os.getcwd()}/controller/{params.vector_path}", scale=False)
+  vector = word_embedding(x, params.vector_path, scale=False)
 
   # ! reduce the fiexed word dimensions to appropriate dimension
   if params.hidden_size != vector.get_shape().as_list()[-1]:
@@ -162,10 +162,12 @@ def model_fn(
         m_mul=params.m_mul,
         alpha=params.alpha,
         name="learning_rate")
-    optimizer = tf.train.MomentumOptimizer(
-        learning_rate=learning_rate,
-        momentum=params.momentum)
-
+    # optimizer = tf.train.MomentumOptimizer(
+    #     learning_rate=learning_rate,
+    #     momentum=params.momentum)
+    optimizer = tf.train.AdamOptimizer(
+        learning_rate=learning_rate)
+    
     gradients, variables = zip(*optimizer.compute_gradients(loss))
     gradients, _ = tf.clip_by_global_norm(gradients, params.max_norm)
     train_op = optimizer.apply_gradients(zip(gradients, variables),
@@ -193,7 +195,7 @@ def model_fn(
     export_outputs = None
 
   training_hooks = [custom_logger, summary_hook] if is_training else None
-
+  
   return tf.estimator.EstimatorSpec(mode=mode,
                                     predictions=predictions,
                                     loss=loss,
