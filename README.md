@@ -1,7 +1,6 @@
-# KMU 2023 FYP - Keith - 4
-## Aspect-Based Sentiment Analysis for Online Restaurant Review in Chinese
+# KMU 2023 FYP - Keith - 4 (Aspect-Based Sentiment Analysis for Online Restaurant Review in Chinese)
 
-### Environment
+## Environment
 Python 3.6.5
 
 Environment installation cmd:
@@ -20,32 +19,18 @@ pip install beautifulsoup4
 pip install requests
 pip install langdetect
 ```
+* Tensorflow-gpu need to download "[cuda toolkit](https://developer.nvidia.com/cuda-toolkit-archive) version `9.2` or `9.0`" and "[cudnn](https://developer.nvidia.com/rdp/cudnn-archive) for CUDA `9.2` or `9.0`" from NVIDIA official site
 
-
-download "cuda toolkit version 9.2" and "cudnn 9.2" from NVIDIA official site or "cuda toolkit version 9.0" and "cudnn 9.0" from NVIDIA official site
-
-To run the code, please use the following cmd:
-
-cd fsauor-master/Multi-task/Transformer+Convolutional
-create folder call "data"
-create 4 folders (call "a", "b", "train", "val") inside the "data" folder
-download opencc-1.0.4-win32.7z and unzip it
-add the opencc bin path to system variable
-download the sgns.weibo.bigram-char.bz2 file and place it into "fsauor-master/Multi-task/Transformer+Convolutional/chinese_vectors" directory
-cd fsauor-master/Multi-task/Transformer+Convolutional/chinese_vectors
-python build_word_vectors.py
-put the chinese_stopwords.txt into "fsauor-master/Multi-task/Transformer+Convolutional/chinese_vectors" directory 
-
-bash ./train.sh
-
-### Model and Datasets Download Link
+## Running the application
+### 1. Download Model and Datasets
 ```bash
 https://mailouhkedu-my.sharepoint.com/:u:/g/personal/s1302457_live_hkmu_edu_hk/EYoUn1tv61dEvaoAMfA8f8EBD673MpvmtttlERdFcKZBAw?e=60burc
-
 ```
-
-
-### model and data
-```commandline
-https://gitlab.com/hkmu/FYP.git
+- step1: Download the [final_cantonese_model.zip](https://mailouhkedu-my.sharepoint.com/:u:/g/personal/s1302457_live_hkmu_edu_hk/EYoUn1tv61dEvaoAMfA8f8EBD673MpvmtttlERdFcKZBAw?e=60burc) file
+- step2: unzip the [final_cantonese_model.zip](https://mailouhkedu-my.sharepoint.com/:u:/g/personal/s1302457_live_hkmu_edu_hk/EYoUn1tv61dEvaoAMfA8f8EBD673MpvmtttlERdFcKZBAw?e=60burc) file
+- step3: copy sub folder and sub file to `web/controller`. 
+### 2. To run the application:
+```bash
+python ./web/index.py
 ```
+## License
