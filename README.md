@@ -8,6 +8,7 @@ Environment installation cmd:
 pip install opencc
 pip install jieba --upgrade
 pip install jieba
+pip install paddlepaddle-tiny==1.6.1
 pip uninstall numpy
 pip uninstall pandas
 pip install numpy==1.14.5
