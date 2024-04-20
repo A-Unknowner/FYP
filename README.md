@@ -38,7 +38,7 @@ https://mailouhkedu-my.sharepoint.com/:u:/g/personal/s1302457_live_hkmu_edu_hk/E
 ```bash
 python ./web/index.py
 ```
-### 2. To evaluate the model performance:
+### 3. To evaluate the model performance:
 ```bash
 python ./web/evaluation_accuracy_f1.py
 ```
