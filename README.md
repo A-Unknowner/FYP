@@ -1,4 +1,7 @@
-# Environment
+# KMU 2023 FYP - Keith - 4
+## Aspect-Based Sentiment Analysis for Online Restaurant Review in Chinese
+
+### Environment
 Python 3.6.5
 
 Environment installation cmd:
@@ -35,14 +38,14 @@ put the chinese_stopwords.txt into "fsauor-master/Multi-task/Transformer+Convolu
 
 bash ./train.sh
 
-# Model and Datasets Download Link
+### Model and Datasets Download Link
 ```bash
 https://mailouhkedu-my.sharepoint.com/:u:/g/personal/s1302457_live_hkmu_edu_hk/EYoUn1tv61dEvaoAMfA8f8EBD673MpvmtttlERdFcKZBAw?e=60burc
 
 ```
 
 
-# model and data
+### model and data
 ```commandline
 https://gitlab.com/hkmu/FYP.git
 ```
