@@ -5,20 +5,21 @@ Environment installation cmd:
 ```bash
 pip install opencc
 pip install jieba --upgrade
-pip install paddlepaddle-tiny==1.6.1
 pip install jieba
-pip install PyYAML==4.2b4
 pip uninstall numpy
 pip uninstall pandas
 pip install numpy==1.14.5
 pip install pandas==0.23.4
-pip install https://download.pytorch.org/whl/cu100/torch-1.0.1-cp36-cp36m-win_amd64.whl
 pip install tensorflow-gpu==1.10.0
+pip install flask
+pip install lxml
+pip install beautifulsoup4
+pip install requests
+pip install langdetect
 ```
 
 
-download "cuda toolkit version 9.2" and "cudnn 9.2" from NVIDIA official site
-download "cuda toolkit version 9.0" and "cudnn 9.0" from NVIDIA official site
+download "cuda toolkit version 9.2" and "cudnn 9.2" from NVIDIA official site or "cuda toolkit version 9.0" and "cudnn 9.0" from NVIDIA official site
 
 To run the code, please use the following cmd:
 
