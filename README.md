@@ -21,6 +21,7 @@ pip install beautifulsoup4
 pip install requests
 pip install langdetect
 pip install https://download.pytorch.org/whl/cu100/torch-1.0.1-cp36-cp36m-win_amd64.whl
+pip install prettytable
 ```
 * Tensorflow-gpu need to download "[cuda toolkit](https://developer.nvidia.com/cuda-toolkit-archive) version `9.2` or `9.0`" and "[cudnn](https://developer.nvidia.com/rdp/cudnn-archive) for CUDA `9.2` or `9.0`" from NVIDIA official site
 
