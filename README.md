@@ -31,7 +31,7 @@ https://mailouhkedu-my.sharepoint.com/:u:/g/personal/s1302457_live_hkmu_edu_hk/E
 ```
 - step1: Download the [final_cantonese_model.zip](https://mailouhkedu-my.sharepoint.com/:u:/g/personal/s1302457_live_hkmu_edu_hk/EYoUn1tv61dEvaoAMfA8f8EBD673MpvmtttlERdFcKZBAw?e=60burc) file
 - step2: unzip the [final_cantonese_model.zip](https://mailouhkedu-my.sharepoint.com/:u:/g/personal/s1302457_live_hkmu_edu_hk/EYoUn1tv61dEvaoAMfA8f8EBD673MpvmtttlERdFcKZBAw?e=60burc) file
-- step3: copy sub folder and sub file to `web/controller`. 
+- step3: copy the folders chinese_vectors, data, output, and summary to `web/controller`. 
 ### 2. To run the application:
 ```bash
 python ./web/index.py
