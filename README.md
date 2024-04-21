@@ -20,7 +20,6 @@ pip install lxml
 pip install beautifulsoup4
 pip install requests
 pip install langdetect
-pip install https://download.pytorch.org/whl/cu100/torch-1.0.1-cp36-cp36m-win_amd64.whl
 pip install prettytable
 pip install scikit-learn
 ```
