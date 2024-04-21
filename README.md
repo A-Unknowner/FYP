@@ -1,4 +1,4 @@
-# KMU 2023 FYP - Keith - 4 (Aspect-Based Sentiment Analysis for Online Restaurant Review in Chinese)
+# HKMU 2023 FYP - Keith - 4 (Aspect-Based Sentiment Analysis for Online Restaurant Review in Chinese)
 
 ## Environment
 Python 3.6.5
