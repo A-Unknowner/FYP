@@ -33,10 +33,10 @@ There the file is `minconda3` or `anaconda3`' environment. Unzip it and copy sub
 ## Running the application
 ### 1. Download Model and Datasets
 ```bash
-https://mailouhkedu-my.sharepoint.com/:u:/g/personal/s1302457_live_hkmu_edu_hk/EYoUn1tv61dEvaoAMfA8f8EBD673MpvmtttlERdFcKZBAw?e=60burc
+https://mailouhkedu-my.sharepoint.com/:u:/g/personal/s1302457_live_hkmu_edu_hk/EWHzAkiGrB9FiRkV6vo7ZQQByokoK8hmcxKF_65n4lXR1Q?e=kyiHKV
 ```
-- step1: Download the [final_cantonese_model.zip](https://mailouhkedu-my.sharepoint.com/:u:/g/personal/s1302457_live_hkmu_edu_hk/EYoUn1tv61dEvaoAMfA8f8EBD673MpvmtttlERdFcKZBAw?e=60burc) file
-- step2: unzip the [final_cantonese_model.zip](https://mailouhkedu-my.sharepoint.com/:u:/g/personal/s1302457_live_hkmu_edu_hk/EYoUn1tv61dEvaoAMfA8f8EBD673MpvmtttlERdFcKZBAw?e=60burc) file
+- step1: Download the [final_cantonese_model.zip](https://mailouhkedu-my.sharepoint.com/:u:/g/personal/s1302457_live_hkmu_edu_hk/EWHzAkiGrB9FiRkV6vo7ZQQByokoK8hmcxKF_65n4lXR1Q?e=kyiHKV) file
+- step2: unzip the [final_cantonese_model.zip](https://mailouhkedu-my.sharepoint.com/:u:/g/personal/s1302457_live_hkmu_edu_hk/EWHzAkiGrB9FiRkV6vo7ZQQByokoK8hmcxKF_65n4lXR1Q?e=kyiHKV) file
 - step3: copy the folders `chinese_vectors`, `data`, `output`, and `summary` to `web/controller`. 
 ### 2. To run the application:
 ```bash
