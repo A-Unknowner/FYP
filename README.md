@@ -26,6 +26,11 @@ pip install scikit-learn
 ```
 * Tensorflow-gpu need to download "[cuda toolkit](https://developer.nvidia.com/cuda-toolkit-archive) version `9.2` or `9.0`" and "[cudnn](https://developer.nvidia.com/rdp/cudnn-archive) for CUDA `9.2` or `9.0`" from NVIDIA official site
 
+P.S: 
+
+[FYP_2023_keith_4.zip](https://mailouhkedu-my.sharepoint.com/:u:/g/personal/s1303149_live_hkmu_edu_hk/EUT123lSM1dJv9P-jLzI50wBD1RZN_8Des_zTIrgpH2QvA?e=90ESEe)
+
+There the file is `minconda3` or `anaconda3`' environment. Unzip it and copy sub file to folder `envs`. 
 ## Running the application
 ### 1. Download Model and Datasets
 ```bash
