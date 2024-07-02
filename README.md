@@ -38,16 +38,6 @@ https://mailouhkedu-my.sharepoint.com/:u:/g/personal/s1302457_live_hkmu_edu_hk/E
 - step1: Download the [final_cantonese_model.zip](https://mailouhkedu-my.sharepoint.com/:u:/g/personal/s1302457_live_hkmu_edu_hk/EWHzAkiGrB9FiRkV6vo7ZQQByokoK8hmcxKF_65n4lXR1Q?e=kyiHKV) file
 - step2: unzip the [final_cantonese_model.zip](https://mailouhkedu-my.sharepoint.com/:u:/g/personal/s1302457_live_hkmu_edu_hk/EWHzAkiGrB9FiRkV6vo7ZQQByokoK8hmcxKF_65n4lXR1Q?e=kyiHKV) file
 - step3: copy the folders `chinese_vectors`, `data`, `output`, and `summary` to `web/controller`.
-
-
-
-
-
-
-
-
-
-
 我愛小熊維尼
 ### 2. To run the application:
 ```bash
