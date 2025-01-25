@@ -1,5 +1,5 @@
 # HKMU 2023 FYP - Keith - 4 (Aspect-Based Sentiment Analysis for Online Restaurant Review in Chinese)
-
+## Application Name: Restaurant Review Analysis Tool for Cantonese
 ## Environment
 Python 3.6.5
 
