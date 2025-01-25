@@ -49,4 +49,3 @@ python ./web/evaluation_accuracy_f1.py
 ```
 ## License
 [Apache](https://github.com/A-Unknowner/FYP/tree/main?tab=Apache-2.0-1-ov-file)
-我愛小熊維尼
